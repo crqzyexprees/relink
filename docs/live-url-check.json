@@ -1,0 +1,25 @@
+{
+  "attempted_at_utc": "2026-10-24T21:11:48.194772+00:00",
+  "mode": "live_cli_equivalent_without_mocks",
+  "command": ".venv/bin/python -m scripts.recover_url https://www.psu.edu/",
+  "result": {
+    "original_url": "https://www.psu.edu/",
+    "current": {
+      "status": "dns_failure",
+      "final_url": "https://www.psu.edu/",
+      "http_status": null,
+      "redirects": [],
+      "retry_after": null,
+      "detail": "DNS resolution failed."
+    },
+    "archive": {
+      "status": "dns_failure",
+      "source": "internet_archive",
+      "candidate": null,
+      "detail": "DNS resolution failed.",
+      "http_status": null,
+      "retry_after": null
+    }
+  },
+  "interpretation": "DNS resolution failed before either HTTP service was reached. Archive availability remains unknown."
+}
