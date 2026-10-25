@@ -23,8 +23,9 @@ Updated: 2026-10-25 local time and UTC.
   **25 tests/6 subtests pass** in 6.40s. Compilation and whitespace checks pass.
   Earlier AppTest-only verification did not establish visual correctness; the
   former browser-tool limitation was overcome using isolated local Firefox.
-- Publication is being completed. Hosted Cloud acceptance is still separate
-  from these actual local browser checks; refresh after the updated main deploys.
+- Published fix `4aa747d` to GitHub main; push confirmed. Hosted Cloud acceptance
+  is still separate from these actual local browser checks; refresh after the
+  updated main deploys. Temporary local app/browser processes were stopped.
 
 ## Latest UI milestone — compact navigation and useful interactions
 
