@@ -8,8 +8,12 @@ external services. Browser server launch requires a host terminal. See [PLAN.md]
 [STATUS.md](STATUS.md), and [AGENTS.md](AGENTS.md).
 
 The UI now has **Find datasets** and **Find papers** tabs. Find papers accepts a
-topic/description, retrieves OpenAlex records, and ranks actual abstract keyword
-matches. Select a paper to search related dataset metadata and extract research
+topic/description, retrieves up to 30 unique OpenAlex/arXiv papers per batch, and
+uses Gemini to rank their actual abstract excerpts. Supporting quotes are checked
+locally; keyword ranking remains an explicit fallback. Ten results appear initially;
+**Load more** reveals the next ten without new API calls. **Search more** explicitly
+retrieves a separately ranked next batch (three batches maximum).
+Select a paper to search related dataset metadata and extract research
 links from an advertised public PDF, then run the existing recovery engine on a
 selected link. **Gemini is built into paper/PDF dataset lookup:** it identifies
 dataset names from the text, ReLink checks supporting excerpts locally, and
@@ -17,8 +21,8 @@ DataCite supplies actual ranked repository records. It also works with readable
 PDFs that have no dataset links. A Gemini key is needed for this identification;
 URL recovery and abstract keyword search remain available without it. No new
 dependency was added. See [Gemini configuration and evidence](docs/GEMINI.md).
-See [paper search and limitations](docs/PAPERS.md). Keyword scores are not semantic
-similarity, research-quality ratings, or proof that a dataset was used in a paper.
+See [paper search and limitations](docs/PAPERS.md). Keyword points and Gemini order
+are not probabilities, research-quality ratings, or proof of dataset use.
 
 **Search history is private per signed-in account and survives browser/app restarts.**
 The sidebar reopens dated snapshots without requests, reruns searches explicitly,
@@ -29,7 +33,7 @@ Files use `.relink/history-users/<opaque namespace>.json`, with up to 50 entries
 per account and no PDF files. Legacy `.relink/history.json` is untouched and
 requires explicit single-operator local mode; see [storage and limits](docs/HISTORY.md).
 
-Latest verification: **173 tests and 142 subtests pass**; the earlier clean-environment run passed
+Latest verification: **191 tests and 159 subtests pass**; the earlier clean-environment run passed
 95 tests. Approved live
 checks pass for both providers, actual SQuAD PDF recovery, and app health.
 See the [pass/fail/blocked results](docs/READINESS.md),
@@ -40,9 +44,8 @@ Visual browser acceptance, configuring the deployed-version source link and the
 remaining release checks stay open. Archive metadata does not verify dataset bytes.
 
 Hosting recommendation and demo configuration: [DEPLOYMENT.md](docs/DEPLOYMENT.md).
-The proposed 30-paper Gemini reranking/Load more extension is documented in
-[PAPER_SEARCH_NEXT.md](docs/PAPER_SEARCH_NEXT.md); current paper ranking still
-uses abstract keywords.
+The implemented 30-paper Gemini ranking/Load more design is documented in
+[PAPER_SEARCH_NEXT.md](docs/PAPER_SEARCH_NEXT.md).
 
 ## Open-source license
 
@@ -330,7 +333,7 @@ UI tests live in `tests/test_app.py`. Focused tests use mocked recovery; integra
 tests drive native URL/upload/select/download widgets through real extraction,
 current-status, discovery, ranking, and export modules. Only external HTTP/DNS are
 mocked in those integration tests. Real PyMuPDF parsing uses generated local PDFs.
-The suite currently passes all 173 tests plus 142 subtests, with no skips.
+The suite currently passes all 191 tests plus 159 subtests, with no skips.
 
 After installing dependencies, verify both flows with:
 

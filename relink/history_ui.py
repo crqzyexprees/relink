@@ -56,11 +56,16 @@ def _view(entry, render_report, *, expected_scope, saved=True, live_result=None)
     elif isinstance(snapshot, PaperSearchResult):
         st.text('Paper search: ' + snapshot.status.replace('_', ' '))
         st.text(snapshot.detail)
+        if snapshot.ranking:
+            st.text('Recorded Gemini ranking: ' + snapshot.ranking.status.replace('_', ' ') + ' · ' + snapshot.ranking.detail)
         if snapshot.retry_after: st.text('Retry-After recorded: ' + snapshot.retry_after)
         for index, ranked in enumerate(snapshot.papers, 1):
-            with st.expander(f'Paper {index} · {ranked.score} recorded relevance points', expanded=index == 1):
+            with st.expander(f'Paper {index} · {ranked.score} recorded keyword points', expanded=index == 1):
                 st.text(ranked.paper.title)
                 st.text('Matched keywords: ' + ', '.join(ranked.matched_terms))
+                if ranked.semantic_rank is not None:
+                    st.text('Recorded AI relevance reason: ' + ranked.semantic_reason)
+                    st.text('Recorded checked abstract quote: ' + ranked.semantic_evidence)
                 st.text(ranked.paper.abstract)
                 _saved_link('Open original paper record', ranked.paper.id, f'history_paper_{index}')
     elif isinstance(snapshot, PaperDatasetLookup):
@@ -96,7 +101,7 @@ def _search_again(entry_id, expected_scope):
     if entry.kind == 'recovery':
         result = run_recovery(snapshot.query, input_context=snapshot.input_context)
     elif entry.kind == 'papers':
-        result = search_papers(entry.request['topic'])
+        result = search_papers(entry.request['topic'], settings=gemini_config.load_gemini_settings())
     else:
         result = lookup_paper_datasets(restore_paper(entry), settings=gemini_config.load_gemini_settings())
     # Identity/expiry may have changed during the remote lookup. Do not expose

@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 from unittest.mock import patch
 
 from relink.history import HistoryError, HistoryStore, restore_snapshot
-from relink.paper_models import PaperDatasetLookup
+from relink.paper_models import PaperDatasetLookup, PaperRankingInfo, PaperProvenance
 from relink.models import SearchResult
 from tests.test_app import mock_report
 from tests.test_paper_app import paper_result
@@ -23,6 +23,23 @@ class HistoryTests(unittest.TestCase):
         self.addCleanup(folder.cleanup)
         self.path = Path(folder.name) / 'history.json'
         self.store = HistoryStore(self.path)
+
+    def test_paper_ranking_evidence_round_trip_and_legacy_defaults(self):
+        old = paper_result()
+        ranked = replace(old.papers[0], semantic_rank=1, semantic_reason='Fits the topic.', semantic_evidence='Forest climate data',
+            paper=replace(old.papers[0].paper, provenance=(PaperProvenance('openalex', old.papers[0].paper.id),)))
+        new = replace(old, papers=(ranked,), ranking=PaperRankingInfo('ranked', 'Locally checked quotes.'), batch=1)
+        saved = self.store.add('papers', 'forest climate', new, request={'topic': 'forest climate'})
+        self.assertEqual(restore_snapshot(saved), new)
+        data = json.loads(self.path.read_text())
+        snapshot = asdict(old)
+        for key in ('ranking', 'providers', 'batch', 'has_more', 'seen_identifiers'): snapshot.pop(key)
+        for item in snapshot['papers']:
+            for key in ('semantic_rank', 'semantic_reason', 'semantic_evidence'): item.pop(key)
+            for key in ('arxiv_id', 'provenance'): item['paper'].pop(key)
+        data['entries'][0]['snapshot'] = snapshot
+        self.path.write_text(json.dumps(data))
+        self.assertEqual(restore_snapshot(self.store.list()[0]), old)
 
     def test_round_trip_new_instance_and_new_process_keep_dated_results(self):
         entry = self.store.add('recovery', 'https://example.org/data.csv', mock_report())

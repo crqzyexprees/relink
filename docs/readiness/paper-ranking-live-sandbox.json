@@ -1,0 +1,38 @@
+{
+  "status": "dns_failure",
+  "papers": [],
+  "detail": "Batch 1: up to 30 unique papers from OpenAlex and arXiv. Rankings apply only to this batch; relevance is not paper quality, verification or a calibrated probability.",
+  "query_url": "https://api.openalex.org/works?search.title_and_abstract=%22question%22+OR+%22answering%22+OR+%22reading%22+OR+%22comprehension%22+OR+%22datasets%22&per-page=15&page=1&select=id%2Ctitle%2Cdoi%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cbest_oa_location",
+  "retrieved_count": 0,
+  "missing_abstracts": 0,
+  "warnings": [],
+  "retry_after": null,
+  "ranking": {
+    "status": "no_abstracts",
+    "detail": "No unseen readable abstracts were available to rank.",
+    "model": "gemini-3.5-flash-lite",
+    "retrieved_at": "2026-10-25T06:08:57.200116+00:00",
+    "retry_after": null
+  },
+  "providers": [
+    {
+      "source": "openalex",
+      "status": "dns_failure",
+      "detail": "DNS resolution failed.",
+      "query_url": "https://api.openalex.org/works?search.title_and_abstract=%22question%22+OR+%22answering%22+OR+%22reading%22+OR+%22comprehension%22+OR+%22datasets%22&per-page=15&page=1&select=id%2Ctitle%2Cdoi%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cbest_oa_location",
+      "count": 0,
+      "retry_after": null
+    },
+    {
+      "source": "arxiv",
+      "status": "dns_failure",
+      "detail": "DNS resolution failed.",
+      "query_url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22question%22+OR+abs%3A%22question%22%29+OR+%28ti%3A%22answering%22+OR+abs%3A%22answering%22%29+OR+%28ti%3A%22reading%22+OR+abs%3A%22reading%22%29+OR+%28ti%3A%22comprehension%22+OR+abs%3A%22comprehension%22%29+OR+%28ti%3A%22datasets%22+OR+abs%3A%22datasets%22%29&start=0&max_results=15&sortBy=relevance&sortOrder=descending",
+      "count": 0,
+      "retry_after": null
+    }
+  ],
+  "batch": 0,
+  "has_more": false,
+  "seen_identifiers": []
+}

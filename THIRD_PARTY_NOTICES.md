@@ -89,6 +89,16 @@ upgrade was not part of these targeted demo fixes and requires separate acceptan
   was authorized or performed. Locally checked short source excerpts retain the
   paper's rights and page/source attribution; no PDF is bundled or relicensed.
   Model output does not establish dataset provenance, usage or identity.
+  Explicit paper searches also send the topic and bounded public abstract
+  excerpts for relevance ordering; this does not imply quality or verification.
+
+- The official [arXiv API](https://info.arxiv.org/help/api/user-manual.html)
+  supplies descriptive metadata under CC0 as described in its
+  [API terms](https://info.arxiv.org/help/api/tou.html). ReLink retains source URLs,
+  returned DOI/advertised PDF links and timestamps. Abstracts/PDFs retain their
+  applicable rights; no PDF redistribution or arXiv endorsement is claimed.
+  Requests are serialized, at least three seconds apart within this process.
+  A shared limiter is required before running multiple workers/replicas.
 
 - [OpenAlex metadata](https://github.com/ourresearch/openalex-docs/blob/main/license.md)
   is offered under CC0. ReLink retains work IDs, DOIs, retrieval timestamps, and

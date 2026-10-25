@@ -11,25 +11,59 @@ The app has two native tabs:
 
 ## Matching method
 
-OpenAlex retrieves up to 25 works matching an application-built OR query in titles
-and abstracts. ReLink selects at most 12 distinct meaningful words from up to
-1,200 characters of input, removes common instruction/stop words, and scores
-actual abstract whole-word matches at ten points each. Title/citation count does
-not contribute to this local score. Missing abstracts and title-only matches do
-not become abstract matches. Up to ten matching papers are displayed; equal
-scores are ties. Duplicate DOI/work identities keep their highest-scoring record.
+OpenAlex and the official arXiv API each retrieve up to 15 records per batch from
+application-built title/abstract queries. ReLink selects at most 12 meaningful
+words from up to 1,200 input characters. DOI/arXiv identities deduplicate records,
+retaining source records and filling missing PDF leads; conflicting DOIs stay
+separate. Duplicates and missing abstracts can reduce the number below 30.
 
-This is explainable keyword matching, not embedding-based semantic similarity,
-synonym inference, exhaustive literature search, a research-quality score, or a
-calibrated probability. Different inflections and wording can be missed. Only
-the bounded retrieved set is reranked. The UI shows matched terms, abstract,
-authors, year, source, DOI, and advertised paper/PDF locations.
+One Gemini request orders the supplied abstract excerpts against the full topic.
+It receives no titles or citation counts, no PDFs, and no authority to create
+paper metadata or URLs. Every supplied ID must appear exactly once. Every short
+supporting quote must occur in its supplied abstract (case/whitespace/Unicode
+normalization allowed). Unknown/duplicate/omitted IDs, invented quotes, invalid
+JSON and incomplete output reject the whole model ranking. The client checks
+quotes at 2–24 words/240 characters and reasons at 240 characters; the prompt asks
+for still shorter fragments. The returned explanation remains an AI judgment:
+checking a quote does not establish that the model's interpretation is correct.
+
+Inputs contain at most 48,000 abstract characters overall, at most 8,000 per
+paper, divided evenly across the batch. Truncation can hide relevant evidence.
+Only the bounded retrieved set is ranked; this is not exhaustive literature
+search, a research-quality rating or a calibrated probability. Different wording
+can be recognized by Gemini but missed during initial keyword retrieval.
+
+Missing key, quota/authentication errors, timeouts and invalid model data use
+explicit keyword fallback. This scores actual abstract whole-word matches at ten
+points each, drops zero-match records and treats equal scores as ties. Titles
+do not contribute. Missing abstracts cannot be ranked in either mode.
+
+Ten results appear initially. **Load more** reveals the next ten already ranked
+papers without provider/model requests or duplicate history entries. Once visible
+results are exhausted, **Search more** explicitly fetches the next 15 records
+from each source, excludes prior DOI/arXiv/work identities and ranks a new batch.
+It replaces the displayed batch and clears selected-paper results; previous
+snapshots remain available if private history is enabled. Ranks apply only within
+their batch and are never compared as global scores. Maximum: three batches.
+Source changes can still cause paging gaps; matching titles alone never merges
+preprint/journal versions without identifying evidence.
 
 Provider documentation: [OpenAlex scoped searching](https://help.openalex.org/api/searching/).
 OpenAlex paper search needs no API key. Anonymous API usage has a limited free allowance;
 quota/rate-limit errors are displayed with Retry-After where supplied, without
 automatic retries. See [OpenAlex usage pricing](https://help.openalex.org/access/example-costs/).
-The topic is sent to OpenAlex only when Find papers is clicked.
+The [arXiv API](https://info.arxiv.org/help/api/user-manual.html) supplies metadata,
+abstracts and advertised PDF locations. ReLink serializes requests in this process
+with at least three seconds between API calls, following its
+[terms](https://info.arxiv.org/help/api/tou.html). Multiple worker processes or
+replicas would need a shared limiter before scaling this deployment.
+One failed source retains the other's usable results with partial status.
+The UI displays per-source checks and Retry-After when returned; no retries.
+
+Find papers and Search more send your topic to the sources and the topic/public
+abstract excerpts to Google. Use nonconfidential research descriptions. There is
+no separate AI toggle. Load more, viewing saved snapshots and unrelated reruns
+send nothing. Google Scholar and ResearchGate are not scraped or used as providers.
 
 ## What dataset lookup proves
 
@@ -62,12 +96,31 @@ Changing the topic or selected paper clears stale paper dataset results; changin
 the selected research link clears its recovery report. The two tabs keep their
 reports separate and can both offer evidence downloads without widget collisions.
 
-## Live observation
+## Live observations
+
+The separate [30-paper ranking check](readiness/paper-ranking-live.json) used actual
+OpenAlex/arXiv responses: 15 records each, 29 unique papers, three missing
+abstracts. That latest first-batch model output was rejected and 24 keyword
+matches were shown. The explicit [next-batch check](readiness/paper-ranking-live-next-batch.json)
+accepted 25 Gemini-ranked unseen papers from the next source pages, with every
+short quote checked locally and no identity repeated from the first batch.
+An earlier post-prompt check accepted 26 papers; model output remains variable,
+and tightening the prompt does not guarantee valid responses. These are module-level
+live checks; native UI pagination/dataset handoff is tested separately with mocked
+HTTP. A physical hosted-browser run of this upgrade remains unverified.
+
+The first [real attempt](readiness/paper-ranking-live-before-prompt-fix.json)
+rejected model output and used keyword fallback. A follow-up diagnostic found
+overlong quotes. The prompt requests short fragments; validation limits were
+not relaxed. Unsupported output still falls back, and there is no automatic retry.
+Sandbox DNS failures are recorded
+separately in paper-ranking-live-sandbox.json. None of these reports feeds the UI.
 
 The subsequent Gemini integration has separate [live evidence](readiness/live-gemini.json):
 the actual SQuAD paper yielded seven supported names (partial status; five model
 quotes replaced with actual local excerpts), with real DataCite results for the
-first three. This did not change abstract keyword ranking into semantic ranking.
+first three. That earlier dataset-identification feature did not itself change
+paper ranking; the abstract reranker above is a separate explicit search action.
 The historical observation below predates Gemini.
 
 At **2026-10-25T03:10:13 UTC**, the topic

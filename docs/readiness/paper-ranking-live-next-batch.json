@@ -1,0 +1,1312 @@
+{
+  "status": "found",
+  "papers": [
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2101.10421v2",
+        "title": "English Machine Reading Comprehension Datasets: A Survey",
+        "abstract": "This paper surveys 60 English Machine Reading Comprehension datasets, with a view to providing a convenient resource for other researchers interested in this problem. We categorize the datasets according to their question and answer form and compare them across various dimensions including size, vocabulary, data source, method of creation, human performance level, and first question word. Our analysis reveals that Wikipedia is by far the most common data source and that there is a relative lack of why, when, and where questions across datasets.",
+        "authors": [
+          "Daria Dzendzik",
+          "Carl Vogel",
+          "Jennifer Foster"
+        ],
+        "year": 2021,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2101.10421v2",
+        "pdf_url": "https://arxiv.org/pdf/2101.10421v2",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2101.10421",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2101.10421v2",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2101.10421v2",
+            "pdf_url": "https://arxiv.org/pdf/2101.10421v2"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 1,
+      "semantic_reason": "Directly surveys 60 English machine reading comprehension datasets, making it extremely relevant to the request on QA reading comprehension datasets.",
+      "semantic_evidence": "surveys 60 English Machine Reading Comprehension datasets"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W3099524945",
+        "title": "IIRC: A Dataset of Incomplete Information Reading Comprehension Questions",
+        "abstract": "Humans often have to read multiple documents to address their information needs.However, most existing reading comprehension (RC) tasks only focus on questions for which the contexts provide all the information required to answer them, thus not evaluating a system's performance at identifying a potential lack of sufficient information and locating sources for that information.To fill this gap, we present a dataset, IIRC, with more than 13K questions over paragraphs from English Wikipedia that provide only partial information to answer them, with the missing information occurring in one or more linked documents.The questions were written by crowd workers who did not have access to any of the linked documents, leading to questions that have little lexical overlap with the contexts where the answers appear.This process also gave many questions without answers, and those that require discrete reasoning, increasing the difficulty of the task.We follow recent modeling work on various reading comprehension datasets to construct a baseline model for this dataset, finding that it achieves 31.1% F1 on this task, while estimated human performance is 88.4%.The dataset, code for the baseline system, and a leaderboard can be found at https://allennlp.org/iirc.",
+        "authors": [
+          "James Ferguson",
+          "Matt Gardner",
+          "Hannaneh Hajishirzi",
+          "Tushar Khot",
+          "Pradeep Dasigi"
+        ],
+        "year": 2020,
+        "doi": "10.18653/v1/2020.emnlp-main.86",
+        "landing_url": "https://doi.org/10.18653/v1/2020.emnlp-main.86",
+        "pdf_url": "https://www.aclweb.org/anthology/2020.emnlp-main.86.pdf",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W3099524945",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.18653/v1/2020.emnlp-main.86",
+            "pdf_url": "https://www.aclweb.org/anthology/2020.emnlp-main.86.pdf"
+          }
+        ]
+      },
+      "score": 30,
+      "matched_terms": [
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 2,
+      "semantic_reason": "Introduces a new multi-document reading comprehension dataset addressing partial information and missing context.",
+      "semantic_evidence": "we present a dataset, IIRC, with more than 13K questions"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2403.17848v1",
+        "title": "ArabicaQA: A Comprehensive Dataset for Arabic Question Answering",
+        "abstract": "In this paper, we address the significant gap in Arabic natural language processing (NLP) resources by introducing ArabicaQA, the first large-scale dataset for machine reading comprehension and open-domain question answering in Arabic. This comprehensive dataset, consisting of 89,095 answerable and 3,701 unanswerable questions created by crowdworkers to look similar to answerable ones, along with additional labels of open-domain questions marks a crucial advancement in Arabic NLP resources. We also present AraDPR, the first dense passage retrieval model trained on the Arabic Wikipedia corpus, specifically designed to tackle the unique challenges of Arabic text retrieval. Furthermore, our study includes extensive benchmarking of large language models (LLMs) for Arabic question answering, critically evaluating their performance in the Arabic language context. In conclusion, ArabicaQA, AraDPR, and the benchmarking of LLMs in Arabic question answering offer significant advancements in the field of Arabic NLP. The dataset and code are publicly accessible for further research https://github.com/DataScienceUIBK/ArabicaQA.",
+        "authors": [
+          "Abdelrahman Abdallah",
+          "Mahmoud Kasem",
+          "Mahmoud Abdalla",
+          "Mohamed Mahmoud",
+          "Mohamed Elkasaby",
+          "Yasser Elbendary",
+          "Adam Jatowt"
+        ],
+        "year": 2024,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2403.17848v1",
+        "pdf_url": "https://arxiv.org/pdf/2403.17848v1",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2403.17848",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2403.17848v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2403.17848v1",
+            "pdf_url": "https://arxiv.org/pdf/2403.17848v1"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 3,
+      "semantic_reason": "Presents ArabicaQA, a large-scale dataset for machine reading comprehension and open-domain question answering.",
+      "semantic_evidence": "introducing ArabicaQA, the first large-scale dataset"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2305.01957v1",
+        "title": "NorQuAD: Norwegian Question Answering Dataset",
+        "abstract": "In this paper we present NorQuAD: the first Norwegian question answering dataset for machine reading comprehension. The dataset consists of 4,752 manually created question-answer pairs. We here detail the data collection procedure and present statistics of the dataset. We also benchmark several multilingual and Norwegian monolingual language models on the dataset and compare them against human performance. The dataset will be made freely available.",
+        "authors": [
+          "Sardana Ivanova",
+          "Fredrik Aas Andreassen",
+          "Matias Jentoft",
+          "Sondre Wold",
+          "Lilja \u00d8vrelid"
+        ],
+        "year": 2023,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2305.01957v1",
+        "pdf_url": "https://arxiv.org/pdf/2305.01957v1",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2305.01957",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2305.01957v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2305.01957v1",
+            "pdf_url": "https://arxiv.org/pdf/2305.01957v1"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 4,
+      "semantic_reason": "Introduces NorQuAD, a new question answering dataset specifically for Norwegian machine reading comprehension.",
+      "semantic_evidence": "We present NorQuAD: the first Norwegian question answering dataset"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2002.06071v2",
+        "title": "FQuAD: French Question Answering Dataset",
+        "abstract": "Recent advances in the field of language modeling have improved state-of-the-art results on many Natural Language Processing tasks. Among them, Reading Comprehension has made significant progress over the past few years. However, most results are reported in English since labeled resources available in other languages, such as French, remain scarce. In the present work, we introduce the French Question Answering Dataset (FQuAD). FQuAD is a French Native Reading Comprehension dataset of questions and answers on a set of Wikipedia articles that consists of 25,000+ samples for the 1.0 version and 60,000+ samples for the 1.1 version. We train a baseline model which achieves an F1 score of 92.2 and an exact match ratio of 82.1 on the test set. In order to track the progress of French Question Answering models we propose a leader-board and we have made the 1.0 version of our dataset freely available at https://illuin-tech.github.io/FQuAD-explorer/.",
+        "authors": [
+          "Martin d'Hoffschmidt",
+          "Wacim Belblidia",
+          "Tom Brendl\u00e9",
+          "Quentin Heinrich",
+          "Maxime Vidal"
+        ],
+        "year": 2020,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2002.06071v2",
+        "pdf_url": "https://arxiv.org/pdf/2002.06071v2",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2002.06071",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2002.06071v2",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2002.06071v2",
+            "pdf_url": "https://arxiv.org/pdf/2002.06071v2"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 5,
+      "semantic_reason": "Introduces FQuAD, a French native reading comprehension dataset designed for question answering tasks.",
+      "semantic_evidence": "introduce the French Question Answering Dataset (FQuAD)"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/1806.00920v3",
+        "title": "DRCD: a Chinese Machine Reading Comprehension Dataset",
+        "abstract": "In this paper, we introduce DRCD (Delta Reading Comprehension Dataset), an open domain traditional Chinese machine reading comprehension (MRC) dataset. This dataset aimed to be a standard Chinese machine reading comprehension dataset, which can be a source dataset in transfer learning. The dataset contains 10,014 paragraphs from 2,108 Wikipedia articles and 30,000+ questions generated by annotators. We build a baseline model that achieves an F1 score of 89.59%. F1 score of Human performance is 93.30%.",
+        "authors": [
+          "Chih Chieh Shao",
+          "Trois Liu",
+          "Yuting Lai",
+          "Yiying Tseng",
+          "Sam Tsai"
+        ],
+        "year": 2018,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/1806.00920v3",
+        "pdf_url": "https://arxiv.org/pdf/1806.00920v3",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "1806.00920",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/1806.00920v3",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/1806.00920v3",
+            "pdf_url": "https://arxiv.org/pdf/1806.00920v3"
+          }
+        ]
+      },
+      "score": 20,
+      "matched_terms": [
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 6,
+      "semantic_reason": "Presents DRCD, an open domain traditional Chinese machine reading comprehension dataset.",
+      "semantic_evidence": "introduce DRCD (Delta Reading Comprehension Dataset)"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/1902.00164v1",
+        "title": "DREAM: A Challenge Dataset and Models for Dialogue-Based Reading Comprehension",
+        "abstract": "We present DREAM, the first dialogue-based multiple-choice reading comprehension dataset. Collected from English-as-a-foreign-language examinations designed by human experts to evaluate the comprehension level of Chinese learners of English, our dataset contains 10,197 multiple-choice questions for 6,444 dialogues. In contrast to existing reading comprehension datasets, DREAM is the first to focus on in-depth multi-turn multi-party dialogue understanding. DREAM is likely to present significant challenges for existing reading comprehension systems: 84% of answers are non-extractive, 85% of questions require reasoning beyond a single sentence, and 34% of questions also involve commonsense knowledge. We apply several popular neural reading comprehension models that primarily exploit surface information within the text and find them to, at best, just barely outperform a rule-based approach. We next investigate the effects of incorporating dialogue structure and different kinds of general world knowledge into both rule-based and (neural and non-neural) machine learning-based reading comprehension models. Experimental results on the DREAM dataset show the effectiveness of dialogue structure and general world knowledge. DREAM will be available at https://dataset.org/dream/.",
+        "authors": [
+          "Kai Sun",
+          "Dian Yu",
+          "Jianshu Chen",
+          "Dong Yu",
+          "Yejin Choi",
+          "Claire Cardie"
+        ],
+        "year": 2019,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/1902.00164v1",
+        "pdf_url": "https://arxiv.org/pdf/1902.00164v1",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "1902.00164",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/1902.00164v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/1902.00164v1",
+            "pdf_url": "https://arxiv.org/pdf/1902.00164v1"
+          }
+        ]
+      },
+      "score": 30,
+      "matched_terms": [
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 7,
+      "semantic_reason": "Introduces DREAM, a novel dialogue-based multiple-choice reading comprehension dataset for QA evaluation.",
+      "semantic_evidence": "first dialogue-based multiple-choice reading comprehension dataset"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2005.00242v2",
+        "title": "TORQUE: A Reading Comprehension Dataset of Temporal Ordering Questions",
+        "abstract": "A critical part of reading is being able to understand the temporal relationships between events described in a passage of text, even when those relationships are not explicitly stated. However, current machine reading comprehension benchmarks have practically no questions that test temporal phenomena, so systems trained on these benchmarks have no capacity to answer questions such as \"what happened before/after [some event]?\" We introduce TORQUE, a new English reading comprehension benchmark built on 3.2k news snippets with 21k human-generated questions querying temporal relationships. Results show that RoBERTa-large achieves an exact-match score of 51% on the test set of TORQUE, about 30% behind human performance.",
+        "authors": [
+          "Qiang Ning",
+          "Hao Wu",
+          "Rujun Han",
+          "Nanyun Peng",
+          "Matt Gardner",
+          "Dan Roth"
+        ],
+        "year": 2020,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2005.00242v2",
+        "pdf_url": "https://arxiv.org/pdf/2005.00242v2",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2005.00242",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2005.00242v2",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2005.00242v2",
+            "pdf_url": "https://arxiv.org/pdf/2005.00242v2"
+          }
+        ]
+      },
+      "score": 20,
+      "matched_terms": [
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 8,
+      "semantic_reason": "Presents TORQUE, an English reading comprehension benchmark querying temporal relationships in text.",
+      "semantic_evidence": "We introduce TORQUE, a new English reading comprehension benchmark"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/1906.05394v1",
+        "title": "Neural Arabic Question Answering",
+        "abstract": "This paper tackles the problem of open domain factual Arabic question answering (QA) using Wikipedia as our knowledge source. This constrains the answer of any question to be a span of text in Wikipedia. Open domain QA for Arabic entails three challenges: annotated QA datasets in Arabic, large scale efficient information retrieval and machine reading comprehension. To deal with the lack of Arabic QA datasets we present the Arabic Reading Comprehension Dataset (ARCD) composed of 1,395 questions posed by crowdworkers on Wikipedia articles, and a machine translation of the Stanford Question Answering Dataset (Arabic-SQuAD). Our system for open domain question answering in Arabic (SOQAL) is based on two components: (1) a document retriever using a hierarchical TF-IDF approach and (2) a neural reading comprehension model using the pre-trained bi-directional transformer BERT. Our experiments on ARCD indicate the effectiveness of our approach with our BERT-based reader achieving a 61.3 F1 score, and our open domain system SOQAL achieving a 27.6 F1 score.",
+        "authors": [
+          "Hussein Mozannar",
+          "Karl El Hajal",
+          "Elie Maamary",
+          "Hazem Hajj"
+        ],
+        "year": 2019,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/1906.05394v1",
+        "pdf_url": "https://arxiv.org/pdf/1906.05394v1",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "1906.05394",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/1906.05394v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/1906.05394v1",
+            "pdf_url": "https://arxiv.org/pdf/1906.05394v1"
+          }
+        ]
+      },
+      "score": 50,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 9,
+      "semantic_reason": "Introduces ARCD and Arabic-SQuAD datasets for Arabic open domain factual question answering tasks.",
+      "semantic_evidence": "Arabic Reading Comprehension Dataset (ARCD) composed of 1,395 questions"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W2788363870",
+        "title": "Medical Exam Question Answering with Large-scale Reading Comprehension",
+        "abstract": "Reading and understanding text is one important component in computer aided diagnosis in clinical medicine, also being a major research problem in the field of NLP. In this work, we introduce a question-answering task called MedQA to study answering questions in clinical medicine using knowledge in a large-scale document collection. The aim of MedQA is to answer real-world questions with large-scale reading comprehension. We propose our solution SeaReader---a modular end-to-end reading comprehension model based on LSTM networks and dual-path attention architecture. The novel dual-path attention models information flow from two perspectives and has the ability to simultaneously read individual documents and integrate information across multiple documents. In experiments our SeaReader achieved a large increase in accuracy on MedQA over competing models. Additionally, we develop a series of novel techniques to demonstrate the interpretation of the question answering process in SeaReader.",
+        "authors": [
+          "Xiao Zhang",
+          "Ji Yi Wu",
+          "Zhiyang He",
+          "Xien Liu",
+          "Ying Su"
+        ],
+        "year": 2018,
+        "doi": "10.1609/aaai.v32i1.11970",
+        "landing_url": "https://doi.org/10.1609/aaai.v32i1.11970",
+        "pdf_url": "",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W2788363870",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.1609/aaai.v32i1.11970",
+            "pdf_url": ""
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 10,
+      "semantic_reason": "Introduces the MedQA dataset and task for clinical medicine reading comprehension question answering.",
+      "semantic_evidence": "introduce a question-answering task called MedQA"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2310.18373v2",
+        "title": "Can LLMs Grade Short-Answer Reading Comprehension Questions : An Empirical Study with a Novel Dataset",
+        "abstract": "Open-ended questions, which require students to produce multi-word, nontrivial responses, are a popular tool for formative assessment as they provide more specific insights into what students do and don't know. However, grading open-ended questions can be time-consuming leading teachers to resort to simpler question formats or conduct fewer formative assessments. While there has been a longstanding interest in automating of short-answer grading (ASAG), but previous approaches have been technically complex, limiting their use in formative assessment contexts. The newest generation of Large Language Models (LLMs) potentially makes grading short answer questions more feasible. This paper investigates the potential for the newest version of LLMs to be used in ASAG, specifically in the grading of short answer questions for formative assessments, in two ways. First, it introduces a novel dataset of short answer reading comprehension questions, drawn from a set of reading assessments conducted with over 150 students in Ghana. This dataset allows for the evaluation of LLMs in a new context, as they are predominantly designed and trained on data from high-income North American countries. Second, the paper empirically evaluates how well various configurations of generative LLMs grade student short answer responses compared to expert human raters. The findings show that GPT-4, with minimal prompt engineering, performed extremely well on grading the novel dataset (QWK 0.92, F1 0.89), reaching near parity with expert human raters. To our knowledge this work is the first to empirically evaluate the performance of generative LLMs on short answer reading comprehension questions using real student data, with low technical hurdles to attaining this performance. These findings suggest that generative LLMs could be used to grade formative literacy assessment tasks.",
+        "authors": [
+          "Owen Henkel",
+          "Libby Hills",
+          "Bill Roberts",
+          "Joshua McGrane"
+        ],
+        "year": 2023,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2310.18373v2",
+        "pdf_url": "https://arxiv.org/pdf/2310.18373v2",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2310.18373",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2310.18373v2",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2310.18373v2",
+            "pdf_url": "https://arxiv.org/pdf/2310.18373v2"
+          }
+        ]
+      },
+      "score": 30,
+      "matched_terms": [
+        "question",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 11,
+      "semantic_reason": "Presents a novel short answer reading comprehension dataset from formative assessments in Ghana.",
+      "semantic_evidence": "introduces a novel dataset of short answer reading comprehension questions"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W7125183974",
+        "title": "\"PIRLS-HK - Traditional Chinese reading comprehension question-answer dataset\"",
+        "abstract": "\"The PIRLS-HK dataset was created to address the lack of a realistic benchmark for evaluating large language models (LLMs) on automated short-answer grading (ASAG) for Traditional Chinese K-12 reading comprehension tasks. Existing benchmarks focused on encyclopedic\\/STEM knowledge, multiple-choice formats, or Simplified Chinese\\/English, leaving Traditional Chinese ASAG underexplored.\"",
+        "authors": [
+          "Hoi Hang Au Yeung",
+          "Hao Deng",
+          "Hung-wai Ng",
+          "Yik Chung Wu",
+          "Wilton Wai Tung Fok"
+        ],
+        "year": 2026,
+        "doi": "10.21227/sk55-nh15",
+        "landing_url": "https://doi.org/10.21227/sk55-nh15",
+        "pdf_url": "",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W7125183974",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.21227/sk55-nh15",
+            "pdf_url": ""
+          }
+        ]
+      },
+      "score": 20,
+      "matched_terms": [
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 12,
+      "semantic_reason": "Introduces the PIRLS-HK dataset for automated short-answer grading in Traditional Chinese K-12 reading comprehension.",
+      "semantic_evidence": "The PIRLS-HK dataset was created to address the lack of a realistic benchmark"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W2966798119",
+        "title": "Active Reading Comprehension: A Dataset for Learning the Question-Answer Relationship Strategy",
+        "abstract": "Reading comprehension (RC) through question answering is a useful method for evaluating if a reader understands a text.Standard accuracy metrics are used for evaluation, where a high accuracy is taken as indicative of a good understanding.However, literature in quality learning suggests that task performance should also be evaluated on the undergone process to answer.The Question-Answer Relationship (QAR) is one of the strategies for evaluating a reader's understanding based on their ability to select different sources of information depending on the question type.We propose the creation of a dataset to learn the QAR strategy with weak supervision.We expect to complement current work on reading comprehension by introducing a new setup for evaluation.",
+        "authors": [
+          "Diana Galv\u00e1n-Sosa"
+        ],
+        "year": 2019,
+        "doi": "10.18653/v1/p19-2014",
+        "landing_url": "https://doi.org/10.18653/v1/p19-2014",
+        "pdf_url": "https://www.aclweb.org/anthology/P19-2014.pdf",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W2966798119",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.18653/v1/p19-2014",
+            "pdf_url": "https://www.aclweb.org/anthology/P19-2014.pdf"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 13,
+      "semantic_reason": "Proposes creating a dataset to learn the Question-Answer Relationship strategy for reading comprehension evaluation.",
+      "semantic_evidence": "propose the creation of a dataset to learn the QAR strategy"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W2962985038",
+        "title": "Reading Wikipedia to Answer Open-Domain Questions",
+        "abstract": "This paper proposes to tackle opendomain question answering using Wikipedia as the unique knowledge source: the answer to any factoid question is a text span in a Wikipedia article.This task of machine reading at scale combines the challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer spans from those articles).Our approach combines a search component based on bigram hashing and TF-IDF matching with a multi-layer recurrent neural network model trained to detect answers in Wikipedia paragraphs.Our experiments on multiple existing QA datasets indicate that (1) both modules are highly competitive with respect to existing counterparts and (2) multitask learning using distant supervision on their combination is an effective complete system on this challenging task.",
+        "authors": [
+          "Danqi Chen",
+          "Adam Fisch",
+          "Jason Weston",
+          "Antoine Bordes"
+        ],
+        "year": 2017,
+        "doi": "10.18653/v1/p17-1171",
+        "landing_url": "https://doi.org/10.18653/v1/p17-1171",
+        "pdf_url": "https://www.aclweb.org/anthology/P17-1171.pdf",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W2962985038",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.18653/v1/p17-1171",
+            "pdf_url": "https://www.aclweb.org/anthology/P17-1171.pdf"
+          }
+        ]
+      },
+      "score": 50,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 14,
+      "semantic_reason": "Focuses on open-domain question answering and reading comprehension at scale using Wikipedia.",
+      "semantic_evidence": "tackle opendomain question answering using Wikipedia as the unique knowledge source"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W2963769536",
+        "title": "Stochastic Answer Networks for Machine Reading Comprehension",
+        "abstract": "We propose a simple yet robust stochastic answer network (SAN) that simulates multi-step reasoning in machine reading comprehension.Compared to previous work such as ReasoNet which used reinforcement learning to determine the number of steps, the unique feature is the use of a kind of stochastic prediction dropout on the answer module (final layer) of the neural network during the training.We show that this simple trick improves robustness and achieves results competitive to the state-of-the-art on the Stanford Question Answering Dataset (SQuAD), the Adversarial SQuAD, and the Microsoft MAchine Reading COmprehension Dataset (MS MARCO).",
+        "authors": [
+          "Xiaodong Liu",
+          "Yelong Shen",
+          "Kevin Duh",
+          "Jianfeng Gao"
+        ],
+        "year": 2018,
+        "doi": "10.18653/v1/p18-1157",
+        "landing_url": "https://doi.org/10.18653/v1/p18-1157",
+        "pdf_url": "https://www.aclweb.org/anthology/P18-1157.pdf",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W2963769536",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.18653/v1/p18-1157",
+            "pdf_url": "https://www.aclweb.org/anthology/P18-1157.pdf"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 15,
+      "semantic_reason": "Evaluates a stochastic answer network on prominent machine reading comprehension datasets like SQuAD.",
+      "semantic_evidence": "Stanford Question Answering Dataset (SQuAD), the Adversarial SQuAD"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/1706.04815v6",
+        "title": "S-Net: From Answer Extraction to Answer Generation for Machine Reading Comprehension",
+        "abstract": "In this paper, we present a novel approach to machine reading comprehension for the MS-MARCO dataset. Unlike the SQuAD dataset that aims to answer a question with exact text spans in a passage, the MS-MARCO dataset defines the task as answering a question from multiple passages and the words in the answer are not necessary in the passages. We therefore develop an extraction-then-synthesis framework to synthesize answers from extraction results. Specifically, the answer extraction model is first employed to predict the most important sub-spans from the passage as evidence, and the answer synthesis model takes the evidence as additional features along with the question and passage to further elaborate the final answers. We build the answer extraction model with state-of-the-art neural networks for single passage reading comprehension, and propose an additional task of passage ranking to help answer extraction in multiple passages. The answer synthesis model is based on the sequence-to-sequence neural networks with extracted evidences as features. Experiments show that our extraction-then-synthesis method outperforms state-of-the-art methods.",
+        "authors": [
+          "Chuanqi Tan",
+          "Furu Wei",
+          "Nan Yang",
+          "Bowen Du",
+          "Weifeng Lv",
+          "Ming Zhou"
+        ],
+        "year": 2017,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/1706.04815v6",
+        "pdf_url": "https://arxiv.org/pdf/1706.04815v6",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "1706.04815",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/1706.04815v6",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/1706.04815v6",
+            "pdf_url": "https://arxiv.org/pdf/1706.04815v6"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 16,
+      "semantic_reason": "Addresses machine reading comprehension and answer synthesis using the MS-MARCO QA dataset.",
+      "semantic_evidence": "approach to machine reading comprehension for the MS-MARCO dataset"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W2798586382",
+        "title": "Multi-Granularity Hierarchical Attention Fusion Networks for Reading Comprehension and Question Answering",
+        "abstract": "This paper describes a novel hierarchical attention network for reading comprehension style question answering, which aims to answer questions for a given narrative paragraph.In the proposed method, attention and fusion are conducted horizontally and vertically across layers at different levels of granularity between question and paragraph.Specifically, it first encode the question and paragraph with fine-grained language embeddings, to better capture the respective representations at semantic level.Then it proposes a multi-granularity fusion approach to fully fuse information from both global and attended representations.Finally, it introduces a hierarchical attention network to focuses on the answer span progressively with multi-level softalignment.Extensive experiments on the large-scale SQuAD and TriviaQA datasets validate the effectiveness of the proposed method.At the time of writing the paper (Jan.12th 2018), our model achieves the first position on the SQuAD leaderboard for both single and ensemble models.We also achieves state-of-the-art results on TriviaQA, AddSent and AddOne-Sent datasets.",
+        "authors": [
+          "Wei Wang",
+          "Ming Yan",
+          "Chen Wu"
+        ],
+        "year": 2018,
+        "doi": "10.18653/v1/p18-1158",
+        "landing_url": "https://doi.org/10.18653/v1/p18-1158",
+        "pdf_url": "https://www.aclweb.org/anthology/P18-1158.pdf",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "1811.11934",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W2798586382",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.18653/v1/p18-1158",
+            "pdf_url": "https://www.aclweb.org/anthology/P18-1158.pdf"
+          },
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/1811.11934v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/1811.11934v1",
+            "pdf_url": "https://arxiv.org/pdf/1811.11934v1"
+          }
+        ]
+      },
+      "score": 50,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 17,
+      "semantic_reason": "Proposes a hierarchical attention network evaluated on large-scale reading comprehension datasets like SQuAD and TriviaQA.",
+      "semantic_evidence": "Extensive experiments on the large-scale SQuAD and TriviaQA datasets"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2103.06500v1",
+        "title": "Conversational Answer Generation and Factuality for Reading Comprehension Question-Answering",
+        "abstract": "Question answering (QA) is an important use case on voice assistants. A popular approach to QA is extractive reading comprehension (RC) which finds an answer span in a text passage. However, extractive answers are often unnatural in a conversational context which results in suboptimal user experience. In this work, we investigate conversational answer generation for QA. We propose AnswerBART, an end-to-end generative RC model which combines answer generation from multiple passages with passage ranking and answerability. Moreover, a hurdle in applying generative RC are hallucinations where the answer is factually inconsistent with the passage text. We leverage recent work from summarization to evaluate factuality. Experiments show that AnswerBART significantly improves over previous best published results on MS MARCO 2.1 NLGEN by 2.5 ROUGE-L and NarrativeQA by 9.4 ROUGE-L.",
+        "authors": [
+          "Stan Peshterliev",
+          "Barlas Oguz",
+          "Debojeet Chatterjee",
+          "Hakan Inan",
+          "Vikas Bhardwaj"
+        ],
+        "year": 2021,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2103.06500v1",
+        "pdf_url": "https://arxiv.org/pdf/2103.06500v1",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2103.06500",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2103.06500v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2103.06500v1",
+            "pdf_url": "https://arxiv.org/pdf/2103.06500v1"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 18,
+      "semantic_reason": "Investigates conversational answer generation and generative reading comprehension models on MS MARCO and NarrativeQA.",
+      "semantic_evidence": "evaluate factuality. Experiments show that AnswerBART significantly improves over previous"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/1906.06045v1",
+        "title": "Learning to Ask Unanswerable Questions for Machine Reading Comprehension",
+        "abstract": "Machine reading comprehension with unanswerable questions is a challenging task. In this work, we propose a data augmentation technique by automatically generating relevant unanswerable questions according to an answerable question paired with its corresponding paragraph that contains the answer. We introduce a pair-to-sequence model for unanswerable question generation, which effectively captures the interactions between the question and the paragraph. We also present a way to construct training data for our question generation models by leveraging the existing reading comprehension dataset. Experimental results show that the pair-to-sequence model performs consistently better compared with the sequence-to-sequence baseline. We further use the automatically generated unanswerable questions as a means of data augmentation on the SQuAD 2.0 dataset, yielding 1.9 absolute F1 improvement with BERT-base model and 1.7 absolute F1 improvement with BERT-large model.",
+        "authors": [
+          "Haichao Zhu",
+          "Li Dong",
+          "Furu Wei",
+          "Wenhui Wang",
+          "Bing Qin",
+          "Ting Liu"
+        ],
+        "year": 2019,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/1906.06045v1",
+        "pdf_url": "https://arxiv.org/pdf/1906.06045v1",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "1906.06045",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/1906.06045v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/1906.06045v1",
+            "pdf_url": "https://arxiv.org/pdf/1906.06045v1"
+          }
+        ]
+      },
+      "score": 30,
+      "matched_terms": [
+        "question",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 19,
+      "semantic_reason": "Uses data augmentation for reading comprehension with unanswerable questions on SQuAD 2.0.",
+      "semantic_evidence": "data augmentation technique by automatically generating relevant unanswerable questions"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2201.01706v1",
+        "title": "Multi Document Reading Comprehension",
+        "abstract": "Reading Comprehension (RC) is a task of answering a question from a given passage or a set of passages. In the case of multiple passages, the task is to find the best possible answer to the question. Recent trials and experiments in the field of Natural Language Processing (NLP) have proved that machines can be provided with the ability to not only process the text in the passage and understand its meaning to answer the question from the passage, but also can surpass the Human Performance on many datasets such as Standford's Question Answering Dataset (SQuAD). This paper presents a study on Reading Comprehension and its evolution in Natural Language Processing over the past few decades. We shall also study how the task of Single Document Reading Comprehension acts as a building block for our Multi-Document Reading Comprehension System. In the latter half of the paper, we'll be studying about a recently proposed model for Multi-Document Reading Comprehension - RE3QA that is comprised of a Reader, Retriever, and a Re-ranker based network to fetch the best possible answer from a given set of passages.",
+        "authors": [
+          "Avi Chawla"
+        ],
+        "year": 2022,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2201.01706v1",
+        "pdf_url": "https://arxiv.org/pdf/2201.01706v1",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2201.01706",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2201.01706v1",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2201.01706v1",
+            "pdf_url": "https://arxiv.org/pdf/2201.01706v1"
+          }
+        ]
+      },
+      "score": 50,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 20,
+      "semantic_reason": "Studies reading comprehension evolution and multi-document systems, referencing SQuAD.",
+      "semantic_evidence": "Reading Comprehension (RC) is a task of answering a question"
+    },
+    {
+      "paper": {
+        "id": "https://arxiv.org/abs/2009.14780v2",
+        "title": "Bridging Information-Seeking Human Gaze and Machine Reading Comprehension",
+        "abstract": "In this work, we analyze how human gaze during reading comprehension is conditioned on the given reading comprehension question, and whether this signal can be beneficial for machine reading comprehension. To this end, we collect a new eye-tracking dataset with a large number of participants engaging in a multiple choice reading comprehension task. Our analysis of this data reveals increased fixation times over parts of the text that are most relevant for answering the question. Motivated by this finding, we propose making automated reading comprehension more human-like by mimicking human information-seeking reading behavior during reading comprehension. We demonstrate that this approach leads to performance gains on multiple choice question answering in English for a state-of-the-art reading comprehension model.",
+        "authors": [
+          "Jonathan Malmaud",
+          "Roger Levy",
+          "Yevgeni Berzak"
+        ],
+        "year": 2020,
+        "doi": "",
+        "landing_url": "https://arxiv.org/abs/2009.14780v2",
+        "pdf_url": "https://arxiv.org/pdf/2009.14780v2",
+        "source": "arxiv",
+        "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+        "arxiv_id": "2009.14780",
+        "provenance": [
+          {
+            "source": "arxiv",
+            "record_url": "https://arxiv.org/abs/2009.14780v2",
+            "retrieved_at": "2026-10-25T06:19:19.685783+00:00",
+            "landing_url": "https://arxiv.org/abs/2009.14780v2",
+            "pdf_url": "https://arxiv.org/pdf/2009.14780v2"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 21,
+      "semantic_reason": "Collects an eye-tracking dataset during multiple choice reading comprehension to aid QA models.",
+      "semantic_evidence": "collect a new eye-tracking dataset with a large number of participants"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W3165935919",
+        "title": "Evolution of Reading Comprehension and Question Answering Systems",
+        "abstract": "Natural Language Processing (NLP) has witnessed considerable advances in textual understanding through statistical and rule-based techniques, which have now yielded to developments in the field of neural networks and deep learning. The paper surveys research relevant to the topic of Reading Comprehension and Question Answering (QA) implementations. The initial focus of the paper is on Attention and Transformer models. A brief description of the architectures is presented highlighting the essence of the \u2018Attention is all you Need\u2019 paper wherein the authors of Bidirectional Encoding Transformer (BERT) have elucidated the significant departure from the recurrence concept of Recurrent Neural Networks (RNN). Subsequently the trends in Open Domain Question Answering (ODQA) which mark the progression from the passage- based question answering is presented. Of particular interest is Haystack which is an end-to-end open-source framework for Question Answering & Neural search. This field seems a promising avenue for a more intelligent form of \u2018search\u2019. In a nutshell, the paper weaves through RNNs, Long Short-Term Memory (LSTM), and the currently trending Attention based Transformer models in NLP. Finally, we dwell on more contemporary pieces of research such as ODQA, Multi-Hop QA, evaluation using Adversarial Networks.",
+        "authors": [
+          "Venkatesh Krishnamoorthy"
+        ],
+        "year": 2021,
+        "doi": "10.1016/j.procs.2021.05.024",
+        "landing_url": "https://doi.org/10.1016/j.procs.2021.05.024",
+        "pdf_url": "https://www.sciencedirect.com/science/article/pii/S1877050921011066/pdf",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W3165935919",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.1016/j.procs.2021.05.024",
+            "pdf_url": "https://www.sciencedirect.com/science/article/pii/S1877050921011066/pdf"
+          }
+        ]
+      },
+      "score": 40,
+      "matched_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 22,
+      "semantic_reason": "Surveys general QA and reading comprehension research literature without introducing new datasets.",
+      "semantic_evidence": "surveys research relevant to the topic of Reading Comprehension and Question Answering (QA)"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W2057824915",
+        "title": "A machine learning approach to answering questions for reading comprehension tests",
+        "abstract": "In this paper, we report results on answering questions for the reading comprehension task, using a machine learning approach. We evaluated our approach on the Remedia data set, a common data set used in several recent papers on the reading comprehension task. Our learning approach achieves accuracy competitive to previous approaches that rely on hand-crafted, deterministic rules and algorithms. To the best of our knowledge, this is the first work that reports that the use of a machine learning approach achieves competitive results on answering questions for reading comprehension tests.",
+        "authors": [
+          "Hwee Tou Ng",
+          "Leonghwee Teo",
+          "Jennifer Lai Pheng Kwan"
+        ],
+        "year": 2000,
+        "doi": "10.3115/1117794.1117810",
+        "landing_url": "https://doi.org/10.3115/1117794.1117810",
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.3115/1117794.1117810",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W2057824915",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.3115/1117794.1117810",
+            "pdf_url": "https://dl.acm.org/doi/pdf/10.3115/1117794.1117810"
+          }
+        ]
+      },
+      "score": 30,
+      "matched_terms": [
+        "answering",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 23,
+      "semantic_reason": "Evaluates a machine learning approach on the Remedia reading comprehension dataset.",
+      "semantic_evidence": "evaluated our approach on the Remedia data set"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W2962717047",
+        "title": "Learning to Ask: Neural Question Generation for Reading Comprehension",
+        "abstract": "We study automatic question generation for sentences from text passages in reading comprehension.We introduce an attention-based sequence learning model for the task and investigate the effect of encoding sentence-vs.paragraph-level information.In contrast to all previous work, our model does not rely on hand-crafted rules or a sophisticated NLP pipeline; it is instead trainable end-to-end via sequenceto-sequence learning.Automatic evaluation results show that our system significantly outperforms the state-of-the-art rule-based system.In human evaluations, questions generated by our system are also rated as being more natural (i.e., grammaticality, fluency) and as more difficult to answer (in terms of syntactic and lexical divergence from the original text and reasoning needed to answer).",
+        "authors": [
+          "Xinya Du",
+          "Junru Shao",
+          "Claire Cardie"
+        ],
+        "year": 2017,
+        "doi": "10.18653/v1/p17-1123",
+        "landing_url": "https://doi.org/10.18653/v1/p17-1123",
+        "pdf_url": "https://www.aclweb.org/anthology/P17-1123.pdf",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W2962717047",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://doi.org/10.18653/v1/p17-1123",
+            "pdf_url": "https://www.aclweb.org/anthology/P17-1123.pdf"
+          }
+        ]
+      },
+      "score": 30,
+      "matched_terms": [
+        "question",
+        "reading",
+        "comprehension"
+      ],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 24,
+      "semantic_reason": "Focuses on automatic question generation for reading comprehension passages rather than answering them.",
+      "semantic_evidence": "study automatic question generation for sentences from text passages"
+    },
+    {
+      "paper": {
+        "id": "https://openalex.org/W3166840087",
+        "title": "The question answer method and reading comprehension",
+        "abstract": "El metodo de preguntas y respuestas es uno de los metodos mas antiguos usados en la educacion. Este metodo tambien se lo conoce como el metodo Socratico. Este estudio trato de identificar la influencia del metodo de preguntas y respuestas en la comprension lectora de textos en ingles por los estudiantes. Esta investigacion fue preexperimental, tuvo una poblacion de 25 estudiantes de cuarto semestre \u201cB\u201d de la carrera de Pedagogia de los Idiomas Nacionales y Extranjeros de la Universidad Tecnica de Ambato. El tratamiento se lo realizo con toda la poblacion de los estudiantes. Cada uno de los estudiantes leyeron las diferentes lecturas presentadas y participaron activamente en cada una de las sesiones preparadas. La mayoria de las preguntas realizadas se planificaron con anterioridad, con la intencion de promover el pensamiento critico y la comprension de lecturas, algunas preguntas fueron anadidas de acuerdo a las sesiones y contexto. Las herramientas usadas fueron un pre-test y un post-test sobre la compresion lectora, fueron adaptados de un Preliminary English Exam (PET) y las diferentes lecturas usadas por el investigador. En la parte estadistica se desarrollo un de T-student, para observar y verificar la influencia que pudo tener dicho metodo ante la habilidad lectora de los estudiantes. Los resultados dieron que a traves de este metodo se obtuvo una positiva influencia en la comprension lectora de los estudiantes, en la lectura del idioma ingles",
+        "authors": [
+          "Herrera Muyolema",
+          "Dennis Joel"
+        ],
+        "year": 2021,
+        "doi": "",
+        "landing_url": "https://repositorio.uta.edu.ec/handle/123456789/32533",
+        "pdf_url": "",
+        "source": "openalex",
+        "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+        "arxiv_id": "",
+        "provenance": [
+          {
+            "source": "openalex",
+            "record_url": "https://openalex.org/W3166840087",
+            "retrieved_at": "2026-10-25T06:19:19.396539+00:00",
+            "landing_url": "https://repositorio.uta.edu.ec/handle/123456789/32533",
+            "pdf_url": ""
+          }
+        ]
+      },
+      "score": 0,
+      "matched_terms": [],
+      "query_terms": [
+        "question",
+        "answering",
+        "reading",
+        "comprehension",
+        "datasets"
+      ],
+      "semantic_rank": 25,
+      "semantic_reason": "Not primarily about NLP datasets; this study investigates the Socratic questioning method on students' English reading comprehension.",
+      "semantic_evidence": "trato de identificar la influencia del metodo de preguntas y respuestas en la comprension lectora"
+    }
+  ],
+  "detail": "Batch 2: up to 30 unique papers from OpenAlex and arXiv. Rankings apply only to this batch; relevance is not paper quality, verification or a calibrated probability.",
+  "query_url": "https://api.openalex.org/works?search.title_and_abstract=%22question%22+OR+%22answering%22+OR+%22reading%22+OR+%22comprehension%22+OR+%22datasets%22&per-page=15&page=2&select=id%2Ctitle%2Cdoi%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cbest_oa_location",
+  "retrieved_count": 29,
+  "missing_abstracts": 2,
+  "warnings": [],
+  "retry_after": null,
+  "ranking": {
+    "status": "ranked",
+    "detail": "Gemini ranked supplied abstract excerpts. Quotes were checked locally; relevance is an AI judgment, not a verification or probability.",
+    "model": "gemini-3.5-flash-lite",
+    "retrieved_at": "2026-10-25T06:19:19.711822+00:00",
+    "retry_after": null
+  },
+  "providers": [
+    {
+      "source": "openalex",
+      "status": "found",
+      "detail": "",
+      "query_url": "https://api.openalex.org/works?search.title_and_abstract=%22question%22+OR+%22answering%22+OR+%22reading%22+OR+%22comprehension%22+OR+%22datasets%22&per-page=15&page=2&select=id%2Ctitle%2Cdoi%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cbest_oa_location",
+      "count": 15,
+      "retry_after": null,
+      "has_more": true
+    },
+    {
+      "source": "arxiv",
+      "status": "found",
+      "detail": "",
+      "query_url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22question%22+OR+abs%3A%22question%22%29+OR+%28ti%3A%22answering%22+OR+abs%3A%22answering%22%29+OR+%28ti%3A%22reading%22+OR+abs%3A%22reading%22%29+OR+%28ti%3A%22comprehension%22+OR+abs%3A%22comprehension%22%29+OR+%28ti%3A%22datasets%22+OR+abs%3A%22datasets%22%29&start=15&max_results=15&sortBy=relevance&sortOrder=descending",
+      "count": 15,
+      "retry_after": null,
+      "has_more": true
+    }
+  ],
+  "batch": 1,
+  "has_more": true,
+  "seen_identifiers": [
+    "arxiv:1611.09268",
+    "arxiv:1706.04815",
+    "arxiv:1707.03904",
+    "arxiv:1712.03556",
+    "arxiv:1802.10279",
+    "arxiv:1803.03664",
+    "arxiv:1806.00920",
+    "arxiv:1807.03586",
+    "arxiv:1811.11903",
+    "arxiv:1811.11934",
+    "arxiv:1902.00164",
+    "arxiv:1906.05394",
+    "arxiv:1906.06045",
+    "arxiv:1909.07005",
+    "arxiv:2002.06071",
+    "arxiv:2004.03490",
+    "arxiv:2005.00242",
+    "arxiv:2009.14780",
+    "arxiv:2011.07127",
+    "arxiv:2101.10421",
+    "arxiv:2103.06500",
+    "arxiv:2107.12708",
+    "arxiv:2109.08365",
+    "arxiv:2109.12264",
+    "arxiv:2111.01543",
+    "arxiv:2201.01706",
+    "arxiv:2202.01764",
+    "arxiv:2202.06219",
+    "arxiv:2211.03277",
+    "arxiv:2302.13241",
+    "arxiv:2305.01957",
+    "arxiv:2310.18373",
+    "arxiv:2403.17848",
+    "doi:10.1007/978-3-319-93040-4_27",
+    "doi:10.1007/978-3-642-38989-4_36",
+    "doi:10.1016/j.csl.2023.101486",
+    "doi:10.1016/j.dib.2023.108933",
+    "doi:10.1016/j.learninstruc.2007.12.003",
+    "doi:10.1016/j.procs.2021.05.024",
+    "doi:10.1109/cvpr.2019.00648",
+    "doi:10.1109/ubmk52708.2021.9559013",
+    "doi:10.1145/3560260",
+    "doi:10.1609/aaai.v32i1.11970",
+    "doi:10.18653/v1/2020.emnlp-main.190",
+    "doi:10.18653/v1/2020.emnlp-main.86",
+    "doi:10.18653/v1/2020.emnlp-main.88",
+    "doi:10.18653/v1/d19-1606",
+    "doi:10.18653/v1/p17-1018",
+    "doi:10.18653/v1/p17-1123",
+    "doi:10.18653/v1/p17-1171",
+    "doi:10.18653/v1/p18-1157",
+    "doi:10.18653/v1/p18-1158",
+    "doi:10.18653/v1/p19-2014",
+    "doi:10.21227/sk55-nh15",
+    "doi:10.2139/ssrn.4826640",
+    "doi:10.3115/1117595.1117598",
+    "doi:10.3115/1117794.1117810",
+    "doi:10.3115/1631836.1631849",
+    "doi:10.48550/arxiv.1707.03904",
+    "doi:10.48550/arxiv.1811.11903",
+    "doi:10.48550/arxiv.2109.12264",
+    "doi:10.48550/arxiv.2202.01764",
+    "doi:10.57702/e961ct6e",
+    "doi:10.64152/10125/66599",
+    "https://arxiv.org/abs/1611.09268v3",
+    "https://arxiv.org/abs/1706.04815v6",
+    "https://arxiv.org/abs/1712.03556v2",
+    "https://arxiv.org/abs/1802.10279v1",
+    "https://arxiv.org/abs/1806.00920v3",
+    "https://arxiv.org/abs/1807.03586v5",
+    "https://arxiv.org/abs/1811.11903v1",
+    "https://arxiv.org/abs/1811.11934v1",
+    "https://arxiv.org/abs/1902.00164v1",
+    "https://arxiv.org/abs/1906.05394v1",
+    "https://arxiv.org/abs/1906.06045v1",
+    "https://arxiv.org/abs/1909.07005v2",
+    "https://arxiv.org/abs/2002.06071v2",
+    "https://arxiv.org/abs/2004.03490v2",
+    "https://arxiv.org/abs/2005.00242v2",
+    "https://arxiv.org/abs/2009.14780v2",
+    "https://arxiv.org/abs/2011.07127v1",
+    "https://arxiv.org/abs/2101.10421v2",
+    "https://arxiv.org/abs/2103.06500v1",
+    "https://arxiv.org/abs/2107.12708v2",
+    "https://arxiv.org/abs/2109.08365v1",
+    "https://arxiv.org/abs/2109.12264v2",
+    "https://arxiv.org/abs/2111.01543v1",
+    "https://arxiv.org/abs/2201.01706v1",
+    "https://arxiv.org/abs/2202.06219v1",
+    "https://arxiv.org/abs/2211.03277v1",
+    "https://arxiv.org/abs/2302.13241v1",
+    "https://arxiv.org/abs/2305.01957v1",
+    "https://arxiv.org/abs/2310.18373v2",
+    "https://arxiv.org/abs/2403.17848v1",
+    "https://openalex.org/W128392744",
+    "https://openalex.org/W141807713",
+    "https://openalex.org/W2033047024",
+    "https://openalex.org/W2057824915",
+    "https://openalex.org/W2060825636",
+    "https://openalex.org/W2134227585",
+    "https://openalex.org/W2734823783",
+    "https://openalex.org/W2740747242",
+    "https://openalex.org/W2788363870",
+    "https://openalex.org/W2798586382",
+    "https://openalex.org/W2903199940",
+    "https://openalex.org/W2962717047",
+    "https://openalex.org/W2962985038",
+    "https://openalex.org/W2963769536",
+    "https://openalex.org/W2964304126",
+    "https://openalex.org/W2966005000",
+    "https://openalex.org/W2966798119",
+    "https://openalex.org/W2968154628",
+    "https://openalex.org/W3099246072",
+    "https://openalex.org/W3099524945",
+    "https://openalex.org/W3165935919",
+    "https://openalex.org/W3166840087",
+    "https://openalex.org/W3184751871",
+    "https://openalex.org/W3202422640",
+    "https://openalex.org/W3206294784",
+    "https://openalex.org/W4221152489",
+    "https://openalex.org/W4319793149",
+    "https://openalex.org/W4396878399",
+    "https://openalex.org/W7118849053",
+    "https://openalex.org/W7125183974"
+  ]
+}

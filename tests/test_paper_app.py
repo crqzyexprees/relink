@@ -1,16 +1,19 @@
 """Two-tab paper workflow tests with explicit mocked remote boundaries."""
 from dataclasses import replace
+import json
 from unittest.mock import patch
 
 from relink.extraction import ExtractedLink, LinkOccurrence
 import httpx
 
 from relink.models import SearchResult
+from relink.gemini_config import GeminiSettings
 from relink.network import PublicHTTPClient
-from relink.paper_models import Paper, PaperDatasetLookup, PaperSearchResult, RankedPaper
+from relink.paper_models import Paper, PaperDatasetLookup, PaperSearchResult, RankedPaper, PaperRankingInfo
 from tests.test_app import AppTestBase, mock_report
 from tests.test_papers import work
 from tests.pdf_fixtures import make_pdf
+from tests.test_paper_ranking import feed, model_response, ranking_rows
 
 
 def paper_result():
@@ -21,6 +24,91 @@ def paper_result():
 
 
 class PaperAppTests(AppTestBase):
+    def test_real_orchestration_ranks_thirty_loads_more_and_looks_up_selected_paper_with_mock_http(self):
+        from relink.papers import lookup_paper_datasets, search_papers
+        requests = []
+        def handler(request):
+            requests.append(request)
+            host = request.headers['host']
+            if host == 'api.openalex.org':
+                return httpx.Response(200, json={'results': [work('W' + str(i)) for i in range(15)]})
+            if host == 'export.arxiv.org': return httpx.Response(200, text=feed(15))
+            if host == 'generativelanguage.googleapis.com':
+                content = json.loads(json.loads(request.content)['contents'][0]['parts'][0]['text'])
+                if 'papers' in content: return model_response(ranking_rows(request))
+                return httpx.Response(200, json={'candidates': [{'finishReason': 'STOP',
+                    'content': {'parts': [{'text': '{"datasets": []}'}]}}]})
+            if host == 'api.datacite.org': return httpx.Response(200, json={'data': [], 'meta': {'total': 0}})
+            return httpx.Response(200, content=make_pdf('Dataset https://example.org/data.csv'))
+        with PublicHTTPClient(transport=httpx.MockTransport(handler), resolver=lambda h, p: ['93.184.215.14']) as client, patch(
+            'relink.gemini_config.load_gemini_settings', return_value=GeminiSettings(api_key='mock-only')), patch(
+            'relink.paper_ui.search_papers', side_effect=lambda topic, **kwargs: search_papers(topic, client=client, **kwargs)), patch(
+            'relink.paper_ui.lookup_paper_datasets', side_effect=lambda paper, **kwargs: lookup_paper_datasets(paper, client=client, **kwargs)):
+            self.search()
+            result = self.app.session_state['paper_search_result']
+            self.assertEqual(result.ranking.status, 'ranked')
+            self.assertEqual(len(result.papers), 30)
+            self.assertEqual(len(requests), 3)
+            self.app.button(key='paper_load_more').click().run()
+            self.app.button(key='paper_load_more').click().run()
+            self.app.run()
+            self.assertEqual(len(requests), 3)
+            last = result.papers[-1].paper
+            self.app.selectbox(key='paper_choice').set_value(last.id).run()
+            self.app.button(key='lookup_paper_datasets').click().run()
+            lookup = self.app.session_state['paper_lookup_result']
+            self.assertEqual(lookup.paper_id, last.id)
+            self.assertEqual(lookup.pdf_status, 'extracted')
+            self.assertEqual(lookup.links[0].url, 'https://example.org/data.csv')
+            self.assertEqual(len(self.app.exception), 0)
+
+    def test_load_more_reveals_cached_ten_at_a_time_and_preserves_dataset_handoff(self):
+        first = paper_result().papers[0]
+        rows = tuple(replace(first, paper=replace(first.paper, id=f'https://openalex.org/W{i}', title=f'Paper {i}'),
+            semantic_rank=i, semantic_reason='Discusses forest observations.', semantic_evidence='Forest climate data') for i in range(1, 31))
+        result = replace(paper_result(), papers=rows, retrieved_count=30, ranking=PaperRankingInfo('ranked', 'Actual mocked ranking'))
+        lookup = PaperDatasetLookup(rows[0].paper.id, SearchResult('not_found', 'datacite'))
+        with patch('relink.paper_ui.search_papers', return_value=result) as search, patch(
+            'relink.paper_ui.lookup_paper_datasets', return_value=lookup) as datasets:
+            self.search()
+            self.assertEqual(len(self.app.dataframe[0].value), 10)
+            self.assertEqual(len(self.app.selectbox(key='paper_choice').options), 10)
+            self.app.button(key='lookup_paper_datasets').click().run()
+            self.app.button(key='paper_load_more').click().run()
+            self.assertEqual(len(self.app.dataframe[0].value), 20)
+            self.assertIn('paper_lookup_result', self.app.session_state)
+            self.app.button(key='paper_load_more').click().run()
+            self.assertEqual(len(self.app.dataframe[0].value), 30)
+            self.assertFalse(any(b.key == 'paper_load_more' for b in self.app.button))
+            self.app.selectbox(key='paper_choice').set_value('https://openalex.org/W30').run()
+            self.app.button(key='lookup_paper_datasets').click().run()
+            self.assertEqual(datasets.call_args.args[0].id, 'https://openalex.org/W30')
+            self.assertEqual(search.call_count, 1)
+            self.app.text_area(key='paper_topic').set_value('ocean').run()
+            self.assertNotIn('paper_search_result', self.app.session_state)
+
+    def test_explicit_next_batch_passes_seen_ids_and_discloses_independent_ranking(self):
+        first = replace(paper_result(), has_more=True, seen_identifiers=('https://openalex.org/W1',))
+        second = replace(first, batch=1, has_more=False,
+                         papers=(replace(first.papers[0], paper=replace(first.papers[0].paper, id='https://openalex.org/W2')),))
+        with patch('relink.paper_ui.search_papers', side_effect=(first, second)) as search:
+            self.search()
+            self.app.button(key='paper_search_more').click().run()
+            self.assertEqual(search.call_count, 2)
+            self.assertEqual(search.call_args.kwargs['batch'], 1)
+            self.assertEqual(search.call_args.kwargs['exclude_identifiers'], first.seen_identifiers)
+            self.assertEqual(self.app.session_state['paper_search_result'].batch, 1)
+            self.assertTrue(any('Batch 2' in c.value for c in self.app.caption))
+            self.assertEqual(len(self.app.exception), 0)
+
+    def test_partial_source_results_and_gemini_fallback_remain_visible(self):
+        result = replace(paper_result(), status='partial', ranking=PaperRankingInfo('rate_limited', 'Gemini quota exhausted.', retry_after='60'))
+        with patch('relink.paper_ui.search_papers', return_value=result):
+            self.search()
+        self.assertEqual(len(self.app.dataframe[0].value), 1)
+        self.assertTrue(any('Keyword fallback' in w.value for w in self.app.warning))
+        self.assertTrue(any('Gemini quota exhausted' in t.value for t in self.app.text))
+
     def test_action_errors_persist_without_repeating_failed_requests(self):
         with patch('relink.paper_ui.search_papers', return_value=paper_result()), patch(
             'relink.paper_ui.lookup_paper_datasets', side_effect=RuntimeError('mock failure')) as lookup:
@@ -110,6 +198,8 @@ class PaperAppTests(AppTestBase):
             host = request.headers['host']
             if host == 'api.openalex.org':
                 return httpx.Response(200, json={'results': [work(abstract='forest climate')]})
+            if host == 'export.arxiv.org':
+                return httpx.Response(200, text='<feed xmlns="http://www.w3.org/2005/Atom"/>')
             if host == 'api.datacite.org':
                 return httpx.Response(200, json={'data': [], 'meta': {'total': 0}})
             if host == 'archive.org':
@@ -120,7 +210,7 @@ class PaperAppTests(AppTestBase):
                 return httpx.Response(200, content=make_pdf('Dataset https://example.org/data.csv'))
             return httpx.Response(404)
         with PublicHTTPClient(transport=httpx.MockTransport(handler), resolver=lambda h, p: ['93.184.215.14']) as client, patch(
-            'relink.paper_ui.search_papers', side_effect=lambda topic: search_papers(topic, client=client)), patch(
+            'relink.paper_ui.search_papers', side_effect=lambda topic, **kwargs: search_papers(topic, client=client, **kwargs)), patch(
             'relink.paper_ui.lookup_paper_datasets', side_effect=lambda paper, **kwargs: lookup_paper_datasets(paper, client=client, **kwargs)), patch(
             'relink.paper_ui.run_recovery', side_effect=lambda query, **kwargs: run_recovery(query, client=client, **kwargs)):
             self.search()

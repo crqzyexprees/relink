@@ -13,6 +13,10 @@ Sources reviewed 2026-10-25: [Streamlit deployment](https://docs.streamlit.io/de
 ## Current deployment handoff
 
 Owner supplied hosted address: **https://relink.streamlit.app/**.
+The owner subsequently confirmed in their browser that the app page loads and
+paper search appears to work. This is user-reported acceptance; no exact query or
+response was supplied. Selected-paper dataset, PDF/Gemini, URL and download flows
+still need their own hosted acceptance.
 Cookie-aware public HTTPS probes on 2026-10-25 returned HTTP 200, but served the
 Cloud JavaScript wrapper; even the Python health path returned wrapper HTML.
 This establishes address reachability, not successful Python startup or ReLink
@@ -78,6 +82,12 @@ cloud files are durable across rebuilds or redeploys. Durable multi-instance
 storage is outside this MVP.
 
 ## Current release scope
+
+The subsequent paper upgrade adds OpenAlex/arXiv abstract retrieval, Gemini
+ordering and cached Load more. Main-branch deployment can pick it up after push;
+confirm the new controls in the hosted browser. Keep RELINK_SOURCE_URL pointing
+to corresponding source for the new deployed revision rather than an older pin.
+Latest live/model limits and test output: [PAPERS.md](PAPERS.md), [READINESS.md](READINESS.md).
 
 Code publication and a hosted application are separate actions. No deployment has
 been performed as part of preparing the GitHub commits. Real OIDC browser login,

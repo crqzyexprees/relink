@@ -78,7 +78,12 @@ RELINK_SOURCE_URL before public deployment. Complete the
 ## Topic → paper → datasets walkthrough
 
 1. Open **Find papers**, enter `question answering reading comprehension dataset Stanford`,
-   and click **Find papers**. Explain abstract keyword matches, not quality ratings.
+   and click **Find papers**. Explain that up to 30 retrieved papers are ranked
+   against their actual abstract excerpts by Gemini, with checked supporting
+   quotes. Show the model/source statuses; keyword fallback is explicit if needed.
+   **Load more** reveals the next ten cached results without another API call.
+   After the batch is visible, **Search more** retrieves a separately ranked new
+   batch; ranks apply within each batch, not across all literature.
 2. Choose an actual returned paper and inspect its abstract, matched keywords,
    DOI, and source. Click **Find datasets from this paper** to search related
    metadata, extract links from an advertised public PDF if available, and run

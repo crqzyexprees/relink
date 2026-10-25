@@ -2,7 +2,8 @@
 
 Follow-up: the owner selected AGPL-3.0-only; original-code LICENSE/NOTICE and
 application source/license information are now implemented. The working suite
-now passes 173 tests plus 142 subtests, including private history isolation and core Gemini identification,
+now passes 191 tests plus 159 subtests, including multi-source Gemini abstract ranking,
+cached pagination, private history isolation and core Gemini identification,
 persistent local history, two-tab abstract search and selected
 paper dataset lookup. New evidence: [paper-feature-pytest.log](readiness/paper-feature-pytest.log)
 and [PAPERS.md](PAPERS.md). Live OpenAlex/PDF extraction passed; related DataCite
@@ -11,6 +12,29 @@ below remain historical evidence. Real additional examples and limitations are
 recorded in [evaluation.md](evaluation.md). Public source is now published at
 [crqzyexprees/relink](https://github.com/crqzyexprees/relink), with anonymous source
 access checked. Deployed-version source configuration and release checks remain pending.
+
+## Paper-ranking upgrade — 2026-10-25
+
+Fresh full suite: **191 passed, 159 subtests passed**, no failures/skips;
+[output](readiness/paper-ranking-pytest.log). No new dependency was added.
+
+| Check | Result | Supporting evidence / limit |
+| --- | --- | --- |
+| Up to 30 unique records, provenance and abstract-only ranking | PASS | Mocked `tests/test_paper_ranking.py`; model never supplies paper URLs/metadata. |
+| Both public paper sources | PASS, live | [First batch](readiness/paper-ranking-live.json): OpenAlex/arXiv each returned 15 records. |
+| First-batch Gemini output acceptance | FAIL, live | Latest output was rejected; 24 real keyword matches remained. No replacement AI ranking or retry. |
+| Explicit next-batch Gemini ranking | PASS, live | [Next batch](readiness/paper-ranking-live-next-batch.json): 25 unseen papers, checked quotes, no previous identity repeated. |
+| Cached Load more (10 → 20 → 30) | PASS, mocked UI | Native AppTest confirms no new HTTP/model calls and selected-paper dataset lookup still works. |
+| Errors, quota, timeout, missing key, empty results | PASS, mocked | Explicit fallback/partial statuses; no fabricated candidates. |
+| Dedup aliases and skipped-record pagination | PASS, mocked | Review regressions first failed, then passed; retained source URLs and raw page fullness. |
+| Saved evidence, old snapshots, private identity boundaries | PASS, mocked | Full history/UI/isolation regressions pass; actual OIDC remains separate acceptance. |
+| Hosted-browser upgrade / physical clicks | BLOCKED | Browser execution tool unavailable; AppTest and live modules do not establish hosted acceptance. |
+
+Gemini output remains variable and can fail strict validation. All evidence
+reports are historical observations, never app fallbacks. Topic and bounded
+public abstract excerpts go to Google only on explicit search; no full PDFs are
+downloaded for relevance ranking. Source rights and multi-process rate-limit
+limits are documented in PAPERS.md and THIRD_PARTY_NOTICES.md.
 
 Latest code/UI review: [REVIEW.md](REVIEW.md), [suite output](readiness/review-pytest.log),
 and [live follow-up](readiness/review-live.json). TLS-origin isolation, safe escaped
