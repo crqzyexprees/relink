@@ -1,5 +1,10 @@
 # ReLink demonstration guide
 
+For a timed submission recording, use the newly preflighted
+[three-example video script](VIDEO_SCRIPT.md). Fresh observations and limitations
+are in [video-demo-live.json](readiness/video-demo-live.json); these are actual
+local engine/provider checks, separate from mocked tests and hosted UI acceptance.
+
 Real tested inputs and their observed outcomes are in
 [evaluation.md](evaluation.md). Start with the historical MNIST file URL (observed
 404 plus an Archive candidate), then use an Iris DOI for DataCite. Keep failures

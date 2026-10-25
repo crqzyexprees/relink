@@ -1,0 +1,416 @@
+{
+  "checked_at_utc": "2026-10-25T16:01:45.374839+00:00",
+  "followup_at_utc": "2026-10-25T16:03:18.701602+00:00",
+  "mode": "live_no_mocks",
+  "checks": {
+    "squad_pdf": {
+      "source": "https://arxiv.org/pdf/1606.05250",
+      "http_status": 200,
+      "pages": 10,
+      "title": null,
+      "links": [
+        {
+          "url": "https://stanford-qa.com",
+          "pages": [
+            1,
+            1,
+            2,
+            2
+          ]
+        }
+      ],
+      "link_count": 3
+    },
+    "penguins_pdf": {
+      "source": "https://journal.r-project.org/articles/RJ-2022-020/RJ-2022-020.pdf",
+      "http_status": 200,
+      "pages": 11,
+      "title": null,
+      "links": [
+        {
+          "url": "https://allisonhorst.github.io/palmerpenguins/",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "link_count": 44
+    },
+    "squad_old_link": {
+      "input": "https://stanford-qa.com",
+      "current": {
+        "status": "network_error",
+        "final_url": "https://stanford-qa.com",
+        "http_status": null,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "Network request failed (ConnectError)."
+      },
+      "discovery": {
+        "status": "found",
+        "providers": [
+          {
+            "source": "datacite",
+            "status": "not_found",
+            "detail": "Metadata candidates only; downloadable content was not checked."
+          },
+          {
+            "source": "internet_archive",
+            "status": "found",
+            "detail": "Capture reported by the availability API; contents unverified."
+          }
+        ],
+        "ai_status": "ranked",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "titles": [],
+            "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+            "doi": null,
+            "archived_url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+            "timestamp": "20250407122419",
+            "source": "internet_archive",
+            "status": "likely_match",
+            "score": 50
+          }
+        ]
+      }
+    },
+    "mnist_old_file": {
+      "input": "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+      "current": {
+        "status": "not_found",
+        "final_url": "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+        "http_status": 404,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "HTTP access status only; response body and dataset identity were not checked."
+      },
+      "discovery": {
+        "status": "found",
+        "providers": [
+          {
+            "source": "datacite",
+            "status": "not_found",
+            "detail": "Metadata candidates only; downloadable content was not checked."
+          },
+          {
+            "source": "internet_archive",
+            "status": "found",
+            "detail": "Capture reported by the availability API; contents unverified."
+          }
+        ],
+        "ai_status": "ranked",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "titles": [],
+            "url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+            "doi": null,
+            "archived_url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+            "timestamp": "20260225205805",
+            "source": "internet_archive",
+            "status": "likely_match",
+            "score": 60
+          }
+        ]
+      }
+    },
+    "iris_doi": {
+      "input": "10.24432/C56C76",
+      "discovery": {
+        "status": "found",
+        "providers": [
+          {
+            "source": "datacite",
+            "status": "found",
+            "detail": "Metadata candidates only; downloadable content was not checked."
+          }
+        ],
+        "ai_status": "ranked",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "titles": [
+              "Iris"
+            ],
+            "url": "https://archive.ics.uci.edu/dataset/53",
+            "doi": "10.24432/c56c76",
+            "archived_url": null,
+            "timestamp": null,
+            "source": "datacite",
+            "status": "likely_match",
+            "score": 60
+          }
+        ]
+      }
+    },
+    "paper_search": {
+      "input": "palmerpenguins",
+      "status": "found",
+      "ranking": {
+        "status": "ranked",
+        "detail": "Gemini ranked supplied abstract passages. Evidence text comes directly from the selected source passage; relevance is an AI judgment, not a verification or probability.",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved_at": "2026-10-25T16:01:59.133550+00:00",
+        "retry_after": null
+      },
+      "providers": [
+        {
+          "source": "openalex",
+          "status": "found",
+          "detail": "",
+          "query_url": "https://api.openalex.org/works?search.title_and_abstract=%22palmerpenguins%22&per-page=15&page=1&select=id%2Ctitle%2Cdoi%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cbest_oa_location",
+          "count": 14,
+          "retry_after": null,
+          "has_more": false
+        },
+        {
+          "source": "arxiv",
+          "status": "not_found",
+          "detail": "",
+          "query_url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22palmerpenguins%22+OR+abs%3A%22palmerpenguins%22%29&start=0&max_results=15&sortBy=relevance&sortOrder=descending",
+          "count": 0,
+          "retry_after": null,
+          "has_more": false
+        }
+      ],
+      "papers": [
+        {
+          "rank": 1,
+          "id": "https://openalex.org/W4290725789",
+          "title": "Palmer Archipelago Penguins Data in the palmerpenguins R Package - An Alternative to Anderson's Irises",
+          "doi": "10.32614/rj-2022-020",
+          "pdf_url": "https://journal.r-project.org/articles/RJ-2022-020/RJ-2022-020.pdf"
+        }
+      ],
+      "ranked_paper_count": 13
+    },
+    "paper_datasets": {
+      "paper_id": "https://openalex.org/W4290725789",
+      "title": "Palmer Archipelago Penguins Data in the palmerpenguins R Package - An Alternative to Anderson's Irises",
+      "pdf_status": "extracted",
+      "identification_status": "found",
+      "named_searches": [
+        {
+          "name": "Ad\u00e9lie penguin data",
+          "provider_status": "found",
+          "candidate_count": 5
+        },
+        {
+          "name": "Gentoo penguin data",
+          "provider_status": "found",
+          "candidate_count": 5
+        },
+        {
+          "name": "Chinstrap penguin data",
+          "provider_status": "found",
+          "candidate_count": 5
+        }
+      ],
+      "links": [
+        "https://allisonhorst.github.io/palmerpenguins/"
+      ],
+      "combined": {
+        "status": "found",
+        "providers": [
+          {
+            "source": "datacite",
+            "status": "not_found",
+            "detail": "Metadata candidates only; downloadable content was not checked."
+          },
+          {
+            "source": "datacite",
+            "status": "found",
+            "detail": "Metadata candidates only; downloadable content was not checked."
+          },
+          {
+            "source": "datacite",
+            "status": "found",
+            "detail": "Metadata candidates only; downloadable content was not checked."
+          },
+          {
+            "source": "datacite",
+            "status": "found",
+            "detail": "Metadata candidates only; downloadable content was not checked."
+          }
+        ],
+        "ai_status": "ranked",
+        "candidate_count": 13,
+        "top_candidates": [
+          {
+            "titles": [
+              "Dataset: Exploring the potential of aerial drone imagery to distinguish breeding Ad\u00e9lie (Pygoscelis adeliae), chinstrap (Pygoscelis antarcticus) and gentoo (Pygoscelis papua) penguins in Antarctica"
+            ],
+            "url": "https://zenodo.org/doi/10.5281/zenodo.14503436",
+            "doi": "10.5281/zenodo.14503436",
+            "archived_url": null,
+            "timestamp": null,
+            "source": "datacite",
+            "status": "unverified_candidate",
+            "score": 20
+          },
+          {
+            "titles": [
+              "Tracking data for gentoo penguins (Pygoscelis papua) breeding in two sites on the Western Antarctic Peninsula in season 2022/23"
+            ],
+            "url": "https://zenodo.org/record/8302969",
+            "doi": "10.5281/zenodo.8302969",
+            "archived_url": null,
+            "timestamp": null,
+            "source": "datacite",
+            "status": "unverified_candidate",
+            "score": 25
+          },
+          {
+            "titles": [
+              "Deception Island Chinstrap penguin GPS tracking data 2018-2019 RAW"
+            ],
+            "url": "https://zenodo.org/record/4118206",
+            "doi": "10.5281/zenodo.4118206",
+            "archived_url": null,
+            "timestamp": null,
+            "source": "datacite",
+            "status": "unverified_candidate",
+            "score": 30
+          },
+          {
+            "titles": [
+              "Environmental data for evaluation of Chinstrap Penguin foraging behaviour in Harmony Point, Nelson Island, during two years of contrasting conditions."
+            ],
+            "url": "https://zenodo.org/doi/10.5281/zenodo.7044788",
+            "doi": "10.5281/zenodo.7044788",
+            "archived_url": null,
+            "timestamp": null,
+            "source": "datacite",
+            "status": "unverified_candidate",
+            "score": 30
+          },
+          {
+            "titles": [
+              "Kopaitic Island Chinstrap penguin GPS tracking data 2018-2019"
+            ],
+            "url": "https://zenodo.org/record/3786241",
+            "doi": "10.5281/zenodo.3786241",
+            "archived_url": null,
+            "timestamp": null,
+            "source": "datacite",
+            "status": "unverified_candidate",
+            "score": 30
+          }
+        ]
+      }
+    },
+    "paper_author_dataset_link": {
+      "input": "https://allisonhorst.github.io/palmerpenguins/",
+      "current": {
+        "status": "working",
+        "final_url": "https://allisonhorst.github.io/palmerpenguins/",
+        "http_status": 200,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "HTTP access status only; response body and dataset identity were not checked."
+      },
+      "discovery_status": "found",
+      "providers": [
+        {
+          "source": "datacite",
+          "status": "not_found"
+        },
+        {
+          "source": "internet_archive",
+          "status": "found"
+        }
+      ],
+      "candidates": [
+        {
+          "url": "http://web.archive.org/web/20261010124658/https://allisonhorst.github.io/palmerpenguins/",
+          "archived_url": "http://web.archive.org/web/20261010124658/https://allisonhorst.github.io/palmerpenguins/",
+          "status": "likely_match"
+        }
+      ]
+    },
+    "uploaded_squad_combined": {
+      "selected_link": "https://stanford-qa.com",
+      "current": {
+        "status": "network_error",
+        "final_url": "https://stanford-qa.com",
+        "http_status": null,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "Network request failed (ConnectError)."
+      },
+      "pdf_status": "extracted",
+      "identification_status": "partial",
+      "named_searches": [
+        {
+          "name": "SQuAD",
+          "status": "found"
+        },
+        {
+          "name": "ImageNet",
+          "status": "found"
+        },
+        {
+          "name": "Penn Treebank",
+          "status": "found"
+        }
+      ],
+      "combined_status": "found",
+      "candidate_count": 16,
+      "archive_retained": true,
+      "top_candidates": [
+        {
+          "title": [],
+          "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+          "doi": null,
+          "archived_url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+          "status": "likely_match"
+        },
+        {
+          "title": [
+            "SQuaD: The Software Quality Dataset - Dataset"
+          ],
+          "url": "https://zenodo.org/doi/10.5281/zenodo.17566690",
+          "doi": "10.5281/zenodo.17566690",
+          "archived_url": null,
+          "status": "unverified_candidate"
+        },
+        {
+          "title": [
+            "ImageNet LSVRC 2012 Downsampled 64x64"
+          ],
+          "url": "https://zenodo.org/doi/10.5281/zenodo.15737760",
+          "doi": "10.5281/zenodo.15737760",
+          "archived_url": null,
+          "status": "unverified_candidate"
+        },
+        {
+          "title": [
+            "PASS: An ImageNet replacement for self-supervised pretraining without humans"
+          ],
+          "url": "https://zenodo.org/record/6615455",
+          "doi": "10.5281/zenodo.6615455",
+          "archived_url": null,
+          "status": "unverified_candidate"
+        },
+        {
+          "title": [
+            "ImageNet SUA"
+          ],
+          "url": "https://figshare.com/articles/dataset/ImageNet_SUA/29815100",
+          "doi": "10.6084/m9.figshare.29815100",
+          "archived_url": null,
+          "status": "unverified_candidate"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Actual local engine/provider checks, not a fresh hosted browser acceptance test.",
+    "Archive availability metadata does not verify replay access or preserved dataset bytes.",
+    "Penguin repository results include loosely related records; the paper-extracted author website supplies the demonstrated dataset route.",
+    "Identification may include datasets cited as background, not only data used or created by the paper.",
+    "No full dataset downloads or independent hash verification were performed."
+  ]
+}

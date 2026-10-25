@@ -2,6 +2,37 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest demonstration milestone — three real video examples
+
+- Owner requested a complete video script with three examples, including a paper
+  with an inaccessible dataset URL and discovery of a paper with accessible data.
+  Prepared docs/VIDEO_SCRIPT.md with timed narration, exact inputs, screen actions,
+  primary sources, honest outcome wording and a backup broken-file input.
+- Real local preflight downloaded the actual SQuAD (10 pages) and palmerpenguins
+  R Journal (11 pages) PDFs. SQuAD's extracted stanford-qa.com URL produced a
+  connection failure, not 404, and Archive reported capture 20250407122419.
+  The combined uploaded-PDF engine flow retained this archive lead. Identification
+  was partial and included background-mentioned datasets; none is asserted to
+  be the original dataset solely because its name appeared in the paper.
+- Live `palmerpenguins` paper search ranked 13 papers with Gemini and placed the
+  intended R Journal article first in this run. Selected-paper lookup parsed its
+  PDF and found dataset mentions. Repository candidates included loosely related
+  penguin records, so the demonstrated successful path follows the author website
+  actually extracted from the paper. That original address returned HTTP 200;
+  the author's public site provides data documentation/download instructions.
+- Third example: exact Iris DOI 10.24432/C56C76 returned the real UCI DataCite
+  record and a ranked AI assessment, retaining likely_match. Backup historical
+  MNIST file returned 404 plus Archive capture 20260225205805. No full dataset
+  payloads, replay availability or independent hashes were verified.
+- Evidence: docs/readiness/video-demo-live.json. Gemini credentials remained
+  private; all observations used actual service responses. Original PDFs are
+  available in ignored .relink/demo-inputs/ and are not committed. No app/engine
+  behavior changed, no fake results inserted, and no full automated rerun was
+  needed for documentation-only changes. JSON consistency/whitespace checks pass.
+- A fresh hosted UI rehearsal and final recording remain owner actions. The
+  script omits unverified Auth0 claims and targets under five minutes. It is a
+  complete recording script, not an already-generated video. Prepared for GitHub publication.
+
 ## Current Auth0 troubleshooting — safe configuration diagnostics
 
 - Owner reports sign-in still fails after configuration. Earlier screenshot
