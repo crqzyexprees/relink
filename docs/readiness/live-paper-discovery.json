@@ -1,0 +1,502 @@
+{
+  "mode": "live_no_mocks",
+  "checked_at_utc": "2026-10-25T03:10:13.878297+00:00",
+  "topic": "question answering reading comprehension dataset Stanford",
+  "search": {
+    "status": "found",
+    "papers": [
+      {
+        "paper": {
+          "id": "https://openalex.org/W2963769536",
+          "title": "Stochastic Answer Networks for Machine Reading Comprehension",
+          "abstract": "We propose a simple yet robust stochastic answer network (SAN) that simulates multi-step reasoning in machine reading comprehension.Compared to previous work such as ReasoNet which used reinforcement learning to determine the number of steps, the unique feature is the use of a kind of stochastic prediction dropout on the answer module (final layer) of the neural network during the training.We show that this simple trick improves robustness and achieves results competitive to the state-of-the-art on the Stanford Question Answering Dataset (SQuAD), the Adversarial SQuAD, and the Microsoft MAchine Reading COmprehension Dataset (MS MARCO).",
+          "authors": [
+            "Xiaodong Liu",
+            "Yelong Shen",
+            "Kevin Duh",
+            "Jianfeng Gao"
+          ],
+          "year": 2018,
+          "doi": "10.18653/v1/p18-1157",
+          "landing_url": "https://doi.org/10.18653/v1/p18-1157",
+          "pdf_url": "https://www.aclweb.org/anthology/P18-1157.pdf",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 60,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2740747242",
+          "title": "Gated Self-Matching Networks for Reading Comprehension and Question Answering",
+          "abstract": "In this paper, we present the gated selfmatching networks for reading comprehension style question answering, which aims to answer questions from a given passage.We first match the question and passage with gated attention-based recurrent networks to obtain the question-aware passage representation.Then we propose a self-matching attention mechanism to refine the representation by matching the passage against itself, which effectively encodes information from the whole passage.We finally employ the pointer networks to locate the positions of answers from the passages.We conduct extensive experiments on the SQuAD dataset.The single model achieves 71.3% on the evaluation metrics of exact match on the hidden test set, while the ensemble model further boosts the results to 75.9%.At the time of submission of the paper, our model holds the first place on the SQuAD leaderboard for both single and ensemble model.",
+          "authors": [
+            "Wenhui Wang",
+            "Nan Yang",
+            "Furu Wei",
+            "Baobao Chang",
+            "Ming Zhou"
+          ],
+          "year": 2017,
+          "doi": "10.18653/v1/p17-1018",
+          "landing_url": "https://doi.org/10.18653/v1/p17-1018",
+          "pdf_url": "https://www.aclweb.org/anthology/P17-1018.pdf",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 50,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W3206294784",
+          "title": "THQuAD: Turkish Historic Question Answering Dataset for Reading Comprehension",
+          "abstract": "Question answering(QA) is a field in natural language processing and information retrieval, it aims to give answers to the questions using natural language. In this paper, we present the Turkish question answering dataset, which is THQuAD and baseline results with contextualized word embeddings. THQuAD consists of two different datasets one of them is TQuad on Turkish Islamic Science history within the scope of Teknofest 2018 \u201cArtificial Intelligence competition\u201d, the second dataset on Ottoman history within the scope of Teknofest 2020 \u201cDo\u011fal Dil \u0130\u015fleme Yar\u0131\u015fmas\u0131 \u201d prepared by us. THQuAD is a reading comprehension dataset, consisting of questions, answers, and passages. Our objective is to give an answer to a specific question by understanding the passage and extracting the answer from this passage. We generate contextualized word embeddings from pre-trained Turkish Bert, Electra, Albert language models after fine-tuning on different hyperparameters with neural networks.",
+          "authors": [
+            "Fatih Soygazi",
+            "Okan \u00c7ift\u00e7i",
+            "Ugurcan Kok",
+            "Soner Cengiz"
+          ],
+          "year": 2021,
+          "doi": "10.1109/ubmk52708.2021.9559013",
+          "landing_url": "https://doi.org/10.1109/ubmk52708.2021.9559013",
+          "pdf_url": "",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 50,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2734823783",
+          "title": "Quasar: Datasets for Question Answering by Search and Reading",
+          "abstract": "We present two new large-scale datasets aimed at evaluating systems designed to comprehend a natural language query and extract its answer from a large corpus of text. The Quasar-S dataset consists of 37000 cloze-style (fill-in-the-gap) queries constructed from definitions of software entity tags on the popular website Stack Overflow. The posts and comments on the website serve as the background corpus for answering the cloze questions. The Quasar-T dataset consists of 43000 open-domain trivia questions and their answers obtained from various internet sources. ClueWeb09 serves as the background corpus for extracting these answers. We pose these datasets as a challenge for two related subtasks of factoid Question Answering: (1) searching for relevant pieces of text that include the correct answer to a query, and (2) reading the retrieved text to answer the query. We also describe a retrieval system for extracting relevant sentences and documents from the corpus given a query, and include these in the release for researchers wishing to only focus on (2). We evaluate several baselines on both datasets, ranging from simple heuristics to powerful neural models, and show that these lag behind human performance by 16.4% and 32.1% for Quasar-S and -T respectively. The datasets are available at https://github.com/bdhingra/quasar .",
+          "authors": [
+            "Bhuwan Dhingra",
+            "Kathryn Mazaitis",
+            "William W. Cohen"
+          ],
+          "year": 2017,
+          "doi": "10.48550/arxiv.1707.03904",
+          "landing_url": "http://arxiv.org/abs/1707.03904",
+          "pdf_url": "https://arxiv.org/pdf/1707.03904",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 40,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "dataset"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2788363870",
+          "title": "Medical Exam Question Answering with Large-scale Reading Comprehension",
+          "abstract": "Reading and understanding text is one important component in computer aided diagnosis in clinical medicine, also being a major research problem in the field of NLP. In this work, we introduce a question-answering task called MedQA to study answering questions in clinical medicine using knowledge in a large-scale document collection. The aim of MedQA is to answer real-world questions with large-scale reading comprehension. We propose our solution SeaReader---a modular end-to-end reading comprehension model based on LSTM networks and dual-path attention architecture. The novel dual-path attention models information flow from two perspectives and has the ability to simultaneously read individual documents and integrate information across multiple documents. In experiments our SeaReader achieved a large increase in accuracy on MedQA over competing models. Additionally, we develop a series of novel techniques to demonstrate the interpretation of the question answering process in SeaReader.",
+          "authors": [
+            "Xiao Zhang",
+            "Ji Yi Wu",
+            "Zhiyang He",
+            "Xien Liu",
+            "Ying Su"
+          ],
+          "year": 2018,
+          "doi": "10.1609/aaai.v32i1.11970",
+          "landing_url": "https://doi.org/10.1609/aaai.v32i1.11970",
+          "pdf_url": "",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 40,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2798586382",
+          "title": "Multi-Granularity Hierarchical Attention Fusion Networks for Reading Comprehension and Question Answering",
+          "abstract": "This paper describes a novel hierarchical attention network for reading comprehension style question answering, which aims to answer questions for a given narrative paragraph.In the proposed method, attention and fusion are conducted horizontally and vertically across layers at different levels of granularity between question and paragraph.Specifically, it first encode the question and paragraph with fine-grained language embeddings, to better capture the respective representations at semantic level.Then it proposes a multi-granularity fusion approach to fully fuse information from both global and attended representations.Finally, it introduces a hierarchical attention network to focuses on the answer span progressively with multi-level softalignment.Extensive experiments on the large-scale SQuAD and TriviaQA datasets validate the effectiveness of the proposed method.At the time of writing the paper (Jan.12th 2018), our model achieves the first position on the SQuAD leaderboard for both single and ensemble models.We also achieves state-of-the-art results on TriviaQA, AddSent and AddOne-Sent datasets.",
+          "authors": [
+            "Wei Wang",
+            "Ming Yan",
+            "Chen Wu"
+          ],
+          "year": 2018,
+          "doi": "10.18653/v1/p18-1158",
+          "landing_url": "https://doi.org/10.18653/v1/p18-1158",
+          "pdf_url": "https://www.aclweb.org/anthology/P18-1158.pdf",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 40,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2886441967",
+          "title": "Systematic Error Analysis of the Stanford Question Answering Dataset",
+          "abstract": "We analyzed the outputs of multiple question answering (QA) models applied to the Stanford Question Answering Dataset (SQuAD) to identify the core challenges for QA systems on this data set.Through an iterative process, challenging aspects were hypothesized through qualitative analysis of the common error cases.A classifier was then constructed to predict whether SQuAD test examples were likely to be difficult for systems to answer based on features associated with the hypothesized aspects.The classifier's performance was used to accept or reject each aspect as an indicator of difficulty.With this approach, we ensured that our hypotheses were systematically tested and not simply accepted based on our pre-existing biases.Our explanations are not accepted based on human evaluation of individual examples.This process also enabled us to identify the primary QA strategy learned by the models, i.e., systems determined the acceptable answer type for a question and then selected the acceptable answer span of that type containing the highest density of words present in the question within its local vicinity in the passage.",
+          "authors": [
+            "Marc-Antoine Rondeau",
+            "Timothy J. Hazen"
+          ],
+          "year": 2018,
+          "doi": "10.18653/v1/w18-2602",
+          "landing_url": "https://doi.org/10.18653/v1/w18-2602",
+          "pdf_url": "https://www.aclweb.org/anthology/W18-2602.pdf",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 40,
+        "matched_terms": [
+          "question",
+          "answering",
+          "dataset",
+          "stanford"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2903199940",
+          "title": "Visual Question Answering as Reading Comprehension",
+          "abstract": "Visual question answering (VQA) demands simultaneous comprehension of both the image visual content and natural language questions. In some cases, the reasoning needs the help of common sense or general knowledge which usually appear in the form of text. Current methods jointly embed both the visual information and the textual feature into the same space. However, how to model the complex interactions between the two different modalities is not an easy task. In contrast to struggling on multimodal feature fusion, in this paper, we propose to unify all the input information by natural language so as to convert VQA into a machine reading comprehension problem. With this transformation, our method not only can tackle VQA datasets that focus on observation based questions, but can also be naturally extended to handle knowledge-based VQA which requires to explore large-scale external knowledge base. It is a step towards being able to exploit large volumes of text and natural language processing techniques to address VQA problem. Two types of models are proposed to deal with open-ended VQA and multiple-choice VQA respectively. We evaluate our models on three VQA benchmarks. The comparable performance with the state-of-the-art demonstrates the effectiveness of the proposed method.",
+          "authors": [
+            "Hui Li",
+            "Peng Wang",
+            "Chunhua Shen",
+            "Anton van den Hengel"
+          ],
+          "year": 2018,
+          "doi": "10.48550/arxiv.1811.11903",
+          "landing_url": "http://arxiv.org/abs/1811.11903",
+          "pdf_url": "https://arxiv.org/pdf/1811.11903",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 40,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2962985038",
+          "title": "Reading Wikipedia to Answer Open-Domain Questions",
+          "abstract": "This paper proposes to tackle opendomain question answering using Wikipedia as the unique knowledge source: the answer to any factoid question is a text span in a Wikipedia article.This task of machine reading at scale combines the challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer spans from those articles).Our approach combines a search component based on bigram hashing and TF-IDF matching with a multi-layer recurrent neural network model trained to detect answers in Wikipedia paragraphs.Our experiments on multiple existing QA datasets indicate that (1) both modules are highly competitive with respect to existing counterparts and (2) multitask learning using distant supervision on their combination is an effective complete system on this challenging task.",
+          "authors": [
+            "Danqi Chen",
+            "Adam Fisch",
+            "Jason Weston",
+            "Antoine Bordes"
+          ],
+          "year": 2017,
+          "doi": "10.18653/v1/p17-1171",
+          "landing_url": "https://doi.org/10.18653/v1/p17-1171",
+          "pdf_url": "https://www.aclweb.org/anthology/P17-1171.pdf",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 40,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      },
+      {
+        "paper": {
+          "id": "https://openalex.org/W2966005000",
+          "title": "Visual Question Answering as Reading Comprehension",
+          "abstract": "Visual question answering (VQA) demands simultaneous comprehension of both the image visual content and natural language questions. In some cases, the reasoning needs the help of common sense or general knowledge which usually appear in the form of text. Current methods jointly embed both the visual information and the textual feature into the same space. Nevertheless, how to model the complex interactions between the two different modalities is not an easy work. In contrast to struggling on multimodal feature fusion, in this paper, we propose to unify all the input information by natural language so as to convert VQA into a machine reading comprehension problem. With this transformation, our method not only can tackle VQA datasets that focus on observation based questions, but can also be naturally extended to handle knowledge-based VQA which requires to explore large-scale external knowledge base. It is a step towards being able to exploit large volumes of text and natural language processing techniques to address VQA problem. Two types of models are proposed to deal with open-ended VQA and multiple-choice VQA respectively. We evaluate our models on three VQA benchmarks. The comparable performance with the state-of-the-art demonstrates the effectiveness of the proposed method.",
+          "authors": [
+            "Hui Li",
+            "Peng Wang",
+            "Chunhua Shen",
+            "Anton van den Hengel"
+          ],
+          "year": 2019,
+          "doi": "10.1109/cvpr.2019.00648",
+          "landing_url": "https://doi.org/10.1109/cvpr.2019.00648",
+          "pdf_url": "",
+          "source": "openalex",
+          "retrieved_at": "2026-10-25T03:10:13.876166+00:00"
+        },
+        "score": 40,
+        "matched_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension"
+        ],
+        "query_terms": [
+          "question",
+          "answering",
+          "reading",
+          "comprehension",
+          "dataset",
+          "stanford"
+        ]
+      }
+    ],
+    "detail": "Abstract keyword matches among up to 25 retrieved records; points are not probabilities or quality ratings.",
+    "query_url": "https://api.openalex.org/works?search.title_and_abstract=%22question%22+OR+%22answering%22+OR+%22reading%22+OR+%22comprehension%22+OR+%22dataset%22+OR+%22stanford%22&per-page=25&select=id%2Ctitle%2Cdoi%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cbest_oa_location",
+    "retrieved_count": 25,
+    "missing_abstracts": 4,
+    "warnings": [],
+    "retry_after": null
+  },
+  "selected_paper": "https://openalex.org/W2963769536",
+  "dataset_lookup": {
+    "paper_id": "https://openalex.org/W2963769536",
+    "datasets": {
+      "status": "not_found",
+      "source": "datacite",
+      "candidates": [],
+      "detail": "Metadata candidates only; downloadable content was not checked.",
+      "http_status": 200,
+      "retry_after": null,
+      "query_url": "https://api.datacite.org/dois?query=%28%28prefix%3A%2210.18653%22+AND+suffix%3A%22v1%5C%2Fp18%5C-1157%22%29+OR+relatedIdentifiers.relatedIdentifier%3A%2210.18653%5C%2Fv1%5C%2Fp18%5C-1157%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fdoi.org%5C%2F10.18653%5C%2Fv1%5C%2Fp18%5C-1157%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=10&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+      "truncated": false,
+      "warnings": []
+    },
+    "links": [
+      {
+        "url": "https://github.com/salesforce/cove",
+        "occurrences": [
+          {
+            "page": 3,
+            "context": "et al., 2017) trained on Hp \u2208R2d\u00d7n as representation of P, where d is German-English machine translation dataset, with the hidden size of the BiLSTM. 1https://github.com/salesforce/cove Memory Generation Layer. In the memory 1696",
+            "method": "text",
+            "joined_lines": false
+          }
+        ]
+      },
+      {
+        "url": "https://spacy.io",
+        "occurrences": [
+          {
+            "page": 5,
+            "context": "ork, and standard 1-step as de- scribed in Figure 2. We only vary the answer module in our 2https://spacy.io experiments for a fair comparison. 1698",
+            "method": "text",
+            "joined_lines": false
+          }
+        ]
+      },
+      {
+        "url": "http://www.aclweb.org/anthology/P16-1223",
+        "occurrences": [
+          {
+            "page": 10,
+            "context": "ional Linguistics, Berlin, Germany, pages 2358\u20132367. Rui Liu, Junjie Hu, Wei Wei, Zi Yang, and Eric Ny- http://www.aclweb.org/anthology/P16-1223. berg. 2017a. Structural embedding of syntactic trees",
+            "method": "text",
+            "joined_lines": false
+          }
+        ]
+      },
+      {
+        "url": "http://www.aclweb.org/anthology/D14-1162.Diederik",
+        "occurrences": [
+          {
+            "page": 10,
+            "context": "031. tional Linguistics, Doha, Qatar, pages 1532\u20131543. http://www.aclweb.org/anthology/D14-1162.Diederik Kingma and Jimmy Ba. 2014. Adam: A method for stochastic optimization. arXiv preprint M. E. Peters, M. Neumann, M. Iyyer, M. Gardner, arXiv:1412.6980 .",
+            "method": "text",
+            "joined_lines": true
+          }
+        ]
+      },
+      {
+        "url": "http://arxiv.org/abs/1506.07285",
+        "occurrences": [
+          {
+            "page": 10,
+            "context": "Percy Liang. 2016. Squad: 100,000+ questions for ural language processing. CoRR abs/1506.07285. machine comprehension of text pages 2383\u20132392. http://arxiv.org/abs/1506.07285. https://aclweb.org/anthology/D16-1264. 1703",
+            "method": "text",
+            "joined_lines": false
+          }
+        ]
+      },
+      {
+        "url": "https://aclweb.org/anthology/D16-1264",
+        "occurrences": [
+          {
+            "page": 10,
+            "context": "ural language processing. CoRR abs/1506.07285. machine comprehension of text pages 2383\u20132392. http://arxiv.org/abs/1506.07285. https://aclweb.org/anthology/D16-1264. 1703",
+            "method": "text",
+            "joined_lines": false
+          }
+        ]
+      }
+    ],
+    "pdf_status": "extracted",
+    "detail": "Parsed 11 PDF page(s); research links may include references rather than datasets. Some line-wrapped URLs were joined heuristically. Check the selected URL before recovering."
+  },
+  "selected_link": "https://github.com/salesforce/cove",
+  "recovery": {
+    "generated_at": "2026-10-25T03:10:17.605458+00:00",
+    "query": {
+      "title": "",
+      "author": "",
+      "institution": "",
+      "year": null,
+      "original_url": "https://github.com/salesforce/cove",
+      "doi": "",
+      "description": "",
+      "filenames": [],
+      "version": ""
+    },
+    "current": {
+      "status": "working",
+      "final_url": "https://github.com/salesforce/cove",
+      "http_status": 200,
+      "redirects": [],
+      "retry_after": null,
+      "detail": "HTTP access status only; response body and dataset identity were not checked."
+    },
+    "discovery": {
+      "status": "error",
+      "candidates": [],
+      "providers": [
+        {
+          "status": "not_found",
+          "source": "datacite",
+          "candidates": [],
+          "detail": "Metadata candidates only; downloadable content was not checked.",
+          "http_status": 200,
+          "retry_after": null,
+          "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Fgithub.com%5C%2Fsalesforce%5C%2Fcove%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Fgithub.com%5C%2Fsalesforce%5C%2Fcove%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fgithub.com%5C%2Fsalesforce%5C%2Fcove%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fgithub.com%5C%2Fsalesforce%5C%2Fcove%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+          "truncated": false,
+          "warnings": []
+        },
+        {
+          "status": "rate_limited",
+          "source": "internet_archive",
+          "candidates": [],
+          "detail": "Archive API rate limited; no automatic retry.",
+          "http_status": 429,
+          "retry_after": null,
+          "query_url": null,
+          "truncated": false,
+          "warnings": []
+        }
+      ],
+      "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+    },
+    "input_context": {
+      "mode": "paper",
+      "paper_id": "https://openalex.org/W2963769536",
+      "paper_doi": "10.18653/v1/p18-1157",
+      "selected_link": "https://github.com/salesforce/cove"
+    },
+    "schema_version": 1
+  }
+}

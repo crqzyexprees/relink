@@ -1,0 +1,144 @@
+{
+  "checked_at_utc": "2026-10-24T21:53:08.880882+00:00",
+  "method": "Streamlit AppTest runtime; no listening HTTP server or browser",
+  "notes": "Real unmocked public URL/provider requests. The PDF is a generated local fixture, not a real academic paper. Network failures do not establish absence of archived/repository datasets.",
+  "observations": [
+    {
+      "mode": "Recover URL",
+      "render_exceptions": 0,
+      "input_is_generated_pdf_fixture": false,
+      "engine_mocked": false,
+      "report": {
+        "generated_at": "2026-10-24T21:53:08.445158+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://www.psu.edu/",
+          "doi": "",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "dns_failure",
+          "final_url": "https://www.psu.edu/",
+          "http_status": null,
+          "redirects": [],
+          "retry_after": null,
+          "detail": "DNS resolution failed."
+        },
+        "discovery": {
+          "status": "error",
+          "candidates": [],
+          "providers": [
+            {
+              "status": "dns_failure",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "DNS resolution failed.",
+              "http_status": null,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "dns_failure",
+              "source": "internet_archive",
+              "candidates": [],
+              "detail": "DNS resolution failed.",
+              "http_status": null,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {
+          "mode": "url"
+        },
+        "schema_version": 1
+      },
+      "export_available": true
+    },
+    {
+      "mode": "Analyze PDF",
+      "render_exceptions": 0,
+      "input_is_generated_pdf_fixture": true,
+      "engine_mocked": false,
+      "report": {
+        "generated_at": "2026-10-24T21:53:08.876177+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://www.psu.edu/",
+          "doi": "",
+          "description": "Paper dataset link: https://www.psu.edu/",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "dns_failure",
+          "final_url": "https://www.psu.edu/",
+          "http_status": null,
+          "redirects": [],
+          "retry_after": null,
+          "detail": "DNS resolution failed."
+        },
+        "discovery": {
+          "status": "error",
+          "candidates": [],
+          "providers": [
+            {
+              "status": "dns_failure",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "DNS resolution failed.",
+              "http_status": null,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.psu.edu%5C%2F%22%29+AND+%28descriptions.description%3A%28Paper%2A+OR+dataset%2A+OR+link%2A+OR+https%2A+OR+www%2A+OR+psu%2A+OR+edu%2A%29+OR+titles.title%3A%28Paper%2A+OR+dataset%2A+OR+link%2A+OR+https%2A+OR+www%2A+OR+psu%2A+OR+edu%2A%29%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "dns_failure",
+              "source": "internet_archive",
+              "candidates": [],
+              "detail": "DNS resolution failed.",
+              "http_status": null,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {
+          "mode": "pdf",
+          "filename": "local-flow-check.pdf",
+          "document_sha256": "ff41d00a540606510edd28f68df3acd78607345e1406fba8f77ab57d66f4924a",
+          "page_count": 1,
+          "selected_link": "https://www.psu.edu/",
+          "occurrences": [
+            {
+              "page": 1,
+              "context": "Paper dataset link: https://www.psu.edu/",
+              "method": "text",
+              "joined_lines": false
+            }
+          ],
+          "extraction_warnings": []
+        },
+        "schema_version": 1
+      },
+      "export_available": true
+    }
+  ]
+}

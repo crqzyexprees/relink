@@ -1,0 +1,1898 @@
+{
+  "mode": "live_no_mocks",
+  "checked_at_utc": "2026-10-25T04:05:58.786599+00:00",
+  "paper_source": "https://arxiv.org/pdf/1606.05250",
+  "paper_sha256": "5169f9424ad6078815b99f5aa83724f42fa6826cedfb8ae303a8091d15c8450c",
+  "page_count": 10,
+  "identification": {
+    "status": "partial",
+    "mentions": [
+      {
+        "name": "BAbI",
+        "version": "",
+        "page": 3,
+        "quote": "BAbI (Weston et al., 2015), a fully synthetic RC dataset, is strati\ufb01ed by different types of reasoning required to solve each task."
+      }
+    ],
+    "detail": "Gemini-suggested mentions checked against the supplied text excerpts; dataset identity, actual study use, and file availability remain unverified. Text was limited to 48,000 characters and 8,000 per page.",
+    "model": "gemini-3.5-flash-lite",
+    "retrieved_at": "2026-10-25T04:05:55.382714+00:00",
+    "warnings": [
+      "Suggestion 1 rejected: identifying quote/name/version/page was not supported.",
+      "Suggestion 2 rejected: identifying quote/name/version/page was not supported.",
+      "Suggestion 3 rejected: identifying quote/name/version/page was not supported.",
+      "Suggestion 4 rejected: identifying quote/name/version/page was not supported.",
+      "Suggestion 5 rejected: identifying quote/name/version/page was not supported.",
+      "Suggestion 6 rejected: identifying quote/name/version/page was not supported.",
+      "Suggestion 8 rejected: identifying quote/name/version/page was not supported."
+    ],
+    "retry_after": null
+  },
+  "named_searches": [
+    {
+      "mention": {
+        "name": "BAbI",
+        "version": "",
+        "page": 3,
+        "quote": "BAbI (Weston et al., 2015), a fully synthetic RC dataset, is strati\ufb01ed by different types of reasoning required to solve each task."
+      },
+      "result": {
+        "status": "found",
+        "source": "datacite",
+        "candidates": [
+          {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23619619",
+            "doi": "10.5281/zenodo.23619619",
+            "titles": [
+              "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+            ],
+            "authors": [
+              "Nummer, Andrea",
+              "Robaina, Lu\u00eds Eduardo de Souza",
+              "Trentin, Romario",
+              "Pinheiro, Rinaldo",
+              "dos Santos Pinto, Juliane",
+              "Bolzan Sangoi, Matheus",
+              "Soares, Marco"
+            ],
+            "institutions": [
+              "Universidade Federal de Santa Maria",
+              "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+            ],
+            "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+            "year": 2026,
+            "filenames": [
+              "zenodo.23619619"
+            ],
+            "descriptions": [
+              "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23619620",
+                "identifier_type": "DOI",
+                "relation_type": "HasVersion"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23619619",
+                "doi": "10.5281/zenodo.23619619",
+                "record_id": "10.5281/zenodo.23619619",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23619619",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23619619",
+                  "titles": [
+                    {
+                      "title": "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria"
+                        }
+                      ],
+                      "givenName": "Andrea",
+                      "familyName": "Nummer",
+                      "name": "Nummer, Andrea",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-9271-442X"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Lu\u00eds Eduardo de Souza",
+                      "familyName": "Robaina",
+                      "name": "Robaina, Lu\u00eds Eduardo de Souza",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-2390-6417"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Romario",
+                      "familyName": "Trentin",
+                      "name": "Trentin, Romario",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0615-2801"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Rinaldo",
+                      "familyName": "Pinheiro",
+                      "name": "Pinheiro, Rinaldo",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0003-1444-9493"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Juliane",
+                      "familyName": "dos Santos Pinto",
+                      "name": "dos Santos Pinto, Juliane",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-8061-4990"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Matheus",
+                      "familyName": "Bolzan Sangoi",
+                      "name": "Bolzan Sangoi, Matheus",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-7328-1075"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Marco",
+                      "familyName": "Soares",
+                      "name": "Soares, Marco",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0468-0344"
+                        }
+                      ]
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+                  "publicationYear": 2026,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "HasVersion",
+                      "relatedIdentifier": "10.5281/zenodo.23619620",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued",
+                      "dateInformation": "Cartografia de Risco Vila Babil\u00f4nia, L\u00eddia, Chamin\u00e9 e Arco-\u00cdris"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rightsIdentifierScheme": "SPDX",
+                      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                      "schemeUri": "https://spdx.org/licenses/",
+                      "rights": "Creative Commons Attribution 4.0 International",
+                      "rightsIdentifier": "cc-by-4.0"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23619620",
+            "doi": "10.5281/zenodo.23619620",
+            "titles": [
+              "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+            ],
+            "authors": [
+              "Nummer, Andrea",
+              "Robaina, Lu\u00eds Eduardo de Souza",
+              "Trentin, Romario",
+              "Pinheiro, Rinaldo",
+              "dos Santos Pinto, Juliane",
+              "Bolzan Sangoi, Matheus",
+              "Soares, Marco"
+            ],
+            "institutions": [
+              "Universidade Federal de Santa Maria",
+              "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+            ],
+            "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+            "year": 2026,
+            "filenames": [
+              "zenodo.23619620"
+            ],
+            "descriptions": [
+              "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23619619",
+                "identifier_type": "DOI",
+                "relation_type": "IsVersionOf"
+              },
+              {
+                "identifier": "oai:zenodo.org:23619620",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              },
+              {
+                "identifier": "oai:zenodo.org:23619620",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23619620",
+                "doi": "10.5281/zenodo.23619620",
+                "record_id": "10.5281/zenodo.23619620",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23619620",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23619620",
+                  "titles": [
+                    {
+                      "title": "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria"
+                        }
+                      ],
+                      "givenName": "Andrea",
+                      "familyName": "Nummer",
+                      "name": "Nummer, Andrea",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-9271-442X"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Lu\u00eds Eduardo de Souza",
+                      "familyName": "Robaina",
+                      "name": "Robaina, Lu\u00eds Eduardo de Souza",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-2390-6417"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Romario",
+                      "familyName": "Trentin",
+                      "name": "Trentin, Romario",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0615-2801"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Rinaldo",
+                      "familyName": "Pinheiro",
+                      "name": "Pinheiro, Rinaldo",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0003-1444-9493"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Juliane",
+                      "familyName": "dos Santos Pinto",
+                      "name": "dos Santos Pinto, Juliane",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-8061-4990"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Matheus",
+                      "familyName": "Bolzan Sangoi",
+                      "name": "Bolzan Sangoi, Matheus",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-7328-1075"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Marco",
+                      "familyName": "Soares",
+                      "name": "Soares, Marco",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0468-0344"
+                        }
+                      ]
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+                  "publicationYear": 2026,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "IsVersionOf",
+                      "relatedIdentifier": "10.5281/zenodo.23619619",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [
+                    {
+                      "identifier": "oai:zenodo.org:23619620",
+                      "identifierType": "oai"
+                    }
+                  ],
+                  "alternateIdentifiers": [
+                    {
+                      "alternateIdentifierType": "oai",
+                      "alternateIdentifier": "oai:zenodo.org:23619620"
+                    }
+                  ],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued",
+                      "dateInformation": "Cartografia de Risco Vila Babil\u00f4nia, L\u00eddia, Chamin\u00e9 e Arco-\u00cdris"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rightsIdentifierScheme": "SPDX",
+                      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                      "schemeUri": "https://spdx.org/licenses/",
+                      "rights": "Creative Commons Attribution 4.0 International",
+                      "rightsIdentifier": "cc-by-4.0"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23570832",
+            "doi": "10.5281/zenodo.23570832",
+            "titles": [
+              "Physical Limnology of Babine Lake, 1973-1974"
+            ],
+            "authors": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+            ],
+            "institutions": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+              "Ocean Science and Productivity"
+            ],
+            "publisher": "Zenodo",
+            "year": 2008,
+            "filenames": [
+              "zenodo.23570832"
+            ],
+            "descriptions": [
+              "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included.",
+              "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None",
+              "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23570833",
+                "identifier_type": "DOI",
+                "relation_type": "HasVersion"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23570832",
+                "doi": "10.5281/zenodo.23570832",
+                "record_id": "10.5281/zenodo.23570832",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23570832",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23570832",
+                  "titles": [
+                    {
+                      "title": "Physical Limnology of Babine Lake, 1973-1974"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Organizational",
+                      "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+                      "nameIdentifiers": [],
+                      "affiliation": []
+                    }
+                  ],
+                  "contributors": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Ocean Science and Productivity"
+                        }
+                      ],
+                      "givenName": "Andrew",
+                      "familyName": "Lee",
+                      "name": "Lee, Andrew",
+                      "nameIdentifiers": [],
+                      "contributorType": "ContactPerson"
+                    }
+                  ],
+                  "publisher": "Zenodo",
+                  "publicationYear": 2008,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included."
+                    },
+                    {
+                      "descriptionType": "Other",
+                      "description": "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None"
+                    },
+                    {
+                      "descriptionType": "TechnicalInfo",
+                      "description": "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "HasVersion",
+                      "relatedIdentifier": "10.5281/zenodo.23570833",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2008-02-06",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "1973/1974",
+                      "dateType": "Collected",
+                      "dateInformation": "Time period of content (ground condition)"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rights": "Use and access constraints (from the FGDC record; no license is granted)"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23570833",
+            "doi": "10.5281/zenodo.23570833",
+            "titles": [
+              "Physical Limnology of Babine Lake, 1973-1974"
+            ],
+            "authors": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+            ],
+            "institutions": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+              "Ocean Science and Productivity"
+            ],
+            "publisher": "Zenodo",
+            "year": 2008,
+            "filenames": [
+              "zenodo.23570833"
+            ],
+            "descriptions": [
+              "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included.",
+              "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None",
+              "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23570832",
+                "identifier_type": "DOI",
+                "relation_type": "IsVersionOf"
+              },
+              {
+                "identifier": "oai:zenodo.org:23570833",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              },
+              {
+                "identifier": "oai:zenodo.org:23570833",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23570833",
+                "doi": "10.5281/zenodo.23570833",
+                "record_id": "10.5281/zenodo.23570833",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23570833",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23570833",
+                  "titles": [
+                    {
+                      "title": "Physical Limnology of Babine Lake, 1973-1974"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Organizational",
+                      "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+                      "nameIdentifiers": [],
+                      "affiliation": []
+                    }
+                  ],
+                  "contributors": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Ocean Science and Productivity"
+                        }
+                      ],
+                      "givenName": "Andrew",
+                      "familyName": "Lee",
+                      "name": "Lee, Andrew",
+                      "nameIdentifiers": [],
+                      "contributorType": "ContactPerson"
+                    }
+                  ],
+                  "publisher": "Zenodo",
+                  "publicationYear": 2008,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included."
+                    },
+                    {
+                      "descriptionType": "Other",
+                      "description": "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None"
+                    },
+                    {
+                      "descriptionType": "TechnicalInfo",
+                      "description": "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "IsVersionOf",
+                      "relatedIdentifier": "10.5281/zenodo.23570832",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [
+                    {
+                      "identifier": "oai:zenodo.org:23570833",
+                      "identifierType": "oai"
+                    }
+                  ],
+                  "alternateIdentifiers": [
+                    {
+                      "alternateIdentifierType": "oai",
+                      "alternateIdentifier": "oai:zenodo.org:23570833"
+                    }
+                  ],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2008-02-06",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "1973/1974",
+                      "dateType": "Collected",
+                      "dateInformation": "Time period of content (ground condition)"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rights": "Use and access constraints (from the FGDC record; no license is granted)"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://databrary.org/volume/1745",
+            "doi": "10.17910/b7.1745",
+            "titles": [
+              "Global BABIES Protocol & Documentation"
+            ],
+            "authors": [
+              "Tamis-LeMonda, C.",
+              "Adolph, K."
+            ],
+            "institutions": [],
+            "publisher": "Databrary",
+            "year": 2024,
+            "filenames": [],
+            "descriptions": [
+              "Global BABIES (Babies\u2019 Activities & Behaviors In Everyday Settings) will revolutionize the ecological validity, cultural diversity, global practice, and transparency of developmental science. We will establish the first global video corpus of behaviors in 1000+ infants and mothers during one hour of natural activity. Each home visit will be accompanied by 3D, manipulable renderings of the spaces, materials, and cultural artifacts of everyday settings, indoors and out. All videos and metadata will be openly shared with researchers from 740+ institutions across the globe.\nThis volume includes exemplar visits from global sites to demonstrate the full protocol of Global BABIES for complete transparency. We also offer shorter excerpts of aspects of the protocol for demonstration and training."
+            ],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://databrary.org/volume/1745",
+                "doi": "10.17910/b7.1745",
+                "record_id": "10.17910/b7.1745",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.17910/b7.1745",
+                  "url": "https://databrary.org/volume/1745",
+                  "titles": [
+                    {
+                      "title": "Global BABIES Protocol & Documentation"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "givenName": "Catherine",
+                      "familyName": "Tamis-LeMonda",
+                      "name": "Tamis-LeMonda, C.",
+                      "affiliation": [],
+                      "nameIdentifiers": []
+                    },
+                    {
+                      "nameType": "Personal",
+                      "givenName": "Karen",
+                      "familyName": "Adolph",
+                      "name": "Adolph, K.",
+                      "affiliation": [],
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "Databrary",
+                  "publicationYear": 2024,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Global BABIES (Babies\u2019 Activities & Behaviors In Everyday Settings) will revolutionize the ecological validity, cultural diversity, global practice, and transparency of developmental science. We will establish the first global video corpus of behaviors in 1000+ infants and mothers during one hour of natural activity. Each home visit will be accompanied by 3D, manipulable renderings of the spaces, materials, and cultural artifacts of everyday settings, indoors and out. All videos and metadata will be openly shared with researchers from 740+ institutions across the globe.\nThis volume includes exemplar visits from global sites to demonstrate the full protocol of Global BABIES for complete transparency. We also offer shorter excerpts of aspects of the protocol for demonstration and training."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [],
+                  "rightsList": []
+                }
+              }
+            ]
+          }
+        ],
+        "detail": "Metadata candidates only; downloadable content was not checked.",
+        "http_status": 200,
+        "retry_after": null,
+        "query_url": "https://api.datacite.org/dois?query=titles.title%3A%28BAbI%2A%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=5&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+        "truncated": true,
+        "warnings": []
+      },
+      "ranked": [
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://databrary.org/volume/1745",
+            "doi": "10.17910/b7.1745",
+            "titles": [
+              "Global BABIES Protocol & Documentation"
+            ],
+            "authors": [
+              "Tamis-LeMonda, C.",
+              "Adolph, K."
+            ],
+            "institutions": [],
+            "publisher": "Databrary",
+            "year": 2024,
+            "filenames": [],
+            "descriptions": [
+              "Global BABIES (Babies\u2019 Activities & Behaviors In Everyday Settings) will revolutionize the ecological validity, cultural diversity, global practice, and transparency of developmental science. We will establish the first global video corpus of behaviors in 1000+ infants and mothers during one hour of natural activity. Each home visit will be accompanied by 3D, manipulable renderings of the spaces, materials, and cultural artifacts of everyday settings, indoors and out. All videos and metadata will be openly shared with researchers from 740+ institutions across the globe.\nThis volume includes exemplar visits from global sites to demonstrate the full protocol of Global BABIES for complete transparency. We also offer shorter excerpts of aspects of the protocol for demonstration and training."
+            ],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://databrary.org/volume/1745",
+                "doi": "10.17910/b7.1745",
+                "record_id": "10.17910/b7.1745",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.17910/b7.1745",
+                  "url": "https://databrary.org/volume/1745",
+                  "titles": [
+                    {
+                      "title": "Global BABIES Protocol & Documentation"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "givenName": "Catherine",
+                      "familyName": "Tamis-LeMonda",
+                      "name": "Tamis-LeMonda, C.",
+                      "affiliation": [],
+                      "nameIdentifiers": []
+                    },
+                    {
+                      "nameType": "Personal",
+                      "givenName": "Karen",
+                      "familyName": "Adolph",
+                      "name": "Adolph, K.",
+                      "affiliation": [],
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "Databrary",
+                  "publicationYear": 2024,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Global BABIES (Babies\u2019 Activities & Behaviors In Everyday Settings) will revolutionize the ecological validity, cultural diversity, global practice, and transparency of developmental science. We will establish the first global video corpus of behaviors in 1000+ infants and mothers during one hour of natural activity. Each home visit will be accompanied by 3D, manipulable renderings of the spaces, materials, and cultural artifacts of everyday settings, indoors and out. All videos and metadata will be openly shared with researchers from 740+ institutions across the globe.\nThis volume includes exemplar visits from global sites to demonstrate the full protocol of Global BABIES for complete transparency. We also offer shorter excerpts of aspects of the protocol for demonstration and training."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [],
+                  "rightsList": []
+                }
+              }
+            ]
+          },
+          "score": 15,
+          "status": "unverified_candidate",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 15,
+              "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+              "query_values": [
+                "BAbI"
+              ],
+              "candidate_values": [
+                "Global BABIES Protocol & Documentation"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23570832",
+            "doi": "10.5281/zenodo.23570832",
+            "titles": [
+              "Physical Limnology of Babine Lake, 1973-1974"
+            ],
+            "authors": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+            ],
+            "institutions": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+              "Ocean Science and Productivity"
+            ],
+            "publisher": "Zenodo",
+            "year": 2008,
+            "filenames": [
+              "zenodo.23570832"
+            ],
+            "descriptions": [
+              "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included.",
+              "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None",
+              "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23570833",
+                "identifier_type": "DOI",
+                "relation_type": "HasVersion"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23570832",
+                "doi": "10.5281/zenodo.23570832",
+                "record_id": "10.5281/zenodo.23570832",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23570832",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23570832",
+                  "titles": [
+                    {
+                      "title": "Physical Limnology of Babine Lake, 1973-1974"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Organizational",
+                      "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+                      "nameIdentifiers": [],
+                      "affiliation": []
+                    }
+                  ],
+                  "contributors": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Ocean Science and Productivity"
+                        }
+                      ],
+                      "givenName": "Andrew",
+                      "familyName": "Lee",
+                      "name": "Lee, Andrew",
+                      "nameIdentifiers": [],
+                      "contributorType": "ContactPerson"
+                    }
+                  ],
+                  "publisher": "Zenodo",
+                  "publicationYear": 2008,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included."
+                    },
+                    {
+                      "descriptionType": "Other",
+                      "description": "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None"
+                    },
+                    {
+                      "descriptionType": "TechnicalInfo",
+                      "description": "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "HasVersion",
+                      "relatedIdentifier": "10.5281/zenodo.23570833",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2008-02-06",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "1973/1974",
+                      "dateType": "Collected",
+                      "dateInformation": "Time period of content (ground condition)"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rights": "Use and access constraints (from the FGDC record; no license is granted)"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "score": 15,
+          "status": "unverified_candidate",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 15,
+              "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+              "query_values": [
+                "BAbI"
+              ],
+              "candidate_values": [
+                "Physical Limnology of Babine Lake, 1973-1974"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23570833",
+            "doi": "10.5281/zenodo.23570833",
+            "titles": [
+              "Physical Limnology of Babine Lake, 1973-1974"
+            ],
+            "authors": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+            ],
+            "institutions": [
+              "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+              "Ocean Science and Productivity"
+            ],
+            "publisher": "Zenodo",
+            "year": 2008,
+            "filenames": [
+              "zenodo.23570833"
+            ],
+            "descriptions": [
+              "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included.",
+              "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None",
+              "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23570832",
+                "identifier_type": "DOI",
+                "relation_type": "IsVersionOf"
+              },
+              {
+                "identifier": "oai:zenodo.org:23570833",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              },
+              {
+                "identifier": "oai:zenodo.org:23570833",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23570833",
+                "doi": "10.5281/zenodo.23570833",
+                "record_id": "10.5281/zenodo.23570833",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23570833",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23570833",
+                  "titles": [
+                    {
+                      "title": "Physical Limnology of Babine Lake, 1973-1974"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Organizational",
+                      "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+                      "nameIdentifiers": [],
+                      "affiliation": []
+                    }
+                  ],
+                  "contributors": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Ocean Science and Productivity"
+                        }
+                      ],
+                      "givenName": "Andrew",
+                      "familyName": "Lee",
+                      "name": "Lee, Andrew",
+                      "nameIdentifiers": [],
+                      "contributorType": "ContactPerson"
+                    }
+                  ],
+                  "publisher": "Zenodo",
+                  "publicationYear": 2008,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Current meter, anenometer, and thermistor chain in Babine Lake in 1973-1974.\n\nDeposited content: descriptive metadata only; underlying research data are not included."
+                    },
+                    {
+                      "descriptionType": "Other",
+                      "description": "Purpose: Characterization of Babine Lake limnological characteristics.\nSupplemental information: Risk Justification: Data not captured electronically, but hard copy secure (available in several places). Risk of Loss: Medium Impact Justification: Does not affect a wide variety of users. Impact of Loss: Low Recommended Action: None"
+                    },
+                    {
+                      "descriptionType": "TechnicalInfo",
+                      "description": "Status: Complete; maintenance and update frequency: None planned\nNative data set environment: Expected Growth Rate: Null\nResource description: PAC-OSAP-200-6854\nOrdering: Hardcopy Original Exists: Y Hardcopy Locations: IOS library and other libraries Hardcopy Description: Data report, see Publications, below Hardcopy Volume: 2 volumes; Ask Custodian; Null\nCatalogue record: FGDC metadata FGDC Content Standard for Digital Geospatial Metadata (FGDC-STD-1998-1) dated 2008-02-06, PICES GeoNetwork catalogue identifier FGDC-4159. Publication date taken from the FGDC metadata date; the citation gives no exact date."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "IsVersionOf",
+                      "relatedIdentifier": "10.5281/zenodo.23570832",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [
+                    {
+                      "identifier": "oai:zenodo.org:23570833",
+                      "identifierType": "oai"
+                    }
+                  ],
+                  "alternateIdentifiers": [
+                    {
+                      "alternateIdentifierType": "oai",
+                      "alternateIdentifier": "oai:zenodo.org:23570833"
+                    }
+                  ],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2008-02-06",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "1973/1974",
+                      "dateType": "Collected",
+                      "dateInformation": "Time period of content (ground condition)"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rights": "Use and access constraints (from the FGDC record; no license is granted)"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "score": 15,
+          "status": "unverified_candidate",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 15,
+              "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+              "query_values": [
+                "BAbI"
+              ],
+              "candidate_values": [
+                "Physical Limnology of Babine Lake, 1973-1974"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23619619",
+            "doi": "10.5281/zenodo.23619619",
+            "titles": [
+              "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+            ],
+            "authors": [
+              "Nummer, Andrea",
+              "Robaina, Lu\u00eds Eduardo de Souza",
+              "Trentin, Romario",
+              "Pinheiro, Rinaldo",
+              "dos Santos Pinto, Juliane",
+              "Bolzan Sangoi, Matheus",
+              "Soares, Marco"
+            ],
+            "institutions": [
+              "Universidade Federal de Santa Maria",
+              "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+            ],
+            "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+            "year": 2026,
+            "filenames": [
+              "zenodo.23619619"
+            ],
+            "descriptions": [
+              "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23619620",
+                "identifier_type": "DOI",
+                "relation_type": "HasVersion"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23619619",
+                "doi": "10.5281/zenodo.23619619",
+                "record_id": "10.5281/zenodo.23619619",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23619619",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23619619",
+                  "titles": [
+                    {
+                      "title": "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria"
+                        }
+                      ],
+                      "givenName": "Andrea",
+                      "familyName": "Nummer",
+                      "name": "Nummer, Andrea",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-9271-442X"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Lu\u00eds Eduardo de Souza",
+                      "familyName": "Robaina",
+                      "name": "Robaina, Lu\u00eds Eduardo de Souza",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-2390-6417"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Romario",
+                      "familyName": "Trentin",
+                      "name": "Trentin, Romario",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0615-2801"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Rinaldo",
+                      "familyName": "Pinheiro",
+                      "name": "Pinheiro, Rinaldo",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0003-1444-9493"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Juliane",
+                      "familyName": "dos Santos Pinto",
+                      "name": "dos Santos Pinto, Juliane",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-8061-4990"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Matheus",
+                      "familyName": "Bolzan Sangoi",
+                      "name": "Bolzan Sangoi, Matheus",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-7328-1075"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Marco",
+                      "familyName": "Soares",
+                      "name": "Soares, Marco",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0468-0344"
+                        }
+                      ]
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+                  "publicationYear": 2026,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "HasVersion",
+                      "relatedIdentifier": "10.5281/zenodo.23619620",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued",
+                      "dateInformation": "Cartografia de Risco Vila Babil\u00f4nia, L\u00eddia, Chamin\u00e9 e Arco-\u00cdris"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rightsIdentifierScheme": "SPDX",
+                      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                      "schemeUri": "https://spdx.org/licenses/",
+                      "rights": "Creative Commons Attribution 4.0 International",
+                      "rightsIdentifier": "cc-by-4.0"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "score": 15,
+          "status": "unverified_candidate",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 15,
+              "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+              "query_values": [
+                "BAbI"
+              ],
+              "candidate_values": [
+                "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://zenodo.org/doi/10.5281/zenodo.23619620",
+            "doi": "10.5281/zenodo.23619620",
+            "titles": [
+              "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+            ],
+            "authors": [
+              "Nummer, Andrea",
+              "Robaina, Lu\u00eds Eduardo de Souza",
+              "Trentin, Romario",
+              "Pinheiro, Rinaldo",
+              "dos Santos Pinto, Juliane",
+              "Bolzan Sangoi, Matheus",
+              "Soares, Marco"
+            ],
+            "institutions": [
+              "Universidade Federal de Santa Maria",
+              "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+            ],
+            "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+            "year": 2026,
+            "filenames": [
+              "zenodo.23619620"
+            ],
+            "descriptions": [
+              "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.5281/zenodo.23619619",
+                "identifier_type": "DOI",
+                "relation_type": "IsVersionOf"
+              },
+              {
+                "identifier": "oai:zenodo.org:23619620",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              },
+              {
+                "identifier": "oai:zenodo.org:23619620",
+                "identifier_type": "oai",
+                "relation_type": "AlternateIdentifier"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://zenodo.org/doi/10.5281/zenodo.23619620",
+                "doi": "10.5281/zenodo.23619620",
+                "record_id": "10.5281/zenodo.23619620",
+                "retrieved_at": "2026-10-25T04:05:58.784916+00:00",
+                "metadata": {
+                  "doi": "10.5281/zenodo.23619620",
+                  "url": "https://zenodo.org/doi/10.5281/zenodo.23619620",
+                  "titles": [
+                    {
+                      "title": "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria"
+                        }
+                      ],
+                      "givenName": "Andrea",
+                      "familyName": "Nummer",
+                      "name": "Nummer, Andrea",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-9271-442X"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Lu\u00eds Eduardo de Souza",
+                      "familyName": "Robaina",
+                      "name": "Robaina, Lu\u00eds Eduardo de Souza",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-2390-6417"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "name": "Universidade Federal de Santa Maria Centro de Ci\u00eancias Naturais e Exatas"
+                        }
+                      ],
+                      "givenName": "Romario",
+                      "familyName": "Trentin",
+                      "name": "Trentin, Romario",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0615-2801"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Rinaldo",
+                      "familyName": "Pinheiro",
+                      "name": "Pinheiro, Rinaldo",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0003-1444-9493"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Juliane",
+                      "familyName": "dos Santos Pinto",
+                      "name": "dos Santos Pinto, Juliane",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-8061-4990"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Matheus",
+                      "familyName": "Bolzan Sangoi",
+                      "name": "Bolzan Sangoi, Matheus",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0001-7328-1075"
+                        }
+                      ]
+                    },
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [
+                        {
+                          "affiliationIdentifier": "https://ror.org/01b78mz79",
+                          "name": "Universidade Federal de Santa Maria",
+                          "affiliationIdentifierScheme": "ROR"
+                        }
+                      ],
+                      "givenName": "Marco",
+                      "familyName": "Soares",
+                      "name": "Soares, Marco",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "nameIdentifier": "0000-0002-0468-0344"
+                        }
+                      ]
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "Minist\u00e9rio das Cidade - Secretaria Nacional de Periferias",
+                  "publicationYear": 2026,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Este documento traz as informa\u00e7\u00f5es cartogr\u00e1ficas relacionada aos dados SIG sobre a Vila Babil\u00f4nia no Bairro Passo D`Areia e nas Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris localizadas no Bairro Noal."
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": ""
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "IsVersionOf",
+                      "relatedIdentifier": "10.5281/zenodo.23619619",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [
+                    {
+                      "identifier": "oai:zenodo.org:23619620",
+                      "identifierType": "oai"
+                    }
+                  ],
+                  "alternateIdentifiers": [
+                    {
+                      "alternateIdentifierType": "oai",
+                      "alternateIdentifier": "oai:zenodo.org:23619620"
+                    }
+                  ],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "dateType": "Issued",
+                      "dateInformation": "Cartografia de Risco Vila Babil\u00f4nia, L\u00eddia, Chamin\u00e9 e Arco-\u00cdris"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rightsIdentifierScheme": "SPDX",
+                      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                      "schemeUri": "https://spdx.org/licenses/",
+                      "rights": "Creative Commons Attribution 4.0 International",
+                      "rightsIdentifier": "cc-by-4.0"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "score": 15,
+          "status": "unverified_candidate",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 15,
+              "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+              "query_values": [
+                "BAbI"
+              ],
+              "candidate_values": [
+                "CARTOGRAFIA DE RISCO - Vila Babil\u00f4nia - Bairro Passo D`Areia, Vilas L\u00eddia, Chamin\u00e9 e Arco-\u00cdris \u2013 Bairro Noal"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

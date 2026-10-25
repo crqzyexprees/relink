@@ -1,0 +1,4 @@
+3.12.15 (main, Oct  1 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]
+{'streamlit': False, 'httpx': False, 'pymupdf': False, 'pytest': False}
+ERROR: Could not find a version that satisfies the requirement streamlit<2,>=1.66 (from versions: none)
+ERROR: No matching distribution found for streamlit<2,>=1.66

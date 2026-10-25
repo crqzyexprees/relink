@@ -1,0 +1,2321 @@
+{
+  "checked_at_utc": "2026-10-25T00:16:35.078573+00:00",
+  "mode": "live_no_mocks",
+  "dataset_bytes_verified": false,
+  "cases": [
+    {
+      "name": "SQuAD historical paper link",
+      "input": "https://stanford-qa.com",
+      "report": {
+        "generated_at": "2026-10-25T00:16:37.210091+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://stanford-qa.com",
+          "doi": "",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "network_error",
+          "final_url": "https://stanford-qa.com",
+          "http_status": null,
+          "redirects": [],
+          "retry_after": null,
+          "detail": "Network request failed (ConnectError)."
+        },
+        "discovery": {
+          "status": "found",
+          "candidates": [
+            {
+              "candidate": {
+                "original_url": "https://stanford-qa.com",
+                "archived_url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                "capture_timestamp": "20250407122419",
+                "source": "internet_archive",
+                "retrieved_at": "2026-10-25T00:16:37.209291+00:00",
+                "evidence": [
+                  "Availability API: available=true; capture status=200.",
+                  "Archive replay URL and timestamp agree with the requested URL."
+                ],
+                "verification_status": "archive_metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                "doi": null,
+                "titles": [],
+                "authors": [],
+                "institutions": [],
+                "publisher": null,
+                "year": null,
+                "filenames": [],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "internet_archive",
+                    "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                    "doi": null,
+                    "record_id": null,
+                    "retrieved_at": "2026-10-25T00:16:37.209345+00:00",
+                    "metadata": {
+                      "status": "200",
+                      "available": true,
+                      "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                      "timestamp": "20250407122419"
+                    }
+                  }
+                ]
+              },
+              "score": 50,
+              "status": "likely_match",
+              "explanation": [
+                {
+                  "signal": "url",
+                  "points": 50,
+                  "detail": "Compared returned resource/identity URLs; availability and file bytes remain unchecked.",
+                  "query_values": [
+                    "https://stanford-qa.com"
+                  ],
+                  "candidate_values": [
+                    "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                    "https://stanford-qa.com"
+                  ]
+                }
+              ]
+            }
+          ],
+          "providers": [
+            {
+              "status": "not_found",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "found",
+              "source": "internet_archive",
+              "candidates": [
+                {
+                  "original_url": "https://stanford-qa.com",
+                  "archived_url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                  "capture_timestamp": "20250407122419",
+                  "source": "internet_archive",
+                  "retrieved_at": "2026-10-25T00:16:37.209291+00:00",
+                  "evidence": [
+                    "Availability API: available=true; capture status=200.",
+                    "Archive replay URL and timestamp agree with the requested URL."
+                  ],
+                  "verification_status": "archive_metadata_only",
+                  "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                  "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                  "doi": null,
+                  "titles": [],
+                  "authors": [],
+                  "institutions": [],
+                  "publisher": null,
+                  "year": null,
+                  "filenames": [],
+                  "descriptions": [],
+                  "version": null,
+                  "related_identifiers": [],
+                  "provenance": [
+                    {
+                      "source": "internet_archive",
+                      "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                      "doi": null,
+                      "record_id": null,
+                      "retrieved_at": "2026-10-25T00:16:37.209345+00:00",
+                      "metadata": {
+                        "status": "200",
+                        "available": true,
+                        "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                        "timestamp": "20250407122419"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "detail": "Capture reported by the availability API; contents unverified.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {},
+        "schema_version": 1
+      }
+    },
+    {
+      "name": "MNIST historical training images",
+      "input": "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+      "report": {
+        "generated_at": "2026-10-25T00:16:38.512240+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+          "doi": "",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "not_found",
+          "final_url": "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+          "http_status": 404,
+          "redirects": [],
+          "retry_after": null,
+          "detail": "HTTP access status only; response body and dataset identity were not checked."
+        },
+        "discovery": {
+          "status": "found",
+          "candidates": [
+            {
+              "candidate": {
+                "original_url": "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                "archived_url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                "capture_timestamp": "20260225205805",
+                "source": "internet_archive",
+                "retrieved_at": "2026-10-25T00:16:38.511441+00:00",
+                "evidence": [
+                  "Availability API: available=true; capture status=200.",
+                  "Archive replay URL and timestamp agree with the requested URL."
+                ],
+                "verification_status": "archive_metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                "doi": null,
+                "titles": [],
+                "authors": [],
+                "institutions": [],
+                "publisher": null,
+                "year": null,
+                "filenames": [
+                  "train-images-idx3-ubyte.gz"
+                ],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "internet_archive",
+                    "url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                    "doi": null,
+                    "record_id": null,
+                    "retrieved_at": "2026-10-25T00:16:38.511502+00:00",
+                    "metadata": {
+                      "status": "200",
+                      "available": true,
+                      "url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                      "timestamp": "20260225205805"
+                    }
+                  }
+                ]
+              },
+              "score": 60,
+              "status": "likely_match",
+              "explanation": [
+                {
+                  "signal": "filename",
+                  "points": 10,
+                  "detail": "Exact filename agreement is supporting evidence only.",
+                  "query_values": [
+                    "train-images-idx3-ubyte.gz"
+                  ],
+                  "candidate_values": [
+                    "train-images-idx3-ubyte.gz"
+                  ]
+                },
+                {
+                  "signal": "url",
+                  "points": 50,
+                  "detail": "Compared returned resource/identity URLs; availability and file bytes remain unchecked.",
+                  "query_values": [
+                    "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz"
+                  ],
+                  "candidate_values": [
+                    "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                    "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz"
+                  ]
+                }
+              ]
+            }
+          ],
+          "providers": [
+            {
+              "status": "not_found",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22http%5C%3A%5C%2F%5C%2Fyann.lecun.com%5C%2Fexdb%5C%2Fmnist%5C%2Ftrain%5C-images%5C-idx3%5C-ubyte.gz%22+OR+identifiers.identifier%3A%22http%5C%3A%5C%2F%5C%2Fyann.lecun.com%5C%2Fexdb%5C%2Fmnist%5C%2Ftrain%5C-images%5C-idx3%5C-ubyte.gz%22+OR+alternateIdentifiers.alternateIdentifier%3A%22http%5C%3A%5C%2F%5C%2Fyann.lecun.com%5C%2Fexdb%5C%2Fmnist%5C%2Ftrain%5C-images%5C-idx3%5C-ubyte.gz%22+OR+relatedIdentifiers.relatedIdentifier%3A%22http%5C%3A%5C%2F%5C%2Fyann.lecun.com%5C%2Fexdb%5C%2Fmnist%5C%2Ftrain%5C-images%5C-idx3%5C-ubyte.gz%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "found",
+              "source": "internet_archive",
+              "candidates": [
+                {
+                  "original_url": "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                  "archived_url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                  "capture_timestamp": "20260225205805",
+                  "source": "internet_archive",
+                  "retrieved_at": "2026-10-25T00:16:38.511441+00:00",
+                  "evidence": [
+                    "Availability API: available=true; capture status=200.",
+                    "Archive replay URL and timestamp agree with the requested URL."
+                  ],
+                  "verification_status": "archive_metadata_only",
+                  "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                  "url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                  "doi": null,
+                  "titles": [],
+                  "authors": [],
+                  "institutions": [],
+                  "publisher": null,
+                  "year": null,
+                  "filenames": [
+                    "train-images-idx3-ubyte.gz"
+                  ],
+                  "descriptions": [],
+                  "version": null,
+                  "related_identifiers": [],
+                  "provenance": [
+                    {
+                      "source": "internet_archive",
+                      "url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                      "doi": null,
+                      "record_id": null,
+                      "retrieved_at": "2026-10-25T00:16:38.511502+00:00",
+                      "metadata": {
+                        "status": "200",
+                        "available": true,
+                        "url": "http://web.archive.org/web/20260225205805/http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+                        "timestamp": "20260225205805"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "detail": "Capture reported by the availability API; contents unverified.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {},
+        "schema_version": 1
+      }
+    },
+    {
+      "name": "Iris historical UCI page",
+      "input": "https://archive.ics.uci.edu/ml/datasets/iris",
+      "report": {
+        "generated_at": "2026-10-25T00:16:41.463863+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://archive.ics.uci.edu/ml/datasets/iris",
+          "doi": "",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "working",
+          "final_url": "https://archive.ics.uci.edu/dataset/53/iris",
+          "http_status": 200,
+          "redirects": [
+            "https://archive.ics.uci.edu/dataset/53/iris"
+          ],
+          "retry_after": null,
+          "detail": "HTTP access status only; response body and dataset identity were not checked."
+        },
+        "discovery": {
+          "status": "found",
+          "candidates": [
+            {
+              "candidate": {
+                "original_url": "https://archive.ics.uci.edu/ml/datasets/iris",
+                "archived_url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                "capture_timestamp": "20230527023034",
+                "source": "internet_archive",
+                "retrieved_at": "2026-10-25T00:16:41.463173+00:00",
+                "evidence": [
+                  "Availability API: available=true; capture status=200.",
+                  "Archive replay URL and timestamp agree with the requested URL."
+                ],
+                "verification_status": "archive_metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                "doi": null,
+                "titles": [],
+                "authors": [],
+                "institutions": [],
+                "publisher": null,
+                "year": null,
+                "filenames": [],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "internet_archive",
+                    "url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                    "doi": null,
+                    "record_id": null,
+                    "retrieved_at": "2026-10-25T00:16:41.463227+00:00",
+                    "metadata": {
+                      "status": "200",
+                      "available": true,
+                      "url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                      "timestamp": "20230527023034"
+                    }
+                  }
+                ]
+              },
+              "score": 50,
+              "status": "likely_match",
+              "explanation": [
+                {
+                  "signal": "url",
+                  "points": 50,
+                  "detail": "Compared returned resource/identity URLs; availability and file bytes remain unchecked.",
+                  "query_values": [
+                    "https://archive.ics.uci.edu/ml/datasets/iris"
+                  ],
+                  "candidate_values": [
+                    "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                    "https://archive.ics.uci.edu/ml/datasets/iris"
+                  ]
+                }
+              ]
+            }
+          ],
+          "providers": [
+            {
+              "status": "not_found",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2Firis%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2Firis%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2Firis%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2Firis%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "found",
+              "source": "internet_archive",
+              "candidates": [
+                {
+                  "original_url": "https://archive.ics.uci.edu/ml/datasets/iris",
+                  "archived_url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                  "capture_timestamp": "20230527023034",
+                  "source": "internet_archive",
+                  "retrieved_at": "2026-10-25T00:16:41.463173+00:00",
+                  "evidence": [
+                    "Availability API: available=true; capture status=200.",
+                    "Archive replay URL and timestamp agree with the requested URL."
+                  ],
+                  "verification_status": "archive_metadata_only",
+                  "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                  "url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                  "doi": null,
+                  "titles": [],
+                  "authors": [],
+                  "institutions": [],
+                  "publisher": null,
+                  "year": null,
+                  "filenames": [],
+                  "descriptions": [],
+                  "version": null,
+                  "related_identifiers": [],
+                  "provenance": [
+                    {
+                      "source": "internet_archive",
+                      "url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                      "doi": null,
+                      "record_id": null,
+                      "retrieved_at": "2026-10-25T00:16:41.463227+00:00",
+                      "metadata": {
+                        "status": "200",
+                        "available": true,
+                        "url": "http://web.archive.org/web/20230527023034/https://archive.ics.uci.edu/ml/datasets/iris",
+                        "timestamp": "20230527023034"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "detail": "Capture reported by the availability API; contents unverified.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {},
+        "schema_version": 1
+      }
+    },
+    {
+      "name": "Wisconsin diagnostic historical UCI page",
+      "input": "https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+      "report": {
+        "generated_at": "2026-10-25T00:16:42.629327+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+          "doi": "",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "working",
+          "final_url": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+          "http_status": 200,
+          "redirects": [
+            "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic"
+          ],
+          "retry_after": null,
+          "detail": "HTTP access status only; response body and dataset identity were not checked."
+        },
+        "discovery": {
+          "status": "found",
+          "candidates": [
+            {
+              "candidate": {
+                "original_url": "https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                "archived_url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                "capture_timestamp": "20230606194802",
+                "source": "internet_archive",
+                "retrieved_at": "2026-10-25T00:16:42.628759+00:00",
+                "evidence": [
+                  "Availability API: available=true; capture status=200.",
+                  "Archive replay URL and timestamp agree with the requested URL."
+                ],
+                "verification_status": "archive_metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                "doi": null,
+                "titles": [],
+                "authors": [],
+                "institutions": [],
+                "publisher": null,
+                "year": null,
+                "filenames": [],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "internet_archive",
+                    "url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                    "doi": null,
+                    "record_id": null,
+                    "retrieved_at": "2026-10-25T00:16:42.628805+00:00",
+                    "metadata": {
+                      "status": "200",
+                      "available": true,
+                      "url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                      "timestamp": "20230606194802"
+                    }
+                  }
+                ]
+              },
+              "score": 50,
+              "status": "likely_match",
+              "explanation": [
+                {
+                  "signal": "url",
+                  "points": 50,
+                  "detail": "Compared returned resource/identity URLs; availability and file bytes remain unchecked.",
+                  "query_values": [
+                    "https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)"
+                  ],
+                  "candidate_values": [
+                    "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                    "https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)"
+                  ]
+                }
+              ]
+            }
+          ],
+          "providers": [
+            {
+              "status": "not_found",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2FBreast%5C%2BCancer%5C%2BWisconsin%5C%2B%5C%28Diagnostic%5C%29%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2FBreast%5C%2BCancer%5C%2BWisconsin%5C%2B%5C%28Diagnostic%5C%29%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2FBreast%5C%2BCancer%5C%2BWisconsin%5C%2B%5C%28Diagnostic%5C%29%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Farchive.ics.uci.edu%5C%2Fml%5C%2Fdatasets%5C%2FBreast%5C%2BCancer%5C%2BWisconsin%5C%2B%5C%28Diagnostic%5C%29%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "found",
+              "source": "internet_archive",
+              "candidates": [
+                {
+                  "original_url": "https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                  "archived_url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                  "capture_timestamp": "20230606194802",
+                  "source": "internet_archive",
+                  "retrieved_at": "2026-10-25T00:16:42.628759+00:00",
+                  "evidence": [
+                    "Availability API: available=true; capture status=200.",
+                    "Archive replay URL and timestamp agree with the requested URL."
+                  ],
+                  "verification_status": "archive_metadata_only",
+                  "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                  "url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                  "doi": null,
+                  "titles": [],
+                  "authors": [],
+                  "institutions": [],
+                  "publisher": null,
+                  "year": null,
+                  "filenames": [],
+                  "descriptions": [],
+                  "version": null,
+                  "related_identifiers": [],
+                  "provenance": [
+                    {
+                      "source": "internet_archive",
+                      "url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                      "doi": null,
+                      "record_id": null,
+                      "retrieved_at": "2026-10-25T00:16:42.628805+00:00",
+                      "metadata": {
+                        "status": "200",
+                        "available": true,
+                        "url": "http://web.archive.org/web/20230606194802/https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)",
+                        "timestamp": "20230606194802"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "detail": "Capture reported by the availability API; contents unverified.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {},
+        "schema_version": 1
+      }
+    },
+    {
+      "name": "CIFAR-10 historical project page",
+      "input": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "report": {
+        "generated_at": "2026-10-25T00:16:44.316792+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+          "doi": "",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "working",
+          "final_url": "https://cave.cs.toronto.edu/kriz/cifar.html",
+          "http_status": 200,
+          "redirects": [
+            "https://cave.cs.toronto.edu/kriz/cifar.html"
+          ],
+          "retry_after": null,
+          "detail": "HTTP access status only; response body and dataset identity were not checked."
+        },
+        "discovery": {
+          "status": "error",
+          "candidates": [],
+          "providers": [
+            {
+              "status": "not_found",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Fwww.cs.toronto.edu%5C%2F%5C~kriz%5C%2Fcifar.html%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.cs.toronto.edu%5C%2F%5C~kriz%5C%2Fcifar.html%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.cs.toronto.edu%5C%2F%5C~kriz%5C%2Fcifar.html%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fwww.cs.toronto.edu%5C%2F%5C~kriz%5C%2Fcifar.html%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "invalid_response",
+              "source": "internet_archive",
+              "candidates": [],
+              "detail": "Archive API response is malformed or inconsistent; no candidate accepted.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {},
+        "schema_version": 1
+      }
+    },
+    {
+      "name": "Iris DOI",
+      "input": "https://doi.org/10.24432/C56C76",
+      "report": {
+        "generated_at": "2026-10-25T00:16:50.619689+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://doi.org/10.24432/C56C76",
+          "doi": "10.24432/c56c76",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "working",
+          "final_url": "https://archive.ics.uci.edu/dataset/53/iris",
+          "http_status": 200,
+          "redirects": [
+            "https://archive.ics.uci.edu/dataset/53",
+            "https://archive.ics.uci.edu/dataset/53/iris"
+          ],
+          "retry_after": null,
+          "detail": "HTTP access status only; response body and dataset identity were not checked."
+        },
+        "discovery": {
+          "status": "found",
+          "candidates": [
+            {
+              "candidate": {
+                "original_url": "https://doi.org/10.24432/C56C76",
+                "archived_url": null,
+                "capture_timestamp": null,
+                "source": "datacite",
+                "retrieved_at": "2026-10-25T00:16:45.499583+00:00",
+                "evidence": [
+                  "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                ],
+                "verification_status": "metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "https://archive.ics.uci.edu/dataset/53",
+                "doi": "10.24432/c56c76",
+                "titles": [
+                  "Iris"
+                ],
+                "authors": [
+                  "R. A. Fisher"
+                ],
+                "institutions": [],
+                "publisher": "UCI Machine Learning Repository",
+                "year": 1936,
+                "filenames": [],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "datacite",
+                    "url": "https://archive.ics.uci.edu/dataset/53",
+                    "doi": "10.24432/c56c76",
+                    "record_id": "10.24432/c56c76",
+                    "retrieved_at": "2026-10-25T00:16:45.499583+00:00",
+                    "metadata": {
+                      "doi": "10.24432/c56c76",
+                      "url": "https://archive.ics.uci.edu/dataset/53",
+                      "titles": [
+                        {
+                          "title": "Iris"
+                        }
+                      ],
+                      "creators": [
+                        {
+                          "affiliation": [],
+                          "name": "R. A. Fisher",
+                          "nameIdentifiers": []
+                        }
+                      ],
+                      "contributors": [],
+                      "publisher": "UCI Machine Learning Repository",
+                      "publicationYear": 1936,
+                      "descriptions": [],
+                      "types": {
+                        "schemaOrg": "Dataset",
+                        "resourceTypeGeneral": "Dataset",
+                        "citeproc": "dataset",
+                        "bibtex": "misc",
+                        "ris": "DATA"
+                      },
+                      "version": null,
+                      "relatedIdentifiers": [],
+                      "identifiers": [],
+                      "alternateIdentifiers": [],
+                      "contentUrl": null,
+                      "dates": [
+                        {
+                          "date": "1936",
+                          "dateType": "Issued"
+                        }
+                      ],
+                      "rightsList": []
+                    }
+                  }
+                ]
+              },
+              "score": 60,
+              "status": "likely_match",
+              "explanation": [
+                {
+                  "signal": "url",
+                  "points": 0,
+                  "detail": "Compared returned resource/identity URLs; availability and file bytes remain unchecked.",
+                  "query_values": [
+                    "https://doi.org/10.24432/C56C76"
+                  ],
+                  "candidate_values": [
+                    "https://archive.ics.uci.edu/dataset/53"
+                  ]
+                },
+                {
+                  "signal": "doi",
+                  "points": 60,
+                  "detail": "DOI agreement identifies metadata, not independently verified content.",
+                  "query_values": [
+                    "10.24432/c56c76"
+                  ],
+                  "candidate_values": [
+                    "10.24432/c56c76"
+                  ]
+                }
+              ]
+            }
+          ],
+          "providers": [
+            {
+              "status": "found",
+              "source": "datacite",
+              "candidates": [
+                {
+                  "original_url": "https://doi.org/10.24432/C56C76",
+                  "archived_url": null,
+                  "capture_timestamp": null,
+                  "source": "datacite",
+                  "retrieved_at": "2026-10-25T00:16:45.499583+00:00",
+                  "evidence": [
+                    "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                  ],
+                  "verification_status": "metadata_only",
+                  "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                  "url": "https://archive.ics.uci.edu/dataset/53",
+                  "doi": "10.24432/c56c76",
+                  "titles": [
+                    "Iris"
+                  ],
+                  "authors": [
+                    "R. A. Fisher"
+                  ],
+                  "institutions": [],
+                  "publisher": "UCI Machine Learning Repository",
+                  "year": 1936,
+                  "filenames": [],
+                  "descriptions": [],
+                  "version": null,
+                  "related_identifiers": [],
+                  "provenance": [
+                    {
+                      "source": "datacite",
+                      "url": "https://archive.ics.uci.edu/dataset/53",
+                      "doi": "10.24432/c56c76",
+                      "record_id": "10.24432/c56c76",
+                      "retrieved_at": "2026-10-25T00:16:45.499583+00:00",
+                      "metadata": {
+                        "doi": "10.24432/c56c76",
+                        "url": "https://archive.ics.uci.edu/dataset/53",
+                        "titles": [
+                          {
+                            "title": "Iris"
+                          }
+                        ],
+                        "creators": [
+                          {
+                            "affiliation": [],
+                            "name": "R. A. Fisher",
+                            "nameIdentifiers": []
+                          }
+                        ],
+                        "contributors": [],
+                        "publisher": "UCI Machine Learning Repository",
+                        "publicationYear": 1936,
+                        "descriptions": [],
+                        "types": {
+                          "schemaOrg": "Dataset",
+                          "resourceTypeGeneral": "Dataset",
+                          "citeproc": "dataset",
+                          "bibtex": "misc",
+                          "ris": "DATA"
+                        },
+                        "version": null,
+                        "relatedIdentifiers": [],
+                        "identifiers": [],
+                        "alternateIdentifiers": [],
+                        "contentUrl": null,
+                        "dates": [
+                          {
+                            "date": "1936",
+                            "dateType": "Issued"
+                          }
+                        ],
+                        "rightsList": []
+                      }
+                    }
+                  ]
+                }
+              ],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28%28prefix%3A%2210.24432%22+AND+suffix%3A%22c56c76%22%29+OR+relatedIdentifiers.relatedIdentifier%3A%2210.24432%5C%2Fc56c76%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fdoi.org%5C%2F10.24432%5C%2Fc56c76%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "not_found",
+              "source": "internet_archive",
+              "candidates": [],
+              "detail": "No archived capture reported by the API.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {},
+        "schema_version": 1
+      }
+    },
+    {
+      "name": "Wisconsin diagnostic DOI",
+      "input": "https://doi.org/10.24432/C5DW2B",
+      "report": {
+        "generated_at": "2026-10-25T00:16:52.446626+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://doi.org/10.24432/C5DW2B",
+          "doi": "10.24432/c5dw2b",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "working",
+          "final_url": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+          "http_status": 200,
+          "redirects": [
+            "https://archive.ics.uci.edu/dataset/17",
+            "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic"
+          ],
+          "retry_after": null,
+          "detail": "HTTP access status only; response body and dataset identity were not checked."
+        },
+        "discovery": {
+          "status": "found",
+          "candidates": [
+            {
+              "candidate": {
+                "original_url": "https://doi.org/10.24432/C5DW2B",
+                "archived_url": null,
+                "capture_timestamp": null,
+                "source": "datacite",
+                "retrieved_at": "2026-10-25T00:16:51.813973+00:00",
+                "evidence": [
+                  "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                ],
+                "verification_status": "metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "https://archive.ics.uci.edu/dataset/17",
+                "doi": "10.24432/c5dw2b",
+                "titles": [
+                  "Breast Cancer Wisconsin (Diagnostic)"
+                ],
+                "authors": [
+                  "William Wolberg, Olvi Mangasarian"
+                ],
+                "institutions": [],
+                "publisher": "UCI Machine Learning Repository",
+                "year": 1993,
+                "filenames": [],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "datacite",
+                    "url": "https://archive.ics.uci.edu/dataset/17",
+                    "doi": "10.24432/c5dw2b",
+                    "record_id": "10.24432/c5dw2b",
+                    "retrieved_at": "2026-10-25T00:16:51.813973+00:00",
+                    "metadata": {
+                      "doi": "10.24432/c5dw2b",
+                      "url": "https://archive.ics.uci.edu/dataset/17",
+                      "titles": [
+                        {
+                          "title": "Breast Cancer Wisconsin (Diagnostic)"
+                        }
+                      ],
+                      "creators": [
+                        {
+                          "nameType": "Personal",
+                          "affiliation": [],
+                          "givenName": "Olvi Mangasarian",
+                          "familyName": "William Wolberg",
+                          "name": "William Wolberg, Olvi Mangasarian",
+                          "nameIdentifiers": []
+                        }
+                      ],
+                      "contributors": [],
+                      "publisher": "UCI Machine Learning Repository",
+                      "publicationYear": 1993,
+                      "descriptions": [],
+                      "types": {
+                        "schemaOrg": "Dataset",
+                        "resourceTypeGeneral": "Dataset",
+                        "citeproc": "dataset",
+                        "bibtex": "misc",
+                        "ris": "DATA"
+                      },
+                      "version": null,
+                      "relatedIdentifiers": [],
+                      "identifiers": [],
+                      "alternateIdentifiers": [],
+                      "contentUrl": null,
+                      "dates": [
+                        {
+                          "date": "1993",
+                          "dateType": "Issued"
+                        }
+                      ],
+                      "rightsList": []
+                    }
+                  }
+                ]
+              },
+              "score": 60,
+              "status": "likely_match",
+              "explanation": [
+                {
+                  "signal": "url",
+                  "points": 0,
+                  "detail": "Compared returned resource/identity URLs; availability and file bytes remain unchecked.",
+                  "query_values": [
+                    "https://doi.org/10.24432/C5DW2B"
+                  ],
+                  "candidate_values": [
+                    "https://archive.ics.uci.edu/dataset/17"
+                  ]
+                },
+                {
+                  "signal": "doi",
+                  "points": 60,
+                  "detail": "DOI agreement identifies metadata, not independently verified content.",
+                  "query_values": [
+                    "10.24432/c5dw2b"
+                  ],
+                  "candidate_values": [
+                    "10.24432/c5dw2b"
+                  ]
+                }
+              ]
+            }
+          ],
+          "providers": [
+            {
+              "status": "found",
+              "source": "datacite",
+              "candidates": [
+                {
+                  "original_url": "https://doi.org/10.24432/C5DW2B",
+                  "archived_url": null,
+                  "capture_timestamp": null,
+                  "source": "datacite",
+                  "retrieved_at": "2026-10-25T00:16:51.813973+00:00",
+                  "evidence": [
+                    "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                  ],
+                  "verification_status": "metadata_only",
+                  "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                  "url": "https://archive.ics.uci.edu/dataset/17",
+                  "doi": "10.24432/c5dw2b",
+                  "titles": [
+                    "Breast Cancer Wisconsin (Diagnostic)"
+                  ],
+                  "authors": [
+                    "William Wolberg, Olvi Mangasarian"
+                  ],
+                  "institutions": [],
+                  "publisher": "UCI Machine Learning Repository",
+                  "year": 1993,
+                  "filenames": [],
+                  "descriptions": [],
+                  "version": null,
+                  "related_identifiers": [],
+                  "provenance": [
+                    {
+                      "source": "datacite",
+                      "url": "https://archive.ics.uci.edu/dataset/17",
+                      "doi": "10.24432/c5dw2b",
+                      "record_id": "10.24432/c5dw2b",
+                      "retrieved_at": "2026-10-25T00:16:51.813973+00:00",
+                      "metadata": {
+                        "doi": "10.24432/c5dw2b",
+                        "url": "https://archive.ics.uci.edu/dataset/17",
+                        "titles": [
+                          {
+                            "title": "Breast Cancer Wisconsin (Diagnostic)"
+                          }
+                        ],
+                        "creators": [
+                          {
+                            "nameType": "Personal",
+                            "affiliation": [],
+                            "givenName": "Olvi Mangasarian",
+                            "familyName": "William Wolberg",
+                            "name": "William Wolberg, Olvi Mangasarian",
+                            "nameIdentifiers": []
+                          }
+                        ],
+                        "contributors": [],
+                        "publisher": "UCI Machine Learning Repository",
+                        "publicationYear": 1993,
+                        "descriptions": [],
+                        "types": {
+                          "schemaOrg": "Dataset",
+                          "resourceTypeGeneral": "Dataset",
+                          "citeproc": "dataset",
+                          "bibtex": "misc",
+                          "ris": "DATA"
+                        },
+                        "version": null,
+                        "relatedIdentifiers": [],
+                        "identifiers": [],
+                        "alternateIdentifiers": [],
+                        "contentUrl": null,
+                        "dates": [
+                          {
+                            "date": "1993",
+                            "dateType": "Issued"
+                          }
+                        ],
+                        "rightsList": []
+                      }
+                    }
+                  ]
+                }
+              ],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28%28prefix%3A%2210.24432%22+AND+suffix%3A%22c5dw2b%22%29+OR+relatedIdentifiers.relatedIdentifier%3A%2210.24432%5C%2Fc5dw2b%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fdoi.org%5C%2F10.24432%5C%2Fc5dw2b%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "not_found",
+              "source": "internet_archive",
+              "candidates": [],
+              "detail": "No archived capture reported by the API.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {},
+        "schema_version": 1
+      }
+    }
+  ],
+  "metadata_search": {
+    "query": {
+      "title": "Iris",
+      "author": "Fisher"
+    },
+    "result": {
+      "status": "found",
+      "candidates": [
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://doi.mba.ac.uk/data/1539",
+            "doi": "10.17031/1634",
+            "titles": [
+              "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+            ],
+            "authors": [
+              "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+            ],
+            "institutions": [
+              "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+            ],
+            "publisher": "DASSH",
+            "year": 2019,
+            "filenames": [],
+            "descriptions": [],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://doi.mba.ac.uk/data/1539",
+                "doi": "10.17031/1634",
+                "record_id": "10.17031/1634",
+                "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                "metadata": {
+                  "doi": "10.17031/1634",
+                  "url": "https://doi.mba.ac.uk/data/1539",
+                  "titles": [
+                    {
+                      "titleType": null,
+                      "lang": null,
+                      "title": "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Organizational",
+                      "affiliation": [],
+                      "givenName": null,
+                      "familyName": null,
+                      "name": "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)",
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "DASSH",
+                  "publicationYear": 2019,
+                  "descriptions": [],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [],
+                  "rightsList": []
+                }
+              }
+            ]
+          },
+          "score": 50,
+          "status": "likely_match",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 30,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Iris"
+              ],
+              "candidate_values": [
+                "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+              ]
+            },
+            {
+              "signal": "author",
+              "points": 20,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Fisher"
+              ],
+              "candidate_values": [
+                "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://archive.ics.uci.edu/dataset/53",
+            "doi": "10.24432/c56c76",
+            "titles": [
+              "Iris"
+            ],
+            "authors": [
+              "R. A. Fisher"
+            ],
+            "institutions": [],
+            "publisher": "UCI Machine Learning Repository",
+            "year": 1936,
+            "filenames": [],
+            "descriptions": [],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://archive.ics.uci.edu/dataset/53",
+                "doi": "10.24432/c56c76",
+                "record_id": "10.24432/c56c76",
+                "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                "metadata": {
+                  "doi": "10.24432/c56c76",
+                  "url": "https://archive.ics.uci.edu/dataset/53",
+                  "titles": [
+                    {
+                      "title": "Iris"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "affiliation": [],
+                      "name": "R. A. Fisher",
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "UCI Machine Learning Repository",
+                  "publicationYear": 1936,
+                  "descriptions": [],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "1936",
+                      "dateType": "Issued"
+                    }
+                  ],
+                  "rightsList": []
+                }
+              }
+            ]
+          },
+          "score": 50,
+          "status": "likely_match",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 30,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Iris"
+              ],
+              "candidate_values": [
+                "Iris"
+              ]
+            },
+            {
+              "signal": "author",
+              "points": 20,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Fisher"
+              ],
+              "candidate_values": [
+                "R. A. Fisher"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+            "doi": "10.6084/m9.figshare.878028",
+            "titles": [
+              "Iris DataSet"
+            ],
+            "authors": [
+              "Zaitlen, Benjamin",
+              "R.A. Fisher"
+            ],
+            "institutions": [],
+            "publisher": "figshare",
+            "year": 2013,
+            "filenames": [],
+            "descriptions": [
+              "Iris dataset in json format"
+            ],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                "doi": "10.6084/m9.figshare.878028",
+                "record_id": "10.6084/m9.figshare.878028",
+                "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                "metadata": {
+                  "doi": "10.6084/m9.figshare.878028",
+                  "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                  "titles": [
+                    {
+                      "title": "Iris DataSet"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [],
+                      "givenName": "Benjamin",
+                      "familyName": "Zaitlen",
+                      "name": "Zaitlen, Benjamin",
+                      "nameIdentifiers": []
+                    },
+                    {
+                      "affiliation": [],
+                      "name": "R.A. Fisher",
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "figshare",
+                  "publicationYear": 2013,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Iris dataset in json format"
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": "Dataset"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2013-12-15",
+                      "dateType": "Created"
+                    },
+                    {
+                      "date": "2013-12-15",
+                      "dateType": "Updated"
+                    },
+                    {
+                      "date": "2013",
+                      "dateType": "Issued"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rightsIdentifierScheme": "SPDX",
+                      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                      "schemeUri": "https://spdx.org/licenses/",
+                      "rights": "Creative Commons Attribution 4.0 International",
+                      "rightsIdentifier": "cc-by-4.0"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "score": 50,
+          "status": "likely_match",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 30,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Iris"
+              ],
+              "candidate_values": [
+                "Iris DataSet"
+              ]
+            },
+            {
+              "signal": "author",
+              "points": 20,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Fisher"
+              ],
+              "candidate_values": [
+                "Zaitlen, Benjamin",
+                "R.A. Fisher"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+            "doi": "10.6084/m9.figshare.878028.v1",
+            "titles": [
+              "Iris DataSet"
+            ],
+            "authors": [
+              "Zaitlen, Benjamin",
+              "R.A. Fisher"
+            ],
+            "institutions": [],
+            "publisher": "figshare",
+            "year": 2013,
+            "filenames": [],
+            "descriptions": [
+              "Iris dataset in json format"
+            ],
+            "version": null,
+            "related_identifiers": [
+              {
+                "identifier": "10.6084/m9.figshare.878028",
+                "identifier_type": "DOI",
+                "relation_type": "IsIdenticalTo"
+              }
+            ],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                "doi": "10.6084/m9.figshare.878028.v1",
+                "record_id": "10.6084/m9.figshare.878028.v1",
+                "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                "metadata": {
+                  "doi": "10.6084/m9.figshare.878028.v1",
+                  "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                  "titles": [
+                    {
+                      "title": "Iris DataSet"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "affiliation": [],
+                      "givenName": "Benjamin",
+                      "familyName": "Zaitlen",
+                      "name": "Zaitlen, Benjamin",
+                      "nameIdentifiers": []
+                    },
+                    {
+                      "affiliation": [],
+                      "name": "R.A. Fisher",
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "figshare",
+                  "publicationYear": 2013,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Iris dataset in json format"
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA",
+                    "resourceType": "Dataset"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [
+                    {
+                      "relationType": "IsIdenticalTo",
+                      "relatedIdentifier": "10.6084/m9.figshare.878028",
+                      "relatedIdentifierType": "DOI"
+                    }
+                  ],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2013-12-15",
+                      "dateType": "Created"
+                    },
+                    {
+                      "date": "2016-01-18",
+                      "dateType": "Updated"
+                    },
+                    {
+                      "date": "2013",
+                      "dateType": "Issued"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rightsIdentifierScheme": "SPDX",
+                      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                      "schemeUri": "https://spdx.org/licenses/",
+                      "rights": "Creative Commons Attribution 4.0 International",
+                      "rightsIdentifier": "cc-by-4.0"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "score": 50,
+          "status": "likely_match",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 30,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Iris"
+              ],
+              "candidate_values": [
+                "Iris DataSet"
+              ]
+            },
+            {
+              "signal": "author",
+              "points": 20,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Fisher"
+              ],
+              "candidate_values": [
+                "Zaitlen, Benjamin",
+                "R.A. Fisher"
+              ]
+            }
+          ]
+        },
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+            "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+            "titles": [
+              "Iris"
+            ],
+            "authors": [
+              "Ronald A. Fisher"
+            ],
+            "institutions": [],
+            "publisher": "Ronald A. Fisher",
+            "year": 2016,
+            "filenames": [],
+            "descriptions": [
+              "Iris dataset"
+            ],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                "record_id": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                "metadata": {
+                  "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "titles": [
+                    {
+                      "title": "Iris"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "nameType": "Personal",
+                      "name": "Ronald A. Fisher",
+                      "affiliation": [],
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Dimosthenis Natsos",
+                      "nameIdentifiers": [
+                        {
+                          "nameIdentifierScheme": "ORCID",
+                          "schemeUri": "https://orcid.org",
+                          "nameIdentifier": "https://orcid.org/0009-0005-4335-7362"
+                        }
+                      ],
+                      "contributorType": "Researcher",
+                      "affiliation": []
+                    }
+                  ],
+                  "publisher": "Ronald A. Fisher",
+                  "publicationYear": 2016,
+                  "descriptions": [
+                    {
+                      "descriptionType": "Abstract",
+                      "description": "Iris dataset"
+                    }
+                  ],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "2016-05-03T21:00:00Z",
+                      "dateType": "Created"
+                    }
+                  ],
+                  "rightsList": [
+                    {
+                      "rights": "CC-BY",
+                      "lang": "English"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "score": 50,
+          "status": "likely_match",
+          "explanation": [
+            {
+              "signal": "title",
+              "points": 30,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Iris"
+              ],
+              "candidate_values": [
+                "Iris"
+              ]
+            },
+            {
+              "signal": "author",
+              "points": 20,
+              "detail": "Query-token prefix overlap; missing metadata contributes zero.",
+              "query_values": [
+                "Fisher"
+              ],
+              "candidate_values": [
+                "Ronald A. Fisher"
+              ]
+            }
+          ]
+        }
+      ],
+      "providers": [
+        {
+          "status": "found",
+          "source": "datacite",
+          "candidates": [
+            {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+              "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+              "titles": [
+                "Iris"
+              ],
+              "authors": [
+                "Ronald A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "Ronald A. Fisher",
+              "year": 2016,
+              "filenames": [],
+              "descriptions": [
+                "Iris dataset"
+              ],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "record_id": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                  "metadata": {
+                    "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                    "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                    "titles": [
+                      {
+                        "title": "Iris"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Personal",
+                        "name": "Ronald A. Fisher",
+                        "affiliation": [],
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [
+                      {
+                        "name": "Dimosthenis Natsos",
+                        "nameIdentifiers": [
+                          {
+                            "nameIdentifierScheme": "ORCID",
+                            "schemeUri": "https://orcid.org",
+                            "nameIdentifier": "https://orcid.org/0009-0005-4335-7362"
+                          }
+                        ],
+                        "contributorType": "Researcher",
+                        "affiliation": []
+                      }
+                    ],
+                    "publisher": "Ronald A. Fisher",
+                    "publicationYear": 2016,
+                    "descriptions": [
+                      {
+                        "descriptionType": "Abstract",
+                        "description": "Iris dataset"
+                      }
+                    ],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "2016-05-03T21:00:00Z",
+                        "dateType": "Created"
+                      }
+                    ],
+                    "rightsList": [
+                      {
+                        "rights": "CC-BY",
+                        "lang": "English"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+              "doi": "10.6084/m9.figshare.878028.v1",
+              "titles": [
+                "Iris DataSet"
+              ],
+              "authors": [
+                "Zaitlen, Benjamin",
+                "R.A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "figshare",
+              "year": 2013,
+              "filenames": [],
+              "descriptions": [
+                "Iris dataset in json format"
+              ],
+              "version": null,
+              "related_identifiers": [
+                {
+                  "identifier": "10.6084/m9.figshare.878028",
+                  "identifier_type": "DOI",
+                  "relation_type": "IsIdenticalTo"
+                }
+              ],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                  "doi": "10.6084/m9.figshare.878028.v1",
+                  "record_id": "10.6084/m9.figshare.878028.v1",
+                  "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                  "metadata": {
+                    "doi": "10.6084/m9.figshare.878028.v1",
+                    "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                    "titles": [
+                      {
+                        "title": "Iris DataSet"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Personal",
+                        "affiliation": [],
+                        "givenName": "Benjamin",
+                        "familyName": "Zaitlen",
+                        "name": "Zaitlen, Benjamin",
+                        "nameIdentifiers": []
+                      },
+                      {
+                        "affiliation": [],
+                        "name": "R.A. Fisher",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "figshare",
+                    "publicationYear": 2013,
+                    "descriptions": [
+                      {
+                        "descriptionType": "Abstract",
+                        "description": "Iris dataset in json format"
+                      }
+                    ],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA",
+                      "resourceType": "Dataset"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [
+                      {
+                        "relationType": "IsIdenticalTo",
+                        "relatedIdentifier": "10.6084/m9.figshare.878028",
+                        "relatedIdentifierType": "DOI"
+                      }
+                    ],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "2013-12-15",
+                        "dateType": "Created"
+                      },
+                      {
+                        "date": "2016-01-18",
+                        "dateType": "Updated"
+                      },
+                      {
+                        "date": "2013",
+                        "dateType": "Issued"
+                      }
+                    ],
+                    "rightsList": [
+                      {
+                        "rightsIdentifierScheme": "SPDX",
+                        "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                        "schemeUri": "https://spdx.org/licenses/",
+                        "rights": "Creative Commons Attribution 4.0 International",
+                        "rightsIdentifier": "cc-by-4.0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://archive.ics.uci.edu/dataset/53",
+              "doi": "10.24432/c56c76",
+              "titles": [
+                "Iris"
+              ],
+              "authors": [
+                "R. A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "UCI Machine Learning Repository",
+              "year": 1936,
+              "filenames": [],
+              "descriptions": [],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://archive.ics.uci.edu/dataset/53",
+                  "doi": "10.24432/c56c76",
+                  "record_id": "10.24432/c56c76",
+                  "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                  "metadata": {
+                    "doi": "10.24432/c56c76",
+                    "url": "https://archive.ics.uci.edu/dataset/53",
+                    "titles": [
+                      {
+                        "title": "Iris"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "affiliation": [],
+                        "name": "R. A. Fisher",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "UCI Machine Learning Repository",
+                    "publicationYear": 1936,
+                    "descriptions": [],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "1936",
+                        "dateType": "Issued"
+                      }
+                    ],
+                    "rightsList": []
+                  }
+                }
+              ]
+            },
+            {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://doi.mba.ac.uk/data/1539",
+              "doi": "10.17031/1634",
+              "titles": [
+                "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+              ],
+              "authors": [
+                "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+              ],
+              "institutions": [
+                "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+              ],
+              "publisher": "DASSH",
+              "year": 2019,
+              "filenames": [],
+              "descriptions": [],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://doi.mba.ac.uk/data/1539",
+                  "doi": "10.17031/1634",
+                  "record_id": "10.17031/1634",
+                  "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                  "metadata": {
+                    "doi": "10.17031/1634",
+                    "url": "https://doi.mba.ac.uk/data/1539",
+                    "titles": [
+                      {
+                        "titleType": null,
+                        "lang": null,
+                        "title": "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Organizational",
+                        "affiliation": [],
+                        "givenName": null,
+                        "familyName": null,
+                        "name": "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "DASSH",
+                    "publicationYear": 2019,
+                    "descriptions": [],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [],
+                    "rightsList": []
+                  }
+                }
+              ]
+            },
+            {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+              "doi": "10.6084/m9.figshare.878028",
+              "titles": [
+                "Iris DataSet"
+              ],
+              "authors": [
+                "Zaitlen, Benjamin",
+                "R.A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "figshare",
+              "year": 2013,
+              "filenames": [],
+              "descriptions": [
+                "Iris dataset in json format"
+              ],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                  "doi": "10.6084/m9.figshare.878028",
+                  "record_id": "10.6084/m9.figshare.878028",
+                  "retrieved_at": "2026-10-25T00:16:52.766755+00:00",
+                  "metadata": {
+                    "doi": "10.6084/m9.figshare.878028",
+                    "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                    "titles": [
+                      {
+                        "title": "Iris DataSet"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Personal",
+                        "affiliation": [],
+                        "givenName": "Benjamin",
+                        "familyName": "Zaitlen",
+                        "name": "Zaitlen, Benjamin",
+                        "nameIdentifiers": []
+                      },
+                      {
+                        "affiliation": [],
+                        "name": "R.A. Fisher",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "figshare",
+                    "publicationYear": 2013,
+                    "descriptions": [
+                      {
+                        "descriptionType": "Abstract",
+                        "description": "Iris dataset in json format"
+                      }
+                    ],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA",
+                      "resourceType": "Dataset"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "2013-12-15",
+                        "dateType": "Created"
+                      },
+                      {
+                        "date": "2013-12-15",
+                        "dateType": "Updated"
+                      },
+                      {
+                        "date": "2013",
+                        "dateType": "Issued"
+                      }
+                    ],
+                    "rightsList": [
+                      {
+                        "rightsIdentifierScheme": "SPDX",
+                        "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                        "schemeUri": "https://spdx.org/licenses/",
+                        "rights": "Creative Commons Attribution 4.0 International",
+                        "rightsIdentifier": "cc-by-4.0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "detail": "Metadata candidates only; downloadable content was not checked.",
+          "http_status": 200,
+          "retry_after": null,
+          "query_url": "https://api.datacite.org/dois?query=titles.title%3A%28Iris%2A%29+AND+creators.name%3A%28Fisher%2A%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+          "truncated": false,
+          "warnings": []
+        }
+      ],
+      "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+    }
+  }
+}

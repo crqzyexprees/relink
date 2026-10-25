@@ -1,0 +1,35 @@
+{
+  "attempted_at_utc": "2026-10-24T21:24:03.097988+00:00",
+  "mode": "live_public_datacite_no_mocks",
+  "command": ".venv/bin/python -m scripts.discover_datasets --title iris",
+  "query": {
+    "title": "iris",
+    "author": "",
+    "institution": "",
+    "year": null,
+    "original_url": "",
+    "doi": "",
+    "description": "",
+    "filenames": [],
+    "version": ""
+  },
+  "result": {
+    "status": "error",
+    "candidates": [],
+    "providers": [
+      {
+        "status": "dns_failure",
+        "source": "datacite",
+        "candidates": [],
+        "detail": "DNS resolution failed.",
+        "http_status": null,
+        "retry_after": null,
+        "query_url": "https://api.datacite.org/dois?query=titles.title%3A%28iris%2A%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates",
+        "truncated": false,
+        "warnings": []
+      }
+    ],
+    "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+  },
+  "interpretation": "The local DNS lookup failed before reaching DataCite. No API response or candidate availability was established."
+}

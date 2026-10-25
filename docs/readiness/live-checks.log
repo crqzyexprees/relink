@@ -1,0 +1,8 @@
+valid_url: BLOCKED dns_failure
+broken_url: BLOCKED dns_failure
+internet_archive: BLOCKED dns_failure
+datacite: BLOCKED dns_failure
+real_pdf: BLOCKED dns_failure
+streamlit_health: BLOCKED [Errno 1] Operation not permitted
+Evidence: docs/readiness/live-checks.json
+exit_code=1

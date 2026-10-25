@@ -1,0 +1,1512 @@
+{
+  "mode": "live_no_mocks",
+  "checked_at_utc": "2026-10-25T03:29:28.268872+00:00",
+  "checks": {
+    "current_url": {
+      "input": "https://example.org/",
+      "duration_seconds": 0.324,
+      "result": {
+        "status": "working",
+        "final_url": "https://example.org/",
+        "http_status": 200,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "HTTP access status only; response body and dataset identity were not checked."
+      }
+    },
+    "archive_encoded_path": {
+      "input": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "duration_seconds": 0.671,
+      "result": {
+        "status": "found",
+        "source": "internet_archive",
+        "candidate": {
+          "original_url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+          "archived_url": "http://web.archive.org/web/20260607155414/https://www.cs.toronto.edu/%7Ekriz/cifar.html",
+          "capture_timestamp": "20260607155414",
+          "source": "internet_archive",
+          "retrieved_at": "2026-10-25T03:29:29.318593+00:00",
+          "evidence": [
+            "Availability API: available=true; capture status=200.",
+            "Archive replay URL and timestamp agree with the requested URL."
+          ],
+          "verification_status": "archive_metadata_only",
+          "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+          "url": "http://web.archive.org/web/20260607155414/https://www.cs.toronto.edu/%7Ekriz/cifar.html",
+          "doi": null,
+          "titles": [],
+          "authors": [],
+          "institutions": [],
+          "publisher": null,
+          "year": null,
+          "filenames": [
+            "cifar.html"
+          ],
+          "descriptions": [],
+          "version": null,
+          "related_identifiers": [],
+          "provenance": [
+            {
+              "source": "internet_archive",
+              "url": "http://web.archive.org/web/20260607155414/https://www.cs.toronto.edu/%7Ekriz/cifar.html",
+              "doi": null,
+              "record_id": null,
+              "retrieved_at": "2026-10-25T03:29:29.318653+00:00",
+              "metadata": {
+                "status": "200",
+                "available": true,
+                "url": "http://web.archive.org/web/20260607155414/https://www.cs.toronto.edu/%7Ekriz/cifar.html",
+                "timestamp": "20260607155414"
+              }
+            }
+          ]
+        },
+        "detail": "Capture reported by the availability API; contents unverified.",
+        "http_status": 200,
+        "retry_after": null
+      }
+    },
+    "dataset_ranking": {
+      "input": {
+        "title": "Iris",
+        "author": "Fisher"
+      },
+      "duration_seconds": 1.262,
+      "result": {
+        "status": "found",
+        "candidates": [
+          {
+            "candidate": {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://archive.ics.uci.edu/dataset/53",
+              "doi": "10.24432/c56c76",
+              "titles": [
+                "Iris"
+              ],
+              "authors": [
+                "R. A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "UCI Machine Learning Repository",
+              "year": 1936,
+              "filenames": [],
+              "descriptions": [],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://archive.ics.uci.edu/dataset/53",
+                  "doi": "10.24432/c56c76",
+                  "record_id": "10.24432/c56c76",
+                  "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                  "metadata": {
+                    "doi": "10.24432/c56c76",
+                    "url": "https://archive.ics.uci.edu/dataset/53",
+                    "titles": [
+                      {
+                        "title": "Iris"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "affiliation": [],
+                        "name": "R. A. Fisher",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "UCI Machine Learning Repository",
+                    "publicationYear": 1936,
+                    "descriptions": [],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "1936",
+                        "dateType": "Issued"
+                      }
+                    ],
+                    "rightsList": []
+                  }
+                }
+              ]
+            },
+            "score": 50,
+            "status": "likely_match",
+            "explanation": [
+              {
+                "signal": "title",
+                "points": 30,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Iris"
+                ],
+                "candidate_values": [
+                  "Iris"
+                ]
+              },
+              {
+                "signal": "author",
+                "points": 20,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Fisher"
+                ],
+                "candidate_values": [
+                  "R. A. Fisher"
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+              "doi": "10.6084/m9.figshare.878028",
+              "titles": [
+                "Iris DataSet"
+              ],
+              "authors": [
+                "Zaitlen, Benjamin",
+                "R.A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "figshare",
+              "year": 2013,
+              "filenames": [],
+              "descriptions": [
+                "Iris dataset in json format"
+              ],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                  "doi": "10.6084/m9.figshare.878028",
+                  "record_id": "10.6084/m9.figshare.878028",
+                  "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                  "metadata": {
+                    "doi": "10.6084/m9.figshare.878028",
+                    "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                    "titles": [
+                      {
+                        "title": "Iris DataSet"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Personal",
+                        "affiliation": [],
+                        "givenName": "Benjamin",
+                        "familyName": "Zaitlen",
+                        "name": "Zaitlen, Benjamin",
+                        "nameIdentifiers": []
+                      },
+                      {
+                        "affiliation": [],
+                        "name": "R.A. Fisher",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "figshare",
+                    "publicationYear": 2013,
+                    "descriptions": [
+                      {
+                        "descriptionType": "Abstract",
+                        "description": "Iris dataset in json format"
+                      }
+                    ],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA",
+                      "resourceType": "Dataset"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "2013-12-15",
+                        "dateType": "Created"
+                      },
+                      {
+                        "date": "2013-12-15",
+                        "dateType": "Updated"
+                      },
+                      {
+                        "date": "2013",
+                        "dateType": "Issued"
+                      }
+                    ],
+                    "rightsList": [
+                      {
+                        "rightsIdentifierScheme": "SPDX",
+                        "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                        "schemeUri": "https://spdx.org/licenses/",
+                        "rights": "Creative Commons Attribution 4.0 International",
+                        "rightsIdentifier": "cc-by-4.0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "score": 50,
+            "status": "likely_match",
+            "explanation": [
+              {
+                "signal": "title",
+                "points": 30,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Iris"
+                ],
+                "candidate_values": [
+                  "Iris DataSet"
+                ]
+              },
+              {
+                "signal": "author",
+                "points": 20,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Fisher"
+                ],
+                "candidate_values": [
+                  "Zaitlen, Benjamin",
+                  "R.A. Fisher"
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+              "doi": "10.6084/m9.figshare.878028.v1",
+              "titles": [
+                "Iris DataSet"
+              ],
+              "authors": [
+                "Zaitlen, Benjamin",
+                "R.A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "figshare",
+              "year": 2013,
+              "filenames": [],
+              "descriptions": [
+                "Iris dataset in json format"
+              ],
+              "version": null,
+              "related_identifiers": [
+                {
+                  "identifier": "10.6084/m9.figshare.878028",
+                  "identifier_type": "DOI",
+                  "relation_type": "IsIdenticalTo"
+                }
+              ],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                  "doi": "10.6084/m9.figshare.878028.v1",
+                  "record_id": "10.6084/m9.figshare.878028.v1",
+                  "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                  "metadata": {
+                    "doi": "10.6084/m9.figshare.878028.v1",
+                    "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                    "titles": [
+                      {
+                        "title": "Iris DataSet"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Personal",
+                        "affiliation": [],
+                        "givenName": "Benjamin",
+                        "familyName": "Zaitlen",
+                        "name": "Zaitlen, Benjamin",
+                        "nameIdentifiers": []
+                      },
+                      {
+                        "affiliation": [],
+                        "name": "R.A. Fisher",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "figshare",
+                    "publicationYear": 2013,
+                    "descriptions": [
+                      {
+                        "descriptionType": "Abstract",
+                        "description": "Iris dataset in json format"
+                      }
+                    ],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA",
+                      "resourceType": "Dataset"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [
+                      {
+                        "relationType": "IsIdenticalTo",
+                        "relatedIdentifier": "10.6084/m9.figshare.878028",
+                        "relatedIdentifierType": "DOI"
+                      }
+                    ],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "2013-12-15",
+                        "dateType": "Created"
+                      },
+                      {
+                        "date": "2016-01-18",
+                        "dateType": "Updated"
+                      },
+                      {
+                        "date": "2013",
+                        "dateType": "Issued"
+                      }
+                    ],
+                    "rightsList": [
+                      {
+                        "rightsIdentifierScheme": "SPDX",
+                        "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                        "schemeUri": "https://spdx.org/licenses/",
+                        "rights": "Creative Commons Attribution 4.0 International",
+                        "rightsIdentifier": "cc-by-4.0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "score": 50,
+            "status": "likely_match",
+            "explanation": [
+              {
+                "signal": "title",
+                "points": 30,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Iris"
+                ],
+                "candidate_values": [
+                  "Iris DataSet"
+                ]
+              },
+              {
+                "signal": "author",
+                "points": 20,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Fisher"
+                ],
+                "candidate_values": [
+                  "Zaitlen, Benjamin",
+                  "R.A. Fisher"
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+              "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+              "titles": [
+                "Iris"
+              ],
+              "authors": [
+                "Ronald A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "Ronald A. Fisher",
+              "year": 2016,
+              "filenames": [],
+              "descriptions": [
+                "Iris dataset"
+              ],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "record_id": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                  "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                  "metadata": {
+                    "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                    "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                    "titles": [
+                      {
+                        "title": "Iris"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Personal",
+                        "name": "Ronald A. Fisher",
+                        "affiliation": [],
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [
+                      {
+                        "name": "Dimosthenis Natsos",
+                        "nameIdentifiers": [
+                          {
+                            "nameIdentifierScheme": "ORCID",
+                            "schemeUri": "https://orcid.org",
+                            "nameIdentifier": "https://orcid.org/0009-0005-4335-7362"
+                          }
+                        ],
+                        "contributorType": "Researcher",
+                        "affiliation": []
+                      }
+                    ],
+                    "publisher": "Ronald A. Fisher",
+                    "publicationYear": 2016,
+                    "descriptions": [
+                      {
+                        "descriptionType": "Abstract",
+                        "description": "Iris dataset"
+                      }
+                    ],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "2016-05-03T21:00:00Z",
+                        "dateType": "Created"
+                      }
+                    ],
+                    "rightsList": [
+                      {
+                        "rights": "CC-BY",
+                        "lang": "English"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "score": 50,
+            "status": "likely_match",
+            "explanation": [
+              {
+                "signal": "title",
+                "points": 30,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Iris"
+                ],
+                "candidate_values": [
+                  "Iris"
+                ]
+              },
+              {
+                "signal": "author",
+                "points": 20,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Fisher"
+                ],
+                "candidate_values": [
+                  "Ronald A. Fisher"
+                ]
+              }
+            ]
+          },
+          {
+            "candidate": {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://doi.mba.ac.uk/data/1539",
+              "doi": "10.17031/1634",
+              "titles": [
+                "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+              ],
+              "authors": [
+                "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+              ],
+              "institutions": [
+                "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+              ],
+              "publisher": "DASSH",
+              "year": 2019,
+              "filenames": [],
+              "descriptions": [],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://doi.mba.ac.uk/data/1539",
+                  "doi": "10.17031/1634",
+                  "record_id": "10.17031/1634",
+                  "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                  "metadata": {
+                    "doi": "10.17031/1634",
+                    "url": "https://doi.mba.ac.uk/data/1539",
+                    "titles": [
+                      {
+                        "titleType": null,
+                        "lang": null,
+                        "title": "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "nameType": "Organizational",
+                        "affiliation": [],
+                        "givenName": null,
+                        "familyName": null,
+                        "name": "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "DASSH",
+                    "publicationYear": 2019,
+                    "descriptions": [],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [],
+                    "rightsList": []
+                  }
+                }
+              ]
+            },
+            "score": 15,
+            "status": "unverified_candidate",
+            "explanation": [
+              {
+                "signal": "title",
+                "points": 15,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Iris"
+                ],
+                "candidate_values": [
+                  "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+                ]
+              },
+              {
+                "signal": "author",
+                "points": 0,
+                "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+                "query_values": [
+                  "Fisher"
+                ],
+                "candidate_values": [
+                  "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+                ]
+              }
+            ]
+          }
+        ],
+        "providers": [
+          {
+            "status": "found",
+            "source": "datacite",
+            "candidates": [
+              {
+                "original_url": "",
+                "archived_url": null,
+                "capture_timestamp": null,
+                "source": "datacite",
+                "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                "evidence": [
+                  "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                ],
+                "verification_status": "metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                "titles": [
+                  "Iris"
+                ],
+                "authors": [
+                  "Ronald A. Fisher"
+                ],
+                "institutions": [],
+                "publisher": "Ronald A. Fisher",
+                "year": 2016,
+                "filenames": [],
+                "descriptions": [
+                  "Iris dataset"
+                ],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "datacite",
+                    "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                    "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                    "record_id": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                    "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                    "metadata": {
+                      "doi": "10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                      "url": "https://portal.raise-science.eu/rai-finder/10.82136/dataset/08de4ec6-8f98-4ba4-8947-f2ad6dff8641",
+                      "titles": [
+                        {
+                          "title": "Iris"
+                        }
+                      ],
+                      "creators": [
+                        {
+                          "nameType": "Personal",
+                          "name": "Ronald A. Fisher",
+                          "affiliation": [],
+                          "nameIdentifiers": []
+                        }
+                      ],
+                      "contributors": [
+                        {
+                          "name": "Dimosthenis Natsos",
+                          "nameIdentifiers": [
+                            {
+                              "nameIdentifierScheme": "ORCID",
+                              "schemeUri": "https://orcid.org",
+                              "nameIdentifier": "https://orcid.org/0009-0005-4335-7362"
+                            }
+                          ],
+                          "contributorType": "Researcher",
+                          "affiliation": []
+                        }
+                      ],
+                      "publisher": "Ronald A. Fisher",
+                      "publicationYear": 2016,
+                      "descriptions": [
+                        {
+                          "descriptionType": "Abstract",
+                          "description": "Iris dataset"
+                        }
+                      ],
+                      "types": {
+                        "schemaOrg": "Dataset",
+                        "resourceTypeGeneral": "Dataset",
+                        "citeproc": "dataset",
+                        "bibtex": "misc",
+                        "ris": "DATA"
+                      },
+                      "version": null,
+                      "relatedIdentifiers": [],
+                      "identifiers": [],
+                      "alternateIdentifiers": [],
+                      "contentUrl": null,
+                      "dates": [
+                        {
+                          "date": "2016-05-03T21:00:00Z",
+                          "dateType": "Created"
+                        }
+                      ],
+                      "rightsList": [
+                        {
+                          "rights": "CC-BY",
+                          "lang": "English"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "original_url": "",
+                "archived_url": null,
+                "capture_timestamp": null,
+                "source": "datacite",
+                "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                "evidence": [
+                  "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                ],
+                "verification_status": "metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                "doi": "10.6084/m9.figshare.878028.v1",
+                "titles": [
+                  "Iris DataSet"
+                ],
+                "authors": [
+                  "Zaitlen, Benjamin",
+                  "R.A. Fisher"
+                ],
+                "institutions": [],
+                "publisher": "figshare",
+                "year": 2013,
+                "filenames": [],
+                "descriptions": [
+                  "Iris dataset in json format"
+                ],
+                "version": null,
+                "related_identifiers": [
+                  {
+                    "identifier": "10.6084/m9.figshare.878028",
+                    "identifier_type": "DOI",
+                    "relation_type": "IsIdenticalTo"
+                  }
+                ],
+                "provenance": [
+                  {
+                    "source": "datacite",
+                    "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                    "doi": "10.6084/m9.figshare.878028.v1",
+                    "record_id": "10.6084/m9.figshare.878028.v1",
+                    "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                    "metadata": {
+                      "doi": "10.6084/m9.figshare.878028.v1",
+                      "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028/1",
+                      "titles": [
+                        {
+                          "title": "Iris DataSet"
+                        }
+                      ],
+                      "creators": [
+                        {
+                          "nameType": "Personal",
+                          "affiliation": [],
+                          "givenName": "Benjamin",
+                          "familyName": "Zaitlen",
+                          "name": "Zaitlen, Benjamin",
+                          "nameIdentifiers": []
+                        },
+                        {
+                          "affiliation": [],
+                          "name": "R.A. Fisher",
+                          "nameIdentifiers": []
+                        }
+                      ],
+                      "contributors": [],
+                      "publisher": "figshare",
+                      "publicationYear": 2013,
+                      "descriptions": [
+                        {
+                          "descriptionType": "Abstract",
+                          "description": "Iris dataset in json format"
+                        }
+                      ],
+                      "types": {
+                        "schemaOrg": "Dataset",
+                        "resourceTypeGeneral": "Dataset",
+                        "citeproc": "dataset",
+                        "bibtex": "misc",
+                        "ris": "DATA",
+                        "resourceType": "Dataset"
+                      },
+                      "version": null,
+                      "relatedIdentifiers": [
+                        {
+                          "relationType": "IsIdenticalTo",
+                          "relatedIdentifier": "10.6084/m9.figshare.878028",
+                          "relatedIdentifierType": "DOI"
+                        }
+                      ],
+                      "identifiers": [],
+                      "alternateIdentifiers": [],
+                      "contentUrl": null,
+                      "dates": [
+                        {
+                          "date": "2013-12-15",
+                          "dateType": "Created"
+                        },
+                        {
+                          "date": "2016-01-18",
+                          "dateType": "Updated"
+                        },
+                        {
+                          "date": "2013",
+                          "dateType": "Issued"
+                        }
+                      ],
+                      "rightsList": [
+                        {
+                          "rightsIdentifierScheme": "SPDX",
+                          "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                          "schemeUri": "https://spdx.org/licenses/",
+                          "rights": "Creative Commons Attribution 4.0 International",
+                          "rightsIdentifier": "cc-by-4.0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "original_url": "",
+                "archived_url": null,
+                "capture_timestamp": null,
+                "source": "datacite",
+                "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                "evidence": [
+                  "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                ],
+                "verification_status": "metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "https://archive.ics.uci.edu/dataset/53",
+                "doi": "10.24432/c56c76",
+                "titles": [
+                  "Iris"
+                ],
+                "authors": [
+                  "R. A. Fisher"
+                ],
+                "institutions": [],
+                "publisher": "UCI Machine Learning Repository",
+                "year": 1936,
+                "filenames": [],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "datacite",
+                    "url": "https://archive.ics.uci.edu/dataset/53",
+                    "doi": "10.24432/c56c76",
+                    "record_id": "10.24432/c56c76",
+                    "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                    "metadata": {
+                      "doi": "10.24432/c56c76",
+                      "url": "https://archive.ics.uci.edu/dataset/53",
+                      "titles": [
+                        {
+                          "title": "Iris"
+                        }
+                      ],
+                      "creators": [
+                        {
+                          "affiliation": [],
+                          "name": "R. A. Fisher",
+                          "nameIdentifiers": []
+                        }
+                      ],
+                      "contributors": [],
+                      "publisher": "UCI Machine Learning Repository",
+                      "publicationYear": 1936,
+                      "descriptions": [],
+                      "types": {
+                        "schemaOrg": "Dataset",
+                        "resourceTypeGeneral": "Dataset",
+                        "citeproc": "dataset",
+                        "bibtex": "misc",
+                        "ris": "DATA"
+                      },
+                      "version": null,
+                      "relatedIdentifiers": [],
+                      "identifiers": [],
+                      "alternateIdentifiers": [],
+                      "contentUrl": null,
+                      "dates": [
+                        {
+                          "date": "1936",
+                          "dateType": "Issued"
+                        }
+                      ],
+                      "rightsList": []
+                    }
+                  }
+                ]
+              },
+              {
+                "original_url": "",
+                "archived_url": null,
+                "capture_timestamp": null,
+                "source": "datacite",
+                "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                "evidence": [
+                  "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                ],
+                "verification_status": "metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "https://doi.mba.ac.uk/data/1539",
+                "doi": "10.17031/1634",
+                "titles": [
+                  "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+                ],
+                "authors": [
+                  "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+                ],
+                "institutions": [
+                  "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+                ],
+                "publisher": "DASSH",
+                "year": 2019,
+                "filenames": [],
+                "descriptions": [],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "datacite",
+                    "url": "https://doi.mba.ac.uk/data/1539",
+                    "doi": "10.17031/1634",
+                    "record_id": "10.17031/1634",
+                    "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                    "metadata": {
+                      "doi": "10.17031/1634",
+                      "url": "https://doi.mba.ac.uk/data/1539",
+                      "titles": [
+                        {
+                          "titleType": null,
+                          "lang": null,
+                          "title": "2000 to date North, Irish & Celtic Seas Centre for Environment, Fisheries and Aquaculture Science Smartbuoy marine monitoring"
+                        }
+                      ],
+                      "creators": [
+                        {
+                          "nameType": "Organizational",
+                          "affiliation": [],
+                          "givenName": null,
+                          "familyName": null,
+                          "name": "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)",
+                          "nameIdentifiers": []
+                        }
+                      ],
+                      "contributors": [],
+                      "publisher": "DASSH",
+                      "publicationYear": 2019,
+                      "descriptions": [],
+                      "types": {
+                        "schemaOrg": "Dataset",
+                        "resourceTypeGeneral": "Dataset",
+                        "citeproc": "dataset",
+                        "bibtex": "misc",
+                        "ris": "DATA"
+                      },
+                      "version": null,
+                      "relatedIdentifiers": [],
+                      "identifiers": [],
+                      "alternateIdentifiers": [],
+                      "contentUrl": null,
+                      "dates": [],
+                      "rightsList": []
+                    }
+                  }
+                ]
+              },
+              {
+                "original_url": "",
+                "archived_url": null,
+                "capture_timestamp": null,
+                "source": "datacite",
+                "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                "evidence": [
+                  "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+                ],
+                "verification_status": "metadata_only",
+                "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+                "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                "doi": "10.6084/m9.figshare.878028",
+                "titles": [
+                  "Iris DataSet"
+                ],
+                "authors": [
+                  "Zaitlen, Benjamin",
+                  "R.A. Fisher"
+                ],
+                "institutions": [],
+                "publisher": "figshare",
+                "year": 2013,
+                "filenames": [],
+                "descriptions": [
+                  "Iris dataset in json format"
+                ],
+                "version": null,
+                "related_identifiers": [],
+                "provenance": [
+                  {
+                    "source": "datacite",
+                    "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                    "doi": "10.6084/m9.figshare.878028",
+                    "record_id": "10.6084/m9.figshare.878028",
+                    "retrieved_at": "2026-10-25T03:29:30.522481+00:00",
+                    "metadata": {
+                      "doi": "10.6084/m9.figshare.878028",
+                      "url": "https://figshare.com/articles/dataset/Iris_DataSet/878028",
+                      "titles": [
+                        {
+                          "title": "Iris DataSet"
+                        }
+                      ],
+                      "creators": [
+                        {
+                          "nameType": "Personal",
+                          "affiliation": [],
+                          "givenName": "Benjamin",
+                          "familyName": "Zaitlen",
+                          "name": "Zaitlen, Benjamin",
+                          "nameIdentifiers": []
+                        },
+                        {
+                          "affiliation": [],
+                          "name": "R.A. Fisher",
+                          "nameIdentifiers": []
+                        }
+                      ],
+                      "contributors": [],
+                      "publisher": "figshare",
+                      "publicationYear": 2013,
+                      "descriptions": [
+                        {
+                          "descriptionType": "Abstract",
+                          "description": "Iris dataset in json format"
+                        }
+                      ],
+                      "types": {
+                        "schemaOrg": "Dataset",
+                        "resourceTypeGeneral": "Dataset",
+                        "citeproc": "dataset",
+                        "bibtex": "misc",
+                        "ris": "DATA",
+                        "resourceType": "Dataset"
+                      },
+                      "version": null,
+                      "relatedIdentifiers": [],
+                      "identifiers": [],
+                      "alternateIdentifiers": [],
+                      "contentUrl": null,
+                      "dates": [
+                        {
+                          "date": "2013-12-15",
+                          "dateType": "Created"
+                        },
+                        {
+                          "date": "2013-12-15",
+                          "dateType": "Updated"
+                        },
+                        {
+                          "date": "2013",
+                          "dateType": "Issued"
+                        }
+                      ],
+                      "rightsList": [
+                        {
+                          "rightsIdentifierScheme": "SPDX",
+                          "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                          "schemeUri": "https://spdx.org/licenses/",
+                          "rights": "Creative Commons Attribution 4.0 International",
+                          "rightsIdentifier": "cc-by-4.0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "detail": "Metadata candidates only; downloadable content was not checked.",
+            "http_status": 200,
+            "retry_after": null,
+            "query_url": "https://api.datacite.org/dois?query=titles.title%3A%28Iris%2A%29+AND+creators.name%3A%28Fisher%2A%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+            "truncated": false,
+            "warnings": []
+          }
+        ],
+        "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+      }
+    },
+    "paper_search": {
+      "input": "forest carbon measurements",
+      "duration_seconds": 0.618,
+      "result": {
+        "status": "found",
+        "papers": [
+          {
+            "paper": {
+              "id": "https://openalex.org/W1484806434",
+              "title": "Measurement guidelines for the sequestration of forest carbon",
+              "abstract": "Measurement guidelines for forest carbon sequestration were developed to support reporting by public and private entities to greenhouse gas registries. These guidelines are intended to be a reference for designing a forest carbon inventory and monitoring system by professionals with a knowledge of sampling, statistical estimation, and forest measurements. This report provides guidance on defining boundaries; measuring, monitoring, and estimating changes in carbon stocks; implementing plans to measure and monitor carbon; and developing quality assurance and quality control plans to ensure credible and reproducible estimates of the carbon credits. Expected users include entities, e.g., individual landowners, industrial forestry companies and managers of utility company lands, within the United States who are interested in implementing forestry activities and projects designed to generate carbon credits that could be traded as an offset, or for registering carbon dioxide reductions using the U.S. Department of Energy 1605(b) voluntary reporting registry.",
+              "authors": [
+                "Timothy R. H. Pearson",
+                "Sandra Brown",
+                "Richard A. Birdsey"
+              ],
+              "year": 2007,
+              "doi": "10.2737/nrs-gtr-18",
+              "landing_url": "https://doi.org/10.2737/nrs-gtr-18",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 30,
+            "matched_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W2079272931",
+              "title": "BIOMETRIC AND MICROMETEOROLOGICAL MEASUREMENTS OF TROPICAL FOREST CARBON BALANCE",
+              "abstract": "We used two independent approaches, biometry and micrometeorology, to determine the net ecosystem production (NEP) of an old growth forest in Par\u00e1, Brazil. Biometric inventories indicated that the forest was either a source or, at most, a modest sink of carbon from 1984 to 2000 (+0.8 \u00b1 2 Mg C\u00b7ha\u22121\u00b7yr\u22121; a positive flux indicates carbon loss by the forest, a negative flux indicates carbon gain). Eddy covariance measurements of CO2 exchange were made from July 2000 to July 2001 using both open\u2010 and closed\u2010path gas analyzers. The annual eddy covariance flux calculated without correcting for the underestimation of flux on calm nights indicated that the forest was a large carbon sink (\u22123.9 Mg C\u00b7ha\u22121\u00b7yr\u22121). This annual uptake is comparable to past reports from other Amazonian forests, which also were calculated without correcting for calm nights. The magnitude of the annual integral was relatively insensitive to the selection of open\u2010 versus closed\u2010path gas analyzer, averaging time, detrending, and high\u2010frequency correction. In contrast, the magnitude of the annual integral was highly sensitive to the treatment of calm nights, changing by over 4 Mg C\u00b7ha\u22121\u00b7yr\u22121 when a filter was used to replace the net ecosystem exchange (NEE) during nocturnal periods with u* < 0.2 m/s. Analyses of the relationship between nocturnal NEE and u* confirmed that the annual sum needs to be corrected for the effect of calm nights, which resulted in our best estimate of the annual flux (+0.4 Mg C\u00b7ha\u22121\u00b7yr\u22121). The observed sensitivity of the annual sum to the u* filter is far greater than has been previously reported for temperate and boreal forests. The annual carbon balance determined by eddy covariance is therefore less certain for tropical than temperate forests. Nonetheless, the biometric and micrometeorological measurements in tandem provide strong evidence that the forest was not a strong, persistent carbon sink during the study interval.",
+              "authors": [
+                "S. D. Miller",
+                "Michael L. Goulden",
+                "Mary Menton",
+                "Humberto Ribeiro da Rocha",
+                "Helber  Cust\u00f3dio de Freitas",
+                "Adel\u00e1ine Michela e Silva Figueira",
+                "Cleilim Albert Dias de Sousa"
+              ],
+              "year": 2004,
+              "doi": "10.1890/02-6005",
+              "landing_url": "https://doi.org/10.1890/02-6005",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 30,
+            "matched_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W2102716660",
+              "title": "Long\u2010term measurements of boreal forest carbon balance reveal large temperature sensitivity",
+              "abstract": "Abstract We present results from two years\u2019 net ecosystem flux measurements above a boreal forest in central Sweden. Fluxes were measured with an eddy correlation system based on a sonic anemometer and a closed path CO2 and H2O gas analyser. The measurements show that the forest acted as a source during this period, and that the annual balance is highly sensitive to changes in temperature. The accumulated flux of carbon dioxide during the full two\u2010year period was in the range 480\u20131600 g CO2 m\u20132. The broad range is caused by uncertainty regarding assessment of the night\u2010time fluxes. Although annual mean temperature remained close to normal, the results are partly explained by higher than normal respiration, due to abnormal temperature distribution and reduced soil moisture during one growing season. The finding that a closed forest can be a source of carbon over such a long period as two years contrasts sharply with the common belief that forests are always carbon sinks.",
+              "authors": [
+                "Anders Lindroth",
+                "Achim Grelle",
+                "Ann\u2010Sofie Mor\u00e9n"
+              ],
+              "year": 1998,
+              "doi": "10.1046/j.1365-2486.1998.00165.x",
+              "landing_url": "https://doi.org/10.1046/j.1365-2486.1998.00165.x",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 30,
+            "matched_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W2155696693",
+              "title": "Paired\u2010tower measurements of carbon and energy fluxes following disturbance in the boreal forest",
+              "abstract": "Summary Disturbances by fire and harvesting are thought to regulate the carbon balance of the Canadian boreal forest over scales of several decades. However, there are few direct measurements of carbon fluxes following disturbances to provide data needed to refine mathematical models. The eddy covariance technique was used with paired towers to measure fluxes simultaneously at disturbed and undisturbed sites over periods of about one week during the growing season in 1998 and 1999. Comparisons were conducted at three sites: a 1\u2010y\u2010old burned jackpine stand subjected to an intense crown fire at the International Crown Fire Modelling Experiment site near Fort Providence, North\u2010west Territories; a 1\u2010y\u2010old clearcut aspen area at the EMEND project near Peace River, Alberta; and a 10\u2010y\u2010old burned, mixed forest near Prince Albert National Park, Saskatchewan. Nearby mature forest stands of the same types were also measured as controls. The harvested site had lower net radiation (Rn), sensible (H) and latent (LE) heat fluxes, and greater ground heat fluxes (G) than the mature forest. Daytime CO2 fluxes were much reduced, but night\u2010time CO2 fluxes were identical to that of the mature aspen forest. It is hypothesized that the aspen roots remained alive following harvesting, and dominated soil respiration. The overall effect was that the harvested site was a carbon source of about 1.6 gC m\u22122 day\u22121, while the mature site was a sink of about \u22123.8 gC m\u22122 day\u22121. The one\u2010year\u2010old burn had lower Rn, H and LE than the mature jackpine forest, and had a continuous CO2 efflux of about 0.8 gC m\u20132 day\u22121 compared to the mature forest sink of \u2212 0.5 g C m\u22122 day\u22121. The carbon source was likely caused by decomposition of fire\u2010killed vegetation. The 10\u2010y\u2010old burned site had similar H, LE, and G to the mature mixed forest site. Although the diurnal amplitude of the CO2 fluxes were slightly lower at the 10\u2010y\u2010old site, there was no significant difference between the daily integrals (\u2212 1.3 gC m\u22122 day\u22121 at both sites). It appears that most of the change in carbon flux occurs within the first 10 years following disturbance, but more data are needed on other forest and disturbance types for the first 20 years following the disturbance event.",
+              "authors": [
+                "B. D. Amiro"
+              ],
+              "year": 2001,
+              "doi": "10.1046/j.1365-2486.2001.00398.x",
+              "landing_url": "https://doi.org/10.1046/j.1365-2486.2001.00398.x",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 30,
+            "matched_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W1607294302",
+              "title": "Tree and forest measurement",
+              "abstract": "Forests must be measured, if they are to be managed and conserved properly. This book describes the principles of modern forest measurement, whether using simple, hand-held equipment or sophisticated satellite imagery. Written in a straightforward style, it will be understood by everyone who works with forests, from the professional forester to the layperson. It describes how and why forests are measured and the basis of the science behind the measurements taken.",
+              "authors": [],
+              "year": 2016,
+              "doi": "10.5860/choice.193212",
+              "landing_url": "https://doi.org/10.5860/choice.193212",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 20,
+            "matched_terms": [
+              "forest",
+              "measurements"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W1748103765",
+              "title": "Protocols for the measurement, monitoring and reporting of structure, biomass and carbon stocks in mangrove forests",
+              "abstract": "This report describes the approaches necessary for the measurement, monitoring and reporting of structure, biomass and carbon stocks in mangrove forests. Mangroves are coastal ecosystems providing numerous ecosystem services affecting both marine and terrestrial resources. In addition, they contain substantial carbon stocks and, due to high rates of deforestation, are significant sources of carbon emissions. Because of their value as carbon stocks and sinks and their numerous other benefits, mangroves could be excellent candidates for carbon mitigation programmes including Reducing Emissions from Deforestation and Forest Degradation, and Enhancing Forest Carbon Stocks in Developing Countries (REDD+). This publication outlines biologically relevant and statistically valid approaches to the efficient and accurate assessment of ecosystem structure, biomass and carbon stocks of mangrove forests.",
+              "authors": [
+                "Kauffman J.B.",
+                "Daniel C. Donato"
+              ],
+              "year": 2012,
+              "doi": "10.17528/cifor/003749",
+              "landing_url": "https://doi.org/10.17528/cifor/003749",
+              "pdf_url": "https://www.cifor.org/publications/pdf_files/WPapers/WP86CIFOR.pdf",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 20,
+            "matched_terms": [
+              "forest",
+              "carbon"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W1990865220",
+              "title": "Sequestration of carbon in the humus layer of Swedish forests \u2014 direct measurements",
+              "abstract": "To determine sequestration rates of carbon dioxide (CO2) we calculated the carbon (C) storage rate in humus layers of Swedish forests with Podsolic soils, which account for 14.2 \u00d7 106ha of the 22.7 \u00d7 106ha of forested land in Sweden. Our data set covered 41 years of humus inventories and mean humus layer thickness in 82 513 plots. We analysed three forest types: (i) all combinations of tree species, (ii) forests dominated (>70%) by Norway spruce ( Picea abies (L.) Karst.), and (iii) forests dominated (>70%) by Scots pine ( Pinus sylvestris L.). To relate changes in humus layer thickness to land area we used the intersections in 25 km \u00d7 25 km grids and used kriging interpolation, permitting calculations for each forest type. For each intersection mean humus thickness for each year was calculated and regressed against time to obtain the rate of change. This rate, humus bulk density, and humus C concentration were used to calculate sequestration rates. The mean sequestration rate was 251 kg C\u00b7ha\u20131\u00b7year\u20131, which is higher than theoretical values. The sequestration rate was positively related to temperature sum, albeit including effects of forest management. The pine-dominated forest type had a mean rate of 283 kg C\u00b7ha\u20131\u00b7year\u20131, and the spruce-dominated had a mean rate of 239 kg C\u00b7ha\u20131\u00b7year\u20131. Under similar site conditions, pine sequestered more C than spruce (difference of 71 kg C\u00b7ha\u20131\u00b7year\u20131; p < 0.0001), showing the importance of this type of ecosystem for C sequestration.",
+              "authors": [
+                "Bj\u00f6rn Berg",
+                "Maj\u2010Britt Johansson",
+                "\u00c5ke Nilsson",
+                "Per Gundersen",
+                "Lennart Norell"
+              ],
+              "year": 2009,
+              "doi": "10.1139/x09-022",
+              "landing_url": "https://doi.org/10.1139/x09-022",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 20,
+            "matched_terms": [
+              "forest",
+              "carbon"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W2044238703",
+              "title": "Carbon allocation in forest ecosystems",
+              "abstract": "Abstract Carbon allocation plays a critical role in forest ecosystem carbon cycling. We reviewed existing literature and compiled annual carbon budgets for forest ecosystems to test a series of hypotheses addressing the patterns, plasticity, and limits of three components of allocation: biomass , the amount of material present; flux , the flow of carbon to a component per unit time; and partitioning , the fraction of gross primary productivity (GPP) used by a component. Can annual carbon flux and partitioning be inferred from biomass ? Our survey revealed that biomass was poorly related to carbon flux and to partitioning of photosynthetically derived carbon, and should not be used to infer either. Are component fluxes correlated ? Carbon fluxes to foliage, wood, and belowground production and respiration all increased linearly with increasing GPP (a rising tide lifts all boats). Autotrophic respiration was strongly linked to production for foliage, wood and roots, and aboveground net primary productivity and total belowground carbon flux (TBCF) were positively correlated across a broad productivity gradient. How does carbon partitioning respond to variability in resources and environment ? Within sites, partitioning to aboveground wood production and TBCF responded to changes in stand age and resource availability, but not to competition (tree density). Increasing resource supply and stand age, with one exception, resulted in increased partitioning to aboveground wood production and decreased partitioning to TBCF. Partitioning to foliage production was much less sensitive to changes in resources and environment. Overall, changes in partitioning within a site in response to resource supply and age were small (<15% of GPP), but much greater than those inferred from global relationships. Across all sites, foliage production plus respiration, and total autotrophic respiration appear to use relatively constant fractions of GPP \u2013 partitioning to both was conservative across a broad range of GPP \u2013 but values did vary across sites. Partitioning to aboveground wood production and to TBCF were the most variable \u2013 conditions that favored high GPP increased partitioning to aboveground wood production and decreased partitioning to TBCF. Do priorities exist for the products of photosynthesis ? The available data do not support the concept of priorities for the products of photosynthesis, because increasing GPP increased all fluxes. All facets of carbon allocation are important to understanding carbon cycling in forest ecosystems. Terrestrial ecosystem models require information on partitioning, yet we found few studies that measured all components of the carbon budget to allow estimation of partitioning coefficients. Future studies that measure complete annual carbon budgets contribute the most to understanding carbon allocation.",
+              "authors": [
+                "Creighton M. Litton",
+                "James W. Raich",
+                "Michael G. Ryan"
+              ],
+              "year": 2007,
+              "doi": "10.1111/j.1365-2486.2007.01420.x",
+              "landing_url": "https://doi.org/10.1111/j.1365-2486.2007.01420.x",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 20,
+            "matched_terms": [
+              "forest",
+              "carbon"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W2050977735",
+              "title": "Continuous Measurement of Carbon Dioxide Evolution From Partitioned Forest Floor Components",
+              "abstract": "Loss rates of organic detritus in ecosystems can be determined by measuring rates of CO_2 release from decomposing organic substrates. We used an open system employing inverted boxes and an infrared gas analyzer (IRGA) to obtain continuous measurements of CO_2 evolution from the floor or a mixed mesophytic forest. Plexiglass sheets were used to partition respiratory activity of two litter horizons (01 and 02) and soil. Root respiration rates were determined with a differential respirometer. We compared the open system with a closed system in which KOH was used as the CO_2 absorber. Respiration measurements with KOH were 63% of IRGA values at 20 degrees C and 90% at 12 degrees. Flow rates (28 to 340 liters hr\u20141) had no effect on rates of CO_2 evolution. Nighttime CO_2 evolution rates were generally higher day\u20141. Preliminary data indicate annual CO_2 evolution of 3.8 kg m\u20142 (48% from litter, 17% from soil, and 35% from roots). This estimate is equivalent to 2.3 kg m\u20142 organic mass catabolized, assuming a carbohydrate substrate, which is 11% higher than independent estimates of the organic detritus annually available for catabolism.",
+              "authors": [
+                "Nelson T. Edwards",
+                "Phillip Sollins"
+              ],
+              "year": 1973,
+              "doi": "10.2307/1934349",
+              "landing_url": "https://doi.org/10.2307/1934349",
+              "pdf_url": "",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 20,
+            "matched_terms": [
+              "forest",
+              "measurements"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          },
+          {
+            "paper": {
+              "id": "https://openalex.org/W2123558695",
+              "title": "Confronting model predictions of carbon fluxes with measurements of Amazon forests subjected to experimental drought",
+              "abstract": "Considerable uncertainty surrounds the fate of Amazon rainforests in response to climate change. Here, carbon (C) flux predictions of five terrestrial biosphere models (Community Land Model version 3.5 (CLM3.5), Ecosystem Demography model version 2.1 (ED2), Integrated BIosphere Simulator version 2.6.4 (IBIS), Joint UK Land Environment Simulator version 2.1 (JULES) and Simple Biosphere model version 3 (SiB3)) and a hydrodynamic terrestrial ecosystem model (the Soil-Plant-Atmosphere (SPA) model) were evaluated against measurements from two large-scale Amazon drought experiments. Model predictions agreed with the observed C fluxes in the control plots of both experiments, but poorly replicated the responses to the drought treatments. Most notably, with the exception of ED2, the models predicted negligible reductions in aboveground biomass in response to the drought treatments, which was in contrast to an observed c. 20% reduction at both sites. For ED2, the timing of the decline in aboveground biomass was accurate, but the magnitude was too high for one site and too low for the other. Three key findings indicate critical areas for future research and model development. First, the models predicted declines in autotrophic respiration under prolonged drought in contrast to measured increases at one of the sites. Secondly, models lacking a phenological response to drought introduced bias in the sensitivity of canopy productivity and respiration to drought. Thirdly, the phenomenological water-stress functions used by the terrestrial biosphere models to represent the effects of soil moisture on stomatal conductance yielded unrealistic diurnal and seasonal responses to drought.",
+              "authors": [
+                "Thomas L. Powell",
+                "David Roberto Galbraith",
+                "Bradley Christoffersen",
+                "Anna Harper",
+                "Hewlley Maria Acioli Imbuzeiro",
+                "Lucy M. Rowland",
+                "Samuel Soares de Almeida",
+                "Paulo Monteiro Brando",
+                "Ant\u00f4nio C. L. da Costa",
+                "Marcos Heil Costa",
+                "Naomi Marcil Levine",
+                "Yadvinder Singh Malhi",
+                "SCOTT REID SALESKA",
+                "Eleneide Doff Sotta",
+                "Mathew Williams",
+                "Patrick Meir",
+                "P. R. Moorcroft"
+              ],
+              "year": 2013,
+              "doi": "10.1111/nph.12390",
+              "landing_url": "https://doi.org/10.1111/nph.12390",
+              "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.12390",
+              "source": "openalex",
+              "retrieved_at": "2026-10-25T03:29:31.215414+00:00"
+            },
+            "score": 20,
+            "matched_terms": [
+              "carbon",
+              "measurements"
+            ],
+            "query_terms": [
+              "forest",
+              "carbon",
+              "measurements"
+            ]
+          }
+        ],
+        "detail": "Abstract keyword matches among up to 25 retrieved records; points are not probabilities or quality ratings.",
+        "query_url": "https://api.openalex.org/works?search.title_and_abstract=%22forest%22+OR+%22carbon%22+OR+%22measurements%22&per-page=25&select=id%2Ctitle%2Cdoi%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cbest_oa_location",
+        "retrieved_count": 25,
+        "missing_abstracts": 7,
+        "warnings": [],
+        "retry_after": null
+      }
+    }
+  }
+}

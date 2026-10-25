@@ -1,0 +1,17 @@
+{
+  "mode": "live_no_mocks",
+  "checked_at_utc": "2026-10-25T04:05:07.600114+00:00",
+  "paper_source": "https://arxiv.org/pdf/1606.05250",
+  "paper_sha256": "5169f9424ad6078815b99f5aa83724f42fa6826cedfb8ae303a8091d15c8450c",
+  "page_count": 10,
+  "identification": {
+    "status": "error",
+    "mentions": [],
+    "detail": "Gemini returned HTTP 404. No dataset suggestions were accepted.",
+    "model": "gemini-2.5-flash",
+    "retrieved_at": "2026-10-25T04:05:07.325587+00:00",
+    "warnings": [],
+    "retry_after": null
+  },
+  "named_searches": []
+}

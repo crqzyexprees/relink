@@ -1,0 +1,247 @@
+{
+  "checked_at_utc": "2026-10-24T22:39:52.626447+00:00",
+  "mode": "live_no_mocks",
+  "checks": {
+    "valid_url": {
+      "verdict": "PASS",
+      "input": "https://example.org/",
+      "expected": "working",
+      "result": {
+        "status": "working",
+        "final_url": "https://example.org/",
+        "http_status": 200,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "HTTP access status only; response body and dataset identity were not checked."
+      }
+    },
+    "broken_url": {
+      "verdict": "PASS",
+      "input": "https://httpbin.org/status/404",
+      "expected": "not_found",
+      "result": {
+        "status": "not_found",
+        "final_url": "https://httpbin.org/status/404",
+        "http_status": 404,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "HTTP access status only; response body and dataset identity were not checked."
+      }
+    },
+    "internet_archive": {
+      "verdict": "PASS",
+      "input": "https://stanford-qa.com/",
+      "result": {
+        "status": "found",
+        "source": "internet_archive",
+        "candidate": {
+          "original_url": "https://stanford-qa.com/",
+          "archived_url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+          "capture_timestamp": "20250407122419",
+          "source": "internet_archive",
+          "retrieved_at": "2026-10-24T22:39:55.239779+00:00",
+          "evidence": [
+            "Availability API: available=true; capture status=200.",
+            "Archive replay URL and timestamp agree with the requested URL."
+          ],
+          "verification_status": "archive_metadata_only",
+          "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+          "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+          "doi": null,
+          "titles": [],
+          "authors": [],
+          "institutions": [],
+          "publisher": null,
+          "year": null,
+          "filenames": [],
+          "descriptions": [],
+          "version": null,
+          "related_identifiers": [],
+          "provenance": [
+            {
+              "source": "internet_archive",
+              "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+              "doi": null,
+              "record_id": null,
+              "retrieved_at": "2026-10-24T22:39:55.239833+00:00",
+              "metadata": {
+                "status": "200",
+                "available": true,
+                "url": "http://web.archive.org/web/20250407122419/https://stanford-qa.com/",
+                "timestamp": "20250407122419"
+              }
+            }
+          ]
+        },
+        "detail": "Capture reported by the availability API; contents unverified.",
+        "http_status": 200,
+        "retry_after": null
+      }
+    },
+    "datacite": {
+      "verdict": "PASS",
+      "input": "10.24432/C56C76",
+      "result": {
+        "status": "found",
+        "source": "datacite",
+        "candidates": [
+          {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-24T22:39:55.888536+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://archive.ics.uci.edu/dataset/53",
+            "doi": "10.24432/c56c76",
+            "titles": [
+              "Iris"
+            ],
+            "authors": [
+              "R. A. Fisher"
+            ],
+            "institutions": [],
+            "publisher": "UCI Machine Learning Repository",
+            "year": 1936,
+            "filenames": [],
+            "descriptions": [],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://archive.ics.uci.edu/dataset/53",
+                "doi": "10.24432/c56c76",
+                "record_id": "10.24432/c56c76",
+                "retrieved_at": "2026-10-24T22:39:55.888536+00:00",
+                "metadata": {
+                  "doi": "10.24432/c56c76",
+                  "url": "https://archive.ics.uci.edu/dataset/53",
+                  "titles": [
+                    {
+                      "title": "Iris"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "affiliation": [],
+                      "name": "R. A. Fisher",
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "UCI Machine Learning Repository",
+                  "publicationYear": 1936,
+                  "descriptions": [],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "1936",
+                      "dateType": "Issued"
+                    }
+                  ],
+                  "rightsList": []
+                }
+              }
+            ]
+          }
+        ],
+        "detail": "Metadata candidates only; downloadable content was not checked.",
+        "http_status": 200,
+        "retry_after": null,
+        "query_url": "https://api.datacite.org/dois?query=%28%28prefix%3A%2210.24432%22+AND+suffix%3A%22c56c76%22%29+OR+relatedIdentifiers.relatedIdentifier%3A%2210.24432%5C%2Fc56c76%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fdoi.org%5C%2F10.24432%5C%2Fc56c76%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=3&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+        "truncated": false,
+        "warnings": []
+      }
+    },
+    "real_pdf": {
+      "verdict": "BLOCKED",
+      "source": "https://arxiv.org/pdf/1606.05250",
+      "local_path": "/tmp/relink-public-paper-6redd0lp.pdf",
+      "sha256": "5169f9424ad6078815b99f5aa83724f42fa6826cedfb8ae303a8091d15c8450c",
+      "page_count": 10,
+      "link_count": 3,
+      "selected_url": "https://stanford-qa.com",
+      "extraction_warnings": [],
+      "report": {
+        "generated_at": "2026-10-24T22:39:57.668581+00:00",
+        "query": {
+          "title": "",
+          "author": "",
+          "institution": "",
+          "year": null,
+          "original_url": "https://stanford-qa.com",
+          "doi": "",
+          "description": "",
+          "filenames": [],
+          "version": ""
+        },
+        "current": {
+          "status": "network_error",
+          "final_url": "https://stanford-qa.com",
+          "http_status": null,
+          "redirects": [],
+          "retry_after": null,
+          "detail": "Network request failed (ConnectError)."
+        },
+        "discovery": {
+          "status": "error",
+          "candidates": [],
+          "providers": [
+            {
+              "status": "not_found",
+              "source": "datacite",
+              "candidates": [],
+              "detail": "Metadata candidates only; downloadable content was not checked.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": "https://api.datacite.org/dois?query=%28url%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22+OR+identifiers.identifier%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22+OR+alternateIdentifiers.alternateIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fstanford%5C-qa.com%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=20&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+              "truncated": false,
+              "warnings": []
+            },
+            {
+              "status": "invalid_response",
+              "source": "internet_archive",
+              "candidates": [],
+              "detail": "Archive API response is malformed or inconsistent; no candidate accepted.",
+              "http_status": 200,
+              "retry_after": null,
+              "query_url": null,
+              "truncated": false,
+              "warnings": []
+            }
+          ],
+          "detail": "Relevance points are not probabilities. Provider metadata does not verify dataset preservation."
+        },
+        "input_context": {
+          "mode": "pdf",
+          "paper_source": "https://arxiv.org/pdf/1606.05250",
+          "filename": "relink-public-paper-6redd0lp.pdf",
+          "document_sha256": "5169f9424ad6078815b99f5aa83724f42fa6826cedfb8ae303a8091d15c8450c",
+          "selected_link_page": 1
+        },
+        "schema_version": 1
+      }
+    },
+    "streamlit_health": {
+      "verdict": "PASS",
+      "http_status": 200,
+      "body": "ok"
+    }
+  }
+}

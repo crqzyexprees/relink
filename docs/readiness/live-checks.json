@@ -1,0 +1,72 @@
+{
+  "checked_at_utc": "2026-10-24T22:16:30.716612+00:00",
+  "mode": "live_no_mocks",
+  "checks": {
+    "valid_url": {
+      "verdict": "BLOCKED",
+      "input": "https://example.org/",
+      "expected": "working",
+      "result": {
+        "status": "dns_failure",
+        "final_url": "https://example.org/",
+        "http_status": null,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "DNS resolution failed."
+      }
+    },
+    "broken_url": {
+      "verdict": "BLOCKED",
+      "input": "https://httpbin.org/status/404",
+      "expected": "not_found",
+      "result": {
+        "status": "dns_failure",
+        "final_url": "https://httpbin.org/status/404",
+        "http_status": null,
+        "redirects": [],
+        "retry_after": null,
+        "detail": "DNS resolution failed."
+      }
+    },
+    "internet_archive": {
+      "verdict": "BLOCKED",
+      "input": "https://stanford-qa.com/",
+      "result": {
+        "status": "dns_failure",
+        "source": "internet_archive",
+        "candidate": null,
+        "detail": "DNS resolution failed.",
+        "http_status": null,
+        "retry_after": null
+      }
+    },
+    "datacite": {
+      "verdict": "BLOCKED",
+      "input": "10.24432/C56C76",
+      "result": {
+        "status": "dns_failure",
+        "source": "datacite",
+        "candidates": [],
+        "detail": "DNS resolution failed.",
+        "http_status": null,
+        "retry_after": null,
+        "query_url": "https://api.datacite.org/dois?query=%28%28prefix%3A%2210.24432%22+AND+suffix%3A%22c56c76%22%29+OR+relatedIdentifiers.relatedIdentifier%3A%2210.24432%5C%2Fc56c76%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fdoi.org%5C%2F10.24432%5C%2Fc56c76%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&page%5Bsize%5D=3&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+        "truncated": false,
+        "warnings": []
+      }
+    },
+    "real_pdf": {
+      "verdict": "BLOCKED",
+      "source": "https://arxiv.org/pdf/1606.05250",
+      "status": "dns_failure",
+      "detail": "DNS resolution failed.",
+      "stage": "download",
+      "engine_recovery_run": false
+    },
+    "streamlit_health": {
+      "verdict": "BLOCKED",
+      "error_type": "ConnectError",
+      "detail": "[Errno 1] Operation not permitted"
+    }
+  }
+}

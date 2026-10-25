@@ -1,0 +1,10 @@
+{
+  "status": "timeout",
+  "detail": "Request exceeded its total time budget.",
+  "total_timeout": 3,
+  "fake_elapsed_seconds": 38.0,
+  "read_count": 38,
+  "read_timeout_values": [
+    3.0
+  ]
+}

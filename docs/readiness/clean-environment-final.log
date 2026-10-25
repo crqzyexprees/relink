@@ -1,0 +1,10 @@
+Isolated prefix: /tmp/relink-clean-readiness
+Python: 3.12.15
+streamlit 1.66.1
+httpx 0.28.1
+pymupdf 1.28.2
+pytest 9.1.1
+anyio 4.15.1
+certifi 2026.10.23
+idna 3.20
+No broken requirements found.
