@@ -54,6 +54,30 @@ Incomplete configuration shows an honest unavailable message. A login-start erro
 shows a generic configuration error without rendering credentials. See the
 [st.login configuration reference](https://docs.streamlit.io/develop/api-reference/user/st.login).
 
+## Troubleshooting a missing sign-in button
+
+Open **Sign-in setup details** in ReLink's Search history sidebar. It identifies
+missing or empty setting names, a cookie secret shorter than 32 characters, a
+missing authentication dependency, unreadable secrets, or values nested in a
+named provider table. The panel never displays configured values or exception
+text. This is a local configuration check, not validation of Auth0 credentials.
+
+ReLink calls `st.login()` with the default provider. Put all five required
+fields directly in `[auth]`, rather than splitting them into `[auth.auth0]`.
+Changing `.streamlit/secrets.toml` locally does not update Streamlit Cloud:
+edit that deployed app's **Settings → Secrets**, save and reboot.
+
+The earlier no-login deployment example explicitly used
+`RELINK_HISTORY_ENABLED = "0"`. To enable private history after configuring
+Auth0, change it to `"1"` **above `[auth]`**, keeping
+`RELINK_HISTORY_MODE = "oidc"`. ReLink shows an explicit hint when this switch
+disables history. It never enables shared/local mode to bypass authentication.
+
+If the button appears but login fails later, record where it stops and the
+visible error wording, excluding credentials, authorization codes and callback
+query strings. A reachable metadata endpoint does not establish that a client
+secret, callback allowlist or complete browser login is valid.
+
 ## What is isolated
 
 - Private files live in `.relink/history-users/<SHA-256 namespace>.json`. Namespace

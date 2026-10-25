@@ -8,7 +8,8 @@ import streamlit as st
 
 from relink.history import HistoryError, restore_paper, restore_snapshot
 from relink.history_access import (authorized_store, current_access, ensure_action_scope,
-                                  login_configured, rerun_if_identity_changed, store_for_access)
+                                  history_enabled, login_configuration_issues,
+                                  rerun_if_identity_changed, store_for_access)
 from relink.exports import json_download
 from relink.paper_models import PaperDatasetLookup, PaperSearchResult
 from relink.papers import lookup_paper_datasets, search_papers
@@ -132,18 +133,28 @@ def render_history(render_report):
                     except Exception:
                         st.error('Sign-out could not complete. Close this tab and check the authentication configuration.')
                     st.stop()
-            elif login_configured():
-                if st.button('Sign in for private history', key='history_login'):
-                    st.session_state.clear()
-                    try:
-                        st.login()
-                    except Exception:
-                        st.error('Sign-in could not start. Ask the operator to check the authentication configuration.')
-                    st.stop()
             else:
-                st.caption('Private history sign-in is not configured for this deployment. Searches remain available.')
+                issues = login_configuration_issues()
+                if not issues:
+                    if st.button('Sign in for private history', key='history_login'):
+                        st.session_state.clear()
+                        try:
+                            st.login()
+                        except Exception:
+                            st.error('Sign-in could not start. Ask the operator to check the authentication configuration.')
+                        st.stop()
+                else:
+                    st.caption('Private history sign-in is not configured for this deployment. Searches remain available.')
+                    with st.expander('Sign-in setup details'):
+                        for issue in issues:
+                            st.caption(issue)
+                        st.caption('Update this deployed app in Streamlit Cloud → Settings → Secrets, then reboot. '
+                                   'Only setting names are shown here; never share secret values.')
         if not access.enabled:
             st.caption(access.detail)
+            if access.mode == 'oidc' and not history_enabled():
+                st.caption('To enable private history, set RELINK_HISTORY_ENABLED = "1" above [auth] '
+                           'in the deployed app Secrets settings, then reboot. Keep RELINK_HISTORY_MODE = "oidc".')
             return
         st.caption(access.detail + ' PDF files are not saved.')
         store = store_for_access(access)

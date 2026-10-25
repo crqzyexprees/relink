@@ -1,5 +1,6 @@
 """Trusted identity → private history namespace; no browser-supplied storage paths."""
 from dataclasses import dataclass
+from collections.abc import Mapping
 import hashlib
 import importlib.util
 import json
@@ -64,9 +65,13 @@ def resolve_access(mode, enabled, claims, *, now=None) -> HistoryAccess:
     return HistoryAccess(mode, bool(enabled and namespace), namespace, detail)
 
 
+def history_enabled() -> bool:
+    return os.environ.get('RELINK_HISTORY_ENABLED', '1').strip().lower() not in ('0', 'false', 'off', 'no')
+
+
 def current_access() -> HistoryAccess:
     mode = os.environ.get('RELINK_HISTORY_MODE', 'oidc').strip().lower()
-    enabled = os.environ.get('RELINK_HISTORY_ENABLED', '1').strip().lower() not in ('0', 'false', 'off', 'no')
+    enabled = history_enabled()
     try:
         claims = st.user.to_dict() if mode == 'oidc' else {}
     except (AttributeError, KeyError, RuntimeError):
@@ -101,13 +106,28 @@ def sync_session_scope(access: HistoryAccess):
     st.session_state['_history_identity_scope'] = access.scope
 
 
-def login_configured() -> bool:
-    """Support the native single-provider [auth] config without exposing secrets."""
+def login_configuration_issues() -> tuple[str, ...]:
+    """Return only application-owned messages/field names, never secret values."""
+    issues = []
     if importlib.util.find_spec('authlib') is None:
-        return False
+        issues.append('Authentication dependency missing: install streamlit[auth] and reboot the app.')
     try:
         auth = st.secrets.get('auth', {})
+        if not isinstance(auth, Mapping):
+            return tuple(issues + ['The [auth] setting must be a TOML table.'])
         required = ('redirect_uri', 'cookie_secret', 'client_id', 'client_secret', 'server_metadata_url')
-        return all(isinstance(auth.get(name), str) and auth[name].strip() for name in required) and len(auth['cookie_secret']) >= 32
+        missing = [name for name in required if not isinstance(auth.get(name), str) or not auth[name].strip()]
+        issues.extend(f'Set auth.{name} to a nonempty string.' for name in missing)
+        if 'cookie_secret' not in missing and len(auth['cookie_secret']) < 32:
+            issues.append('auth.cookie_secret must contain at least 32 characters; generate a random secret.')
+        if missing and any(isinstance(value, Mapping) for name, value in auth.items() if name != 'client_kwargs'):
+            issues.append('Put client_id, client_secret and server_metadata_url directly under [auth]; '
+                          'ReLink uses the default provider.')
     except (FileNotFoundError, KeyError, ValueError, TypeError, AttributeError):
-        return False
+        issues.append('Authentication secrets could not be read. Check the deployed app Secrets settings and reboot.')
+    return tuple(issues)
+
+
+def login_configured() -> bool:
+    """Support the native single-provider [auth] config without exposing secrets."""
+    return not login_configuration_issues()

@@ -2,6 +2,40 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Current Auth0 troubleshooting — safe configuration diagnostics
+
+- Owner reports sign-in still fails after configuration. Earlier screenshot
+  showed both missing/unrecognized login configuration and explicitly disabled
+  history. The exact current failure stage is requested; Cloud secrets and the
+  Auth0 application's settings cannot be inspected from this workspace.
+- A real read-only request to the owner's public Auth0 discovery endpoint
+  returned HTTP 200, the expected issuer, and authorization/token/JWKS/logout
+  endpoints. No credentials were sent. This verifies domain/discovery reachability,
+  not client credentials, callback allowlists or successful sign-in.
+- An isolated real Firefox guest session reached the deployed app's embedded
+  frame at /~/+/. Its sidebar still reports unrecognized sign-in configuration
+  and has no login button, while history is now enabled (guest sign-in prompt,
+  not the previous explicit-disabled message). No credentials were entered,
+  saved history accessed, or login submitted; this narrows the live blocker to
+  the application's local configuration/dependency check before Auth0 redirect.
+- Found an observability problem: all configuration failures produced the same
+  generic unavailable message. Added a native Sign-in setup details expander
+  with static field-name diagnostics for missing/empty settings, short cookie
+  secrets, named-provider nesting, missing Authlib and unreadable secrets.
+  Configured values and exception bodies are never displayed. The existing
+  native default-provider flow and identity isolation remain unchanged.
+- Disabled history now points to RELINK_HISTORY_ENABLED = "1" above [auth],
+  retaining oidc mode. The old no-login demo template used "0"; no settings are
+  enabled automatically and local/shared fallback remains prohibited.
+- Regression tests first produced four expected failures; all five now pass.
+  Focused auth/history checks: **28 tests/17 subtests pass** in 5.60s. Fresh full
+  suite: **278 tests/192 subtests pass** in 15.03s. Compilation and whitespace
+  checks pass. All automated credentials/identities are fixtures; no live login
+  is represented by these tests. No dependencies or remote requests added to UI.
+- Publication is being completed. Auth0 end-to-end login remains unverified;
+  after Cloud updates, inspect setup details or supply the visible later-stage
+  error without keys/secrets/login codes. Durable cloud history is still separate.
+
 ## Latest fix — navigation overlap reproduced in Firefox
 
 - Owner's screenshot exposed a regression in the compact navigation. The brand
