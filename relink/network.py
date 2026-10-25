@@ -3,9 +3,11 @@
 from dataclasses import dataclass
 import ipaddress
 import math
+import json
 import queue
 import socket
 import threading
+from time import monotonic
 from collections.abc import Callable
 
 import httpx
@@ -110,14 +112,23 @@ class PublicTransport(httpx.BaseTransport):
     The injectable transport/resolver are trusted dependencies for offline tests.
     """
 
-    def __init__(self, transport: httpx.BaseTransport, resolver: Resolver):
+    def __init__(self, transport: httpx.BaseTransport, resolver: Resolver | None = None):
         self._transport = transport
         self._resolver = resolver
 
     def handle_request(self, request: httpx.Request) -> httpx.Response:
         url = validate_url(str(request.url))
         port = url.port or (443 if url.scheme == 'https' else 80)
-        addresses = self._resolver(url.host, port)
+        if self._resolver is not None:
+            addresses = self._resolver(url.host, port)
+        else:
+            timeout = request.extensions.get('timeout', {}).get('connect', 10.0)
+            deadline = request.extensions.get('relink_deadline')
+            if deadline is not None:
+                timeout = min(timeout, deadline - monotonic())
+            if timeout <= 0:
+                raise TimeoutError('Request time budget exhausted before DNS.')
+            addresses = resolve_addresses(url.host, port, timeout)
         if not addresses:
             raise socket.gaierror(socket.EAI_NONAME, 'No DNS answers.')
         if not all(_public_ip(address) for address in addresses):
@@ -145,39 +156,77 @@ class FetchResult:
 
 
 class PublicHTTPClient:
-    """Reusable synchronous client; no automatic retries, proxies, or downloads."""
+    """Public HTTP with inactivity limits and cooperative elapsed-budget checks.
+
+    total_timeout is checked between redirects and response-body chunks. It does
+    not preempt HTTPX's internal header-reading loop or native code. A strict
+    wall-clock deadline requires lower-level cancellation, not just this budget.
+    No automatic retries or environment proxies are used.
+    """
 
     def __init__(self, *, timeout: float = 10.0, max_redirects: int = 5,
+                 total_timeout: float = 30.0,
                  max_body_bytes: int = 1_048_576,
                  transport: httpx.BaseTransport | None = None,
                  resolver: Resolver | None = None):
-        if not math.isfinite(timeout) or timeout <= 0 or max_redirects < 0 or max_body_bytes <= 0:
+        if (not math.isfinite(timeout) or timeout <= 0 or not math.isfinite(total_timeout)
+                or total_timeout <= 0 or max_redirects < 0 or max_body_bytes <= 0):
             raise ValueError('Timeout/body limit must be positive; redirect limit nonnegative.')
         self.max_redirects = max_redirects
         self.max_body_bytes = max_body_bytes
-        resolver = resolver or (lambda host, port: resolve_addresses(host, port, timeout))
+        self.timeout, self.total_timeout = timeout, total_timeout
         self._client = httpx.Client(
             transport=PublicTransport(
-                transport or httpx.HTTPTransport(retries=0, trust_env=False), resolver),
+                # Pool origins are IP-pinned. Reusing a connection for another
+                # hostname on that IP would bypass its independent TLS handshake.
+                transport or httpx.HTTPTransport(retries=0, trust_env=False,
+                    limits=httpx.Limits(max_keepalive_connections=0)), resolver),
             timeout=httpx.Timeout(timeout), follow_redirects=False, trust_env=False,
             headers={'User-Agent': 'ReLink/0.1 (academic dataset recovery)',
                      'Accept-Encoding': 'identity'},
         )
 
     def fetch(self, value: str, *, read_body: bool = False) -> FetchResult:
+        return self._request('GET', value, read_body=read_body)
+
+    def post_json(self, value: str, payload: dict, *, headers: dict | None = None) -> FetchResult:
+        """Trusted-provider HTTPS POST. Never forward credentials via redirects."""
+        encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode('utf-8')
+        if len(encoded) > 256 * 1024:
+            raise RequestFailure('blocked', 'API request exceeds the size limit.', value, ())
+        return self._request('POST', value, read_body=True, payload=payload, headers=headers)
+
+    def _request(self, method: str, value: str, *, read_body: bool, payload=None, headers=None) -> FetchResult:
         url = value
         redirects: list[str] = []
         visited: set[str] = set()
+        deadline = monotonic() + self.total_timeout
+
+        def remaining():
+            budget = deadline - monotonic()
+            if budget <= 0:
+                raise RequestFailure('timeout', 'Request exceeded its total time budget.', url, tuple(redirects))
+            return min(self.timeout, budget)
+
         try:
             while True:
+                budget = remaining()
                 parsed = validate_url(url)
+                if method == 'POST' and parsed.scheme != 'https':
+                    raise UnsafeURLError('Authenticated API requests require HTTPS.')
                 url = str(parsed)
                 if url in visited:
                     raise RequestFailure('redirect_error', 'Redirect loop detected.', url, tuple(redirects))
                 visited.add(url)
                 # Do not send cookies collected by previous requests or redirect hops.
                 self._client.cookies.clear()
-                with self._client.stream('GET', parsed) as response:
+                options = {'json': payload, 'headers': headers} if method == 'POST' else {}
+                with self._client.stream(method, parsed, timeout=httpx.Timeout(budget), **options,
+                                         extensions={'relink_deadline': deadline}) as response:
+                    remaining()
+                    if method == 'POST' and 300 <= response.status_code < 400:
+                        raise RequestFailure('redirect_error', 'API POST redirect rejected; credentials were not forwarded.',
+                                             url, tuple(redirects))
                     if response.status_code in (301, 302, 303, 307, 308):
                         location = response.headers.get('location')
                         if not location:
@@ -200,7 +249,9 @@ class PublicHTTPClient:
                         # MockTransport may provide an already buffered response.
                         chunks = [response.content] if response.is_stream_consumed else response.iter_raw()
                         for chunk in chunks:
-                            if len(body) + len(chunk) > self.max_body_bytes:
+                            remaining()
+                            limit = min(self.max_body_bytes, 256 * 1024) if method == 'POST' else self.max_body_bytes
+                            if len(body) + len(chunk) > limit:
                                 raise RequestFailure('network_error', 'API response exceeds size limit.', url, tuple(redirects))
                             body.extend(chunk)
                     return FetchResult(response.status_code, url, tuple(redirects),

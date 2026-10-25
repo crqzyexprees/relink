@@ -6,7 +6,8 @@ import re
 
 import httpx
 
-from relink.models import ProviderResult, RecoveryCandidate
+from relink.models import CandidateProvenance, ProviderResult, RecoveryCandidate, SearchQuery, SearchResult
+from relink.identifiers import normalize_url, url_filename
 from relink.network import PublicHTTPClient, RequestFailure, validate_url
 
 
@@ -54,17 +55,30 @@ class InternetArchiveProvider:
                 raise ValueError('Invalid archive replay URL')
             # Replay target must agree with the requested URL, including its query.
             embedded = str(archived).split(prefix, 1)[1]
-            if validate_url(embedded) != target:
+            if normalize_url(str(validate_url(embedded))) != normalize_url(str(target)):
                 raise ValueError('Archive replay target does not match the requested URL')
             candidate = RecoveryCandidate(
                 original_url, closest['url'], timestamp, SOURCE,
                 datetime.now(timezone.utc).isoformat(),
                 ('Availability API: available=true; capture status=200.',
                  'Archive replay URL and timestamp agree with the requested URL.'),
+                verification_status='archive_metadata_only', url=closest['url'],
+                filenames=(url_filename(original_url),) if url_filename(original_url) else (),
+                provenance=(CandidateProvenance(SOURCE, closest['url'], retrieved_at=datetime.now(timezone.utc).isoformat(),
+                                                metadata=closest),),
             )
             return ProviderResult('found', SOURCE, candidate=candidate, http_status=code,
                                   detail='Capture reported by the availability API; contents unverified.')
-        except (KeyError, TypeError, ValueError, AttributeError):
+        except (KeyError, TypeError, ValueError, AttributeError, RecursionError):
             return ProviderResult('invalid_response', SOURCE,
                                   detail='Archive API response is malformed or inconsistent; no candidate accepted.',
                                   http_status=code)
+
+    def discover(self, query: SearchQuery) -> SearchResult:
+        """Adapt the URL-only API to the shared discovery provider interface."""
+        if not query.original_url:
+            return SearchResult('not_applicable', SOURCE, detail='Archive discovery requires an original URL.')
+        result = self.search(query.original_url)
+        return SearchResult(result.status, SOURCE,
+                            (result.candidate,) if result.candidate else (), result.detail,
+                            result.http_status, result.retry_after)

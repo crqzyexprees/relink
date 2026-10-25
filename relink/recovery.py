@@ -1,8 +1,13 @@
 """URL recovery orchestration, independent of UI and provider implementation."""
 
-from relink.models import ProviderResult, RecoveryProvider, RecoveryResult
+from collections.abc import Iterable
+
+from relink.models import (DiscoveryProvider, DiscoveryResult, HashEvidence, ProviderResult,
+                           RecoveryProvider, RecoveryResult, SearchQuery)
 from relink.network import PublicHTTPClient, validate_url
 from relink.providers.internet_archive import InternetArchiveProvider
+from relink.providers.datacite import DataCiteProvider
+from relink.ranking import rank_candidates
 from relink.verification import check_current_url
 
 
@@ -24,3 +29,29 @@ def recover_url(original_url: str, *, client: PublicHTTPClient | None = None,
     else:
         archive = (provider or InternetArchiveProvider(client)).search(original_url)
     return RecoveryResult(original_url, current, archive)
+
+
+def discover_datasets(query: SearchQuery, *, client: PublicHTTPClient | None = None,
+                      providers: Iterable[DiscoveryProvider] | None = None,
+                      hash_evidence: Iterable[HashEvidence] = ()) -> DiscoveryResult:
+    """Search, merge and rank metadata; keep each provider's independent outcome."""
+    if client is None:
+        with PublicHTTPClient() as owned_client:
+            return discover_datasets(query, client=owned_client, providers=providers, hash_evidence=hash_evidence)
+    if providers is None:
+        providers = [DataCiteProvider(client)]
+        if query.original_url:
+            providers.append(InternetArchiveProvider(client))
+    outcomes = tuple(provider.discover(query) for provider in providers)
+    ranked = tuple(rank_candidates(query, (candidate for result in outcomes for candidate in result.candidates),
+                                   hash_evidence=hash_evidence))
+    applicable = [result for result in outcomes if result.status != 'not_applicable']
+    errors = [result for result in applicable if result.status not in ('found', 'not_found')]
+    if ranked:
+        status = 'partial' if errors else 'found'
+    elif errors or not applicable:
+        status = 'error'
+    else:
+        status = 'not_found'
+    return DiscoveryResult(status, ranked, outcomes,
+        'Relevance points are not probabilities. Provider metadata does not verify dataset preservation.')

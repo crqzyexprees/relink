@@ -58,6 +58,44 @@ class RecoveryTests(unittest.TestCase):
         self.assertIn('dataset', candidate.limitation.lower())
         self.assertTrue(candidate.retrieved_at.endswith('+00:00'))
 
+    def test_root_url_without_slash_accepts_equivalent_archive_target(self):
+        payload = {'archived_snapshots': {'closest': {
+            'available': True, 'status': '200', 'timestamp': '20200102030405',
+            'url': 'https://web.archive.org/web/20200102030405/https://example.org/'}}}
+        result = internet_archive.InternetArchiveProvider(self.client(
+            lambda r: httpx.Response(200, json=payload))).search('https://example.org')
+        self.assertEqual(result.status, 'found')
+        self.assertEqual(result.candidate.original_url, 'https://example.org')
+        self.assertEqual(result.candidate.verification_status, 'archive_metadata_only')
+
+    def test_non_root_trailing_slashes_are_not_assumed_equivalent(self):
+        payload = {'archived_snapshots': {'closest': {
+            'available': True, 'status': '200', 'timestamp': '20200102030405',
+            'url': 'https://web.archive.org/web/20200102030405/https://example.org/data/'}}}
+        result = internet_archive.InternetArchiveProvider(self.client(
+            lambda r: httpx.Response(200, json=payload))).search('https://example.org/data')
+        self.assertEqual(result.status, 'invalid_response')
+        self.assertIsNone(result.candidate)
+
+    def test_archive_accepts_escaped_unreserved_path_but_keeps_query_and_reserved_boundaries(self):
+        for original, target, status in [
+            ('https://example.org/~research/data.zip', 'https://example.org/%7Eresearch/data.zip', 'found'),
+            ('https://example.org/a/b.zip', 'https://example.org/a%2Fb.zip', 'invalid_response'),
+            ('https://example.org/?x=~', 'https://example.org/?x=%7E', 'invalid_response'),
+            ('https://example.org/a/../data.zip', 'https://example.org/a/%2E%2E/data.zip', 'invalid_response'),
+        ]:
+            payload = {'archived_snapshots': {'closest': {'available': True, 'status': '200',
+                'timestamp': '20200102030405', 'url': 'https://web.archive.org/web/20200102030405/' + target}}}
+            with self.subTest(original=original, target=target):
+                result = internet_archive.InternetArchiveProvider(self.client(
+                    lambda r: httpx.Response(200, json=payload))).search(original)
+                self.assertEqual(result.status, status)
+
+    def test_deep_json_is_invalid_archive_response(self):
+        result = internet_archive.InternetArchiveProvider(self.client(lambda r: httpx.Response(
+            200, content=b'[' * 15000 + b']' * 15000))).search(ORIGINAL)
+        self.assertEqual(result.status, 'invalid_response')
+
     def test_current_http_statuses_stay_distinct(self):
         for code, expected in [(200, 'working'), (204, 'working'), (404, 'not_found'),
                                (403, 'forbidden'), (429, 'rate_limited'),
