@@ -39,8 +39,9 @@ Updated: 2026-10-25 local time and UTC.
   were reproduced RED then fixed GREEN. Actual uploaded-PDF hash/URL retention,
   named-version warnings, processing disclosure, model-cap tails and snapshot
   round trips pass. Name-only version mismatch warns without asserting identity.
-- Docs/demo/attribution updated. Implementation and checks complete; scoped
-  publication is next. Browser execution tooling remains unavailable, so actual
+- Docs/demo/attribution updated. Published to GitHub main in engine commit
+  `0eebe9a` and space-workspace commit `6d0ad3b`; push confirmed.
+  Browser execution tooling remains unavailable, so actual
   visual/updated hosted acceptance is not inferred from AppTest or CSS checks.
 
 ## Latest fix — Gemini generation request budgets

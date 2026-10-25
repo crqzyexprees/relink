@@ -24,7 +24,8 @@ can run in parallel. Parent owns shared workflow/UI integration and final review
 - [x] Dataset AI ordering/identity/fallback tests RED→GREEN.
 - [x] UI flows/theme/history integration and relevant checks.
 - [x] Full suite, real public checks, fresh read-only review and documented limits.
-- [ ] Update STATUS after milestones, commit/push under prior authorization.
+- [x] Update STATUS after milestones, commit/push under prior authorization:
+  engine0eebe9a and UI6d0ad3b, push to GitHub main confirmed.
 
 Review focus: sample data bounds/partial rows; credentials and SSRF on redirects;
 model ID/reference validation; exact identity/version/hash order; no silent
