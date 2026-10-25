@@ -4,6 +4,19 @@
 - MVP stack: Python 3.12+, Streamlit, httpx, PyMuPDF, pytest. No React,
   separate API server, database, or paid LLM API.
 - Keep UI, extraction, provider access, ranking, and verification separate.
+- History defaults to private OIDC accounts via Streamlit auth. Authorize every
+  operation using the trusted issuer/subject and current token expiry, never
+  email, form/query input or caller paths. Recheck identity after remote work.
+  Never assign legacy shared history automatically. Explicit local mode is only
+  for a trusted single operator. Private exports must not use public media URLs.
+- Owner-authorized Gemini is core to paper/PDF dataset identification on explicit
+  Find actions. Use the configured free-tier project; no billing upgrades. Ground
+  names/versions in actual page text, then query real repository providers. Model
+  output must never create resource URLs, hashes, or verification claims. Keep
+  independent recovery working on missing credentials, quota limits, or errors.
+- Original ReLink code is AGPL-3.0-only. Preserve LICENSE/NOTICE and third-party
+  terms. Public deployments must offer corresponding release source to users;
+  configure RELINK_SOURCE_URL and verify its accessibility before deployment.
   Providers must return shared evidence-bearing candidates; keep provider
   orchestration independent of dataset/media-specific implementations.
 - Never fabricate resources, evidence, verification, or recovery success.

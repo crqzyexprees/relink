@@ -17,4 +17,5 @@ dist/
 .streamlit/secrets.toml
 uploads/
 downloads/
+.relink/
 .DS_Store

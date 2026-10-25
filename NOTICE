@@ -1,0 +1,11 @@
+ReLink
+Copyright (C) 2026 ReLink contributors
+
+ReLink's original application code is licensed under the GNU Affero General
+Public License, version 3 only (SPDX-License-Identifier: AGPL-3.0-only).
+See LICENSE for the full terms, including the warranty disclaimer.
+Copyright in individual contributions remains with their respective owners.
+
+Dependencies retain their own licenses and copyright notices. See
+THIRD_PARTY_NOTICES.md. This notice does not relicense third-party code,
+uploaded research papers, remote datasets, or service metadata.
