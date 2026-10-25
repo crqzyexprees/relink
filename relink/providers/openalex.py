@@ -7,7 +7,7 @@ import httpx
 
 from relink.identifiers import normalize_doi
 from relink.network import PublicHTTPClient
-from relink.paper_models import Paper
+from relink.paper_models import Paper, PaperProvenance
 
 
 API = 'https://api.openalex.org/works'
@@ -55,21 +55,27 @@ def parse_paper(row: dict, retrieved_at: str) -> Paper:
     oa = row.get('best_oa_location')
     oa = oa if isinstance(oa, dict) else {}
     def text(value): return value if isinstance(value, str) and len(value) <= 4000 else ''
+    landing_url = text(location.get('landing_page_url'))
+    pdf_url = text(oa.get('pdf_url')) or text(location.get('pdf_url'))
     return Paper(id=row['id'], title=title, abstract=abstract, authors=tuple(authors),
                  year=year if type(year) is int and 1000 <= year <= 9999 else None,
-                 doi=normalize_doi(row.get('doi')) or '', landing_url=text(location.get('landing_page_url')),
-                 pdf_url=text(oa.get('pdf_url')) or text(location.get('pdf_url')),
-                 retrieved_at=retrieved_at)
+                 doi=normalize_doi(row.get('doi')) or '', landing_url=landing_url, pdf_url=pdf_url,
+                 retrieved_at=retrieved_at,
+                 provenance=(PaperProvenance('openalex', row['id'], retrieved_at, landing_url, pdf_url),))
 
 
 class OpenAlexProvider:
     def __init__(self, client: PublicHTTPClient):
         self.client = client
+        self.has_more = False
 
-    def search(self, terms: tuple[str, ...]):
+    def search(self, terms: tuple[str, ...], *, page=1, limit=15):
         """Return (papers, query URL, warnings), raising typed request failures."""
+        self.has_more = False
+        if type(page) is not int or not 1 <= page <= 3 or type(limit) is not int or not 1 <= limit <= 15:
+            raise ValueError('Paper retrieval is limited to three pages of 15 records per source.')
         expression = ' OR '.join('"' + term + '"' for term in terms)
-        url = str(httpx.URL(API, params={'search.title_and_abstract': expression, 'per-page': '25',
+        url = str(httpx.URL(API, params={'search.title_and_abstract': expression, 'per-page': str(limit), 'page': str(page),
             'select': 'id,title,doi,publication_year,authorships,abstract_inverted_index,primary_location,best_oa_location'}))
         response = self.client.fetch(url, read_body=True)
         if response.http_status == 429:
@@ -80,10 +86,11 @@ class OpenAlexProvider:
         try:
             payload = json.loads(response.body)
             rows = payload['results']
-            if not isinstance(rows, list) or len(rows) > 25:
-                raise ValueError('Expected at most 25 work records.')
+            if not isinstance(rows, list) or len(rows) > limit:
+                raise ValueError('Too many work records.')
         except (ValueError, TypeError, KeyError, RecursionError):
             raise OpenAlexError('invalid_response', 'Malformed OpenAlex response.', url) from None
+        self.has_more = len(rows) == limit
         papers, warnings = [], []
         retrieved_at = datetime.now(timezone.utc).isoformat()
         for row in rows:

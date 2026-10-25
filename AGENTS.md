@@ -14,6 +14,11 @@
   names/versions in actual page text, then query real repository providers. Model
   output must never create resource URLs, hashes, or verification claims. Keep
   independent recovery working on missing credentials, quota limits, or errors.
+- Paper discovery uses OpenAlex/arXiv (15 records each, up to 30 unique per batch)
+  with abstract-only Gemini ordering and checked ID/quote evidence. Load more
+  reveals cached tens without requests; explicit new batches remain separately
+  ranked, exclude prior identities, and stop after three. Preserve keyword fallback
+  and source failures. Serialize arXiv API calls at least three seconds apart.
 - Original ReLink code is AGPL-3.0-only. Preserve LICENSE/NOTICE and third-party
   terms. Public deployments must offer corresponding release source to users;
   configure RELINK_SOURCE_URL and verify its accessibility before deployment.

@@ -1,4 +1,4 @@
-"""Abstract keyword ranking and explicit selected-paper dataset discovery."""
+"""Multi-source abstract retrieval/ranking and selected-paper dataset discovery."""
 import re
 import unicodedata
 
@@ -8,8 +8,11 @@ from relink.gemini_config import GeminiSettings
 from relink.identifiers import normalize_doi, normalize_url
 from relink.models import SearchQuery, SearchResult
 from relink.network import PublicHTTPClient, RequestFailure
-from relink.paper_models import Paper, PaperDatasetLookup, PaperSearchResult, RankedPaper
+from relink.paper_models import Paper, PaperDatasetLookup, PaperSearchResult, PaperProviderResult
+from relink.paper_ranking import deduplicate_papers, keyword_rank, paper_identities
+from relink.providers.arxiv import ArxivError, ArxivProvider
 from relink.providers.datacite import DataCiteProvider
+from relink.providers.gemini_ranking import GeminiPaperRanker
 from relink.providers.openalex import OpenAlexError, OpenAlexProvider
 
 
@@ -29,34 +32,53 @@ def topic_terms(topic: str) -> tuple[str, ...]:
     return terms
 
 
-def search_papers(topic: str, *, client: PublicHTTPClient | None = None) -> PaperSearchResult:
+def search_papers(topic: str, *, client: PublicHTTPClient | None = None,
+                  settings: GeminiSettings | None = None, batch: int = 0,
+                  exclude_identifiers: tuple[str, ...] = ()) -> PaperSearchResult:
     terms = topic_terms(topic)
+    if type(batch) is not int or not 0 <= batch < 3:
+        raise ValueError('Paper search is limited to three batches per topic.')
+    if not isinstance(exclude_identifiers, tuple) or len(exclude_identifiers) > 500 or any(
+        not isinstance(value, str) or len(value) > 4000 for value in exclude_identifiers):
+        raise ValueError('Invalid previous-paper identifiers.')
     if client is None:
         with PublicHTTPClient() as owned:
-            return search_papers(topic, client=owned)
-    try:
-        papers, query_url, warnings = OpenAlexProvider(client).search(terms)
-    except RequestFailure as exc:
-        return PaperSearchResult(exc.status, detail=exc.detail)
-    except OpenAlexError as exc:
-        return PaperSearchResult(exc.status, detail=exc.detail, query_url=exc.url, retry_after=exc.retry_after)
-    ranked = []
-    missing = sum(not paper.abstract for paper in papers)
-    for paper in papers:
-        words = set(re.findall(r'[^\W_]+', unicodedata.normalize('NFKC', paper.abstract).casefold()))
-        matched = tuple(term for term in terms if term in words)
-        if matched:
-            ranked.append(RankedPaper(paper, len(matched) * 10, matched, terms))
-    ranked.sort(key=lambda item: (-item.score, item.paper.id))
-    unique, seen = [], set()
-    for item in ranked:
-        identity = item.paper.doi or item.paper.id
-        if identity not in seen:
-            unique.append(item)
-            seen.add(identity)
-    return PaperSearchResult('found' if unique else 'not_found', tuple(unique[:10]),
-        'Abstract keyword matches among up to 25 retrieved records; points are not probabilities or quality ratings.',
-        query_url, len(papers), missing, warnings)
+            return search_papers(topic, client=owned, settings=settings, batch=batch, exclude_identifiers=exclude_identifiers)
+    records, providers, warnings = [], [], []
+    for source, provider in (('openalex', OpenAlexProvider(client)), ('arxiv', ArxivProvider(client))):
+        try:
+            papers, query_url, notes = provider.search(terms, page=batch + 1, limit=15)
+            records.extend(papers)
+            warnings.extend(source + ': ' + note for note in notes)
+            providers.append(PaperProviderResult(source, 'found' if papers else 'not_found',
+                query_url=query_url, count=len(papers), has_more=provider.has_more))
+        except (RequestFailure, OpenAlexError, ArxivError) as exc:
+            providers.append(PaperProviderResult(source, exc.status, exc.detail, getattr(exc, 'url', ''),
+                                                 retry_after=getattr(exc, 'retry_after', None)))
+    unique = deduplicate_papers(records, terms)
+    seen = set(exclude_identifiers)
+    unseen = tuple(paper for paper in unique if not paper_identities(paper) & seen)
+    for paper in unique: seen.update(paper_identities(paper))
+    missing = sum(not paper.abstract.strip() for paper in unique)
+    candidates = tuple(keyword_rank(paper, terms) for paper in unseen if paper.abstract.strip())
+    config = settings or GeminiSettings()
+    ranked, ranking = GeminiPaperRanker(client, api_key=config.api_key, model=config.model).rank(topic, candidates)
+    if ranking.status != 'ranked':
+        ranked = tuple(sorted((item for item in candidates if item.matched_terms), key=lambda item: (-item.score, item.paper.id)))
+    errors = [p for p in providers if p.status not in ('found', 'not_found')]
+    successful = len(providers) - len(errors)
+    if ranked:
+        status = 'partial' if errors else 'found'
+    elif errors:
+        status = 'partial' if successful else errors[0].status
+    else:
+        status = 'not_found'
+    return PaperSearchResult(status, ranked,
+        f'Batch {batch + 1}: up to 30 unique papers from OpenAlex and arXiv. Rankings apply only to this batch; '
+        'relevance is not paper quality, verification or a calibrated probability.',
+        providers[0].query_url, len(unique), missing, tuple(warnings),
+        next((p.retry_after for p in errors if p.retry_after), None), ranking, tuple(providers), batch,
+        batch < 2 and any(p.has_more for p in providers), tuple(sorted(seen)))
 
 
 def lookup_paper_datasets(paper: Paper, *, client: PublicHTTPClient | None = None,

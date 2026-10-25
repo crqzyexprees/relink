@@ -24,12 +24,20 @@ def work(identifier='W1', title='A paper', abstract='climate forest observations
 
 class PaperTests(unittest.TestCase):
     def setUp(self):
+        delay = patch('relink.providers.arxiv._fetch', side_effect=lambda client, url: client.fetch(url, read_body=True))
+        delay.start()
+        self.addCleanup(delay.stop)
         guard = patch('socket.getaddrinfo', side_effect=AssertionError('Live DNS in offline test'))
         guard.start()
         self.addCleanup(guard.stop)
 
     def client(self, handler):
-        client = PublicHTTPClient(transport=httpx.MockTransport(handler), resolver=lambda h, p: ['93.184.215.14'])
+        def sources(request):
+            # These older regressions exercise OpenAlex and dataset lookup only.
+            if request.headers['host'] == 'export.arxiv.org':
+                return httpx.Response(200, text='<feed xmlns="http://www.w3.org/2005/Atom"/>')
+            return handler(request)
+        client = PublicHTTPClient(transport=httpx.MockTransport(sources), resolver=lambda h, p: ['93.184.215.14'])
         self.addCleanup(client.close)
         return client
 
@@ -74,7 +82,8 @@ class PaperTests(unittest.TestCase):
                       {'forest': [2]}, {'forest': 'bad'}):
             with self.subTest(index=index), self.assertRaises(ValueError): reconstruct_abstract(index)
         result = search_papers('forest', client=self.client(lambda r: httpx.Response(200, json={'results': [work()] * 26})))
-        self.assertEqual(result.status, 'invalid_response')
+        self.assertEqual(result.providers[0].status, 'invalid_response')
+        self.assertEqual(result.status, 'partial')
 
     def test_empty_errors_rate_limit_timeout_and_bad_json_are_distinct(self):
         for response, expected in [(httpx.Response(200, json={'results': []}), 'not_found'),
@@ -83,11 +92,12 @@ class PaperTests(unittest.TestCase):
                                     (httpx.Response(200, text='not JSON'), 'invalid_response')]:
             with self.subTest(status=expected):
                 result = search_papers('forest', client=self.client(lambda r: response))
-                self.assertEqual(result.status, expected)
+                self.assertEqual(result.providers[0].status, expected)
+                self.assertEqual(result.status, 'not_found' if expected == 'not_found' else 'partial')
                 self.assertFalse(result.papers)
                 if expected == 'rate_limited': self.assertEqual(result.retry_after, '60')
         def timeout(request): raise httpx.ReadTimeout('mock timeout', request=request)
-        self.assertEqual(search_papers('forest', client=self.client(timeout)).status, 'timeout')
+        self.assertEqual(search_papers('forest', client=self.client(timeout)).providers[0].status, 'timeout')
 
     def test_invalid_topics_do_not_make_requests_and_query_syntax_is_not_injected(self):
         client = self.client(lambda r: self.fail('No request expected'))
@@ -136,7 +146,7 @@ class PaperTests(unittest.TestCase):
     def test_deep_json_is_a_provider_error_not_an_uncaught_exception(self):
         result = search_papers('forest', client=self.client(lambda r: httpx.Response(
             200, content=b'[' * 15000 + b']' * 15000)))
-        self.assertEqual(result.status, 'invalid_response')
+        self.assertEqual(result.providers[0].status, 'invalid_response')
 
     def test_pdf_timeout_and_missing_dataset_metadata_remain_explicit(self):
         paper = Paper(id='https://openalex.org/W1', title='A paper', doi='10.1234/paper',

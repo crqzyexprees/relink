@@ -2,7 +2,55 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest milestone — 30-paper abstract ranking and Load more
+
+- Owner authorized implementing the previously discussed paper-search upgrade.
+  Added OpenAlex plus official arXiv retrieval (15 records each per batch),
+  conservative DOI/arXiv deduplication retaining source records and PDF leads,
+  and one abstract-only Gemini ordering request per explicit search.
+- Model IDs must exactly cover the supplied papers, and short supporting quotes
+  must occur in the actual supplied abstract excerpts. Invalid output, missing
+  configuration, model errors/quota/timeout use explicit keyword fallback.
+  Relevance reasons remain AI judgments, not verified facts or probabilities.
+- Streamlit shows ten at a time; Load more reveals cached results without HTTP
+  requests. Search more explicitly requests the next source pages, excludes prior
+  identities, and labels ranking relative to its new batch (three batches maximum).
+  Selected-paper dataset lookup and identity checks remain connected.
+- Fresh final verification: **191 tests and 159 subtests pass**, no failures/skips;
+  docs/readiness/paper-ranking-pytest.log. New mocked tests cover model ID/quote
+  rejection, synonyms, bounded inputs, missing abstracts/key, quota/timeouts,
+  partial sources, pagination and real-module Streamlit dataset handoff.
+  Compileall, pip check, whitespace and configured-key exclusion checks pass.
+- Read-only review found two important defects, reproduced RED then fixed GREEN:
+  populated winner URLs could lose another record's arXiv alias; provenance now
+  retains each source's landing/PDF URLs for dedup and subsequent batches.
+  A skipped malformed record could disable Search more; paging now uses raw page
+  fullness independently of usable count. Full suite passes after both fixes.
+- Real first/second source pages each returned 15 OpenAlex plus 15 arXiv records.
+  Latest first batch had 29 unique records/three missing abstracts; Gemini output
+  was rejected and 24 keyword matches remained. Explicit second batch accepted
+  **25 Gemini-ranked unseen papers**, every quote locally checked and no previous
+  identity repeated. See paper-ranking-live.json and -next-batch.json under
+  docs/readiness. Model output can still fail validation; no automatic retries.
+  Earlier checks and sandbox DNS failures remain separate, never app data.
+- No dependencies, Scholar/ResearchGate scraper, bulk PDF analysis or billing
+  upgrade added. Abstract excerpts are capped at 48,000 characters overall.
+  arXiv serialization applies within this process; scaling workers needs a shared
+  limiter. Existing native PDF/parser and transport header-deadline limits remain.
+- README, provider attribution, paper/Gemini docs and demonstration steps updated.
+  Code/notes are ready for publication. Hosted-browser verification of this new
+  version remains blocked by unavailable browser tooling; owner confirmation
+  below applies to the earlier deployed build. Auth0 remains deferred.
+
 ## Latest deployment check — owner supplied the hosted address
+
+- Subsequent owner browser checks confirm that ReLink's app page loads and
+  searching for a paper appears to work. This is user-reported hosted acceptance,
+  separate from the agent's HTTP probes. No exact query/result payload was
+  supplied. Selected-paper dataset lookup, PDF/Gemini results, URL recovery and
+  browser exports are not established by that paper-search observation alone.
+  That observation predates this turn's 30-paper Gemini ranking/Load more upgrade.
+  Auth0 remains deferred.
 
 - Owner supplied https://relink.streamlit.app/ after the dashboard deployment
   handoff. At 2026-10-25T05:48:04 UTC, approved cookie-aware HTTPS requests
@@ -439,8 +487,9 @@ Updated: 2026-10-25 local time and UTC.
 
 ## Current readiness
 
-Functional live acceptance passes for the preflighted dataset demo. **173 tests pass
-with no skips**, plus 142 passing subtests in the working environment. Private
+Functional live acceptance passes for the preflighted dataset demo. **191 tests pass
+with no skips**, plus 159 passing subtests in the working environment. Latest
+paper-ranking live evidence and intermittent model fallback are recorded above. Private
 history isolation passes mocked acceptance; actual OAuth/browser downloads still
 need configured-provider/manual acceptance. Gemini
 paper identification also passed a real check with partial grounding status as
