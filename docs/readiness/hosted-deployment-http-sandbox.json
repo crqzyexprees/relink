@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-10-25T05:46:12.738457+00:00",
+  "mode": "live_public_http_no_mocks",
+  "deployment": "https://relink.streamlit.app/",
+  "checks": [
+    {
+      "check": "homepage",
+      "error_type": "ConnectError"
+    },
+    {
+      "check": "health",
+      "error_type": "ConnectError"
+    }
+  ],
+  "limitations": [
+    "No browser-control tool exposed; no widget, PDF, Gemini or provider request through the hosted UI was tested."
+  ]
+}

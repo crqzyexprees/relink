@@ -2,6 +2,31 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest deployment check — owner supplied the hosted address
+
+- Owner supplied https://relink.streamlit.app/ after the dashboard deployment
+  handoff. At 2026-10-25T05:48:04 UTC, approved cookie-aware HTTPS requests
+  reached that hostname and returned HTTP 200. The root's normal Cloud cookie
+  exchange completed through share.streamlit.io and returned to the supplied URL.
+- Root HTML is the Streamlit Cloud JavaScript wrapper, not rendered ReLink
+  controls. /_stcore/health returned that same HTML (200, 9,782 bytes), not the
+  expected plain ok. Therefore the address is reachable, but underlying Python
+  runtime health and successful app startup are **unverified**, not PASS/FAIL.
+- Current browser-control tool discovery still exposes no execution tool, so
+  hosted URL/PDF/Gemini flows, private-source link, history-disabled setting,
+  deployed commit and physical downloads have not been inspected. Asked the
+  owner whether the browser shows ReLink, a startup error, or an access page.
+  No application-code failure is inferred solely from the Cloud shell.
+- Saved sanitized live observations/assessment in
+  docs/readiness/hosted-deployment-http.json. No response cookies or auth query
+  payloads are stored. The configured key was not observed in fetched HTML;
+  that limited check does not audit every client response. Restricted sandbox
+  ConnectError attempts are separate in hosted-deployment-http-sandbox.json.
+  Initial curl without cookies looped; cookie-aware execution completed normally.
+- No source/runtime changes or new mock/live dataset results were introduced.
+  Existing 173-test/142-subtest preflight remains the automated evidence, not
+  proof that those flows pass on the hosted environment. Auth0 remains deferred.
+
 ## Latest milestone — Streamlit deployment prepared; account action pending
 
 - Owner authorized deploying the current tested demo to Streamlit Community

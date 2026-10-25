@@ -12,6 +12,13 @@ Sources reviewed 2026-10-25: [Streamlit deployment](https://docs.streamlit.io/de
 
 ## Current deployment handoff
 
+Owner supplied hosted address: **https://relink.streamlit.app/**.
+Cookie-aware public HTTPS probes on 2026-10-25 returned HTTP 200, but served the
+Cloud JavaScript wrapper; even the Python health path returned wrapper HTML.
+This establishes address reachability, not successful Python startup or ReLink
+workflow acceptance. Actual browser/hosted URL/PDF/Gemini/export checks remain
+pending. Evidence: [hosted-deployment-http.json](readiness/hosted-deployment-http.json).
+
 The owner authorized deployment. Repository/branch/entry point are ready:
 
 | Cloud field | Value |
@@ -35,7 +42,8 @@ click Deploy. Send only the resulting public app URL for hosted checks.
 This agent session exposes neither a browser-control execution tool nor a
 Streamlit deployment connector. The plugin catalog search found no matching
 Streamlit deployment integration. The signed-in dashboard action therefore
-requires the owner; no hosted deployment or URL has been verified yet.
+required the owner, who subsequently supplied the address above. No full hosted
+workflow verification has been completed in this session.
 
 ## Demo setup
 

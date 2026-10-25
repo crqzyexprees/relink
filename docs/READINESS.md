@@ -43,6 +43,12 @@ and live checks are separate below. No fallback candidates or fake successes wer
 
 ## Results
 
+| Hosted check at relink.streamlit.app | Result | Supporting output and scope |
+| --- | --- | --- |
+| Public HTTPS address and Cloud cookie redirects | PASS | [hosted-deployment-http.json](readiness/hosted-deployment-http.json): cookie-aware root request returns HTTP 200 at the owner-supplied hostname. |
+| Underlying Python health | BLOCKED | /_stcore/health returns the same Cloud HTML wrapper as root, not plain ok. HTTP 200 here does not establish engine health. |
+| Hosted URL/PDF/Gemini/source/history/export flows | BLOCKED | No browser-control execution tool exposed; owner visible-browser state requested. Previous local mocked/live-provider tests do not establish hosted acceptance. |
+
 | Private-history check | Result | Supporting output and scope |
 | --- | --- | --- |
 | Current complete suite | PASS | [history-isolation-pytest.log](readiness/history-isolation-pytest.log): `173 passed, 142 subtests passed in 9.45s`; no skips/failures. |
