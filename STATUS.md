@@ -32,7 +32,9 @@ Updated: 2026-10-25 local time and UTC.
   additional regressions for later passage references, cross-paper reference
   rejection, control-token gaps, the 30-paper guard and large Unicode payloads.
   Compilation, pip check, whitespace and configured-key exclusion checks pass.
-  Documentation updated; tested fix prepared for publication.
+  Documentation updated; fix published to GitHub main as `08601df` and push
+  confirmed. Refresh/reboot the hosted app and run a fresh Find papers action;
+  earlier cached fallback snapshots do not rerank automatically.
   Updated hosted-browser verification remains unavailable in this session.
 
 ## Latest milestone — 30-paper abstract ranking and Load more

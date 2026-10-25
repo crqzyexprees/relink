@@ -25,7 +25,8 @@ details without storing/echoing raw model responses or credentials.
   missing papers, rate limits/timeouts and malformed data covered.
 - [x] Run focused and full suite, live public search, independent read-only review;
   update STATUS and current docs. No hosted browser verification is inferred.
-- [ ] Commit/push the tested fix under existing publication authorization.
+- [x] Commit/push the tested fix under existing publication authorization: 08601df,
+  confirmed pushed to GitHub main.
 
 **Verification:** 203 tests +169 subtests pass with no failures/skips. Real first
 and second batches accepted 26 and 25 ranked papers, respectively. Independent
