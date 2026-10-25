@@ -1,0 +1,21 @@
+{
+  "input": "Previously retrieved real public OpenAlex/arXiv abstracts; one fresh model call, no mocks.",
+  "input_count": 26,
+  "accepted_count": 26,
+  "ranking": {
+    "status": "ranked",
+    "detail": "Gemini ranked supplied abstract passages. Evidence text comes directly from the selected source passage; relevance is an AI judgment, not a verification or probability.",
+    "model": "gemini-3.5-flash-lite",
+    "retrieved_at": "2026-10-25T07:05:59.678344+00:00",
+    "retry_after": null
+  },
+  "elapsed_seconds": 3.369,
+  "observed_request_timeouts": [
+    {
+      "connect": 10.0,
+      "read": 60.0,
+      "write": 10.0,
+      "pool": 10.0
+    }
+  ]
+}

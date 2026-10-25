@@ -40,6 +40,14 @@ paid account action was performed. See [models](https://ai.google.dev/gemini-api
 
 ## Evidence and limits
 
+Generation POSTs have a 60-second read-inactivity allowance and 90-second
+cooperative elapsed budget. DNS/connect/write/pool retain 10-second limits;
+ordinary URL and metadata requests keep their original limits. These overrides
+apply only to each generation request and do not mutate a shared client. No
+automatic retries. The elapsed budget is checked between response stages/chunks;
+it is not a strict wall-clock cancellation guarantee inside HTTPX header reads.
+Genuine delays still give explicit keyword/independent-result fallback.
+
 1. Reuse locally extracted PDF text; selected papers may also supply an abstract.
    Send at most 48,000 characters total, 8,000 per supplied page, in one generation
    per explicit action. The UI discloses Google text processing before Find.
@@ -110,3 +118,9 @@ After the grounding-format fix, fresh real checks accepted
 [25 unseen next-batch papers](readiness/paper-ranking-grounding-live-next-batch.json).
 Complete ID ordering and own-paper passage references remain mandatory; invalid
 outputs retain keyword fallback with safe specific rejection details.
+
+The [generation timing check](readiness/paper-ranking-timeout-after.json) accepted
+26 public-paper abstracts with actual read=60 and connect/write/pool=10 settings.
+It completed in 3.369 seconds; it does not reproduce the owner's hosted timeout.
+Mocked 20-second-generation and elapsed-budget regressions verify the longer
+allowance without sleeping or making live calls in automated tests.

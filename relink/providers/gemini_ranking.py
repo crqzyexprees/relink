@@ -8,7 +8,7 @@ import unicodedata
 from relink.gemini_config import DEFAULT_MODEL
 from relink.network import RequestFailure
 from relink.paper_models import PaperRankingInfo
-from relink.providers.gemini import API_ROOT
+from relink.providers.gemini import API_ROOT, GENERATION_READ_TIMEOUT, GENERATION_TOTAL_TIMEOUT
 
 
 SCHEMA = {'type': 'OBJECT', 'properties': {'ranking': {'type': 'ARRAY', 'maxItems': 30,
@@ -82,7 +82,9 @@ class GeminiPaperRanker:
             payload['generationConfig']['thinkingConfig'] = {'thinkingBudget': 0}
         try:
             response = self.client.post_json(API_ROOT + self.model + ':generateContent', payload,
-                                             headers={'x-goog-api-key': self._key})
+                                             headers={'x-goog-api-key': self._key},
+                                             read_timeout=GENERATION_READ_TIMEOUT,
+                                             total_timeout=GENERATION_TOTAL_TIMEOUT)
         except RequestFailure as exc:
             return outcome(exc.status, 'Gemini ranking did not complete: ' + exc.status.replace('_', ' ') + '. Keyword fallback used.')
         code = response.http_status

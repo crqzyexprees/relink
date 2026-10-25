@@ -34,7 +34,7 @@ Files use `.relink/history-users/<opaque namespace>.json`, with up to 50 entries
 per account and no PDF files. Legacy `.relink/history.json` is untouched and
 requires explicit single-operator local mode; see [storage and limits](docs/HISTORY.md).
 
-Latest verification: **203 tests and 169 subtests pass**; the earlier clean-environment run passed
+Latest verification: **209 tests and 181 subtests pass**; the earlier clean-environment run passed
 95 tests. Approved live
 checks pass for both providers, actual SQuAD PDF recovery, and app health.
 See the [pass/fail/blocked results](docs/READINESS.md),
@@ -334,7 +334,7 @@ UI tests live in `tests/test_app.py`. Focused tests use mocked recovery; integra
 tests drive native URL/upload/select/download widgets through real extraction,
 current-status, discovery, ranking, and export modules. Only external HTTP/DNS are
 mocked in those integration tests. Real PyMuPDF parsing uses generated local PDFs.
-The suite currently passes all 203 tests plus 169 subtests, with no skips.
+The suite currently passes all 209 tests plus 181 subtests, with no skips.
 
 After installing dependencies, verify both flows with:
 

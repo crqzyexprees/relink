@@ -189,24 +189,30 @@ class PublicHTTPClient:
     def fetch(self, value: str, *, read_body: bool = False) -> FetchResult:
         return self._request('GET', value, read_body=read_body)
 
-    def post_json(self, value: str, payload: dict, *, headers: dict | None = None) -> FetchResult:
-        """Trusted-provider HTTPS POST. Never forward credentials via redirects."""
+    def post_json(self, value: str, payload: dict, *, headers: dict | None = None,
+                  read_timeout: float | None = None, total_timeout: float | None = None) -> FetchResult:
+        """HTTPS POST with optional per-request generation budgets; no shared mutation."""
+        for limit in (read_timeout, total_timeout):
+            if limit is not None and (type(limit) not in (int, float) or not math.isfinite(limit) or limit <= 0):
+                raise ValueError('Request timeout overrides must be finite positive seconds.')
         encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode('utf-8')
         if len(encoded) > 256 * 1024:
             raise RequestFailure('blocked', 'API request exceeds the size limit.', value, ())
-        return self._request('POST', value, read_body=True, payload=payload, headers=headers)
+        return self._request('POST', value, read_body=True, payload=payload, headers=headers,
+                             read_timeout=read_timeout, total_timeout=total_timeout)
 
-    def _request(self, method: str, value: str, *, read_body: bool, payload=None, headers=None) -> FetchResult:
+    def _request(self, method: str, value: str, *, read_body: bool, payload=None, headers=None,
+                 read_timeout=None, total_timeout=None) -> FetchResult:
         url = value
         redirects: list[str] = []
         visited: set[str] = set()
-        deadline = monotonic() + self.total_timeout
+        deadline = monotonic() + (self.total_timeout if total_timeout is None else total_timeout)
 
         def remaining():
             budget = deadline - monotonic()
             if budget <= 0:
                 raise RequestFailure('timeout', 'Request exceeded its total time budget.', url, tuple(redirects))
-            return min(self.timeout, budget)
+            return budget
 
         try:
             while True:
@@ -221,7 +227,9 @@ class PublicHTTPClient:
                 # Do not send cookies collected by previous requests or redirect hops.
                 self._client.cookies.clear()
                 options = {'json': payload, 'headers': headers} if method == 'POST' else {}
-                with self._client.stream(method, parsed, timeout=httpx.Timeout(budget), **options,
+                request_timeout = httpx.Timeout(min(self.timeout, budget),
+                    read=min(self.timeout if read_timeout is None else read_timeout, budget))
+                with self._client.stream(method, parsed, timeout=request_timeout, **options,
                                          extensions={'relink_deadline': deadline}) as response:
                     remaining()
                     if method == 'POST' and 300 <= response.status_code < 400:

@@ -10,6 +10,8 @@ from relink.network import RequestFailure
 
 
 API_ROOT = 'https://generativelanguage.googleapis.com/v1beta/models/'
+GENERATION_READ_TIMEOUT = 60.0
+GENERATION_TOTAL_TIMEOUT = 90.0
 SCHEMA = {'type': 'OBJECT', 'properties': {'datasets': {'type': 'ARRAY', 'maxItems': 8,
     'items': {'type': 'OBJECT', 'properties': {
         'name': {'type': 'STRING'}, 'version': {'type': 'STRING'},
@@ -78,7 +80,9 @@ class GeminiProvider:
             payload['generationConfig']['thinkingConfig'] = {'thinkingBudget': 0}
         try:
             response = self.client.post_json(API_ROOT + self.model + ':generateContent', payload,
-                                             headers={'x-goog-api-key': self._key})
+                                             headers={'x-goog-api-key': self._key},
+                                             read_timeout=GENERATION_READ_TIMEOUT,
+                                             total_timeout=GENERATION_TOTAL_TIMEOUT)
         except RequestFailure as exc:
             return outcome(exc.status, 'Gemini request did not complete: ' + exc.status.replace('_', ' ') + '.')
         code = response.http_status

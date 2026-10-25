@@ -43,6 +43,12 @@ explicit keyword fallback. This scores actual abstract whole-word matches at ten
 points each, drops zero-match records and treats equal scores as ties. Titles
 do not contribute. Missing abstracts cannot be ranked in either mode.
 
+Gemini generation has a 60s read-inactivity allowance and a 90s cooperative
+elapsed budget, with 10s DNS/connect/write/pool limits. Ordinary paper-source and
+dataset URL requests retain their original limits. No retries are automatic;
+remaining slow-header cancellation limits are documented in GEMINI.md. A timeout
+remains an honest failed model call, with available keyword results retained.
+
 Ten results appear initially. **Load more** reveals the next ten already ranked
 papers without provider/model requests or duplicate history entries. Once visible
 results are exhausted, **Search more** explicitly fetches the next 15 records

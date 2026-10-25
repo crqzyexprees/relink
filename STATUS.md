@@ -2,6 +2,33 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest fix — Gemini generation request budgets
+
+- Owner reported `Gemini ranking: timeout` after the evidence-format fix. Code
+  inspection found generation POSTs inherited the ordinary 10s read-inactivity
+  and 30s cooperative elapsed limits. A real local before-check completed in
+  3.793s with the old limits; the exact hosted delay/cause was not reproduced.
+- Added validated per-POST read/elapsed overrides. Both Gemini paper ranking and
+  dataset identification now use 60s read inactivity and a 90s cooperative elapsed
+  budget, while DNS/connect/write/pool remain 10s. Ordinary URL, Archive, DataCite
+  and paper-source requests keep their existing limits. No shared-client mutation,
+  retries, model/payload changes, credential changes or billing upgrades.
+- New mocked regressions first failed, then passed: simulated 20s generations,
+  unchanged before/after ordinary requests, elapsed-budget clamping/expiry,
+  invalid overrides and genuine timeout fallback with one request only.
+  Fresh full suite: **209 tests and 181 subtests pass**, no failures/skips;
+  docs/readiness/generation-timeout-pytest.log. Compilation, pip check and
+  whitespace checks pass. Independent read-only review found no important issues.
+- Separate real after-check accepted all 26 supplied public-paper abstracts in
+  3.369s and observed read=60/connect=write=pool=10. Evidence:
+  docs/readiness/paper-ranking-timeout-before.json and -after.json. This confirms
+  actual request configuration and successful generation, not a real 20s delay
+  or hosted-browser acceptance. The elapsed budget remains cooperative and
+  cannot preempt every internal slow-header read; no strict wall-clock claim.
+- Documentation updated and verified fix ready for publication. Genuine model
+  delays/network failures still return explicit keyword fallback. Run a fresh
+  search after the deployed app updates; saved fallback results do not rerank.
+
 ## Latest fix — intermittent Gemini paper-ranking rejection
 
 - Owner reported `Keyword fallback · Gemini ranking: invalid response` in the
@@ -523,8 +550,8 @@ Updated: 2026-10-25 local time and UTC.
 
 ## Current readiness
 
-Functional live acceptance passes for the preflighted dataset demo. **203 tests pass
-with no skips**, plus 169 passing subtests in the working environment. Latest
+Functional live acceptance passes for the preflighted dataset demo. **209 tests pass
+with no skips**, plus 181 passing subtests in the working environment. Latest
 paper-ranking live evidence and intermittent model fallback are recorded above. Private
 history isolation passes mocked acceptance; actual OAuth/browser downloads still
 need configured-provider/manual acceptance. Gemini

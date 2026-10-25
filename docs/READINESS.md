@@ -2,7 +2,7 @@
 
 Follow-up: the owner selected AGPL-3.0-only; original-code LICENSE/NOTICE and
 application source/license information are now implemented. The working suite
-now passes 203 tests plus 169 subtests, including source-bound passage evidence, multi-source Gemini abstract ranking,
+now passes 209 tests plus 181 subtests, including bounded generation timeouts, source-bound passage evidence, multi-source Gemini abstract ranking,
 cached pagination, private history isolation and core Gemini identification,
 persistent local history, two-tab abstract search and selected
 paper dataset lookup. New evidence: [paper-feature-pytest.log](readiness/paper-feature-pytest.log)
@@ -12,6 +12,21 @@ below remain historical evidence. Real additional examples and limitations are
 recorded in [evaluation.md](evaluation.md). Public source is now published at
 [crqzyexprees/relink](https://github.com/crqzyexprees/relink), with anonymous source
 access checked. Deployed-version source configuration and release checks remain pending.
+
+## Generation timeout fix — 2026-10-25
+
+Full mocked suite: **209 tests, 181 subtests pass**; [output](readiness/generation-timeout-pytest.log).
+Gemini POSTs now get 60s read inactivity/90s cooperative elapsed; ordinary
+network defaults and DNS/connect/write/pool bounds remain. Simulated slow
+generations, elapsed expiry, default restoration, invalid settings and one-call
+timeout fallback pass. Independent review found no important defects.
+
+Both [before](readiness/paper-ranking-timeout-before.json) and
+[after](readiness/paper-ranking-timeout-after.json) fresh real generations accepted
+26 public abstracts; observed read allowances changed from 10s to 60s, with
+connect/write/pool still 10s. Both finished in under four seconds. The exact hosted
+delay is **unverified**, rather than reproduced by those fast live calls. The
+elapsed budget remains cooperative; strict header cancellation is still open.
 
 ## Ranking validation fix — 2026-10-25
 
