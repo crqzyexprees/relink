@@ -25,8 +25,8 @@ Updated: 2026-10-25 local time and UTC.
   passed four navigation tests. No live provider recheck was needed for UI-only
   changes; earlier live evidence remains dated and unchanged.
 - Browser executor discovery still returns no execution tool; exact updated
-  visual alignment/hosted acceptance remains unverified. Implementation verified
-  and prepared for publication; refresh/reboot and inspect after Cloud updates.
+  visual alignment/hosted acceptance remains unverified. Published UI change
+  `4f71403` to GitHub main; push confirmed. Refresh/reboot and inspect after Cloud updates.
 
 ## Latest milestone — combined dataset AI and space workspace
 

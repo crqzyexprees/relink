@@ -16,7 +16,7 @@ responsive/mobile navigation and reduced-motion behavior remain supported.
   inputs persist and explicit Find remains required.
 - [x] Implement compact shell, native example callbacks and paper panel layout.
 - [x] Update scoped CSS for brand/navigation/cards; no remote HTML/assets.
-- [ ] Run relevant/full suite, review and docs/status; commit/push under standing
+- [x] Run relevant/full suite, review and docs/status; commit/push under standing
   authorization. Browser tooling unavailable unless discovery changes.
 
 Verification:273 tests/192 subtests pass; focused UI40/6. Compileall/whitespace
@@ -24,3 +24,4 @@ checks pass. Independent read-only review found no critical/important findings,
 with four navigation tests independently passing. Native tabs preserve inputs;
 example clicks make no remote calls. No engine changes/live provider requests.
 Actual updated browser appearance remains unverified (no executor exposed).
+Published feature commit:4f71403; GitHub main push confirmed.
