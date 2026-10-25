@@ -2,6 +2,30 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest milestone — Streamlit deployment prepared; account action pending
+
+- Owner authorized deploying the current tested demo to Streamlit Community
+  Cloud, with history disabled and Auth0 deferred. Rechecked repository main,
+  app.py, Python 3.12 requirements and official deployment/secrets documentation.
+  No new paper-search feature or hosting migration was added.
+- Fresh complete preflight: 173 tests and 142 subtests passed in 11.66s.
+  Saved output: docs/readiness/deploy-preflight-pytest.log. Source/workspace started
+  clean at 9791fcb. No new live-provider or hosted-browser success is claimed.
+- Prepared owner-only .relink/streamlit-cloud-secrets.toml with the existing
+  Gemini key/model, RELINK_HISTORY_ENABLED="0", oidc mode and pinned public
+  corresponding-source URL. Syntax, disabled history and mode 0600 verified;
+  git check-ignore confirms it cannot enter ordinary commits. Existing secrets
+  file was not changed; no key printed or sent to a remote service by this step.
+- Browser skill workflow discovery found no browser-control execution tool.
+  No Streamlit deploy connector is available; plugin search returned no matching
+  integration. There is no authenticated deployment path in this session.
+  Prepared docs/DEPLOYMENT.md with exact fields; the owner must sign into the
+  Streamlit dashboard and submit the private settings/deployment. This is a
+  concrete tool/account-access limitation, not another approval request.
+- Hosted URL, health, engine requests, physical browser downloads and actual
+  cloud secret loading remain unverified until a deployment exists. No live
+  application URL is invented. Known PDF/header-deadline limits remain recorded.
+
 ## Latest milestone — GitHub publication
 
 - Published https://github.com/crqzyexprees/relink as a public repository on

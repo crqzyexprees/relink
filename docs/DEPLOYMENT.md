@@ -10,6 +10,33 @@ Sources reviewed 2026-10-25: [Streamlit deployment](https://docs.streamlit.io/de
 [cloud secrets](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management),
 [Vercel WebSockets and persistent state](https://vercel.com/docs/functions/websockets).
 
+## Current deployment handoff
+
+The owner authorized deployment. Repository/branch/entry point are ready:
+
+| Cloud field | Value |
+| --- | --- |
+| Repository | crqzyexprees/relink |
+| Branch | main |
+| Main file | app.py |
+| Python | 3.12 |
+| History | Disabled until login is configured |
+
+The local ignored `.relink/streamlit-cloud-secrets.toml` contains the actual
+server-side deployment settings, including the saved Gemini key and a pinned
+source commit. It uses owner-only permissions; never upload it to GitHub or paste
+its contents into chat. The file is prepared locally, not transmitted by this
+task. Existing `.streamlit/secrets.toml` is unchanged.
+
+In https://share.streamlit.io, sign in with GitHub, create an app with the fields
+above, and paste that private file into Advanced settings → Secrets. Save and
+click Deploy. Send only the resulting public app URL for hosted checks.
+
+This agent session exposes neither a browser-control execution tool nor a
+Streamlit deployment connector. The plugin catalog search found no matching
+Streamlit deployment integration. The signed-in dashboard action therefore
+requires the owner; no hosted deployment or URL has been verified yet.
+
 ## Demo setup
 
 1. Publish the reviewed corresponding source on GitHub. In Community Cloud,
