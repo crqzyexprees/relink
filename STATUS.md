@@ -38,7 +38,8 @@ Updated: 2026-10-25 local time and UTC.
   arXiv serialization applies within this process; scaling workers needs a shared
   limiter. Existing native PDF/parser and transport header-deadline limits remain.
 - README, provider attribution, paper/Gemini docs and demonstration steps updated.
-  Code/notes are ready for publication. Hosted-browser verification of this new
+  Published to GitHub main in focused engine (`a907885`) and UI/evidence
+  (`103b223`) commits; git push confirmed the remote update. Hosted-browser verification of this new
   version remains blocked by unavailable browser tooling; owner confirmation
   below applies to the earlier deployed build. Auth0 remains deferred.
 

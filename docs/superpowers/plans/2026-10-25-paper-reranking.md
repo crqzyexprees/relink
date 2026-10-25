@@ -51,7 +51,7 @@ Interface: result.papers stores a complete ranked batch; session visibility star
 - [x] Add thin presentation/state handling and current Gemini settings to fresh/saved reruns.
 - [x] Verify identity-change/error paths and backward-compatible history snapshots.
 - [x] Run full suite, explicit real-service check and update docs/STATUS.
-- [ ] Commit and push the tested upgrade.
+- [x] Commit and push the tested upgrade: engine a907885 and UI/evidence 103b223.
 
 ## Verification
 
