@@ -12,7 +12,7 @@ changing the UI or ranking orchestration. No plugin framework is needed yet.
 **Stack:** Python 3.12+, Streamlit, httpx, PyMuPDF, pytest.
 **Current owner-authorized paper upgrade:** Retrieve up to 30 unique papers per
 batch from OpenAlex/arXiv, Gemini ranking on actual abstract excerpts with strict
-ID/quote checks, keyword fallback, ten-at-a-time cached Load more and explicit
+paper-ID/source-passage checks, keyword fallback, ten-at-a-time cached Load more and explicit
 separately ranked next batches (three maximum). Reuse selected-paper dataset
 lookup; preserve source/history isolation. See
 docs/superpowers/plans/2026-10-25-paper-reranking.md and docs/PAPERS.md.

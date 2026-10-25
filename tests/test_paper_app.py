@@ -48,6 +48,7 @@ class PaperAppTests(AppTestBase):
             result = self.app.session_state['paper_search_result']
             self.assertEqual(result.ranking.status, 'ranked')
             self.assertEqual(len(result.papers), 30)
+            self.assertTrue(any('Supporting abstract passage (from source)' in t.value for t in self.app.text))
             self.assertEqual(len(requests), 3)
             self.app.button(key='paper_load_more').click().run()
             self.app.button(key='paper_load_more').click().run()

@@ -35,7 +35,7 @@ def model_response(rows):
 
 def ranking_rows(request):
     supplied = json.loads(json.loads(request.content)['contents'][0]['parts'][0]['text'])['papers']
-    return [{'id': row['id'], 'quote': ' '.join(row['abstract'].split()[:5]),
+    return [{'id': row['id'], 'evidence_id': row['abstract_passages'][0]['id'],
              'reason': 'Discusses the requested subject in the supplied abstract.'} for row in reversed(supplied)]
 
 
@@ -184,7 +184,7 @@ class PaperRankingTests(unittest.TestCase):
             if request.headers['host'] == 'api.openalex.org': return httpx.Response(200, json={'results': rows})
             if request.headers['host'] == 'export.arxiv.org': return httpx.Response(200, text=feed(15, abstract='forest climate ' * 1500))
             supplied = json.loads(json.loads(request.content)['contents'][0]['parts'][0]['text'])['papers']
-            self.assertLessEqual(sum(len(p['abstract']) for p in supplied), 48000)
+            self.assertLessEqual(sum(len(passage['text']) for p in supplied for passage in p['abstract_passages']), 48000)
             return model_response(ranking_rows(request))
         with patch('relink.providers.arxiv.time.sleep'):
             # Larger response allowance is only to construct long, bounded abstract fixtures.

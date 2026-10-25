@@ -2,6 +2,39 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest fix — intermittent Gemini paper-ranking rejection
+
+- Owner reported `Keyword fallback · Gemini ranking: invalid response` in the
+  hosted UI. Their quota screenshot shows usage below displayed free-tier limits;
+  this message follows validation, while HTTP 429 has a distinct status. The exact
+  hosted topic/response was not supplied. A local replay succeeded, confirming
+  intermittency; earlier actual diagnostics had found overlong model quotes.
+- Replaced model-written quotes with numbered passages built from actual bounded
+  abstract text (16 words/240 characters each). Gemini returns a paper ID, its
+  selected passage ID and a reason; ReLink supplies/checks the source text locally.
+  Complete known paper IDs and valid own-paper passage IDs remain mandatory.
+  No URLs or verification claims come from model output. Existing result/history
+  contracts remain compatible. No retries, dependencies, extra model calls or
+  billing changes. Unreadable/oversized tokens are skipped without joining gaps.
+- Added safe specific rejection details: malformed/incomplete JSON, output token
+  limit, wrong paper count, unknown/duplicate paper IDs, invalid passage reference
+  or overlong reason. Raw model response/error bodies and keys are not displayed.
+- Tests were written and observed failing before implementation. Fresh full
+  suite: **203 passed, 169 subtests passed**, no failures/skips; output in
+  docs/readiness/paper-ranking-grounding-pytest.log. Existing pagination, dataset
+  handoff, history compatibility and identity-isolation tests continue passing.
+- Real fixed flow accepted **26 first-batch papers and 25 unseen next-batch
+  papers**, both source APIs responding and no previous identity repeated.
+  Separate evidence: paper-ranking-grounding-live.json and -next-batch.json;
+  earlier quote-generation observations are preserved. Two live checks do not
+  guarantee every future model response or prove the exact hosted issue resolved.
+- Independent read-only review found no critical/important issues. Persisted
+  additional regressions for later passage references, cross-paper reference
+  rejection, control-token gaps, the 30-paper guard and large Unicode payloads.
+  Compilation, pip check, whitespace and configured-key exclusion checks pass.
+  Documentation updated; tested fix prepared for publication.
+  Updated hosted-browser verification remains unavailable in this session.
+
 ## Latest milestone — 30-paper abstract ranking and Load more
 
 - Owner authorized implementing the previously discussed paper-search upgrade.
@@ -488,8 +521,8 @@ Updated: 2026-10-25 local time and UTC.
 
 ## Current readiness
 
-Functional live acceptance passes for the preflighted dataset demo. **191 tests pass
-with no skips**, plus 159 passing subtests in the working environment. Latest
+Functional live acceptance passes for the preflighted dataset demo. **203 tests pass
+with no skips**, plus 169 passing subtests in the working environment. Latest
 paper-ranking live evidence and intermittent model fallback are recorded above. Private
 history isolation passes mocked acceptance; actual OAuth/browser downloads still
 need configured-provider/manual acceptance. Gemini

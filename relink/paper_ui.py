@@ -56,7 +56,8 @@ def render_paper_workspace(render_report):
     with st.expander('How matching works'):
         st.text('OpenAlex and arXiv each return up to 15 records per batch using up to 12 topic keywords. '
                 'Duplicates are merged with source evidence retained. Gemini orders the supplied abstract excerpts '
-                'against your description; supporting quotes are checked against those excerpts. '
+                'against your description and selects a numbered supporting passage from each abstract. '
+                'Evidence text comes from the supplied source passage; Gemini does not write quotations. '
                 'Reasons are AI judgments, not verified facts. If Gemini is unavailable, whole-word abstract matches '
                 'determine order (10 points per keyword; equal points are ties). Missing abstracts cannot be ranked. '
                 'Load more reveals cached results; Search more fetches a separately ranked next batch, up to three batches. '
@@ -133,7 +134,7 @@ def render_paper_workspace(render_report):
     st.caption(f'{len(ranked.matched_terms)} of {len(ranked.query_terms)} selected keywords matched · {ranked.score} relevance points')
     if ranked.semantic_rank is not None:
         st.text('AI relevance reason (judgment): ' + ranked.semantic_reason)
-        st.text('Supporting abstract quote (checked locally): ' + ranked.semantic_evidence)
+        st.text('Supporting abstract passage (from source): ' + ranked.semantic_evidence)
     if len(paper.abstract) > 1200:
         st.text(paper.abstract[:1200].rstrip() + '…')
         with st.expander('Read full abstract'):

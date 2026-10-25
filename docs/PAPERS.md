@@ -19,16 +19,21 @@ separate. Duplicates and missing abstracts can reduce the number below 30.
 
 One Gemini request orders the supplied abstract excerpts against the full topic.
 It receives no titles or citation counts, no PDFs, and no authority to create
-paper metadata or URLs. Every supplied ID must appear exactly once. Every short
-supporting quote must occur in its supplied abstract (case/whitespace/Unicode
-normalization allowed). Unknown/duplicate/omitted IDs, invented quotes, invalid
-JSON and incomplete output reject the whole model ranking. The client checks
-quotes at 2–24 words/240 characters and reasons at 240 characters; the prompt asks
-for still shorter fragments. The returned explanation remains an AI judgment:
-checking a quote does not establish that the model's interpretation is correct.
+paper metadata or URLs. Every supplied paper ID must appear exactly once.
+ReLink splits real source text into numbered contiguous passages of at most
+16 words/240 characters. Gemini chooses a passage ID for each paper and gives a
+brief relevance explanation; it does not write quotations. ReLink validates each
+reference against that paper's supplied passages and displays the actual source
+text. Unknown/duplicate/omitted paper IDs, invalid passage references, added fields,
+invalid JSON and incomplete output reject the model ranking. Reasons are bounded
+to 240 characters. The explanation remains an AI judgment: selecting a real
+passage does not establish that the model's interpretation is correct.
 
 Inputs contain at most 48,000 abstract characters overall, at most 8,000 per
-paper, divided evenly across the batch. Truncation can hide relevant evidence.
+paper, divided evenly across the batch. Text is supplied once as passages;
+unquotable tokens longer than 240 characters or containing control characters
+are skipped without joining words across the gap. Abstracts with no readable
+passages cause explicit keyword fallback. Truncation can hide relevant evidence.
 Only the bounded retrieved set is ranked; this is not exhaustive literature
 search, a research-quality rating or a calibrated probability. Different wording
 can be recognized by Gemini but missed during initial keyword retrieval.
@@ -97,6 +102,25 @@ the selected research link clears its recovery report. The two tabs keep their
 reports separate and can both offer evidence downloads without widget collisions.
 
 ## Live observations
+
+The [passage-reference fix check](readiness/paper-ranking-grounding-live.json)
+used both real source APIs and Gemini: 29 unique records, three missing abstracts,
+and **26 accepted ranked papers**. The explicit
+[next batch](readiness/paper-ranking-grounding-live-next-batch.json) accepted
+**25 unseen papers**, without previous identities repeated. Supporting text comes
+from the supplied source passages. These two module-level checks pass; the exact
+owner-reported hosted query and updated browser flow remain unverified.
+
+The previous model-written-quote format was brittle: one overlong or paraphrased
+quote could reject the entire ranking. Passage references remove the need for
+word-perfect quote generation. Other malformed/incomplete output still falls
+back honestly, now with a specific safe reason (paper count, unknown/duplicate
+ID, invalid passage, overlong explanation, token limit or malformed JSON).
+No retries or billing change were added. The owner's supplied quota screenshot
+was below its displayed limits; that observation alone does not diagnose a
+particular hosted API response.
+
+### Earlier quote-generation format
 
 The separate [30-paper ranking check](readiness/paper-ranking-live.json) used actual
 OpenAlex/arXiv responses: 15 records each, 29 unique papers, three missing

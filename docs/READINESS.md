@@ -2,7 +2,7 @@
 
 Follow-up: the owner selected AGPL-3.0-only; original-code LICENSE/NOTICE and
 application source/license information are now implemented. The working suite
-now passes 191 tests plus 159 subtests, including multi-source Gemini abstract ranking,
+now passes 203 tests plus 169 subtests, including source-bound passage evidence, multi-source Gemini abstract ranking,
 cached pagination, private history isolation and core Gemini identification,
 persistent local history, two-tab abstract search and selected
 paper dataset lookup. New evidence: [paper-feature-pytest.log](readiness/paper-feature-pytest.log)
@@ -12,6 +12,27 @@ below remain historical evidence. Real additional examples and limitations are
 recorded in [evaluation.md](evaluation.md). Public source is now published at
 [crqzyexprees/relink](https://github.com/crqzyexprees/relink), with anonymous source
 access checked. Deployed-version source configuration and release checks remain pending.
+
+## Ranking validation fix — 2026-10-25
+
+- Owner reported hosted `invalid response`; screenshot usage was below the shown
+  free-tier quotas. Exact hosted query/response was not supplied. The generic
+  warning previously combined several validation failures; earlier actual output
+  included overlong source quotes.
+- Model now selects numbered source passages instead of generating quotes. Only
+  actual own-paper passages can populate evidence. Complete paper-ID ordering,
+  bounds, safe rendering and keyword fallback remain; failure details now state
+  a safe specific reason. No retries, billing upgrades or extra requests on Load more.
+- Fresh full suite: **203 tests, 169 subtests pass**, no failures/skips;
+  [output](readiness/paper-ranking-grounding-pytest.log). New tests cover complete
+  referenced output, wrong references/types, free-form quote rejection, cross-paper
+  binding, Unicode/whitespace/long tokens, no usable text and diagnostics.
+- Actual [first-batch check](readiness/paper-ranking-grounding-live.json) accepted
+  26 Gemini-ranked papers; [next batch](readiness/paper-ranking-grounding-live-next-batch.json)
+  accepted 25 unseen papers with no previous identity overlap. Both source APIs
+  returned real responses; stored reports never feed production results.
+- Updated hosted browser acceptance remains unverified. Earlier failed/successful
+  quote-generation reports below remain historical evidence.
 
 ## Paper-ranking upgrade — 2026-10-25
 

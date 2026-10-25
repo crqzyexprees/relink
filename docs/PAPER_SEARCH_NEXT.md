@@ -12,7 +12,8 @@ records the design. Current behavior/evidence: [PAPERS.md](PAPERS.md).
    all source provenance. The number is a cap, not a promise that 30 exist.
 3. Ask Gemini to rerank supplied abstracts against the research request, using
    bounded inputs and structured paper IDs/reasons. Accept only supplied IDs;
-   validate short quoted evidence against the actual abstracts. Do not let the
+   Gemini selects numbered passages split from actual abstract excerpts, and
+   ReLink displays that source text. Reject invalid references. Do not let the
    model invent papers, URLs, dataset identity or unsupported relevance claims.
 4. Display the top ten from the retrieved set, with keyword signals and actual
    abstract evidence. Relevance is not paper quality or a calibrated probability.

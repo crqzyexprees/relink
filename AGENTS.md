@@ -15,7 +15,8 @@
   output must never create resource URLs, hashes, or verification claims. Keep
   independent recovery working on missing credentials, quota limits, or errors.
 - Paper discovery uses OpenAlex/arXiv (15 records each, up to 30 unique per batch)
-  with abstract-only Gemini ordering and checked ID/quote evidence. Load more
+  with abstract-only Gemini ordering and validated own-paper passage references.
+  Display actual source text; do not accept model-generated ranking quotations. Load more
   reveals cached tens without requests; explicit new batches remain separately
   ranked, exclude prior identities, and stop after three. Preserve keyword fallback
   and source failures. Serialize arXiv API calls at least three seconds apart.

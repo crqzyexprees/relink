@@ -9,8 +9,9 @@ external services. Browser server launch requires a host terminal. See [PLAN.md]
 
 The UI now has **Find datasets** and **Find papers** tabs. Find papers accepts a
 topic/description, retrieves up to 30 unique OpenAlex/arXiv papers per batch, and
-uses Gemini to rank their actual abstract excerpts. Supporting quotes are checked
-locally; keyword ranking remains an explicit fallback. Ten results appear initially;
+uses Gemini to rank their actual abstract excerpts and choose numbered supporting
+passages. ReLink displays the actual source text; keyword ranking remains an
+explicit fallback. Ten results appear initially;
 **Load more** reveals the next ten without new API calls. **Search more** explicitly
 retrieves a separately ranked next batch (three batches maximum).
 Select a paper to search related dataset metadata and extract research
@@ -33,7 +34,7 @@ Files use `.relink/history-users/<opaque namespace>.json`, with up to 50 entries
 per account and no PDF files. Legacy `.relink/history.json` is untouched and
 requires explicit single-operator local mode; see [storage and limits](docs/HISTORY.md).
 
-Latest verification: **191 tests and 159 subtests pass**; the earlier clean-environment run passed
+Latest verification: **203 tests and 169 subtests pass**; the earlier clean-environment run passed
 95 tests. Approved live
 checks pass for both providers, actual SQuAD PDF recovery, and app health.
 See the [pass/fail/blocked results](docs/READINESS.md),
@@ -333,7 +334,7 @@ UI tests live in `tests/test_app.py`. Focused tests use mocked recovery; integra
 tests drive native URL/upload/select/download widgets through real extraction,
 current-status, discovery, ranking, and export modules. Only external HTTP/DNS are
 mocked in those integration tests. Real PyMuPDF parsing uses generated local PDFs.
-The suite currently passes all 191 tests plus 159 subtests, with no skips.
+The suite currently passes all 203 tests plus 169 subtests, with no skips.
 
 After installing dependencies, verify both flows with:
 

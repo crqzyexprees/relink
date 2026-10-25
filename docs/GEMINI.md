@@ -7,7 +7,9 @@ requests. URL-only recovery and abstract keyword ranking do not need a model.
 
 **Paper relevance ranking:** Find papers and Search more now also call Gemini
 automatically, using up to 30 real abstract excerpts and the topic. It orders
-supplied IDs with checked short quotes; titles, full PDFs and citation counts are
+supplied paper IDs and chooses from numbered source passages; ReLink displays
+the actual passage text instead of accepting model-written quotations.
+Titles, full PDFs and citation counts are
 not sent for ranking. Ten results appear initially; Load more reveals cached
 results without model calls. Keyword ranking remains the fallback on missing key,
 model errors or unsupported output. See [paper ranking and limits](PAPERS.md).
@@ -96,9 +98,15 @@ public returned paper in Find papers and click Find datasets from this paper.
 Outputs/order can change with services. Browser visual acceptance remains pending;
 AppTest and this live module check do not substitute for a manual browser run.
 
-The latest [live first batch](readiness/paper-ranking-live.json) retrieved actual
+The earlier [live first batch](readiness/paper-ranking-live.json) retrieved actual
 OpenAlex/arXiv records but rejected Gemini output and used keyword fallback.
 The explicit [next batch](readiness/paper-ranking-live-next-batch.json) accepted
 25 unseen papers with locally checked quotes. Model output can still fail
 validation; prompt tightening did not relax the checks. There are no automatic
 retries or hardcoded replacements.
+
+After the grounding-format fix, fresh real checks accepted
+[26 first-batch papers](readiness/paper-ranking-grounding-live.json) and
+[25 unseen next-batch papers](readiness/paper-ranking-grounding-live-next-batch.json).
+Complete ID ordering and own-paper passage references remain mandatory; invalid
+outputs retain keyword fallback with safe specific rejection details.
