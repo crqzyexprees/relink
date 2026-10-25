@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-25",
+  "automated_tests": {
+    "credentials": "mocked fixtures only",
+    "initial_regression": "4 failed, 1 passed",
+    "focused_auth_history": "28 passed, 17 subtests passed in 5.60s",
+    "full_suite": "278 passed, 192 subtests passed in 15.03s",
+    "compilation": "passed",
+    "whitespace": "passed"
+  },
+  "live_public_discovery": {
+    "http_status": 200,
+    "issuer_matches_owner_supplied_domain": true,
+    "required_endpoints_present": true,
+    "credentials_sent": false
+  },
+  "live_guest_browser": {
+    "deployment": "https://relink.streamlit.app/",
+    "diagnostic_update_observed": true,
+    "history_explicitly_disabled": false,
+    "missing_or_empty_auth_fields": [
+      "redirect_uri",
+      "cookie_secret",
+      "client_id",
+      "client_secret",
+      "server_metadata_url"
+    ],
+    "missing_authentication_dependency_reported": false,
+    "login_button_present": false,
+    "credentials_entered": false,
+    "saved_history_accessed": false,
+    "end_to_end_login": "blocked by missing deployed configuration"
+  }
+}

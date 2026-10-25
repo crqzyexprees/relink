@@ -32,9 +32,19 @@ Updated: 2026-10-25 local time and UTC.
   suite: **278 tests/192 subtests pass** in 15.03s. Compilation and whitespace
   checks pass. All automated credentials/identities are fixtures; no live login
   is represented by these tests. No dependencies or remote requests added to UI.
-- Publication is being completed. Auth0 end-to-end login remains unverified;
-  after Cloud updates, inspect setup details or supply the visible later-stage
-  error without keys/secrets/login codes. Durable cloud history is still separate.
+- Published diagnostic fix `78bd975` to GitHub main; push confirmed. Preserved
+  the owner's newer Dev Container commit by fetching/rebasing before publishing.
+  A second real guest-browser check confirms the updated panel is deployed.
+- The deployed panel identifies **all five auth fields as missing/empty** under
+  the expected [auth] table: redirect_uri, cookie_secret, client_id, client_secret
+  and server_metadata_url. No missing-dependency issue is reported. This is the
+  observed pre-redirect blocker; the operator must save those settings in this
+  specific Cloud app's Secrets and reboot. The workspace's local files also
+  lack auth values, but they do not establish what was entered in Cloud.
+- Auth0 end-to-end login remains unverified: no login button is available until
+  configuration is corrected, and no user credentials were entered. Durable
+  cloud history is still separate. Verification summary is recorded in
+  docs/readiness/auth-configuration.json; no secret values or callback tokens.
 
 ## Latest fix — navigation overlap reproduced in Firefox
 
