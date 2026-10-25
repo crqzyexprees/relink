@@ -2,6 +2,30 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest fix — navigation overlap reproduced in Firefox
+
+- Owner's screenshot exposed a regression in the compact navigation. The brand
+  was absolutely positioned, but its reserved tab spacing targeted removed
+  BaseWeb selectors. Installed Streamlit 1.66.1 has ARIA tabs and no matching
+  BaseWeb tab lists. Firefox reproduced the real overlap; the initial geometry
+  assertion failed with `Brand overlaps Find datasets`.
+- Removed the brand overlay entirely. A native horizontal brand row now sits
+  above the native tab strip in normal document flow; ARIA selectors restore
+  active/hover/focus styling. Missing custom CSS safely leaves a stacked native
+  header. Three eager tabs, workspace state, search behavior and source access
+  are preserved. No engine or dependency changes.
+- Real local Firefox checks pass at 1688, 1024, 768, 640, 390 and 320px: no brand/tab
+  overlap or page overflow. Desktop/mobile screenshots were visually inspected.
+  Browser tab activation and missing-custom-CSS fallback also pass. Evidence and
+  reproducible diagnostic: docs/readiness/navigation-layout/ and
+  scripts/check_navigation_layout.py. No search was submitted by this check.
+- Fresh complete suite: **273 tests/192 subtests pass** in 15.85s; focused UI:
+  **25 tests/6 subtests pass** in 6.40s. Compilation and whitespace checks pass.
+  Earlier AppTest-only verification did not establish visual correctness; the
+  former browser-tool limitation was overcome using isolated local Firefox.
+- Publication is being completed. Hosted Cloud acceptance is still separate
+  from these actual local browser checks; refresh after the updated main deploys.
+
 ## Latest UI milestone — compact navigation and useful interactions
 
 - Owner's deployed-app screenshot requested structural changes beyond color:

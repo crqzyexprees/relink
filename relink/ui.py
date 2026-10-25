@@ -266,9 +266,9 @@ def main():
     sync_session_scope(current_access())
     st.markdown(STYLE, unsafe_allow_html=True)
     with st.container(key='relink_navigation'):
-        with st.container(key='relink_brand'):
-            st.title('ReLink', anchor=False)
-            st.caption('A research workspace')
+        with st.container(key='relink_brand', horizontal=True, vertical_alignment='center'):
+            st.title('ReLink', anchor=False, width='content')
+            st.caption('A research workspace', width='content')
         datasets, papers, license_tab = st.tabs(['Find datasets', 'Find papers', 'License & source'])
         with datasets:
             _render_dataset_workspace()

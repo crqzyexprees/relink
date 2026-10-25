@@ -1,0 +1,50 @@
+{
+  "brand": {
+    "x": 415.6000061035156,
+    "y": 100,
+    "width": 164.79998779296875,
+    "height": 33.48333740234375,
+    "right": 580.3999938964844,
+    "bottom": 133.48333740234375
+  },
+  "brandPosition": "absolute",
+  "oldTabLists": 0,
+  "tablist": "<div class=\"st-emotion-cache-y46bdf eyqd1z23\" data-rac=\"\" data-collection=\"react-aria2411112873-:r2:\" id=\"react-aria2411112873-:r3:\" role=\"tablist\" aria-orientation=\"horizontal\" data-orientation=\"horizontal\"><div data-testid=\"stTab\" class=\"st-emotion-cache-s35kdb eyqd1z24\" data-rac=\"\" tabindex=\"0\" data-collection=\"react-aria2411112873-:r2:\" data-key=\"0\" data-react-aria-pressable=\"true\" id=\"react-aria2411112873-:r3:-tab-0\" aria-selected=\"true\" aria-controls=\"react-aria2411112873-:r3:-tabpanel-0\" role=\"tab\" data-selected=\"true\"><div class=\"st-emotion-cache-1116ot7 e12uj6qz0\" data-testid=\"stMarkd",
+  "tabs": [
+    {
+      "label": "Find datasets",
+      "rect": {
+        "x": 394,
+        "y": 88,
+        "width": 77.83332824707031,
+        "height": 40,
+        "right": 471.8333282470703,
+        "bottom": 128
+      }
+    },
+    {
+      "label": "Find papers",
+      "rect": {
+        "x": 487.83331298828125,
+        "y": 88,
+        "width": 68.60000610351562,
+        "height": 40,
+        "right": 556.4333190917969,
+        "bottom": 128
+      }
+    },
+    {
+      "label": "License & source",
+      "rect": {
+        "x": 572.433349609375,
+        "y": 88,
+        "width": 96.69999694824219,
+        "height": 40,
+        "right": 669.1333465576172,
+        "bottom": 128
+      }
+    }
+  ],
+  "overflow": false,
+  "assertion": "FAIL: Brand overlaps Find datasets"
+}

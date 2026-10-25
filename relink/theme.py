@@ -45,15 +45,12 @@ h2, h3 { letter-spacing: -.025em; }
 }
 a { text-underline-offset: .22em; }
 
-.st-key-relink_navigation { position: relative; gap: 0; }
+.st-key-relink_navigation { gap: 0; }
+/* Keep the brand in normal flow. Missing/changed tab styles must never let
+   the heading cover native controls. Streamlit 1.66 uses ARIA tabs, not BaseWeb. */
 .st-key-relink_brand {
-    position: absolute;
-    left: 1.35rem;
-    top: .75rem;
-    width: 10.3rem;
-    z-index: 3;
-    pointer-events: none;
-    gap: 0;
+    padding: .65rem .2rem .85rem;
+    gap: .85rem;
 }
 .st-key-relink_brand h1 {
     position: relative;
@@ -75,13 +72,12 @@ a { text-underline-offset: .22em; }
     box-shadow: 0 0 18px rgba(255, 193, 122, .18);
 }
 .st-key-relink_brand [data-testid="stCaptionContainer"] {
-    padding-left: 2rem;
-    font-size: .65rem;
+    font-size: .8rem;
     letter-spacing: .03em;
 }
-.st-key-relink_navigation [data-baseweb="tab-list"] {
-    min-height: 4.6rem;
-    padding: .25rem 1.1rem .25rem 13rem;
+.st-key-relink_navigation [role="tablist"] {
+    min-height: 3.5rem;
+    padding: .3rem;
     align-items: center;
     gap: .55rem;
     border: 1px solid var(--rl-line);
@@ -89,18 +85,18 @@ a { text-underline-offset: .22em; }
     background: rgba(15, 26, 44, .92);
     box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
 }
-.st-key-relink_navigation [data-baseweb="tab"] {
+.st-key-relink_navigation [role="tab"] {
     padding: .7rem 1.05rem;
     border-radius: 9px;
     border: 1px solid transparent;
     transition: background .16s ease, border-color .16s ease;
 }
-.st-key-relink_navigation [data-baseweb="tab"][aria-selected="true"] {
+.st-key-relink_navigation [role="tab"][aria-selected="true"] {
     color: var(--rl-amber);
     background: rgba(255, 193, 122, .09);
     border-color: rgba(255, 193, 122, .24);
 }
-.st-key-relink_navigation [data-baseweb="tab"]:hover {
+.st-key-relink_navigation [role="tab"]:hover {
     background: rgba(137, 220, 231, .07);
     border-color: rgba(137, 220, 231, .2);
 }
@@ -127,12 +123,12 @@ a { text-underline-offset: .22em; }
 [data-testid="stVerticalBlockBorderWrapper"] > div { border-radius: 16px; }
 [data-testid="stSidebar"] { border-right: 1px solid var(--rl-line); }
 
-[data-baseweb="tab-list"] {
+[role="tablist"] {
     gap: 1.6rem;
     border-bottom: 1px solid var(--rl-line);
 }
-[data-baseweb="tab"] { padding: .8rem .2rem; font-weight: 600; }
-[data-baseweb="tab"][aria-selected="true"] { color: var(--rl-amber); }
+[role="tab"] { padding: .8rem .2rem; font-weight: 600; }
+[role="tab"][aria-selected="true"] { color: var(--rl-amber); }
 [data-testid="stMetricValue"] { font-size: 1.65rem; }
 [data-testid="stFileUploader"] { border-radius: 12px; }
 [data-testid="stRadio"] [role="radiogroup"] { gap: .45rem; }
@@ -190,25 +186,25 @@ a { text-underline-offset: .22em; }
 
 @media (max-width: 640px) {
     .block-container { padding: 4rem 1rem 3rem; }
-    .st-key-relink_brand { position: static; width: auto; padding: .2rem 0 .8rem; }
+    .st-key-relink_brand { padding: .2rem 0 .8rem; }
     .st-key-relink_brand [data-testid="stCaptionContainer"] { display: none; }
-    .st-key-relink_navigation [data-baseweb="tab-list"] {
+    .st-key-relink_navigation [role="tablist"] {
         padding: .3rem;
         min-height: 3.5rem;
         overflow-x: auto;
         gap: .15rem;
     }
-    .st-key-relink_navigation [data-baseweb="tab"] { padding: .65rem .6rem; }
+    .st-key-relink_navigation [role="tab"] { padding: .65rem .6rem; }
     .st-key-dataset_input_panel,
     .st-key-evidence_panel,
     .st-key-paper_input_panel,
     .st-key-paper_guide,
     [class*="st-key-dataset_search_card_"] { padding: 1.1rem; }
-    [data-baseweb="tab-list"] { gap: 1rem; }
+    [role="tablist"] { gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
     .stButton button, .stDownloadButton button, .stLinkButton a { transition: none; }
-    .st-key-relink_navigation [data-baseweb="tab"],
+    .st-key-relink_navigation [role="tab"],
     [data-testid="stRadio"] [role="radiogroup"] > label { transition: none; }
     .stButton button:not(:disabled):hover,
     .stDownloadButton button:not(:disabled):hover,
