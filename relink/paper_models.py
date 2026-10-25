@@ -49,4 +49,3 @@ class PaperDatasetLookup:
     detail: str = ''
     identification: DatasetIdentification | None = None
     named_searches: tuple[NamedDatasetSearch, ...] = ()
-

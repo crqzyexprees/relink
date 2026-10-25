@@ -175,4 +175,3 @@ class PaperTests(unittest.TestCase):
                 result = lookup_paper_datasets(paper, client=self.client(handler))
                 self.assertEqual(result.pdf_status, status)
                 self.assertTrue(result.datasets.candidates)
-

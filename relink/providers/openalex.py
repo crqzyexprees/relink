@@ -98,4 +98,3 @@ class OpenAlexError(Exception):
     def __init__(self, status, detail, url='', retry_after=None):
         super().__init__(detail)
         self.status, self.detail, self.url, self.retry_after = status, detail, url, retry_after
-

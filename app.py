@@ -1,1 +1,7 @@
-"""Reserved Streamlit entry point; UI implementation starts in milestone M5."""
+"""Launch with: .venv/bin/python -m streamlit run app.py."""
+
+from relink.ui import main
+
+
+if __name__ == '__main__':
+    main()
