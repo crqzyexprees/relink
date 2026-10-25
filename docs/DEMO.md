@@ -77,6 +77,11 @@ RELINK_SOURCE_URL before public deployment. Complete the
 
 ## Topic → paper → datasets walkthrough
 
+Navigation is in the compact ReLink top bar. License/warranty/source links are in
+the third tab. Example buttons fill inputs only: click a paper direction or Iris
+DOI, inspect the populated field, then press Find yourself. They do not return
+cached demo candidates or start provider/model calls.
+
 1. Open **Find papers**, enter `question answering reading comprehension dataset Stanford`,
    and click **Find papers**. Explain that up to 30 retrieved papers are ranked
    against their actual abstract excerpts by Gemini, with checked supporting

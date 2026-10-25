@@ -2,6 +2,32 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest UI milestone — compact navigation and useful interactions
+
+- Owner's deployed-app screenshot requested structural changes beyond color:
+  ReLink in a top bar, dataset/paper/license-source tabs and useful interaction.
+  Replaced the large hero and above-fold legal block with a compact native brand
+  and three-tab navigation. License/warranty/source links now live in the third
+  tab, after Find datasets and Find papers.
+- Paper search now has a focused input card, concise workflow guide and three
+  clickable topic presets. Dataset presets fill the actual Iris DOI or historical
+  MNIST URL and switch the appropriate input mode. They never start service calls
+  or manufacture results; explicit Find is still required. Callbacks give native
+  toast feedback, clear stale dataset results and preserve account-scope checks.
+- Native eager tabs retain both workspaces' widget/results state. Scoped CSS
+  aligns brand/navigation, adds active/hover/focus feedback, keeps the starfield
+  and small planet mark, and handles mobile/reduced motion. No giant hero, remote
+  assets, engine changes or dependencies.
+- Tests were observed failing before implementation. Fresh full suite:
+  **273 tests/192 subtests pass**, no failures/skips; docs/readiness/navigation-pytest.log.
+  Focused UI suite:40 tests/6 subtests. Compileall and whitespace checks pass.
+  Independent read-only review found no critical/important issues; it separately
+  passed four navigation tests. No live provider recheck was needed for UI-only
+  changes; earlier live evidence remains dated and unchanged.
+- Browser executor discovery still returns no execution tool; exact updated
+  visual alignment/hosted acceptance remains unverified. Implementation verified
+  and prepared for publication; refresh/reboot and inspect after Cloud updates.
+
 ## Latest milestone — combined dataset AI and space workspace
 
 - Owner confirms hosted paper search works and authorizes Gemini dataset ranking
@@ -593,7 +619,7 @@ Updated: 2026-10-25 local time and UTC.
 
 ## Current readiness
 
-Functional live acceptance passes for the preflighted dataset demo. **269 tests pass
+Functional live acceptance passes for the preflighted dataset demo. **273 tests pass
 with no skips**, plus 192 passing subtests in the working environment. Latest
 paper-ranking live evidence and intermittent model fallback are recorded above. Private
 history isolation passes mocked acceptance; actual OAuth/browser downloads still

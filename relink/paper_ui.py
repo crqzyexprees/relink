@@ -51,11 +51,26 @@ def _search_topic(topic, state_keys, *, batch=0, exclude_identifiers=()):
         rerun_if_identity_changed(action_scope)
 
 
-def render_paper_workspace(render_report):
-    st.subheader('Find papers by topic')
-    st.caption('Describe your research interest. Find up to 30 papers and rank their abstracts with Gemini.')
-    with st.expander('How matching works'):
-        st.text('OpenAlex and arXiv each return up to 15 records per batch using up to 12 topic keywords. '
+def _paper_example(topic):
+    st.session_state['paper_topic'] = topic
+    st.toast('Topic ready. Click Find papers to search.')
+
+
+def _paper_controls():
+    inputs, guide = st.columns([2.2, 1], gap='large')
+    with inputs, st.container(key='paper_input_panel'):
+        topic = st.text_area('Topic or research description', key='paper_topic', max_chars=1200,
+            placeholder='What question are you investigating? Include the methods or datasets you need.', height=145)
+        st.caption('Try a direction · fills the topic without searching')
+        examples = st.columns(3)
+        examples[0].button('Question answering', key='paper_example_qa', on_click=_paper_example,
+            args=('Question answering datasets for reading comprehension',), width='stretch')
+        examples[1].button('Medical imaging', key='paper_example_medical', on_click=_paper_example,
+            args=('Medical imaging datasets for detecting disease in chest X-rays',), width='stretch')
+        examples[2].button('Adversarial attacks', key='paper_example_attacks', on_click=_paper_example,
+            args=('Physical adversarial attacks against computer vision systems',), width='stretch')
+        with st.expander('How matching works'):
+            st.text('OpenAlex and arXiv each return up to 15 records per batch using up to 12 topic keywords. '
                 'Duplicates are merged with source evidence retained. Gemini orders the supplied abstract excerpts '
                 'against your description and selects a numbered supporting passage from each abstract. '
                 'Evidence text comes from the supplied source passage; Gemini does not write quotations. '
@@ -63,17 +78,31 @@ def render_paper_workspace(render_report):
                 'determine order (10 points per keyword; equal points are ties). Missing abstracts cannot be ranked. '
                 'Load more reveals cached results; Search more fetches a separately ranked next batch, up to three batches. '
                 'Relevance is not paper quality, verification or a probability.')
-    topic = st.text_area('Topic or research description', key='paper_topic', max_chars=1200,
-                         placeholder='For example: question answering datasets for reading comprehension')
+        st.caption('Find papers sends your topic to the sources and your topic plus public abstract excerpts to Google. '
+                   'Use nonconfidential descriptions. Load more makes no new requests.')
+        clicked = st.button('Find papers', key='find_papers', disabled=not bool(topic.strip()), type='primary', width='stretch')
+    with guide, st.container(key='paper_guide'):
+        st.subheader('From question to data')
+        st.markdown('**01 · Describe your question**')
+        st.caption('Be specific about the problem, method or data you want.')
+        st.markdown('**02 · Compare the evidence**')
+        st.caption('Read the ranked abstracts and the passages behind each recommendation.')
+        st.markdown('**03 · Follow the datasets**')
+        st.caption('Select a paper, then inspect its dataset records, links and available samples.')
+    return topic, clicked
+
+
+def render_paper_workspace(render_report):
+    st.subheader('Find papers by topic')
+    st.caption('Describe your research interest. Find up to 30 papers and rank their abstracts with Gemini.')
+    topic, clicked = _paper_controls()
     state_keys = ('paper_search_result', 'paper_choice', 'paper_lookup_result',
                   'paper_link_report', 'paper_dataset_link', '_selected_paper', '_selected_paper_link',
                   'paper_search_error', 'paper_lookup_error', 'paper_link_error', 'paper_visible_count')
     if topic != st.session_state.get('_paper_topic_signature'):
         _clear(*state_keys)
         st.session_state['_paper_topic_signature'] = topic
-    st.caption('Find papers sends your topic to the paper sources and your topic plus public abstract excerpts '
-               'to Google for ranking. Use nonconfidential descriptions. Load more makes no new requests.')
-    if st.button('Find papers', key='find_papers', disabled=not bool(topic.strip()), type='primary'):
+    if clicked:
         _search_topic(topic, state_keys)
     _show_action_error('paper_search_error', 'Paper search could not complete.')
     result = st.session_state.get('paper_search_result')

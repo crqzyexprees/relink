@@ -7,7 +7,9 @@ PDF link extraction and the two-mode Streamlit UI pass runtime tests with mocked
 external services. Browser server launch requires a host terminal. See [PLAN.md](PLAN.md),
 [STATUS.md](STATUS.md), and [AGENTS.md](AGENTS.md).
 
-The UI now has **Find datasets** and **Find papers** tabs. Find papers accepts a
+The compact top bar has **Find datasets**, **Find papers**, and **License & source**
+tabs. Clickable examples fill real search inputs without running requests; explicit
+Find remains required. Find papers accepts a
 topic/description, retrieves up to 30 unique OpenAlex/arXiv papers per batch, and
 uses Gemini to rank their actual abstract excerpts and choose numbered supporting
 passages. ReLink displays the actual source text; keyword ranking remains an
@@ -30,8 +32,8 @@ assesses actual metadata plus a header and up to three rows from advertised
 CSV/TSV files, with at most three file attempts/64KiB per file. Unsupported formats
 stay metadata-only. Existing scores, identity/version evidence and verification
 labels remain authoritative; model errors preserve independent results. Ten
-candidates appear initially with cached Load more. The UI now has an original
-navy/amber space theme with stars/orbits and accessible native controls. See
+candidates appear initially with cached Load more. The UI has an original
+navy/amber starfield, compact branding and accessible native controls. See
 [dataset sampling, privacy and evidence](docs/DATASET_AI.md).
 
 **Search history is private per signed-in account and survives browser/app restarts.**
@@ -43,7 +45,7 @@ Files use `.relink/history-users/<opaque namespace>.json`, with up to 50 entries
 per account and no PDF files. Legacy `.relink/history.json` is untouched and
 requires explicit single-operator local mode; see [storage and limits](docs/HISTORY.md).
 
-Latest verification: **269 tests and 192 subtests pass**; the earlier clean-environment run passed
+Latest verification: **273 tests and 192 subtests pass**; the earlier clean-environment run passed
 95 tests. Approved live
 checks pass for both providers, actual SQuAD PDF recovery, and app health.
 See the [pass/fail/blocked results](docs/READINESS.md),
@@ -343,7 +345,7 @@ UI tests live in `tests/test_app.py`. Focused tests use mocked recovery; integra
 tests drive native URL/upload/select/download widgets through real extraction,
 current-status, discovery, ranking, and export modules. Only external HTTP/DNS are
 mocked in those integration tests. Real PyMuPDF parsing uses generated local PDFs.
-The suite currently passes all 269 tests plus 192 subtests, with no skips.
+The suite currently passes all 273 tests plus 192 subtests, with no skips.
 
 After installing dependencies, verify both flows with:
 

@@ -57,7 +57,7 @@ class DatasetAppTests(AppTestBase):
     def test_space_theme_and_real_controls_have_no_fake_initial_results(self):
         self.app.run()
         self.assertEqual(self.app.title[0].value, 'ReLink')
-        self.assertTrue(any('Follow the signal' in m.value for m in self.app.markdown))
+        self.assertEqual([tab.label for tab in self.app.tabs], ['Find datasets', 'Find papers', 'License & source'])
         self.assertFalse(self.app.session_state.get('report'))
         self.assertTrue(self.recover_button().disabled)
 

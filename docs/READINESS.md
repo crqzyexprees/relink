@@ -2,7 +2,7 @@
 
 Follow-up: the owner selected AGPL-3.0-only; original-code LICENSE/NOTICE and
 application source/license information are now implemented. The working suite
-now passes 269 tests plus 192 subtests, including combined dataset AI, bounded CSV/TSV samples, space-workspace controls, generation timeouts and multi-source paper ranking,
+now passes 273 tests plus 192 subtests, including compact three-tab navigation, request-free input presets, combined dataset AI, bounded CSV/TSV samples, generation timeouts and multi-source paper ranking,
 cached pagination, private history isolation and core Gemini identification,
 persistent local history, two-tab abstract search and selected
 paper dataset lookup. New evidence: [paper-feature-pytest.log](readiness/paper-feature-pytest.log)
@@ -12,6 +12,17 @@ below remain historical evidence. Real additional examples and limitations are
 recorded in [evaluation.md](evaluation.md). Public source is now published at
 [crqzyexprees/relink](https://github.com/crqzyexprees/relink), with anonymous source
 access checked. Deployed-version source configuration and release checks remain pending.
+
+## Compact navigation — 2026-10-25
+
+Fresh full suite: **273 tests/192 subtests pass**, no failures/skips;
+[output](readiness/navigation-pytest.log). Native AppTests verify legal content in
+its own third tab, public input presets without requests, explicit Find and input
+persistence across workspace reruns. The big hero/above-fold license block were
+removed; source links remain accessible in the top navigation. Independent review
+found no important issues. Compilation/whitespace checks pass. No backend/provider
+change or new live result is claimed. Physical browser alignment remains unverified
+because no browser execution tool is exposed in this session.
 
 ## Combined dataset AI and space workspace — 2026-10-25
 

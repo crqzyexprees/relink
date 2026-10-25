@@ -1,6 +1,6 @@
 # Find papers, then look for their datasets
 
-The app has two native tabs:
+The compact top bar has two search workspaces and a separate License & source tab:
 
 1. **Find datasets:** existing URL/PDF extraction and recovery workflow.
 2. **Find papers:** enter a topic or describe your research interest, click

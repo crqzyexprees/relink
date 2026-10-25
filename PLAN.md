@@ -10,6 +10,10 @@ Future media-specific providers can use the same candidate contract without
 changing the UI or ranking orchestration. No plugin framework is needed yet.
 
 **Stack:** Python 3.12+, Streamlit, httpx, PyMuPDF, pytest.
+**Owner-authorized structural UI follow-up:** Compact ReLink top bar with dataset,
+paper and License & source tabs; remove giant hero/above-fold legal block, retain
+native workspace state and add public input presets requiring explicit Find.
+See docs/superpowers/plans/2026-10-25-compact-navigation.md. No engine changes.
 **Current owner-authorized dataset/UI extension:** Combined deterministic and
 Gemini dataset relevance, bounded advertised CSV/TSV header/three-row samples,
 topic/name/DOI search, cached dataset pagination and original space styling. Keep

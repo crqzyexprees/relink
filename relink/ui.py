@@ -244,17 +244,10 @@ def _render_report(report, key_prefix='dataset'):
     st.caption('Report generated ' + report.generated_at)
 
 
-def main():
-    st.set_page_config(page_title='ReLink · Research dataset recovery', page_icon='🔗', layout='wide')
-    sync_session_scope(current_access())
-    st.markdown(STYLE, unsafe_allow_html=True)
-    with st.container(key='relink_hero'):
-        st.caption('RESEARCH, ACROSS THE VOID')
-        st.title('ReLink')
-        st.markdown('### Follow the signal. Reconnect your research.')
-        st.caption('Find your next paper. Trace the data behind it. Bring the evidence home.')
+def _render_license():
+    st.subheader('License & source')
     st.caption('Open source · AGPL-3.0-only')
-    with st.expander('License and source code'):
+    with st.container(border=True):
         st.text('Copyright (C) 2026 ReLink contributors. ReLink is free software: '
                 'you may redistribute and modify it under GNU AGPL version 3. '
                 'It is provided WITHOUT ANY WARRANTY, including merchantability '
@@ -266,16 +259,37 @@ def main():
         else:
             st.warning('Source code link is not configured for this deployment. '
                        'The operator must provide the corresponding release source.')
-    datasets, papers = st.tabs(['Find datasets', 'Find papers'])
-    with datasets:
-        _render_dataset_workspace()
-    with papers:
-        render_paper_workspace(lambda report: _render_report(report,
-            key_prefix='paper_combined' if report.input_context.get('mode') == 'paper_datasets' else 'paper'))
+
+
+def main():
+    st.set_page_config(page_title='ReLink · Research dataset recovery', page_icon='🔗', layout='wide')
+    sync_session_scope(current_access())
+    st.markdown(STYLE, unsafe_allow_html=True)
+    with st.container(key='relink_navigation'):
+        with st.container(key='relink_brand'):
+            st.title('ReLink', anchor=False)
+            st.caption('A research workspace')
+        datasets, papers, license_tab = st.tabs(['Find datasets', 'Find papers', 'License & source'])
+        with datasets:
+            _render_dataset_workspace()
+        with papers:
+            render_paper_workspace(lambda report: _render_report(report,
+                key_prefix='paper_combined' if report.input_context.get('mode') == 'paper_datasets' else 'paper'))
+        with license_tab:
+            _render_license()
     render_history(_render_report)
 
 
+def _dataset_example(mode, value):
+    st.session_state['input_mode'] = mode
+    st.session_state['dataset_topic' if mode == 'Search datasets' else 'original_url'] = value
+    _clear_report()
+    st.toast('Example ready. Click Find to search.')
+
+
 def _render_dataset_workspace():
+    st.subheader('Find datasets')
+    st.caption('Recover a missing link, inspect a paper, or describe the data you need.')
     inputs, overview = st.columns([2.2, 1], gap='large')
     with inputs, st.container(border=True, key='dataset_input_panel'):
         mode = st.radio('Input mode', ['Recover URL', 'Analyze PDF', 'Search datasets'], horizontal=True, key='input_mode')
@@ -299,6 +313,14 @@ def _render_dataset_workspace():
             context = st.text_input('Dataset name, topic or DOI', key='dataset_topic',
                                     placeholder='e.g. penguin body mass and bill measurements', max_chars=1200).strip()
             url, extracted, source_context = '', None, {'mode': 'dataset_search'}
+        if mode != 'Analyze PDF':
+            st.caption('Quick start · fill an example, then click Find')
+            examples = st.columns(2)
+            examples[0].button('Iris DOI', key='dataset_example_iris', on_click=_dataset_example,
+                               args=('Search datasets', '10.24432/c56c76'), width='stretch')
+            if mode == 'Recover URL':
+                examples[1].button('Missing MNIST link', key='dataset_example_mnist', on_click=_dataset_example,
+                    args=('Recover URL', 'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz'), width='stretch')
         signature = (mode, url, context, source_context.get('document_sha256'), source_context.get('filename'))
         if signature != st.session_state.get('_input_signature'):
             _clear_report()

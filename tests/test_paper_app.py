@@ -146,7 +146,7 @@ class PaperAppTests(AppTestBase):
     def test_two_tabs_paper_search_abstract_and_request_free_reruns(self):
         with patch('relink.paper_ui.search_papers', return_value=paper_result()) as search:
             self.search()
-            self.assertEqual([tab.label for tab in self.app.tabs], ['Find datasets', 'Find papers'])
+            self.assertEqual([tab.label for tab in self.app.tabs], ['Find datasets', 'Find papers', 'License & source'])
             self.assertEqual(search.call_count, 1)
             self.assertTrue(any('Forest climate data' in item.value for item in self.app.text))
             self.app.run()
