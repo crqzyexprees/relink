@@ -129,7 +129,7 @@ class AppTests(AppTestBase):
         self.app.run()
         self.assertEqual(len(self.app.exception), 0)
         self.assertEqual(self.app.title[0].value, 'ReLink')
-        self.assertEqual(self.app.radio[0].options, ['Recover URL', 'Analyze PDF'])
+        self.assertEqual(self.app.radio[0].options, ['Recover URL', 'Analyze PDF', 'Search datasets'])
         self.assertTrue(self.recover_button().disabled)
         self.assertNotIn('report', self.app.session_state)
 

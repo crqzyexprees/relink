@@ -49,6 +49,12 @@ snapshots are not independently authenticated or reverified by opening them.
 The folder is git-ignored; new files use owner-only permissions. This is not
 encrypted storage. Export only material you intend to share.
 
+Dataset AI snapshots additionally retain bounded public CSV/TSV headers and up to
+three sample rows per eligible file, byte/source/error details, model status and
+relevance evidence. No full dataset files or request prompts are saved. Topic/DOI
+dataset searches also persist as typed recovery reports without an invented
+original URL. New fields have defaults so older snapshots remain readable.
+
 ## Configuration and bounds
 
 Core Gemini identification snapshots include accepted names, short supporting

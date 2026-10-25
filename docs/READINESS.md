@@ -2,7 +2,7 @@
 
 Follow-up: the owner selected AGPL-3.0-only; original-code LICENSE/NOTICE and
 application source/license information are now implemented. The working suite
-now passes 209 tests plus 181 subtests, including bounded generation timeouts, source-bound passage evidence, multi-source Gemini abstract ranking,
+now passes 269 tests plus 192 subtests, including combined dataset AI, bounded CSV/TSV samples, space-workspace controls, generation timeouts and multi-source paper ranking,
 cached pagination, private history isolation and core Gemini identification,
 persistent local history, two-tab abstract search and selected
 paper dataset lookup. New evidence: [paper-feature-pytest.log](readiness/paper-feature-pytest.log)
@@ -12,6 +12,27 @@ below remain historical evidence. Real additional examples and limitations are
 recorded in [evaluation.md](evaluation.md). Public source is now published at
 [crqzyexprees/relink](https://github.com/crqzyexprees/relink), with anonymous source
 access checked. Deployed-version source configuration and release checks remain pending.
+
+## Combined dataset AI and space workspace — 2026-10-25
+
+Fresh full suite: **269 tests, 192 subtests pass**, no failures/skips;
+[output](readiness/dataset-space-pytest.log). No dependencies added. Details:
+[DATASET_AI.md](DATASET_AI.md). Compileall, pip check and whitespace checks pass.
+
+| Check | Result | Evidence / limitation |
+| --- | --- | --- |
+| Bounded CSV/TSV sampler and safe transport | PASS, mocked | `test_dataset_preview.py`: ignored ranges, valid/invalid206,64KiB streaming cap, complete logical rows, UTF-8/cell/column bounds, redirects, errors/timeouts. |
+| Dataset metadata plus sample AI assessment | PASS, live | [Exact checks](readiness/dataset-ai-exact-live.json): real three-row public CSV input and separate actual Iris DOI discovery; no verified bytes claimed. |
+| Broad topic results | LIMITED, live | [Initial broad query](readiness/dataset-ai-live.json) returned30 real records but weak leads. Explicit relevance sorting added; no global-best/exhaustive claim. |
+| Combined evidence, conflicts and fallback | PASS, mocked | Initial URL/DOI/hash scores/statuses survive PDF merging; actual named-version warnings retained; invalid IDs/references/quotas/timeouts preserve independent results. |
+| Topic/URL/PDF/paper UI, cache and snapshots | PASS, mocked | Native AppTests, ten-at-a-time request-free pagination, source processing disclosure, JSON/sample round trips and existing history-isolation suite. |
+| Original space theme | IMPLEMENTED | Static CSS stars/planet/orbits, navy/amber/cyan palette, contrast/reduced-motion/responsive checks; no remote assets. |
+| Updated visual/hosted acceptance | BLOCKED | No browser executor exposed. Existing hosted paper search confirmed by owner; new theme/dataset UI still needs actual browser review. |
+
+Read-only review found evidence loss during combining and missing paper-tab sample
+disclosure. Both were reproduced by failing tests, fixed and followed by the full
+suite. Additional real version-warning and complete PDF hash-handoff regressions
+pass. Earlier provider/AI tests and live reports remain separate dated evidence.
 
 ## Generation timeout fix — 2026-10-25
 

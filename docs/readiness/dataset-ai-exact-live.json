@@ -1,0 +1,369 @@
+{
+  "checked_at": "2026-10-25T07:42:20.513338+00:00",
+  "kind": "Actual live calls, no mocks: explicitly supplied public CSV plus separate exact-DOI DataCite search.",
+  "sample_input": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv",
+  "sampled_input_assessment": {
+    "status": "ranked",
+    "detail": "Combined ordering: identity/conflict safeguards first, then AI relevance within each evidence tier. Scores and verification statuses are unchanged; AI reasons are judgments, not probabilities.",
+    "model": "gemini-3.5-flash-lite",
+    "retrieved_at": "2026-10-25T07:42:17.952368+00:00",
+    "retry_after": null,
+    "previews": [
+      {
+        "status": "sampled",
+        "url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv",
+        "retrieved_at": "2026-10-25T07:42:17.886685+00:00",
+        "headers": [
+          "species",
+          "island",
+          "bill_length_mm",
+          "bill_depth_mm",
+          "flipper_length_mm",
+          "body_mass_g",
+          "sex",
+          "year"
+        ],
+        "rows": [
+          [
+            "Adelie",
+            "Torgersen",
+            "39.1",
+            "18.7",
+            "181",
+            "3750",
+            "male",
+            "2007"
+          ],
+          [
+            "Adelie",
+            "Torgersen",
+            "39.5",
+            "17.4",
+            "186",
+            "3800",
+            "female",
+            "2007"
+          ],
+          [
+            "Adelie",
+            "Torgersen",
+            "40.3",
+            "18",
+            "195",
+            "3250",
+            "female",
+            "2007"
+          ]
+        ],
+        "bytes_read": 15241,
+        "detail": "Sample only: at most 64 KiB, header and 3 complete rows, 32 columns, 240 characters per cell. Dataset identity and full-file preservation remain unverified.",
+        "truncated": true,
+        "response_metadata": {
+          "http_status": 206,
+          "redirects": [],
+          "content_type": "text/plain; charset=utf-8",
+          "content_length": "15241",
+          "content_range": "bytes 0-15240/15241"
+        },
+        "candidate_id": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv"
+      }
+    ],
+    "warnings": []
+  },
+  "sampled_input_candidates": [
+    {
+      "candidate": {
+        "original_url": "",
+        "archived_url": null,
+        "capture_timestamp": null,
+        "source": "explicit_public_sample_input",
+        "retrieved_at": "",
+        "evidence": [],
+        "verification_status": "metadata_only",
+        "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+        "url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv",
+        "doi": null,
+        "titles": [],
+        "authors": [],
+        "institutions": [],
+        "publisher": null,
+        "year": null,
+        "filenames": [
+          "penguins.csv"
+        ],
+        "descriptions": [],
+        "version": null,
+        "related_identifiers": [],
+        "provenance": [
+          {
+            "source": "explicit_public_sample_input",
+            "url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv",
+            "doi": null,
+            "record_id": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv",
+            "retrieved_at": "",
+            "metadata": {}
+          }
+        ]
+      },
+      "score": 0,
+      "status": "unverified_candidate",
+      "explanation": [
+        {
+          "signal": "description",
+          "points": 0,
+          "detail": "Whole-word overlap; partial title prefixes count half. Missing metadata contributes zero.",
+          "query_values": [
+            "Penguin bill measurements and body mass"
+          ],
+          "candidate_values": []
+        }
+      ],
+      "ai_rank": 1,
+      "ai_reason": "Directly contains penguin bill measurements (bill_length_mm, bill_depth_mm) and body mass (body_mass_g) matching the request.",
+      "ai_evidence": "[\"species\", \"island\", \"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\", \"sex\", \"year\"]",
+      "ai_field": "Sample header"
+    }
+  ],
+  "exact_doi_report": {
+    "generated_at": "2026-10-25T07:42:20.513279+00:00",
+    "query": {
+      "title": "",
+      "author": "",
+      "institution": "",
+      "year": null,
+      "original_url": "",
+      "doi": "10.24432/c56c76",
+      "description": "",
+      "filenames": [],
+      "version": ""
+    },
+    "current": {
+      "status": "not_applicable",
+      "final_url": "",
+      "http_status": null,
+      "redirects": [],
+      "retry_after": null,
+      "detail": "Dataset metadata discovery; no original URL was supplied."
+    },
+    "discovery": {
+      "status": "found",
+      "candidates": [
+        {
+          "candidate": {
+            "original_url": "",
+            "archived_url": null,
+            "capture_timestamp": null,
+            "source": "datacite",
+            "retrieved_at": "2026-10-25T07:42:19.646489+00:00",
+            "evidence": [
+              "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+            ],
+            "verification_status": "metadata_only",
+            "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+            "url": "https://archive.ics.uci.edu/dataset/53",
+            "doi": "10.24432/c56c76",
+            "titles": [
+              "Iris"
+            ],
+            "authors": [
+              "R. A. Fisher"
+            ],
+            "institutions": [],
+            "publisher": "UCI Machine Learning Repository",
+            "year": 1936,
+            "filenames": [],
+            "descriptions": [],
+            "version": null,
+            "related_identifiers": [],
+            "provenance": [
+              {
+                "source": "datacite",
+                "url": "https://archive.ics.uci.edu/dataset/53",
+                "doi": "10.24432/c56c76",
+                "record_id": "10.24432/c56c76",
+                "retrieved_at": "2026-10-25T07:42:19.646489+00:00",
+                "metadata": {
+                  "doi": "10.24432/c56c76",
+                  "url": "https://archive.ics.uci.edu/dataset/53",
+                  "titles": [
+                    {
+                      "title": "Iris"
+                    }
+                  ],
+                  "creators": [
+                    {
+                      "affiliation": [],
+                      "name": "R. A. Fisher",
+                      "nameIdentifiers": []
+                    }
+                  ],
+                  "contributors": [],
+                  "publisher": "UCI Machine Learning Repository",
+                  "publicationYear": 1936,
+                  "descriptions": [],
+                  "types": {
+                    "schemaOrg": "Dataset",
+                    "resourceTypeGeneral": "Dataset",
+                    "citeproc": "dataset",
+                    "bibtex": "misc",
+                    "ris": "DATA"
+                  },
+                  "version": null,
+                  "relatedIdentifiers": [],
+                  "identifiers": [],
+                  "alternateIdentifiers": [],
+                  "contentUrl": null,
+                  "dates": [
+                    {
+                      "date": "1936",
+                      "dateType": "Issued"
+                    }
+                  ],
+                  "rightsList": []
+                }
+              }
+            ]
+          },
+          "score": 60,
+          "status": "likely_match",
+          "explanation": [
+            {
+              "signal": "doi",
+              "points": 60,
+              "detail": "DOI agreement identifies metadata, not independently verified content.",
+              "query_values": [
+                "10.24432/c56c76"
+              ],
+              "candidate_values": [
+                "10.24432/c56c76"
+              ]
+            }
+          ],
+          "ai_rank": 1,
+          "ai_reason": "The dataset DOI matches the requested DOI 10.24432/c56c76 exactly.",
+          "ai_evidence": "10.24432/c56c76",
+          "ai_field": "DOI"
+        }
+      ],
+      "providers": [
+        {
+          "status": "found",
+          "source": "datacite",
+          "candidates": [
+            {
+              "original_url": "",
+              "archived_url": null,
+              "capture_timestamp": null,
+              "source": "datacite",
+              "retrieved_at": "2026-10-25T07:42:19.646489+00:00",
+              "evidence": [
+                "DataCite reports DOI metadata with resourceTypeGeneral=Dataset."
+              ],
+              "verification_status": "metadata_only",
+              "limitation": "Metadata is a discovery lead. Resource accessibility, dataset identity, and downloadable dataset preservation have not been verified.",
+              "url": "https://archive.ics.uci.edu/dataset/53",
+              "doi": "10.24432/c56c76",
+              "titles": [
+                "Iris"
+              ],
+              "authors": [
+                "R. A. Fisher"
+              ],
+              "institutions": [],
+              "publisher": "UCI Machine Learning Repository",
+              "year": 1936,
+              "filenames": [],
+              "descriptions": [],
+              "version": null,
+              "related_identifiers": [],
+              "provenance": [
+                {
+                  "source": "datacite",
+                  "url": "https://archive.ics.uci.edu/dataset/53",
+                  "doi": "10.24432/c56c76",
+                  "record_id": "10.24432/c56c76",
+                  "retrieved_at": "2026-10-25T07:42:19.646489+00:00",
+                  "metadata": {
+                    "doi": "10.24432/c56c76",
+                    "url": "https://archive.ics.uci.edu/dataset/53",
+                    "titles": [
+                      {
+                        "title": "Iris"
+                      }
+                    ],
+                    "creators": [
+                      {
+                        "affiliation": [],
+                        "name": "R. A. Fisher",
+                        "nameIdentifiers": []
+                      }
+                    ],
+                    "contributors": [],
+                    "publisher": "UCI Machine Learning Repository",
+                    "publicationYear": 1936,
+                    "descriptions": [],
+                    "types": {
+                      "schemaOrg": "Dataset",
+                      "resourceTypeGeneral": "Dataset",
+                      "citeproc": "dataset",
+                      "bibtex": "misc",
+                      "ris": "DATA"
+                    },
+                    "version": null,
+                    "relatedIdentifiers": [],
+                    "identifiers": [],
+                    "alternateIdentifiers": [],
+                    "contentUrl": null,
+                    "dates": [
+                      {
+                        "date": "1936",
+                        "dateType": "Issued"
+                      }
+                    ],
+                    "rightsList": []
+                  }
+                }
+              ]
+            }
+          ],
+          "detail": "Metadata candidates only; downloadable content was not checked.",
+          "http_status": 200,
+          "retry_after": null,
+          "query_url": "https://api.datacite.org/dois?query=%28%28prefix%3A%2210.24432%22+AND+suffix%3A%22c56c76%22%29+OR+relatedIdentifiers.relatedIdentifier%3A%2210.24432%5C%2Fc56c76%22+OR+relatedIdentifiers.relatedIdentifier%3A%22https%5C%3A%5C%2F%5C%2Fdoi.org%5C%2F10.24432%5C%2Fc56c76%22%29&resource-type-id=dataset&page%5Bnumber%5D=1&sort=relevance&page%5Bsize%5D=15&affiliation=true&detail=true&fields%5Bdois%5D=doi%2Curl%2Ctitles%2Ccreators%2Ccontributors%2Cpublisher%2CpublicationYear%2Cdescriptions%2Ctypes%2Cversion%2CrelatedIdentifiers%2Cidentifiers%2CalternateIdentifiers%2CcontentUrl%2Cdates%2CrightsList",
+          "truncated": false,
+          "warnings": []
+        }
+      ],
+      "detail": "Relevance points are not probabilities. Provider metadata and sampled rows do not verify dataset preservation.",
+      "assessment": {
+        "status": "ranked",
+        "detail": "Combined ordering: identity/conflict safeguards first, then AI relevance within each evidence tier. Scores and verification statuses are unchanged; AI reasons are judgments, not probabilities.",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved_at": "2026-10-25T07:42:19.647570+00:00",
+        "retry_after": null,
+        "previews": [
+          {
+            "status": "metadata_only",
+            "url": "",
+            "retrieved_at": "",
+            "headers": [],
+            "rows": [],
+            "bytes_read": 0,
+            "detail": "No advertised direct CSV/TSV URL; metadata only. Sample only: at most 64 KiB, header and 3 complete rows, 32 columns, 240 characters per cell. Dataset identity and full-file preservation remain unverified.",
+            "truncated": false,
+            "response_metadata": {},
+            "candidate_id": "10.24432/c56c76"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    "input_context": {
+      "mode": "dataset_search",
+      "live_check": true
+    },
+    "schema_version": 1,
+    "identification": null,
+    "named_searches": []
+  }
+}

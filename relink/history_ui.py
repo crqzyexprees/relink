@@ -12,8 +12,9 @@ from relink.history_access import (authorized_store, current_access, ensure_acti
 from relink.exports import json_download
 from relink.paper_models import PaperDatasetLookup, PaperSearchResult
 from relink.papers import lookup_paper_datasets, search_papers
-from relink.workflow import RecoveryReport, public_link, run_recovery
+from relink.workflow import RecoveryReport, public_link, run_recovery, paper_dataset_report
 from relink import gemini_config
+from relink.dataset_ui import SAMPLE_DISCLOSURE
 
 
 def record_search(kind, label, result, *, expected_scope, request=None):
@@ -69,6 +70,8 @@ def _view(entry, render_report, *, expected_scope, saved=True, live_result=None)
                 st.text(ranked.paper.abstract)
                 _saved_link('Open original paper record', ranked.paper.id, f'history_paper_{index}')
     elif isinstance(snapshot, PaperDatasetLookup):
+        if snapshot.combined is not None:
+            render_report(paper_dataset_report(snapshot, entry.label), key_prefix='history_combined')
         from relink.gemini_ui import render_identification
         render_identification(snapshot.identification, snapshot.named_searches, key_prefix='history_ai')
         st.text('Paper PDF: ' + snapshot.pdf_status.replace('_', ' ') + ' · ' + snapshot.detail)
@@ -99,7 +102,7 @@ def _search_again(entry_id, expected_scope):
     entry = _owned_entry(authorized_store(expected_scope), entry_id)
     snapshot = restore_snapshot(entry)
     if entry.kind == 'recovery':
-        result = run_recovery(snapshot.query, input_context=snapshot.input_context)
+        result = run_recovery(snapshot.query, input_context=snapshot.input_context, settings=gemini_config.load_gemini_settings())
     elif entry.kind == 'papers':
         result = search_papers(entry.request['topic'], settings=gemini_config.load_gemini_settings())
     else:
@@ -161,6 +164,7 @@ def render_history(render_report):
             if st.button('View saved results', key='history_view', width='stretch'):
                 try: _view(entry, render_report, expected_scope=access.scope)
                 except HistoryError: st.error('This saved result cannot be opened.')
+            st.caption(SAMPLE_DISCLOSURE)
             if st.button('Search again', key='history_rerun', width='stretch',
                          disabled=uploaded,
                          help='Makes new service requests using the recorded input. A PDF recovery reruns its selected URL, not the upload.'):

@@ -14,6 +14,7 @@ from tests.test_app import AppTestBase
 from tests.test_datacite import record
 from tests.test_gemini import KEY, mention, response
 from tests.test_paper_app import paper_result
+from tests.test_dataset_ai import ai_response
 
 
 class GeminiAppTests(AppTestBase):
@@ -24,6 +25,8 @@ class GeminiAppTests(AppTestBase):
             self.calls.append(request)
             host = request.headers['host']
             if host == 'generativelanguage.googleapis.com':
+                data = json.loads(json.loads(request.content)['contents'][0]['parts'][0]['text'])
+                if 'datasets' in data: return ai_response(request)
                 return httpx.Response(200, json=response([mention(quote='We use the SQuAD 1.1 dataset.')] ))
             if host == 'api.datacite.org':
                 self.assertNotIn('x-goog-api-key', request.headers)
@@ -45,11 +48,11 @@ class GeminiAppTests(AppTestBase):
             self.assertEqual(len(self.calls), 0)
             self.app.button(key='lookup_paper_datasets').click().run()
             self.assertEqual(len(self.app.exception), 0)
-            self.assertEqual(sum(r.method == 'POST' for r in self.calls), 1)
+            self.assertEqual(sum(r.method == 'POST' for r in self.calls), 2)
             self.assertTrue(any('We use the SQuAD 1.1 dataset.' in item.value for item in self.app.text))
             self.assertTrue(any('SQuAD' in item.value for item in self.app.text))
             self.app.run()
-            self.assertEqual(sum(r.method == 'POST' for r in self.calls), 1)
+            self.assertEqual(sum(r.method == 'POST' for r in self.calls), 2)
         entries = HistoryStore(os.environ['RELINK_HISTORY_PATH']).list()
         lookup = restore_snapshot(entries[0])
         self.assertEqual(lookup.identification.mentions[0].name, 'SQuAD')
@@ -69,7 +72,7 @@ class GeminiAppTests(AppTestBase):
             self.assertEqual(len(self.app.exception), 0)
             self.assertTrue(any('SQuAD' in item.value for item in self.app.text))
             self.app.run()
-            self.assertEqual(sum(r.method == 'POST' for r in self.calls), 1)
+            self.assertEqual(sum(r.method == 'POST' for r in self.calls), 2)
             self.assertTrue(self.app.button(key='history_rerun').disabled)
         entry = HistoryStore(os.environ['RELINK_HISTORY_PATH']).list()[0]
         self.assertEqual(restore_snapshot(entry).identification.status, 'found')

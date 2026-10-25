@@ -4,7 +4,7 @@ import streamlit as st
 from relink.workflow import public_link
 
 
-def render_identification(identification, searches, *, key_prefix='dataset_ai'):
+def render_identification(identification, searches, *, key_prefix='dataset_ai', show_candidates=True):
     if identification is None: return
     st.subheader('Datasets mentioned in the paper')
     st.text('Gemini identification: ' + identification.status.replace('_', ' '))
@@ -32,7 +32,7 @@ def render_identification(identification, searches, *, key_prefix='dataset_ai'):
         if result.retry_after: st.text('Retry-After: ' + result.retry_after)
         if result.truncated: st.caption('The repository result set was limited; more candidates may exist.')
         for warning in result.warnings: st.text(warning)
-        for index, ranked in enumerate(search.ranked, 1):
+        for index, ranked in enumerate(search.ranked if show_candidates else (), 1):
             candidate = ranked.candidate
             with st.container(border=True):
                 st.text(candidate.titles[0] if candidate.titles else 'Repository dataset record')

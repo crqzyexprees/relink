@@ -9,7 +9,8 @@ from relink.history_ui import record_search
 from relink import gemini_config
 from relink.gemini_ui import render_identification
 from relink.history_access import IdentityChanged, current_access, ensure_action_scope, rerun_if_identity_changed
-from relink.workflow import public_link, query_from_input, run_recovery
+from relink.workflow import public_link, query_from_input, run_recovery, paper_dataset_report
+from relink.dataset_ui import SAMPLE_DISCLOSURE
 
 
 def _clear(*keys):
@@ -153,6 +154,7 @@ def render_paper_workspace(render_report):
     st.caption('Find datasets searches records related to this paper DOI and, when advertised, downloads one public PDF '
                'to extract research links. Gemini also identifies dataset names from text excerpts and searches DataCite. '
                'This sends excerpts to Google; use public, nonconfidential papers. Quotes are checked locally.')
+    st.caption(SAMPLE_DISCLOSURE)
     if st.button('Find datasets from this paper', key='lookup_paper_datasets'):
         action_scope = current_access().scope
         _clear('paper_lookup_result', 'paper_link_report', 'paper_dataset_link', '_selected_paper_link',
@@ -175,7 +177,8 @@ def render_paper_workspace(render_report):
     _show_action_error('paper_lookup_error', 'Dataset lookup was interrupted.')
     lookup = st.session_state.get('paper_lookup_result')
     if lookup is None: return
-    render_identification(lookup.identification, lookup.named_searches, key_prefix='paper_ai')
+    render_identification(lookup.identification, lookup.named_searches, key_prefix='paper_ai', show_candidates=lookup.combined is None)
+    if lookup.combined is not None: render_report(paper_dataset_report(lookup, paper.title))
     st.subheader('Dataset evidence from the selected paper')
     st.text('Paper PDF: ' + lookup.pdf_status.replace('_', ' ') + ' · ' + lookup.detail)
     datasets = lookup.datasets
@@ -185,7 +188,7 @@ def render_paper_workspace(render_report):
         st.warning('Related dataset lookup did not complete fully; inspect any available evidence below.')
     for warning in datasets.warnings: st.text(warning)
     if datasets.truncated: st.caption('The related-record search was limited; more records may exist.')
-    for index, candidate in enumerate(datasets.candidates, 1):
+    for index, candidate in enumerate(datasets.candidates if lookup.combined is None else (), 1):
         with st.container(border=True):
             st.text(candidate.titles[0] if candidate.titles else 'Repository dataset record')
             st.caption('Source: DataCite · Unverified candidate. A metadata association is not proof '
@@ -209,6 +212,7 @@ def render_paper_workspace(render_report):
     link = by_url[selected_link]
     if link.occurrences:
         st.text('Link context: ' + link.occurrences[0].context)
+    st.caption(SAMPLE_DISCLOSURE)
     if st.button('Find copies of selected link', key='recover_paper_link'):
         action_scope = current_access().scope
         _clear('paper_link_report', 'paper_link_error')
@@ -216,7 +220,8 @@ def render_paper_workspace(render_report):
             with st.status('Checking the selected research link', expanded=True) as activity:
                 found = run_recovery(query_from_input(selected_link),
                     input_context={'mode': 'paper', 'paper_id': paper.id, 'paper_doi': paper.doi,
-                                   'selected_link': selected_link}, on_progress=activity.write)
+                                   'selected_link': selected_link}, on_progress=activity.write,
+                                   settings=gemini_config.load_gemini_settings())
                 ensure_action_scope(action_scope)
                 st.session_state['paper_link_report'] = found
                 failed = st.session_state['paper_link_report'].discovery.status in ('partial', 'error')

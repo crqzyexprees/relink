@@ -79,6 +79,17 @@ upgrade was not part of these targeted demo fixes and requires separate acceptan
 
 ## Data sources and demonstration material
 
+- Dataset relevance now sends public metadata plus bounded CSV/TSV headers and
+  up to three sample rows to the configured Gemini service on explicit action.
+  Original data rights and Google service/data-use terms still apply. No new
+  runtime dependencies or full datasets are bundled.
+- The sampler's public check uses the official
+  [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) CSV. Horst,
+  Hill and Gorman provide package/data attribution there; the data are offered
+  under CC0 with the linked LTER policies. Only a small sample/evidence report is
+  recorded. No penguin artwork is used. ReLink's new stars, planet/orbits and theme
+  are original CSS; no Project Hail Mary artwork, fonts, branding or assets used.
+
 - Gemini is now a core external service for paper/PDF dataset identification,
   accessed with HTTPX; no Google SDK was added. The server sends bounded text
   excerpts on explicit Find, disclosed before action. Use public/nonconfidential

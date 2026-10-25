@@ -11,7 +11,7 @@ import streamlit as st
 
 from relink.extraction import PDFExtractionError, extract_pdf_links
 from relink.identifiers import normalize_doi
-from relink.models import MatchStatus
+from relink.models import MatchStatus, SearchQuery
 from relink.paper_models import Paper
 from relink import gemini_config
 from relink.gemini_ui import render_identification
@@ -21,66 +21,12 @@ from relink.history_access import (IdentityChanged, current_access, ensure_actio
 from relink.exports import json_download
 from relink.history_ui import record_search, render_history
 from relink.paper_ui import render_paper_workspace
-from relink.workflow import public_link, query_from_input, report_json, run_recovery
+from relink.workflow import public_link, query_from_input, report_json, run_recovery, paper_dataset_report
+from relink.dataset_ui import render_options
 
 
-# This constant contains only application-owned CSS. Untrusted values are always
-# rendered with st.text, native table cells, or st.json; never interpolated here.
-STYLE = '''
-<style>
-.stApp {
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #0e161d;
-    background-image:
-        radial-gradient(ellipse at 8% 0%, rgba(45, 212, 191, .10) 0%,
-            rgba(45, 212, 191, .065) 25%, rgba(45, 212, 191, .025) 52%, rgba(45, 212, 191, 0) 82%),
-        radial-gradient(ellipse at 95% 40%, rgba(77, 126, 196, .065) 0%,
-            rgba(77, 126, 196, .025) 40%, rgba(77, 126, 196, 0) 85%),
-        linear-gradient(rgba(148, 163, 184, .014) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148, 163, 184, .014) 1px, transparent 1px);
-    background-size: auto, auto, 64px 64px, 64px 64px;
-    background-attachment: fixed;
-}
-[data-testid="stHeader"] { background: transparent; }
-.block-container { max-width: 1280px; padding-top: 5rem; padding-bottom: 4rem; }
-h1 { letter-spacing: -.055em; font-size: 3.7rem !important; font-weight: 750 !important; color: inherit; }
-h2, h3 { letter-spacing: -.025em; }
-[data-testid="stVerticalBlockBorderWrapper"] > div { border-radius: 14px; background: var(--secondary-background-color); border-color: rgba(148, 163, 184, .24); }
-.st-key-relink_hero {
-    padding: 1.8rem 2rem;
-    border: 1px solid rgba(45, 212, 191, .12);
-    border-radius: 18px;
-    background: linear-gradient(110deg, rgba(45, 212, 191, .075) 0%,
-        rgba(45, 212, 191, .045) 30%, rgba(45, 212, 191, .015) 65%, rgba(45, 212, 191, 0) 100%);
-    box-shadow: 0 12px 50px rgba(0, 0, 0, .07);
-    gap: .5rem;
-}
-.st-key-relink_hero h1 { color: #e6faf6; padding-top: 0; }
-.st-key-relink_hero h3 { font-size: 1.6rem; padding-top: 0; }
-.st-key-dataset_input_panel, .st-key-evidence_panel {
-    border-radius: 16px;
-    border: 1px solid rgba(148, 163, 184, .18);
-    background: linear-gradient(145deg, rgba(21, 35, 45, .8), rgba(17, 28, 37, .65));
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .14);
-    padding: 1.5rem;
-}
-.st-key-evidence_panel { border-top: 2px solid rgba(45, 212, 191, .55); }
-.st-key-evidence_panel strong { color: #8ce4d7; }
-[data-baseweb="tab-list"] { gap: 1.5rem; }
-[data-baseweb="tab"] { padding: .75rem .35rem; }
-.stButton button[kind="primary"] { box-shadow: 0 4px 18px rgba(45, 212, 191, .13); }
-[data-testid="stText"] { font-family: inherit; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
-[data-testid="stMetricValue"] { font-size: 1.65rem; }
-[data-testid="stFileUploader"] { border-radius: 12px; }
-.stButton button, .stDownloadButton button, .stLinkButton a { border-radius: 8px; }
-@media(max-width: 640px) {
-    .block-container { padding: 4.5rem 1rem 3rem; }
-    .st-key-relink_hero { padding: 1.25rem; }
-    .st-key-dataset_input_panel, .st-key-evidence_panel { padding: 1rem; }
-    h1 { font-size: 2.8rem !important; }
-}
-</style>
-'''
+from relink.theme import STYLE
+
 
 SOURCE_NAMES = {'internet_archive': 'Internet Archive', 'datacite': 'DataCite', 'request_policy': 'Address safety check'}
 ACCESS_NAMES = {'working': 'Original URL is working', 'not_found': 'Original URL returned 404',
@@ -234,6 +180,9 @@ def _render_candidate(index, ranked, key_prefix='dataset'):
         support = [signal_labels.get(e.signal, e.signal) for e in ranked.explanation if e.points > 0]
         st.text('Why this option: ' + ('; '.join(dict.fromkeys(support)) if support else
                 'No positive matching evidence was found; inspect this unverified lead carefully.'))
+        if ranked.ai_reason:
+            st.text('AI relevance (judgment): ' + ranked.ai_reason)
+            st.text('Supporting ' + ranked.ai_field.lower() + ': ' + ranked.ai_evidence)
         with st.expander('Evidence and ranking', expanded=index == 1):
             for evidence in candidate.evidence:
                 st.text(evidence)
@@ -257,8 +206,10 @@ def _render_report(report, key_prefix='dataset'):
     st.divider()
     st.subheader('Recovery report')
     st.caption('A ranked lead is not proof that the original dataset survives. Points describe relevance, not probability.')
-    _render_access(report.current, report.query.original_url, key_prefix)
-    render_identification(report.identification, report.named_searches, key_prefix=key_prefix + '_ai')
+    if report.query.original_url: _render_access(report.current, report.query.original_url, key_prefix)
+    else: st.text('Dataset search: ' + (report.query.doi or report.query.title or report.query.description))
+    render_identification(report.identification, report.named_searches, key_prefix=key_prefix + '_ai',
+                          show_candidates=report.discovery.assessment is None)
     status = report.discovery.status
     if status == 'partial':
         st.warning('Some sources could not complete. Available candidates are shown below.')
@@ -278,15 +229,7 @@ def _render_report(report, key_prefix='dataset'):
                 st.warning('This source returned an incomplete or limited result set.')
             for warning in provider.warnings:
                 st.text(warning)
-    if report.discovery.candidates:
-        st.subheader('Best-ranked options')
-        st.caption(f'{len(report.discovery.candidates)} candidate(s), sorted by matching evidence across the returned results. '
-                   'The highest relevance score appears first; equal scores are ties, not stronger recommendations.')
-        if len(report.discovery.candidates) == 1:
-            st.caption('Only one candidate was returned by the sources. This is the only available lead, '
-                       'not a comparison winner. Archive availability supplies at most one closest capture.')
-    for index, candidate in enumerate(report.discovery.candidates, 1):
-        _render_candidate(index, candidate, key_prefix)
+    render_options(report.discovery, key_prefix=key_prefix, render_candidate=_render_candidate, snapshot_id=report.generated_at)
     try:
         exported = report_json(report)
     except (TypeError, ValueError):
@@ -306,10 +249,10 @@ def main():
     sync_session_scope(current_access())
     st.markdown(STYLE, unsafe_allow_html=True)
     with st.container(key='relink_hero'):
-        st.caption('RESEARCH WORKSPACE')
+        st.caption('RESEARCH, ACROSS THE VOID')
         st.title('ReLink')
-        st.markdown('### Reconnect your research.')
-        st.caption('Find relevant papers. Trace missing datasets. Follow evidence you can inspect.')
+        st.markdown('### Follow the signal. Reconnect your research.')
+        st.caption('Find your next paper. Trace the data behind it. Bring the evidence home.')
     st.caption('Open source · AGPL-3.0-only')
     with st.expander('License and source code'):
         st.text('Copyright (C) 2026 ReLink contributors. ReLink is free software: '
@@ -327,14 +270,15 @@ def main():
     with datasets:
         _render_dataset_workspace()
     with papers:
-        render_paper_workspace(lambda report: _render_report(report, key_prefix='paper'))
+        render_paper_workspace(lambda report: _render_report(report,
+            key_prefix='paper_combined' if report.input_context.get('mode') == 'paper_datasets' else 'paper'))
     render_history(_render_report)
 
 
 def _render_dataset_workspace():
     inputs, overview = st.columns([2.2, 1], gap='large')
     with inputs, st.container(border=True, key='dataset_input_panel'):
-        mode = st.radio('Input mode', ['Recover URL', 'Analyze PDF'], horizontal=True, key='input_mode')
+        mode = st.radio('Input mode', ['Recover URL', 'Analyze PDF', 'Search datasets'], horizontal=True, key='input_mode')
         if st.session_state.get('_mode') != mode:
             _clear_report()
             st.session_state['_mode'] = mode
@@ -346,50 +290,66 @@ def _render_dataset_workspace():
             source_context = {'mode': 'url'}
             context = ''
             extracted = None
-        else:
+        elif mode == 'Analyze PDF':
             url, extracted, source_context = _pdf_input()
             with st.expander('Paper context (automatically extracted; optional to edit)'):
                 context = st.text_area('Paper context', key='dataset_context', max_chars=1000,
                                        help='The selected URL and paper context are sent to recovery services when you click Find.')
+        else:
+            context = st.text_input('Dataset name, topic or DOI', key='dataset_topic',
+                                    placeholder='e.g. penguin body mass and bill measurements', max_chars=1200).strip()
+            url, extracted, source_context = '', None, {'mode': 'dataset_search'}
         signature = (mode, url, context, source_context.get('document_sha256'), source_context.get('filename'))
         if signature != st.session_state.get('_input_signature'):
             _clear_report()
             st.session_state['_input_signature'] = signature
-        settings = gemini_config.load_gemini_settings() if mode == 'Analyze PDF' else gemini_config.GeminiSettings()
+        settings = gemini_config.load_gemini_settings()
         can_identify = bool(extracted and extracted.has_text and settings.api_key)
         if extracted and extracted.has_text and not url and not settings.api_key:
             st.info('Gemini access must be configured to identify dataset names in a PDF without web links.')
-        recover = st.button('Find', type='primary', disabled=not bool(url or can_identify), width='stretch')
+        recover = st.button('Find', type='primary', disabled=not bool(url or can_identify or (mode == 'Search datasets' and context)), width='stretch')
         if mode == 'Analyze PDF':
             st.caption('On Find, Gemini identifies dataset names from text excerpts and DataCite searches those names. '
                        'Excerpts are sent to Google; use public, nonconfidential papers. PDF files stay in this session.')
         else:
-            st.caption('Paste a link and click Find. No description is required. The URL goes to the recovery providers.')
+            st.caption('Paste a link and click Find; no description is required.' if mode == 'Recover URL' else
+                       'Describe the data you need, or enter its DOI. Find searches real dataset records.')
+        st.caption('Find sends your query, public metadata, and any bounded CSV/TSV header plus up to three rows '
+                   'to Google for relevance ranking. At most three files are sampled, 64 KiB each; use nonconfidential data. '
+                   'Metadata and samples do not verify the original dataset. Load more makes no new requests.')
     with overview, st.container(key='evidence_panel'):
-        st.subheader('Follow the evidence')
+        st.subheader('Mission briefing')
         st.markdown('**Internet Archive**')
         st.caption('Look for reported captures of the original address.')
         st.markdown('**DataCite**')
         st.caption('Discover dataset records, repository locations, and DOIs.')
+        st.markdown('**Gemini + source evidence**')
+        st.caption('Compare metadata and tiny table samples. Exact identity and version evidence stay authoritative.')
         st.markdown('**Inspect before you trust**')
         st.caption('Compare source records, ranking signals, and verification limits.')
     if recover:
         action_scope = current_access().scope
         _clear_report()
-        with st.status('Finding matches for the selected URL', expanded=True) as activity:
+        with st.status('Searching for dataset signals', expanded=True) as activity:
             try:
-                if url:
+                if mode == 'Search datasets':
+                    doi = normalize_doi(context)
+                    query = SearchQuery(doi=doi) if doi else SearchQuery(description=' '.join(context.split()))
+                    report = run_recovery(query, input_context=source_context, on_progress=activity.write, settings=settings)
+                elif url:
                     query = query_from_input(url, context)
-                    report = run_recovery(query, input_context=source_context, on_progress=activity.write)
+                    report = run_recovery(query, input_context=source_context, on_progress=activity.write,
+                                          settings=settings if mode == 'Recover URL' else None)
                 else:
                     report = None
                 lookup = None
                 if mode == 'Analyze PDF' and extracted is not None:
                     activity.write('Gemini is identifying dataset mentions; DataCite will search supported names')
                     lookup = lookup_uploaded_datasets(extracted, paper_id='uploaded-pdf:' + source_context['document_sha256'],
-                                                     settings=settings)
+                                                     settings=settings, initial=report.discovery if report else None)
                     if report is not None:
-                        report = replace(report, identification=lookup.identification, named_searches=lookup.named_searches)
+                        report = replace(report, identification=lookup.identification, named_searches=lookup.named_searches,
+                                         discovery=lookup.combined or report.discovery)
                 ensure_action_scope(action_scope)
             except IdentityChanged:
                 st.rerun()
@@ -411,7 +371,7 @@ def _render_dataset_workspace():
                 activity.update(label='Search finished with source issues' if failed else 'Search finished',
                                 state='error' if failed else 'complete', expanded=failed)
                 if report is not None:
-                    record_search('recovery', query.original_url, report, expected_scope=action_scope)
+                    record_search('recovery', query.original_url or query.doi or query.description, report, expected_scope=action_scope)
                 else:
                     paper = Paper(lookup.paper_id, extracted.title or source_context['filename'])
                     record_search('paper_datasets', paper.title, lookup, request={'paper': asdict(paper)}, expected_scope=action_scope)
@@ -426,4 +386,6 @@ def _render_dataset_workspace():
         _render_report(report)
     lookup = st.session_state.get('uploaded_dataset_lookup')
     if lookup is not None:
-        render_identification(lookup.identification, lookup.named_searches, key_prefix='upload_ai')
+        render_identification(lookup.identification, lookup.named_searches, key_prefix='upload_ai', show_candidates=lookup.combined is None)
+        if lookup.combined is not None:
+            _render_report(paper_dataset_report(lookup, 'uploaded research paper'), key_prefix='upload_combined')

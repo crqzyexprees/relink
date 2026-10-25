@@ -84,6 +84,19 @@ RELINK_SOURCE_URL before public deployment. Complete the
    **Load more** reveals the next ten cached results without another API call.
    After the batch is visible, **Search more** retrieves a separately ranked new
    batch; ranks apply within each batch, not across all literature.
+
+For the combined dataset demonstration, open **Find datasets → Search datasets**
+and enter `10.24432/c56c76`. Show the actual Iris DOI/source, Dataset AI status,
+source-grounded reason and retained likely/unverified status. For topic searches,
+inspect weak-match explanations honestly; DataCite coverage is bounded and a
+generic query can return unrelated records. Use Load more when more than ten
+candidates are returned; it must not repeat network/model calls.
+
+Eligible directly advertised CSV/TSV files show **Inspect bounded dataset samples**:
+one header and up to three rows. Many repository landing pages advertise no direct
+CSV, so metadata-only is an expected result. Never imply that previews prove full
+file preservation. Exact live metadata and explicit public CSV component checks
+are separate in [dataset-ai-exact-live.json](readiness/dataset-ai-exact-live.json).
 2. Choose an actual returned paper and inspect its abstract, matched keywords,
    DOI, and source. Click **Find datasets from this paper** to search related
    metadata, extract links from an advertised public PDF if available, and run

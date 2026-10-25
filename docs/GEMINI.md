@@ -14,6 +14,14 @@ not sent for ranking. Ten results appear initially; Load more reveals cached
 results without model calls. Keyword ranking remains the fallback on missing key,
 model errors or unsupported output. See [paper ranking and limits](PAPERS.md).
 
+**Dataset relevance:** Dataset URL/topic/PDF and selected-paper lookups also
+combine existing source evidence with one Gemini assessment per combined batch.
+Only real metadata and bounded advertised CSV/TSV headers/up to three rows are
+supplied. The key above is reused; no new SDK or credential is required. The UI
+discloses sample processing before actions, including saved reruns. Independent
+identity evidence and verification labels remain authoritative. See
+[DATASET_AI.md](DATASET_AI.md) for bounds, limitations and real checks.
+
 ## Configuration
 
 Use your intended free-tier Google AI Studio project. Put top-level values in the
