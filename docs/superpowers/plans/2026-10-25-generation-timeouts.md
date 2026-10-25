@@ -13,9 +13,10 @@ limitation; this is not a strict wall-clock guarantee.
 - [x] Add failing slow-generation and request-budget regressions with fake time.
 - [x] Add validated per-POST read/elapsed overrides; apply to both Gemini flows.
 - [x] Run focused/full tests, record separate real timing observations, review.
-- [ ] Update STATUS/docs; commit and push under prior publication authorization.
+- [x] Update STATUS/docs; commit and push under prior publication authorization:
+  2c0e158, confirmed on GitHub main.
 
-Verification: 209 tests +181 subtests pass. Actual before/after calls accepted26
-papers in3.793/3.369 seconds; observed read limit changed10→60 with other phases10.
+Verification: 209 tests +181 subtests pass. Actual before/after calls accepted 26
+papers in 3.793/3.369 seconds; observed read limit changed 10→60 with other phases 10.
 Exact hosted delay not reproduced. Independent review: no important findings.
 Known cooperative slow-header cancellation limitation remains explicitly open.

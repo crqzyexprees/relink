@@ -25,7 +25,8 @@ Updated: 2026-10-25 local time and UTC.
   actual request configuration and successful generation, not a real 20s delay
   or hosted-browser acceptance. The elapsed budget remains cooperative and
   cannot preempt every internal slow-header read; no strict wall-clock claim.
-- Documentation updated and verified fix ready for publication. Genuine model
+- Documentation updated; fix `2c0e158` pushed to GitHub main and confirmed.
+  Genuine model
   delays/network failures still return explicit keyword fallback. Run a fresh
   search after the deployed app updates; saved fallback results do not rerank.
 
