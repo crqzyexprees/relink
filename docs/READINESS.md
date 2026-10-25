@@ -8,8 +8,9 @@ paper dataset lookup. New evidence: [paper-feature-pytest.log](readiness/paper-f
 and [PAPERS.md](PAPERS.md). Live OpenAlex/PDF extraction passed; related DataCite
 records were empty and follow-up Archive was rate-limited. The earlier 95-test logs and clean install
 below remain historical evidence. Real additional examples and limitations are
-recorded in [evaluation.md](evaluation.md). Public source publication/access and
-the applicable release checks remain pending.
+recorded in [evaluation.md](evaluation.md). Public source is now published at
+[crqzyexprees/relink](https://github.com/crqzyexprees/relink), with anonymous source
+access checked. Deployed-version source configuration and release checks remain pending.
 
 Latest code/UI review: [REVIEW.md](REVIEW.md), [suite output](readiness/review-pytest.log),
 and [live follow-up](readiness/review-live.json). TLS-origin isolation, safe escaped
@@ -89,7 +90,7 @@ below. See [GEMINI.md](GEMINI.md) for privacy, bounds, and interpretation.
 | README clean environment creation | PASS | [clean-environment.log](readiness/clean-environment.log): a new isolated Python 3.12 environment initially had none of the four application/test packages. |
 | README fresh dependency installation and clean test run | PASS | Approved pip installation into the isolated /tmp environment succeeded from the package index. [clean-pytest.log](readiness/clean-pytest.log): 95 passed plus 88 subtests; [environment and pip check](readiness/clean-environment-final.log). No packages copied from the working environment. |
 | Dependency and attribution inspection | PASS, review scope | [42-package inventory](readiness/dependencies.json) and [third-party notices](../THIRD_PARTY_NOTICES.md); this is not compliance/vulnerability certification. |
-| Public distribution/license clearance | BLOCKED pending release checks | Owner selected AGPL-3.0-only; LICENSE/NOTICE and app source/license entry now exist. Publish/configure corresponding release source and confirm contributor/dependency obligations; see [LICENSING.md](LICENSING.md). |
+| Public distribution/license clearance | BLOCKED pending release checks | AGPL-3.0-only source, LICENSE/NOTICE and app source/license entry exist; GitHub publication/anonymous access pass. Configure the deployed-version source link and confirm contributor/dependency obligations; see [LICENSING.md](LICENSING.md). |
 | Existing Streamlit server health | PASS | Approved HTTP probe returned 200 with body `ok` on localhost:8501. The existing host server was used; the earlier sandbox startup denial remains in [server-start.log](readiness/server-start.log). |
 | Visual browser review and real browser export | BLOCKED | HTTP health now works, but browser automation is not exposed in this session. AppTest acceptance is not visual/browser acceptance. |
 
@@ -136,7 +137,7 @@ checks passed. Visual browser acceptance remains outstanding.
 
 The license review is material: attribution alone does not satisfy PyMuPDF's
 AGPL/commercial choice. The owner subsequently authorized the AGPL route; source
-publication and applicable release checks remain pending. Upstream also
+is published; deployed-version configuration and applicable release checks remain pending. Upstream also
 lists native text-extraction hangs affecting the installed major line; existing
 input limits do not preempt a stuck native parser. See THIRD_PARTY_NOTICES.md.
 

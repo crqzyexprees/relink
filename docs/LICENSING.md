@@ -11,10 +11,11 @@ technical compliance review, not legal clearance or a license grant for ReLink.
 - Added the full AGPLv3 LICENSE, NOTICE, README license declaration, and visible
   Streamlit license/source information. Original code uses AGPL-3.0-only;
   dependencies retain their own licenses. No parser replacement is needed.
-- No configured Git remote or public release source URL was supplied. The app
-  reads RELINK_SOURCE_URL and only displays a public HTTP(S) source link when
-  configured. Missing/unsafe values produce an explicit deployment warning.
-  Publication/accessibility of the corresponding source remains unverified.
+- Public project source was published on 2026-10-25 at
+  https://github.com/crqzyexprees/relink. The remote is configured and an anonymous
+  source-file request returned HTTP 200. The app reads RELINK_SOURCE_URL and
+  displays its configured public source link; set it to the exact deployed
+  commit before hosting. Missing/unsafe values produce a deployment warning.
 - Installed PyMuPDF `COPYING` contains only a dual-license summary. It is not the
   full AGPL text. The version-specific upstream
   [COPYING](https://github.com/pymupdf/PyMuPDF/blob/1.28.2/COPYING) contains AGPLv3.
@@ -54,7 +55,7 @@ The owner selected open source. Remaining release tasks still require verificati
   legal and warranty notices. A public repository with a deployed-version tag
   and source download is a practical implementation; GitHub is not mandatory.
   The UI is implemented; its real source destination still needs configuration.
-- [ ] Verify an ordinary app user can obtain that source without charge. A
+- [x] Verify an ordinary user can access the published project source without charge. A
   private repository inaccessible to users or a repository without a license
   does not complete these tasks.
 - [ ] Preserve upstream copyrights, license texts, and applicable NOTICE files.
@@ -96,7 +97,7 @@ paper-to-recovery flow. Remove PyMuPDF-dependent test fixtures as well as runtim
 imports and verify the shipped environment no longer includes it. Retain pypdf's
 own notices and review the final dependency tree.
 
-The owner subsequently authorized the open-source changes. No commercial purchase,
-vendor contact, repository publication, or parser migration was performed. Confirm
-contributor rights, publish the corresponding release source, configure its URL,
+The owner subsequently authorized the open-source changes and GitHub publication.
+The public repository is now accessible. No commercial purchase, vendor contact
+or parser migration was performed. Confirm contributor rights, pin/configure the deployed source URL,
 and complete the applicable release-artifact checks before public deployment.

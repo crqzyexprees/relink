@@ -2,7 +2,25 @@
 
 Updated: 2026-10-25 local time and UTC.
 
-## Latest checkpoint — GitHub publication preparation
+## Latest milestone — GitHub publication
+
+- Published https://github.com/crqzyexprees/relink as a public repository on
+  2026-10-25. Added origin and pushed main with upstream tracking. GitHub API
+  confirms private=false; a separate anonymous raw README request returned
+  HTTP 200. All project code, license/notices, docs and checked evidence are
+  committed. No actual secrets, local history, PDFs or virtual environment.
+- Five focused new commits initially published: ddd1f62 licensing, 783ede7
+  dataset engine, dede46e paper/PDF/Gemini pipeline, ed00e67 UI/private history,
+  fe49f05 docs/evidence/next-search proposal. A follow-up records publication.
+  Original 03ffb3e remains unchanged. No rewritten or backdated history.
+- Final prepublication suite: 173 tests and 142 subtests passed in 11.39s.
+  Staged source snapshots independently passed as listed below. Scanned 139
+  committed blobs for the configured Gemini key: no matches. Staged credential
+  pattern/private-path scan also had no findings; this is not a complete audit.
+- Updated source/publication statements in README, attribution and licensing
+  docs. Set RELINK_SOURCE_URL to the exact deployed commit when hosting; no hosted
+  deployment or actual OAuth/browser acceptance was performed. Streamlit Cloud
+  remains the recommended demo host; Auth0 configuration is deferred.
 
 - Owner requested pushing the project to one GitHub repository in meaningful
   commits. The checkout initially had one URL-recovery commit and no remote.
@@ -22,8 +40,8 @@ Updated: 2026-10-25 local time and UTC.
   files remain ignored. This scan is evidence, not a comprehensive secret audit.
 - Git writes need approved execution because .git is read-only inside the sandbox.
   Scoped Git approvals succeeded. No force push, backdated commit or rewrite of
-  the original commit was requested/performed. Remote creation/push verification
-  follows this checkpoint; no successful push is claimed here yet.
+  the original commit was requested/performed. Remote creation/push and anonymous
+  publication verification subsequently succeeded as recorded above.
 - Recommended Streamlit Community Cloud for the current architecture, with
   server-side Gemini/source configuration and disk history disabled while Auth0
   is deferred. Added docs/DEPLOYMENT.md. Vercel connector required reauthentication;

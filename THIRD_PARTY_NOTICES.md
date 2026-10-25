@@ -10,16 +10,17 @@ not a project license grant, complete redistribution bundle, or compliance clear
 | [PyMuPDF / MuPDF](https://artifex.com/licensing) | 1.28.2 | AGPLv3 or Artifex commercial license | Resolve the AGPL/source-disclosure route or obtain an applicable commercial license before public deployment/distribution. Attribution alone does not settle this. |
 | [pytest](https://github.com/pytest-dev/pytest) | 9.1.1 | MIT | Retain license/copyright notice if redistributed; used for development/tests. |
 
-## Open-source route selected; publication still required
+## Open-source route selected; deployment checks remain
 
 The owner selected AGPL-3.0-only for ReLink's original application code. The
 repository now includes LICENSE, NOTICE, and a visible application license/source
 entry. Set RELINK_SOURCE_URL to accessible corresponding source for the exact
-deployed release; no public source location has been supplied or verified yet.
+deployed release. [Public project source](https://github.com/crqzyexprees/relink)
+was published on 2026-10-25 and an anonymous source-file request returned HTTP 200.
 Artifex's [licensing guidance](https://artifex.com/licensing)
 states that its AGPL server use requires disclosure of the application's source
 under AGPL, and directs uses that cannot comply to commercial licensing.
-The AGPL route still needs source publication and release-artifact checks. See the version-specific
+The AGPL route still needs deployed-version source-link and release-artifact checks. See the version-specific
 [full AGPL text](https://github.com/pymupdf/PyMuPDF/blob/1.28.2/COPYING).
 The installed PyMuPDF 1.28.2 `COPYING` file contains only a dual-license summary,
 not the full license. Public release clearance is **BLOCKED pending those checks**. The repository

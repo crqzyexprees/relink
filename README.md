@@ -35,8 +35,9 @@ checks pass for both providers, actual SQuAD PDF recovery, and app health.
 See the [pass/fail/blocked results](docs/READINESS.md),
 [demonstration guide](docs/DEMO.md), and [dependency/attribution review](THIRD_PARTY_NOTICES.md).
 For real inputs with dated live outcomes, see [evaluation examples](docs/evaluation.md).
-Visual browser acceptance and publication of corresponding release source remain
-open. The archive result is metadata evidence, not verified downloadable dataset bytes.
+Public source is available at [crqzyexprees/relink](https://github.com/crqzyexprees/relink).
+Visual browser acceptance, configuring the deployed-version source link and the
+remaining release checks stay open. Archive metadata does not verify dataset bytes.
 
 Hosting recommendation and demo configuration: [DEPLOYMENT.md](docs/DEPLOYMENT.md).
 The proposed 30-paper Gemini reranking/Load more extension is documented in
@@ -277,7 +278,10 @@ host. Normal Git commands now work:
 git status
 ```
 
-This feature has not been staged or committed by the agent.
+The completed work is committed in focused licensing, dataset-engine, paper/Gemini,
+UI/history and documentation commits and pushed to the public
+[GitHub repository](https://github.com/crqzyexprees/relink). Future changes should
+remain scoped, tested commits in the same repository.
 
 ## Streamlit app
 
