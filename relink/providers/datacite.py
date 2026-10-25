@@ -149,7 +149,7 @@ class DataCiteProvider:
         seen = 0
         for page in range(1, self.max_pages + 1):
             request_url = str(httpx.URL(API, params={
-                'query': expression, 'resource-type-id': 'dataset', 'page[number]': str(page),
+                'query': expression, 'resource-type-id': 'dataset', 'page[number]': str(page), 'sort': 'relevance',
                 'page[size]': str(min(self.page_size, self.limit)), 'affiliation': 'true',
                 'detail': 'true', 'fields[dois]': 'doi,url,titles,creators,contributors,publisher,publicationYear,'
                 'descriptions,types,version,relatedIdentifiers,identifiers,alternateIdentifiers,contentUrl,dates,rightsList',

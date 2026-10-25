@@ -27,6 +27,14 @@ def record(doi='10.1234/soil.v1', **attributes):
 
 
 class DataCiteTests(unittest.TestCase):
+    def test_bounded_discovery_requests_relevance_order_from_the_service(self):
+        calls = []
+        def handler(request):
+            calls.append(request)
+            return httpx.Response(200, json={'data': [], 'meta': {'total': 0}})
+        DataCiteProvider(self.client(handler)).discover(SearchQuery(description='penguin measurements'))
+        self.assertEqual(calls[0].url.params['sort'], 'relevance')
+
     def test_deep_json_is_a_provider_error_not_an_uncaught_exception(self):
         result = DataCiteProvider(self.client(lambda r: httpx.Response(
             200, content=b'[' * 15000 + b']' * 15000))).discover(SearchQuery(title='forest'))

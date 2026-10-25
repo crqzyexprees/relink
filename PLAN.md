@@ -10,6 +10,12 @@ Future media-specific providers can use the same candidate contract without
 changing the UI or ranking orchestration. No plugin framework is needed yet.
 
 **Stack:** Python 3.12+, Streamlit, httpx, PyMuPDF, pytest.
+**Current owner-authorized dataset/UI extension:** Combined deterministic and
+Gemini dataset relevance, bounded advertised CSV/TSV header/three-row samples,
+topic/name/DOI search, cached dataset pagination and original space styling. Keep
+independent identity/status evidence and history scope; no new providers or paid
+services. See docs/superpowers/plans/2026-10-25-dataset-ai-space.md and
+docs/DATASET_AI.md. Owner confirms deployed paper search works.
 **Current owner-authorized paper upgrade:** Retrieve up to 30 unique papers per
 batch from OpenAlex/arXiv, Gemini ranking on actual abstract excerpts with strict
 paper-ID/source-passage checks, keyword fallback, ten-at-a-time cached Load more and explicit

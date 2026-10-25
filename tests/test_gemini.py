@@ -32,6 +32,15 @@ def mention(**changes):
 
 
 class GeminiTests(unittest.TestCase):
+    def test_named_version_mismatch_keeps_an_explicit_unverified_conflict_signal(self):
+        def handler(request):
+            if request.method == 'POST': return httpx.Response(200, json=response([mention()]))
+            return httpx.Response(200, json={'data': [record(titles=[{'title': 'SQuAD'}], version='2.0')], 'meta': {'total': 1}})
+        _, searches = identify_and_discover(PAGES, settings=GeminiSettings(KEY), client=self.client(handler))
+        ranked = searches[0].ranked[0]
+        self.assertTrue(any(e.signal == 'requested_version' for e in ranked.explanation))
+        self.assertNotEqual(ranked.status.value, 'verified_exact_match')
+
     def client(self, handler):
         client = PublicHTTPClient(transport=httpx.MockTransport(handler), resolver=lambda h, p: ['93.184.215.14'])
         self.addCleanup(client.close)

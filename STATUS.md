@@ -2,6 +2,47 @@
 
 Updated: 2026-10-25 local time and UTC.
 
+## Latest milestone — combined dataset AI and space workspace
+
+- Owner confirms hosted paper search works and authorizes Gemini dataset ranking
+  alongside existing methods, tiny header/three-row previews, and a space theme.
+  Design/plan: docs/superpowers/specs/2026-10-25-dataset-ai-space-design.md and
+  docs/superpowers/plans/2026-10-25-dataset-ai-space.md. No new billing/services.
+- Preview milestone implemented independently: public-only streamed prefixes,
+  Range hints with a real 64 KiB cap, UTF-8 CSV/TSV header and at most three complete
+  rows, explicit malformed/truncated/unsupported/error outcomes. At most three
+  advertised file attempts per assessed batch; other formats use metadata only.
+- Combined ranking preserves deterministic points and verification labels;
+  verified identity, exact identifier evidence and version/hash conflicts retain
+  authoritative tiers. Gemini orders actual IDs/evidence references within tiers.
+  Model failure preserves original ordering; candidates beyond the model cap
+  remain visible with an explicit limitation. One assessment per combined batch.
+- Native topic/name/DOI search, URL/PDF and selected-paper combined datasets are
+  connected; metadata/sample disclosure precedes Find. Cached ten-at-a-time
+  dataset pagination makes no requests. History/export includes typed assessment
+  and preview snapshots, retaining existing identity rechecks and older defaults.
+- Original CSS space theme implemented: navy starfield, amber planet/orbits and
+  primary buttons, cyan focus/evidence accents, responsive/reduced-motion styles.
+  No external images/fonts, movie artwork, new frontend or extra dependencies.
+- Fresh final full suite: **269 tests/192 subtests pass**, no failures/skips;
+  docs/readiness/dataset-space-pytest.log. Compilation, pip check and whitespace
+  checks pass. No dependencies added. Real sampler read15,241 bytes/three rows
+  from the official public penguin CSV and Gemini assessed its actual sample.
+  Separate exact DataCite Iris DOI lookup returned the real record and AI reason;
+  status remains likely_match, not verified. Evidence: dataset-ai-exact-live.json.
+- Initial broad topic query returned30 actual but weak metadata leads, preserved
+  in dataset-ai-live.json. DataCite now explicitly requests relevance sorting;
+  coverage/keyword retrieval can still miss relevant datasets. No candidate or
+  successful recovery was invented to hide that limitation.
+- Independent review found two important integration issues: combining could lose
+  initial URL/DOI/hash evidence, and paper actions lacked sample disclosure. Both
+  were reproduced RED then fixed GREEN. Actual uploaded-PDF hash/URL retention,
+  named-version warnings, processing disclosure, model-cap tails and snapshot
+  round trips pass. Name-only version mismatch warns without asserting identity.
+- Docs/demo/attribution updated. Implementation and checks complete; scoped
+  publication is next. Browser execution tooling remains unavailable, so actual
+  visual/updated hosted acceptance is not inferred from AppTest or CSS checks.
+
 ## Latest fix — Gemini generation request budgets
 
 - Owner reported `Gemini ranking: timeout` after the evidence-format fix. Code
@@ -551,8 +592,8 @@ Updated: 2026-10-25 local time and UTC.
 
 ## Current readiness
 
-Functional live acceptance passes for the preflighted dataset demo. **209 tests pass
-with no skips**, plus 181 passing subtests in the working environment. Latest
+Functional live acceptance passes for the preflighted dataset demo. **269 tests pass
+with no skips**, plus 192 passing subtests in the working environment. Latest
 paper-ranking live evidence and intermittent model fallback are recorded above. Private
 history isolation passes mocked acceptance; actual OAuth/browser downloads still
 need configured-provider/manual acceptance. Gemini

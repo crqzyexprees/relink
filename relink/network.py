@@ -5,6 +5,7 @@ import ipaddress
 import math
 import json
 import queue
+import re
 import socket
 import threading
 from time import monotonic
@@ -27,6 +28,10 @@ class RequestFailure(Exception):
         self.detail = detail
         self.url = url
         self.redirects = redirects
+        # Prefix callers retain bounded bytes already received on interrupted I/O.
+        self.body = b''
+        self.headers = httpx.Headers()
+        self.http_status = None
 
 
 def _public_ip(address: str) -> bool:
@@ -153,6 +158,7 @@ class FetchResult:
     redirects: tuple[str, ...]
     headers: httpx.Headers
     body: bytes
+    truncated: bool = False
 
 
 class PublicHTTPClient:
@@ -189,6 +195,17 @@ class PublicHTTPClient:
     def fetch(self, value: str, *, read_body: bool = False) -> FetchResult:
         return self._request('GET', value, read_body=read_body)
 
+    def fetch_prefix(self, value: str, *, max_bytes: int = 65_536) -> FetchResult:
+        """Read at most a 64 KiB public prefix, closing immediately at the cap.
+
+        Range is a hint only. Inactivity is limited to five seconds and the
+        cooperative elapsed budget to ten, including redirect hops and DNS.
+        """
+        if type(max_bytes) is not int or not 1 <= max_bytes <= 65_536:
+            raise ValueError('Prefix limit must be an integer from 1 to 65536 bytes.')
+        return self._request('GET', value, read_body=True, prefix_limit=max_bytes,
+                             read_timeout=5.0, total_timeout=10.0)
+
     def post_json(self, value: str, payload: dict, *, headers: dict | None = None,
                   read_timeout: float | None = None, total_timeout: float | None = None) -> FetchResult:
         """HTTPS POST with optional per-request generation budgets; no shared mutation."""
@@ -202,11 +219,22 @@ class PublicHTTPClient:
                              read_timeout=read_timeout, total_timeout=total_timeout)
 
     def _request(self, method: str, value: str, *, read_body: bool, payload=None, headers=None,
-                 read_timeout=None, total_timeout=None) -> FetchResult:
+                 read_timeout=None, total_timeout=None, prefix_limit=None) -> FetchResult:
         url = value
         redirects: list[str] = []
         visited: set[str] = set()
         deadline = monotonic() + (self.total_timeout if total_timeout is None else total_timeout)
+        body = bytearray()
+        response_headers = httpx.Headers()
+        response_status = None
+
+        def failure(status, detail):
+            error = RequestFailure(status, detail, url, tuple(redirects))
+            if prefix_limit is not None:
+                error.body = bytes(body)
+                error.headers = response_headers
+                error.http_status = response_status
+            return error
 
         def remaining():
             budget = deadline - monotonic()
@@ -226,7 +254,8 @@ class PublicHTTPClient:
                 visited.add(url)
                 # Do not send cookies collected by previous requests or redirect hops.
                 self._client.cookies.clear()
-                options = {'json': payload, 'headers': headers} if method == 'POST' else {}
+                options = {'json': payload, 'headers': headers} if method == 'POST' else (
+                    {'headers': {'Range': f'bytes=0-{prefix_limit - 1}'}} if prefix_limit is not None else {})
                 request_timeout = httpx.Timeout(min(self.timeout, budget),
                     read=min(self.timeout if read_timeout is None else read_timeout, budget))
                 with self._client.stream(method, parsed, timeout=request_timeout, **options,
@@ -251,29 +280,62 @@ class PublicHTTPClient:
                         redirects.append(url)
                         continue
                     body = bytearray()
+                    response_headers, response_status = response.headers, response.status_code
+                    truncated = False
                     if read_body and 200 <= response.status_code < 300:
                         if response.headers.get('content-encoding', 'identity').lower() != 'identity':
                             raise RequestFailure('network_error', 'Compressed API response rejected.', url, tuple(redirects))
                         # MockTransport may provide an already buffered response.
                         chunks = [response.content] if response.is_stream_consumed else response.iter_raw()
+                        range_size, range_total = None, None
+                        if prefix_limit is not None and response.status_code == 206:
+                            match = re.fullmatch(r'bytes 0-([0-9]{1,5})/([0-9]{1,20}|\*)',
+                                                 response.headers.get('content-range', ''))
+                            if match is None:
+                                raise failure('invalid_response', 'Partial response is not a valid zero-based byte range.')
+                            range_size = int(match[1]) + 1
+                            range_total = None if match[2] == '*' else int(match[2])
+                            if range_size > prefix_limit or (range_total is not None and range_total < range_size):
+                                raise failure('invalid_response', 'Partial response range exceeds the request or resource size.')
+                            declared = response.headers.get('content-length')
+                            if declared is not None and declared != str(range_size):
+                                raise failure('invalid_response', 'Partial response length disagrees with its byte range.')
                         for chunk in chunks:
                             remaining()
+                            if prefix_limit is not None:
+                                if range_size is not None and len(body) + len(chunk) > range_size:
+                                    raise failure('invalid_response', 'Partial response exceeds its advertised byte range.')
+                                available = prefix_limit - len(body)
+                                body.extend(chunk[:available])
+                                if len(body) == prefix_limit:
+                                    declared = response.headers.get('content-length')
+                                    truncated = len(chunk) > available or declared != str(prefix_limit)
+                                    break
+                                continue
                             limit = min(self.max_body_bytes, 256 * 1024) if method == 'POST' else self.max_body_bytes
                             if len(body) + len(chunk) > limit:
                                 raise RequestFailure('network_error', 'API response exceeds size limit.', url, tuple(redirects))
                             body.extend(chunk)
+                        if range_size is not None:
+                            if len(body) != range_size:
+                                raise failure('invalid_response', 'Partial response bytes disagree with its byte range.')
+                            truncated = range_total is None or range_total > range_size
                     return FetchResult(response.status_code, url, tuple(redirects),
-                                       response.headers, bytes(body))
+                                       response.headers, bytes(body), truncated)
+        except RequestFailure as exc:
+            if prefix_limit is not None:
+                exc.body, exc.headers, exc.http_status = bytes(body), response_headers, response_status
+            raise
         except UnsafeURLError as exc:
-            raise RequestFailure('blocked', str(exc), url, tuple(redirects)) from exc
+            raise failure('blocked', str(exc)) from exc
         except (TimeoutError, httpx.TimeoutException) as exc:
-            raise RequestFailure('timeout', 'DNS or HTTP request timed out.', url, tuple(redirects)) from exc
+            raise failure('timeout', 'DNS or HTTP request timed out.') from exc
         except socket.gaierror as exc:
-            raise RequestFailure('dns_failure', 'DNS resolution failed.', url, tuple(redirects)) from exc
+            raise failure('dns_failure', 'DNS resolution failed.') from exc
         except (httpx.HTTPError, OSError) as exc:
-            raise RequestFailure('network_error', f'Network request failed ({type(exc).__name__}).', url, tuple(redirects)) from exc
+            raise failure('network_error', f'Network request failed ({type(exc).__name__}).') from exc
         except httpx.InvalidURL as exc:
-            raise RequestFailure('blocked', 'Malformed redirect URL.', url, tuple(redirects)) from exc
+            raise failure('blocked', 'Malformed redirect URL.') from exc
 
     def close(self):
         self._client.close()

@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 
 from relink.extraction import ExtractedLink
-from relink.models import SearchResult
+from relink.models import SearchResult, DiscoveryResult
 from relink.gemini_models import DatasetIdentification, NamedDatasetSearch
 
 
@@ -88,3 +88,4 @@ class PaperDatasetLookup:
     detail: str = ''
     identification: DatasetIdentification | None = None
     named_searches: tuple[NamedDatasetSearch, ...] = ()
+    combined: DiscoveryResult | None = None

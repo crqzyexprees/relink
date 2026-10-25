@@ -14,6 +14,7 @@ from relink.providers.arxiv import ArxivError, ArxivProvider
 from relink.providers.datacite import DataCiteProvider
 from relink.providers.gemini_ranking import GeminiPaperRanker
 from relink.providers.openalex import OpenAlexError, OpenAlexProvider
+from relink.dataset_ai import combine_dataset_results
 
 
 STOP_WORDS = frozenset('a an the and or not of to in on for with by from at as is are was were be been '
@@ -118,11 +119,22 @@ def lookup_paper_datasets(paper: Paper, *, client: PublicHTTPClient | None = Non
     links = tuple(link for link in links.values() if normalize_url(link.url) not in own
                   and not (paper_doi and normalize_doi(link.url) == paper_doi))[:250]
     identification, searches = identify_and_discover(pages, settings=settings or GeminiSettings(), client=client)
-    return PaperDatasetLookup(paper.id, datasets, links, status, detail, identification, searches)
+    names = ', '.join(search.mention.name for search in searches)
+    query = SearchQuery(description=('Datasets for ' + paper.title + ': ' + names)[:1200])
+    combined = combine_dataset_results(query, (datasets, *(s.result for s in searches)),
+        settings=settings or GeminiSettings(), client=client, prior_ranked=tuple(r for s in searches for r in s.ranked))
+    return PaperDatasetLookup(paper.id, datasets, links, status, detail, identification, searches, combined)
 
 
-def lookup_uploaded_datasets(extraction, *, paper_id: str, settings: GeminiSettings, client=None) -> PaperDatasetLookup:
+def lookup_uploaded_datasets(extraction, *, paper_id: str, settings: GeminiSettings, client=None, initial=None) -> PaperDatasetLookup:
+    if client is None:
+        with PublicHTTPClient() as owned:
+            return lookup_uploaded_datasets(extraction, paper_id=paper_id, settings=settings, client=owned, initial=initial)
     identification, searches = identify_and_discover(extraction.pages, settings=settings, client=client)
+    query = SearchQuery(description=('Datasets mentioned: ' + ', '.join(s.mention.name for s in searches) +
+                                    ' ' + (extraction.title or 'uploaded research paper'))[:1200])
+    combined = combine_dataset_results(query, tuple(s.result for s in searches), settings=settings, client=client,
+        initial=initial, prior_ranked=tuple(r for s in searches for r in s.ranked))
     return PaperDatasetLookup(paper_id, SearchResult('not_applicable', 'datacite',
         detail='No paper DOI was supplied; named datasets were searched separately.'), extraction.links,
-        'extracted', f'Parsed {extraction.page_count} uploaded PDF page(s) in memory.', identification, searches)
+        'extracted', f'Parsed {extraction.page_count} uploaded PDF page(s) in memory.', identification, searches, combined)

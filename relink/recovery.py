@@ -8,6 +8,8 @@ from relink.network import PublicHTTPClient, validate_url
 from relink.providers.internet_archive import InternetArchiveProvider
 from relink.providers.datacite import DataCiteProvider
 from relink.ranking import rank_candidates
+from relink.gemini_config import GeminiSettings
+from relink.dataset_ai import assess_datasets
 from relink.verification import check_current_url
 
 
@@ -33,13 +35,13 @@ def recover_url(original_url: str, *, client: PublicHTTPClient | None = None,
 
 def discover_datasets(query: SearchQuery, *, client: PublicHTTPClient | None = None,
                       providers: Iterable[DiscoveryProvider] | None = None,
-                      hash_evidence: Iterable[HashEvidence] = ()) -> DiscoveryResult:
+                      hash_evidence: Iterable[HashEvidence] = (), settings: GeminiSettings | None = None) -> DiscoveryResult:
     """Search, merge and rank metadata; keep each provider's independent outcome."""
     if client is None:
         with PublicHTTPClient() as owned_client:
-            return discover_datasets(query, client=owned_client, providers=providers, hash_evidence=hash_evidence)
+            return discover_datasets(query, client=owned_client, providers=providers, hash_evidence=hash_evidence, settings=settings)
     if providers is None:
-        providers = [DataCiteProvider(client)]
+        providers = [DataCiteProvider(client, limit=30, page_size=15, max_pages=2)]
         if query.original_url:
             providers.append(InternetArchiveProvider(client))
     outcomes = tuple(provider.discover(query) for provider in providers)
@@ -53,5 +55,6 @@ def discover_datasets(query: SearchQuery, *, client: PublicHTTPClient | None = N
         status = 'error'
     else:
         status = 'not_found'
+    ranked, assessment = assess_datasets(query, ranked, client=client, settings=settings)
     return DiscoveryResult(status, ranked, outcomes,
-        'Relevance points are not probabilities. Provider metadata does not verify dataset preservation.')
+        'Relevance points are not probabilities. Provider metadata and sampled rows do not verify dataset preservation.', assessment)

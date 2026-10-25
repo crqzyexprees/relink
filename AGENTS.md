@@ -20,6 +20,13 @@
   reveals cached tens without requests; explicit new batches remain separately
   ranked, exclude prior identities, and stop after three. Preserve keyword fallback
   and source failures. Serialize arXiv API calls at least three seconds apart.
+- Owner-authorized dataset AI combines real metadata and bounded advertised
+  CSV/TSV samples with existing evidence. At most three file attempts,64KiB each,
+  header+three complete rows; unsupported formats use metadata only. One model
+  assessment per combined batch, own-candidate evidence IDs, no model URLs or
+  verification claims. Preserve prior URL/DOI/hash evidence across PDF merges and
+  version warnings, with disclosure before processing. Cached pagination does
+  not make requests. Use original code-native space styling without remote assets.
 - Original ReLink code is AGPL-3.0-only. Preserve LICENSE/NOTICE and third-party
   terms. Public deployments must offer corresponding release source to users;
   configure RELINK_SOURCE_URL and verify its accessibility before deployment.

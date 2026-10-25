@@ -10,6 +10,7 @@ from relink.network import PublicHTTPClient, UnsafeURLError, validate_url
 from relink.recovery import discover_datasets
 from relink.gemini_models import DatasetIdentification, NamedDatasetSearch
 from relink.verification import check_current_url
+from relink.gemini_config import GeminiSettings
 
 
 @dataclass(frozen=True)
@@ -31,24 +32,23 @@ def query_from_input(url: str, context: str = '') -> SearchQuery:
 
 def run_recovery(query: SearchQuery, *, input_context: dict | None = None,
                  on_progress: Callable[[str], None] | None = None,
-                 client: PublicHTTPClient | None = None) -> RecoveryReport:
+                 client: PublicHTTPClient | None = None, settings: GeminiSettings | None = None) -> RecoveryReport:
     """Check current access, then invoke discovery once; never refetch on display."""
-    if not query.original_url:
-        raise ValueError('Choose a URL before starting recovery.')
-    validate_url(query.original_url)
+    if query.original_url: validate_url(query.original_url)
     if client is None:
         with PublicHTTPClient() as owned_client:
-            return run_recovery(query, input_context=input_context, on_progress=on_progress, client=owned_client)
-    if on_progress:
+            return run_recovery(query, input_context=input_context, on_progress=on_progress, client=owned_client, settings=settings)
+    if on_progress and query.original_url:
         on_progress('Checking the original URL')
-    current = check_current_url(query.original_url, client)
+    current = check_current_url(query.original_url, client) if query.original_url else CurrentStatus(
+        'not_applicable', '', detail='Dataset metadata discovery; no original URL was supplied.')
     if current.status == 'blocked':
         result = SearchResult('blocked', 'request_policy', detail=current.detail)
         discovery = DiscoveryResult('error', (), (result,), 'Unsafe URL access was blocked. No provider search was made.')
     else:
         if on_progress:
-            on_progress('Searching Internet Archive and DataCite')
-        discovery = discover_datasets(query, client=client)
+            on_progress('Searching dataset sources, sampling advertised tables and assessing relevance')
+        discovery = discover_datasets(query, client=client, settings=settings)
     return RecoveryReport(datetime.now(timezone.utc).isoformat(), query, current, discovery, input_context or {})
 
 
@@ -64,3 +64,11 @@ def public_link(value: str | None) -> str | None:
         return str(validate_url(value))
     except UnsafeURLError:
         return None
+
+
+def paper_dataset_report(lookup, title: str) -> RecoveryReport:
+    """Presentation/export adapter for actual combined lookup results, no requests."""
+    query = SearchQuery(description=('Datasets mentioned in ' + title)[:1200])
+    stamp = lookup.combined.assessment.retrieved_at if lookup.combined and lookup.combined.assessment else ''
+    return RecoveryReport(stamp, query, CurrentStatus('not_applicable', ''), lookup.combined,
+                          {'mode': 'paper_datasets', 'paper_id': lookup.paper_id})

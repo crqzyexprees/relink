@@ -3,6 +3,7 @@
 from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Protocol
+from relink.dataset_models import DatasetAssessment
 
 
 @dataclass(frozen=True)
@@ -186,6 +187,10 @@ class RankedCandidate:
     score: int
     status: MatchStatus
     explanation: tuple[RankingEvidence, ...]
+    ai_rank: int | None = None
+    ai_reason: str = ''
+    ai_evidence: str = ''
+    ai_field: str = ''
 
 
 @dataclass(frozen=True)
@@ -194,3 +199,4 @@ class DiscoveryResult:
     candidates: tuple[RankedCandidate, ...]
     providers: tuple[SearchResult, ...]
     detail: str
+    assessment: DatasetAssessment | None = None
